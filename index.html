@@ -18,6 +18,11 @@ button{font:inherit;color:inherit;background:none;border:1px solid var(--line);b
 button:hover{border-color:var(--acc)}button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 button[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:var(--bg)}
 #app{position:relative;height:100%;overflow:hidden;background:radial-gradient(circle at 78% 22%,var(--s2),transparent 46%),radial-gradient(circle at 18% 80%,var(--s2),transparent 38%),linear-gradient(160deg,var(--s1),var(--bg))}
+.bg{position:absolute;inset:0;opacity:0;transition:opacity .7s;overflow:hidden}.bg.on{opacity:1}
+.bg div{position:absolute;background-position:center;background-repeat:no-repeat}
+.bg .bb{inset:-30px;background-size:cover;filter:blur(22px) brightness(.85)}
+.bg .bi{inset:0;background-size:contain}
+@media(max-aspect-ratio:17/25){.bg .bi{background-size:cover}}
 .vf i{position:absolute;width:34px;height:34px;border:0 solid var(--acc);opacity:.7;pointer-events:none}
 .vf i:nth-child(1){top:16px;left:16px;border-width:2px 0 0 2px}.vf i:nth-child(2){top:16px;right:16px;border-width:2px 2px 0 0}
 .vf i:nth-child(3){bottom:16px;left:16px;border-width:0 0 2px 2px}.vf i:nth-child(4){bottom:16px;right:16px;border-width:0 2px 2px 0}
@@ -55,6 +60,8 @@ button[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:
 </head>
 <body>
 <div id="app">
+ <div class="bg" id="bgA"><div class="bb"></div><div class="bi"></div></div>
+ <div class="bg" id="bgB"><div class="bb"></div><div class="bi"></div></div>
  <div class="vf"><i></i><i></i><i></i><i></i></div>
  <header id="bar" hidden><span id="lb"></span><nav><button id="bLog">로그</button><button id="bAuto" aria-pressed="false">자동</button><button id="bSkip" aria-pressed="false">스킵</button><button id="bMenu">메뉴</button></nav></header>
  <main id="box" hidden><div id="nm" hidden></div><p id="tx"></p><span id="nx" hidden>▾</span></main>
@@ -94,6 +101,41 @@ STORY.ch.forEach(ch=>{
 });
 steps.push({t:'judge'},{t:'choice'});
 
+
+/* ── 배경 이미지 (에피소드별) ─────────────────────────────────── */
+const BGF={club:'img/bg_club_room.webp',path:'img/bg_campus_path.webp',cherry:'img/bg_cherry_road.webp',cafe:'img/bg_cafe.webp',
+  plaza:'img/bg_campus_plaza.webp',lecture:'img/bg_lecture_hall.webp',hall:'img/bg_hall_board.webp',garden:'img/bg_garden.webp',room:'img/bg_room.webp'};
+// 키: 장id_에피소드번호 / 값: 배경 키, 또는 [[노드번호, 배경 키], …] (에피소드 중간에 전환)
+// 표에 없는 에피소드는 직전 배경을 그대로 유지
+const BGMAP={
+  prologue_1:'plaza',prologue_3:'plaza',prologue_4:'club',prologue_6:'club',
+  ch1_1:'club',ch1_2:'club',ch1_5:'club',ch1_6:'path',
+  ch2_1:'club',ch2_2:'lecture',ch2_3:'path',ch2_4:[[0,'room'],[43,'path']],ch2_5:'path',ch2_6:'path',
+  ch3_1:'hall',ch3_2:'hall',ch3_3:'hall',ch3_5:'path',ch3_6:'garden',
+  ch4_3:'cafe',ch4_4:'cafe',ch4_5:'cafe',ch4_6:'club',
+  ch5_1:'cherry',ch5_2:'cherry',ch5_3:'cherry',ch5_4:'cherry',ch5_5:'cherry',ch5_6:'cherry'
+};
+let curBg=null,bgFlip=false;
+function bgKeyAt(i,n){
+  for(let j=i;j>=0;j--){
+    const st=steps[j];if(st.t!=='ep')continue;
+    const m=BGMAP[st.c.id+'_'+(st.k+1)];if(!m)continue;
+    if(typeof m==='string')return m;
+    const lim=j===i?n:1e9;let r=m[0][1];
+    for(const [a,k] of m)if(a<=lim)r=k;
+    return r;
+  }
+  return null;
+}
+function setBg(key){
+  if(key===curBg)return;curBg=key;
+  const next=$(bgFlip?'#bgA':'#bgB'),prev=$(bgFlip?'#bgB':'#bgA');bgFlip=!bgFlip;
+  if(key&&BGF[key]){const u='url("'+BGF[key]+'")';next.querySelectorAll('div').forEach(d=>d.style.backgroundImage=u);next.classList.add('on')}
+  else next.classList.remove('on');
+  prev.classList.remove('on');
+}
+function preload(){Object.values(BGF).forEach(u=>{const im=new Image();im.src=u})}
+
 const KEY='projectY.common.save';
 let S={i:0,n:0,pick:null,auto:false,skip:false},T=0,AT=0,typing=false,full='',cardCb=null,log=[];
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -127,6 +169,7 @@ function card(k,t,s,cb){
 function node(){
   const st=steps[S.i],nodes=st.e.nodes;
   if(S.n>=nodes.length){return go(S.i+1)}
+  setBg(bgKeyAt(S.i,S.n));
   const [t,sp,tx]=nodes[S.n],name=sp>=0?C[sp]:'';
   const b=$('#box');b.hidden=false;b.className=['nar','dlg','msg','sys'][t];
   b.style.setProperty('--tc',COL[name]||'var(--acc)');
@@ -157,7 +200,7 @@ function choiceScreen(){
   show('choice');
 }
 function endScreen(t,s){hideAll();$('#et').textContent=t;$('#es').textContent=s;show('end')}
-function toTitle(){stopTimers();hideAll();show('box',false);$('#bar').hidden=true;setMode('auto',false);setMode('skip',false);show('title');$('#bCont').hidden=!load()}
+function toTitle(){stopTimers();setBg(null);hideAll();show('box',false);$('#bar').hidden=true;setMode('auto',false);setMode('skip',false);show('title');$('#bCont').hidden=!load()}
 
 /* ── 메뉴 / 로그 ──────────────────────────────────────────────── */
 function openMenu(){
@@ -175,8 +218,8 @@ function openLog(){
 function resume(){const m=anyOv();if(!m&&steps[S.i].t==='ep'&&$('#box').hidden===false){if(S.auto||S.skip)done();}}
 
 /* ── 이벤트 ───────────────────────────────────────────────────── */
-$('#bNew').onclick=()=>{S.pick=null;log=[];go(0)};
-$('#bCont').onclick=()=>{const s=load();if(s){S.pick=s.pick;log=[];go(s.i,s.n)}};
+$('#bNew').onclick=()=>{S.pick=null;log=[];preload();go(0)};
+$('#bCont').onclick=()=>{const s=load();if(s){S.pick=s.pick;log=[];preload();go(s.i,s.n)}};
 $('#box').onclick=next;
 $('#card').onclick=()=>{const cb=cardCb;cardCb=null;show('card',false);if(cb)cb()};
 $('#bAuto').onclick=()=>{setMode('auto',!S.auto);if(S.auto&&!typing)AT=setTimeout(next,600)};
