@@ -75,7 +75,7 @@ button[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:
  <div class="bg" id="bgB"><div class="bb"></div><div class="bi"></div></div>
  <div class="vf"><i></i><i></i><i></i><i></i></div>
  <div id="chr"><img alt=""></div>
- <header id="bar" hidden><span id="lb"></span><nav><button id="bPSkip" hidden>프롤로그 건너뛰기</button><button id="bLog">로그</button><button id="bAuto" aria-pressed="false">자동</button><button id="bSkip" aria-pressed="false">스킵</button><button id="bSnd" aria-pressed="true">소리</button><button id="bMenu">메뉴</button></nav></header>
+ <header id="bar" hidden><span id="lb"></span><nav><button id="bPSkip" hidden>공통 루트 건너뛰기</button><button id="bLog">로그</button><button id="bAuto" aria-pressed="false">자동</button><button id="bSkip" aria-pressed="false">스킵</button><button id="bSnd" aria-pressed="true">소리</button><button id="bMenu">메뉴</button></nav></header>
  <main id="box" hidden><div id="nm" hidden></div><p id="tx"></p><span id="nx" hidden>▾</span></main>
 
  <section id="title" class="ov">
@@ -83,7 +83,7 @@ button[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:
   <div class="row"><button class="big" id="bNew">처음부터 시작</button><button class="big" id="bCont" hidden>이어하기</button></div>
   <button id="bSnd2">배경음 켜기</button>
  </section>
- <section id="card" class="ov" hidden><div class="k" id="ck"></div><h2 id="ct"></h2><div class="sub" id="cs"></div><button id="pskip" hidden>프롤로그 전체 건너뛰기</button></section>
+ <section id="card" class="ov" hidden><div class="k" id="ck"></div><h2 id="ct"></h2><div class="sub" id="cs"></div><button id="pskip" hidden>공통 루트 전체 건너뛰기</button></section>
  <section id="choice" class="ov" hidden><h2>메인 피사체를 선택하세요</h2><p class="sub">오늘 촬영한 여섯 사람 가운데 한 명을 고릅니다.</p><div class="grid" id="gr"></div></section>
  <section id="end" class="ov" hidden><h2 id="et"></h2><p class="sub" id="es"></p><div class="row"><button id="bAgain">다시 선택</button><button id="bHome">제목으로</button></div></section>
  <section id="pick" class="ov" hidden><div id="pk"></div></section>
@@ -121,6 +121,7 @@ const SUBSTART=steps.length;   // 서브 히로인 공통 파트(서브 프롤�
 STORY.ch.filter(c=>c.sub).forEach(ch=>ch.eps.forEach((e,k)=>steps.push({t:'ep',c:ch,e,k})));
 steps.push({t:'soon'});
 const ROUTER=steps.findIndex(s=>s.t==='router');
+const JUDGE=steps.findIndex(s=>s.t==='judge');   // 공통 루트 끝(관계 관리 판정). 2회차부터 여기로 건너뜀
 const segStart=i=>i>=SUBSTART?SUBSTART:0;
 
 
@@ -234,7 +235,7 @@ function go(i,n=0,br=null){
   if(st.t==='judge'){return FLOW.judgeRelationship(S)?go(i+1):endScreen('진행 조건 미충족','판정 조건이 충족되지 않았어요.')}
   if(st.t==='choice'){return choiceScreen()}
   if(st.t==='soon'){return comingSoon()}
-  $('#bar').hidden=false;$('#bPSkip').hidden=!(S.play>1&&i<ROUTER);
+  $('#bar').hidden=false;$('#bPSkip').hidden=!(S.play>1&&i<JUDGE);
   $('#lb').textContent=lab(st.c)+' · '+st.c.title+' — 에피소드 '+(st.k+1)+'/'+st.c.eps.length;
   if(n===0){
     card(lab(st.c)+(st.k===0?' · '+st.c.title:''),st.e.title,'에피소드 '+(st.k+1),()=>{show('card',false);node()});
@@ -242,7 +243,7 @@ function go(i,n=0,br=null){
 }
 function card(k,t,s,cb){
   setMode('skip',false);stopTimers();show('box',false);setChar(null);
-  $('#pskip').hidden=!(S.play>1&&S.i<ROUTER);$('#ck').textContent=k;$('#ct').textContent=t;$('#cs').textContent=s;cardCb=cb;show('card');
+  $('#pskip').hidden=!(S.play>1&&S.i<JUDGE);$('#ck').textContent=k;$('#ct').textContent=t;$('#cs').textContent=s;cardCb=cb;show('card');
 }
 function node(){
   const st=steps[S.i],nodes=S.br?st.e.br[S.br].n:st.e.nodes;
@@ -319,8 +320,8 @@ $('#bNew').onclick=()=>{S.pick=null;S.play=meta.clears+1;log=[];preload();go(0)}
 $('#bCont').onclick=()=>{const s=load();if(s){S.pick=s.pick;S.play=s.play||1;log=[];preload();go(s.i,s.n,s.br||null)}};
 $('#box').onclick=next;
 $('#soon').onclick=toTitle;
-$('#bPSkip').onclick=()=>go(ROUTER);
-$('#pskip').onclick=e=>{e.stopPropagation();cardCb=null;go(ROUTER)};
+$('#bPSkip').onclick=()=>go(JUDGE);
+$('#pskip').onclick=e=>{e.stopPropagation();cardCb=null;go(JUDGE)};
 $('#card').onclick=()=>{const cb=cardCb;cardCb=null;show('card',false);if(cb)cb()};
 $('#bAuto').onclick=()=>{setMode('auto',!S.auto);if(S.auto&&!typing)AT=setTimeout(next,600)};
 $('#bSkip').onclick=()=>{setMode('skip',!S.skip);if(S.skip&&!typing)AT=setTimeout(next,35)};
