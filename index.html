@@ -26,6 +26,12 @@ button[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:
 .vf i{position:absolute;width:34px;height:34px;border:0 solid var(--acc);opacity:.7;pointer-events:none}
 .vf i:nth-child(1){top:16px;left:16px;border-width:2px 0 0 2px}.vf i:nth-child(2){top:16px;right:16px;border-width:2px 2px 0 0}
 .vf i:nth-child(3){bottom:16px;left:16px;border-width:0 0 2px 2px}.vf i:nth-child(4){bottom:16px;right:16px;border-width:0 2px 2px 0}
+#chr{position:absolute;inset:0;pointer-events:none}
+#chr img{position:absolute;bottom:0;left:var(--cx,56%);height:var(--ch,92%);max-width:96%;object-fit:contain;transform:translateX(-50%);opacity:0;transition:opacity .25s}
+#chr img.on{opacity:1}
+@media(max-aspect-ratio:17/25){#chr img{left:50%!important}}
+#vol{width:200px;accent-color:var(--acc);vertical-align:middle}
+#bSnd2{margin-top:6px}
 #bar{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:30px 36px 0;font-size:.85rem;color:var(--mute)}
 #bar nav{display:flex;gap:6px;flex-wrap:wrap}#bar button{font-size:.8rem;padding:.3em .7em}
 #box{position:absolute;left:50%;bottom:44px;transform:translateX(-50%);width:min(780px,calc(100% - 56px));min-height:150px;padding:30px 30px 24px;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--tc,var(--acc));cursor:pointer;backdrop-filter:blur(6px)}
@@ -63,18 +69,21 @@ button[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:
  <div class="bg" id="bgA"><div class="bb"></div><div class="bi"></div></div>
  <div class="bg" id="bgB"><div class="bb"></div><div class="bi"></div></div>
  <div class="vf"><i></i><i></i><i></i><i></i></div>
- <header id="bar" hidden><span id="lb"></span><nav><button id="bLog">로그</button><button id="bAuto" aria-pressed="false">자동</button><button id="bSkip" aria-pressed="false">스킵</button><button id="bMenu">메뉴</button></nav></header>
+ <div id="chr"><img alt=""></div>
+ <header id="bar" hidden><span id="lb"></span><nav><button id="bLog">로그</button><button id="bAuto" aria-pressed="false">자동</button><button id="bSkip" aria-pressed="false">스킵</button><button id="bSnd" aria-pressed="true">소리</button><button id="bMenu">메뉴</button></nav></header>
  <main id="box" hidden><div id="nm" hidden></div><p id="tx"></p><span id="nx" hidden>▾</span></main>
 
  <section id="title" class="ov">
   <h1>우리들의 시간</h1><p>메인 히로인 공통 루트 · 프롤로그부터 제5장까지</p>
   <div class="row"><button class="big" id="bNew">처음부터 시작</button><button class="big" id="bCont" hidden>이어하기</button></div>
+  <button id="bSnd2">배경음 켜기</button>
  </section>
  <section id="card" class="ov" hidden><div class="k" id="ck"></div><h2 id="ct"></h2><div class="sub" id="cs"></div></section>
  <section id="choice" class="ov" hidden><h2>메인 피사체를 선택하세요</h2><p class="sub">오늘 촬영한 여섯 사람 가운데 한 명을 고릅니다.</p><div class="grid" id="gr"></div></section>
  <section id="end" class="ov" hidden><h2 id="et"></h2><p class="sub" id="es"></p><div class="row"><button id="bAgain">다시 선택</button><button id="bHome">제목으로</button></div></section>
  <section id="menu" class="ov" hidden><h2 style="margin:0;font-family:var(--serif)">메뉴</h2>
   <div class="row"><button id="bTheme">화면 테마 바꾸기</button><button id="bToTitle">제목으로</button><button id="bCloseM">닫기</button></div>
+  <label class="sub">배경음 볼륨 <input id="vol" type="range" min="0" max="100" value="60"></label>
   <div class="list" id="toc"></div></section>
  <section id="log" class="ov" hidden><div class="list log" id="lg" style="padding:14px"></div><button id="bCloseL">닫기</button></section>
 </div>
@@ -134,7 +143,57 @@ function setBg(key){
   else next.classList.remove('on');
   prev.classList.remove('on');
 }
-function preload(){Object.values(BGF).forEach(u=>{const im=new Image();im.src=u})}
+function preload(){Object.values(BGF).forEach(u=>{const im=new Image();im.src=u});Object.values(SPRITE).forEach(id=>{const im=new Image();im.src='chars/'+id+'.webp'})}
+
+
+/* ── 캐릭터 입화 ──────────────────────────────────────────────── */
+// 화자 이름 → chars/ 폴더의 파일 이름(확장자 제외). 이현우처럼 목록에 없으면 입화를 바꾸지 않음(상대 캐릭터가 그대로 보임)
+const SPRITE={'강지우':'kang_jiwoo','윤아린':'yoon_arin','최유나':'choi_yuna','이세라':'lee_sera','한서윤':'han_seoyun','서하린':'seo_harin','백시은':'baek_sieun','강채아':'kang_chaea','차성재':'cha_seongjae'};
+// 캐릭터별 위치·크기 조정: x = 가로 위치(%), h = 화면 대비 높이(%). 기본값 x:56, h:92
+const CHRSET={};
+let curChr=null,chrTO=0;
+function setChar(name){
+  const id=name?SPRITE[name]:null;
+  if(id===curChr)return;curChr=id;
+  const im=$('#chr img');clearTimeout(chrTO);im.classList.remove('on');
+  if(!id)return;
+  const go=()=>{const c=CHRSET[id]||{},p='chars/'+id+'.webp';
+    im.style.setProperty('--cx',(c.x??56)+'%');im.style.setProperty('--ch',(c.h??92)+'%');
+    im.onerror=()=>im.classList.remove('on');
+    if(im.getAttribute('src')===p){im.classList.add('on')}else{im.onload=()=>im.classList.add('on');im.src=p}};
+  if(reduce)go();else chrTO=setTimeout(go,180);
+}
+
+
+/* ── 배경음악 ─────────────────────────────────────────────────── */
+const BGMF={title:'bgm/bgm_title.mp3',daily:'bgm/bgm_prologue_daily.mp3',reunion:'bgm/bgm_reunion.mp3',cafe:'bgm/bgm_cafe.mp3'};
+// 키: 장id_에피소드번호 → 곡. 표에 없는 에피소드는 직전 곡을 이어서 재생
+const BGMMAP={prologue_1:'daily',prologue_2:'daily',prologue_3:'daily',prologue_4:'cafe',prologue_5:'reunion',ch4_3:'cafe',ch4_4:'cafe',ch4_5:'cafe'};
+let AC=null,MG=null,CH=[],cur=-1,curKey=null,wantKey='title',unlocked=false,bgm={on:true,vol:60};
+try{const s=JSON.parse(localStorage.getItem('projectY.bgm'));if(s)bgm={on:s.on!==false,vol:Number.isFinite(s.vol)?s.vol:60}}catch(e){}
+function saveBgm(){try{localStorage.setItem('projectY.bgm',JSON.stringify(bgm))}catch(e){}}
+function bgmKeyFor(i){for(let j=i;j>=0;j--){const st=steps[j];if(st.t!=='ep')continue;const k=BGMMAP[st.c.id+'_'+(st.k+1)];if(k)return k}return 'title'}
+function applyVol(){if(MG)MG.gain.setTargetAtTime(bgm.on?bgm.vol/100:0,AC.currentTime,0.1);$('#bSnd').setAttribute('aria-pressed',bgm.on);$('#vol').value=bgm.vol}
+function unlock(){
+  if(unlocked)return;
+  const Ctx=window.AudioContext||window.webkitAudioContext;if(!Ctx)return;
+  try{
+    AC=new Ctx();MG=AC.createGain();MG.connect(AC.destination);
+    for(let i=0;i<2;i++){const a=new Audio();a.loop=true;a.preload='auto';const g=AC.createGain();g.gain.value=0;AC.createMediaElementSource(a).connect(g);g.connect(MG);CH.push({a,g})}
+    unlocked=true;AC.resume();$('#bSnd2').hidden=true;applyVol();
+    CH[1].a.src=BGMF.title;const p=CH[1].a.play();if(p&&p.catch)p.catch(()=>{});   // 모바일에서 두 번째 채널도 사용자 터치로 활성화
+    curKey=null;playBgm(wantKey);
+    setTimeout(()=>{if(cur!==1)CH[1].a.pause()},2500);
+  }catch(e){}
+}
+function playBgm(key){
+  wantKey=key;if(!unlocked||key===curKey)return;curKey=key;
+  const t=AC.currentTime,old=CH[cur];
+  if(old){old.g.gain.cancelScheduledValues(t);old.g.gain.setValueAtTime(old.g.gain.value,t);old.g.gain.linearRampToValueAtTime(0,t+1.2);setTimeout(()=>{if(CH[cur]!==old)old.a.pause()},1400)}
+  const ni=cur===0?1:0,nx=CH[ni];cur=ni;
+  nx.a.src=BGMF[key];nx.a.currentTime=0;const p=nx.a.play();if(p&&p.catch)p.catch(()=>{});
+  nx.g.gain.cancelScheduledValues(t);nx.g.gain.setValueAtTime(0,t);nx.g.gain.linearRampToValueAtTime(1,t+1.2);
+}
 
 const KEY='projectY.common.save';
 let S={i:0,n:0,pick:null,auto:false,skip:false},T=0,AT=0,typing=false,full='',cardCb=null,log=[];
@@ -150,7 +209,7 @@ function setMode(k,v){S[k]=v;if(v&&k==='auto')S.skip=false;if(v&&k==='skip')S.au
 
 function hideAll(){['card','choice','end','menu','log','title'].forEach(i=>show(i,false))}
 function go(i,n=0){
-  stopTimers();S.i=i;S.n=n;save();hideAll();
+  stopTimers();S.i=i;S.n=n;save();hideAll();playBgm(bgmKeyFor(i));
   const st=steps[i];
   if(st.t==='start'){return card('시작','현우 · 20세','',()=>go(i+1))}
   if(st.t==='router'){return FLOW.routePlayPath(S)==='first'?go(i+1):endScreen('아직 정의되지 않은 경로','순서도에 연결된 경로는 초회 플레이뿐이에요.')}
@@ -163,7 +222,7 @@ function go(i,n=0){
   }else node();
 }
 function card(k,t,s,cb){
-  setMode('skip',false);stopTimers();show('box',false);
+  setMode('skip',false);stopTimers();show('box',false);setChar(null);
   $('#ck').textContent=k;$('#ct').textContent=t;$('#cs').textContent=s;cardCb=cb;show('card');
 }
 function node(){
@@ -173,6 +232,7 @@ function node(){
   const [t,sp,tx]=nodes[S.n],name=sp>=0?C[sp]:'';
   const b=$('#box');b.hidden=false;b.className=['nar','dlg','msg','sys'][t];
   b.style.setProperty('--tc',COL[name]||'var(--acc)');
+  if(t===1&&SPRITE[name])setChar(name);
   $('#nm').hidden=!name;$('#nm').textContent=t===2?name+' · 메시지':name;
   log.push([name,tx]);if(log.length>300)log.shift();
   typeOut(tx);
@@ -200,7 +260,7 @@ function choiceScreen(){
   show('choice');
 }
 function endScreen(t,s){hideAll();$('#et').textContent=t;$('#es').textContent=s;show('end')}
-function toTitle(){stopTimers();setBg(null);hideAll();show('box',false);$('#bar').hidden=true;setMode('auto',false);setMode('skip',false);show('title');$('#bCont').hidden=!load()}
+function toTitle(){stopTimers();setBg(null);setChar(null);playBgm('title');hideAll();show('box',false);$('#bar').hidden=true;setMode('auto',false);setMode('skip',false);show('title');$('#bCont').hidden=!load()}
 
 /* ── 메뉴 / 로그 ──────────────────────────────────────────────── */
 function openMenu(){
@@ -236,6 +296,11 @@ addEventListener('keydown',e=>{
     if(!$('#card').hidden)$('#card').click();else next();
   }
 });
+$('#bSnd').onclick=()=>{bgm.on=!bgm.on;saveBgm();applyVol()};
+$('#bSnd2').onclick=()=>{bgm.on=true;saveBgm();applyVol()};
+$('#vol').oninput=e=>{bgm.vol=+e.target.value;saveBgm();applyVol()};
+['click','touchend','keydown'].forEach(ev=>addEventListener(ev,unlock,{capture:true}));
+applyVol();
 $('#bCont').hidden=!load();
 </script>
 </body>
