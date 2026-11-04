@@ -283,29 +283,16 @@ function storyToScripts(rows, counter, cues){
     const sid = (String(r.chapter_id||'')+'_ep'+(r.episode_no||'1')+(r.branch?'_'+r.branch:'')).toUpperCase();
     counter[sid]=(counter[sid]||0)+1;
     const cue = cues[r.node_id] || {};
-    
-    // 1. cues와 스토리 CSV 행(r) 모두에서 배경, 브금, 캐릭터 정보를 유연하게 읽어옵니다.
-    const bg = cue.bg || r.bg || r.background || (r.node_id && r.node_id.startsWith('PROLOGUE') ? 'spring_campus.jpg' : '');
-    const bgm = cue.bgm || r.bgm || r.music || (r.node_id && r.node_id.startsWith('PROLOGUE') ? 'theme_prologue.mp3' : '');
-    const char = cue.char || r.char || (r.type==='dialogue' ? CHAR_DEFAULT[r.speaker_id || r.speaker] : '') || '';
-
     out.push({
-      script_id: sid, 
-      line_no: counter[sid], 
-      node_id: r.node_id, 
-      _type: r.type,
-      speaker: r.speaker || '', 
-      text: r.text || '',
-      bg: bg,
-      char: char,
-      cg: cue.cg || r.cg || '',
-      bgm: bgm,
-      set: cue.set || r.set || ''
+      script_id:sid, line_no:counter[sid], node_id:r.node_id, _type:r.type,
+      speaker:r.speaker||'', text:r.text||'',
+      bg:cue.bg||'', char:cue.char || (r.type==='dialogue' && CHAR_DEFAULT[r.speaker_id]) || '',
+      cg:cue.cg||'', bgm:cue.bgm||'', set:cue.set||''
     });
   });
   return out;
 }
-  
+
 /* ---------- sound audio manager ---------- */
 let curAudio = null, curBgmFile = '';
 function playBgm(file){
