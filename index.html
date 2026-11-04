@@ -117,6 +117,7 @@ pre.rep{font:12px/1.6 ui-monospace,Menlo,monospace;background:var(--ink);padding
 #log p{font-family:var(--serif);line-height:1.8;margin:0 0 14px}
 #log p b{display:block;font-family:var(--sans);font-size:12px;color:var(--fog);font-weight:400}
 #toast{position:absolute;left:50%;top:calc(env(safe-area-inset-top) + 18px);transform:translateX(-50%);background:var(--silver);color:var(--night);padding:8px 16px;font-size:13px;z-index:9;pointer-events:none}
+body:not(.devmode) .dev{display:none!important}
 button.dev{border:1px dashed #c98a4a!important;color:#e0b27a!important}
 .dev small{color:#c98a4a!important}
 #cg{position:absolute;inset:0;background:#0a0c12 center/contain no-repeat;display:flex;align-items:center;justify-content:center;font-family:var(--serif);color:var(--fog);font-size:18px}
@@ -241,7 +242,9 @@ const EMBED = {
 };
 
 const IMG_DIR = 'img/', CHAR_DIR = 'chars/', CG_DIR = 'cg/', BGM_DIR = 'bgm/';
-const DEV_TOOLS = ture;  // 테스트할 때만 true, 아닐떄는 flase
+// 테스트 모드: 코드 수정 없이 키보드 ` (백틱, 1 왼쪽 키)로 켜고 끕니다. 휴대폰은 주소 끝에 ?dev=1 (끄기: ?dev=0)
+let DEV_TOOLS = false;
+try{ const q=location.search.match(/[?&]dev=([01])/); if(q) localStorage.setItem('projectY.dev',q[1]); DEV_TOOLS = localStorage.getItem('projectY.dev')==='1'; }catch(e){}
 const SAVE_KEY = 'projectY.engine.v1';
 const CSV_FILES = {nodes:'flow_nodes.csv', edges:'flow_edges.csv', scripts:'flow_scripts.csv', routes:'flow_routes.csv', cg:'flow_cg.csv'};
 
@@ -686,7 +689,15 @@ $('bDevJump')&&($('bDevJump').onclick=()=>openPage('jump',()=>{ $('jumpQ').value
 $('bJumpG')&&($('bJumpG').onclick=e=>{ e.stopPropagation(); openPage('jump',()=>{ $('jumpQ').value=''; buildJump(); }); });
 $('jumpQ')&&($('jumpQ').oninput=e=>buildJump(e.target.value));
 $('dSubClear')&&($('dSubClear').onclick=()=>{ save.flags.SI_cleared=1; persist(); toast('서브 최초 클리어 처리'); });
-if(!DEV_TOOLS) document.querySelectorAll('.dev').forEach(e=>e.remove());
+function applyDev(){ document.body.classList.toggle('devmode',DEV_TOOLS); }
+applyDev();
+addEventListener('keydown',e=>{
+  if(e.key!=='`' && e.code!=='Backquote') return;
+  if(/^(INPUT|TEXTAREA|SELECT)$/.test((document.activeElement||{}).tagName||'')) return;
+  e.preventDefault(); DEV_TOOLS=!DEV_TOOLS;
+  try{ localStorage.setItem('projectY.dev',DEV_TOOLS?'1':'0'); }catch(err){}
+  applyDev(); toast(DEV_TOOLS?'테스트 모드 켜짐 (` 키로 끄기)':'테스트 모드 꺼짐');
+});
 $('game').onclick=tap;
 $('bExit').onclick=e=>{e.stopPropagation();toTitle();};
 $('bSkip').onclick=e=>{e.stopPropagation();setSkip(!run.skip);};
