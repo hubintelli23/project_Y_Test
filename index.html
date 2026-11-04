@@ -233,15 +233,15 @@ button.dev{border:1px dashed #c98a4a!important;color:#e0b27a!important}
    내장 데이터 (외부 CSV가 없을 경우 fallback으로 사용)
    ============================================================ */
 const EMBED = {
-  "nodes": "node_id,type,group,route,ending,title,subtitle,age,script_id,note,skip_to,skip_when\nSTART,start,COMMON,,,시작 · 현우 20세,,20,,,,\nPROLOGUE,scene,COMMON,,,프롤로그,\"첫 셔터, 흩날리는 봄의 경계\",,PROLOGUE,,FIRST_ROUTE,sub_unlocked\nFIRST_ROUTE,choice,COMMON,,,플레이 진행 경로,,,,,,\nMAIN_COMMON,scene,COMMON,,,메인 히로인 공통 루트,챕터 1~5,,MAIN_COMMON,,MAIN_PICK,sub_unlocked\nREPLAY_CHOICE,choice,COMMON,,,회차 진행 경로,,,,,,\nSUB_COMMON,scene,COMMON,,,서브 히로인 공통 파트,챕터 6~8,,SUB_COMMON,,SUB_PICK,SI_cleared || CH_cleared\nRELATION_CHECK,check,COMMON,,,공통 루트 관계 관리 판정,,,,,,\nCOMMON_BAD,ending,COMMON_BAD,,bad,초점이 깨진 렌즈 (Out of Focus),공통 배드 엔딩,,COMMON_BAD,,,\nMAIN_PICK,choice,COMMON,,,메인 피사체 선택,,,,,,\nJIWOO,route,ROUTE,JIWOO,,강지우 루트,,,,,,\nARIN,route,ROUTE,ARIN,,윤아린 루트,,,,,,\nYUNA,route,ROUTE,YUNA,,최유나 루트,,,,,,\nSERA,route,ROUTE,SERA,,이세라 루트,,,,,,\nSEOYUN,route,ROUTE,SEOYUN,,한서윤 루트,,,,,,\nHARIN,route,ROUTE,HARIN,,서하린 루트,,,,,,\nCOMMON_EPILOGUE,scene,COMMON,,,공통 에필로그,현우 29세 · 모든 루트 공통 축,29,COMMON_EPILOGUE,,,\nCLEAR_CHECK,check,COMMON,,,최초 메인 루트 클리어 기록?,,,,,,\nSUB_UNLOCK,unlock,COMMON,,,서브 히로인 루트 해금,,,,,,\nREPLAY,unlock,COMMON,,,2회차 플레이 가능,,,,,,\nMAIN_DLC_EP,scene,COMMON,,,메인 히로인별 후일담,현우 30세 이후 · 세부 연령 대조 필요,30,MAIN_DLC_EP,,,\nSUB_PICK,choice,COMMON,,,서브 피사체 선택,,,,,,\nSI,route,ROUTE,SI,,백시은 루트,,,,,,\nCH,route,ROUTE,CH,,강채아 루트,,,,,,\nCB21,scene,COMMON_BAD,,bad,현우 21세,갈등 상황에서 회피 반복,21,CB21,,,\nCB_REL,scene,COMMON_BAD,,bad,관계 붕괴와 자기혐오,,,CB_REL,,,\nCB_BREAK,scene,COMMON_BAD,,bad,암실에서 카메라 파손,동아리 탈퇴 및 학교 이탈,,CB_BREAK,,,\nCB26,scene,COMMON_BAD,,bad,현우 26세,사진가의 꿈을 접고 고립된 삶,26,CB26,,,\nCB_END,end,COMMON_BAD,,bad,공통 배드 엔딩 종료,,,,,,\nTITLE,end,COMMON,,,타이틀로 복귀,,,,,,\nEXIT,end,COMMON,,,게임 종료,,,,REPLAY_CHOICE 의 종료 선택지 도착점,,\n", 
-  "edges": "from_id,to_id,label,condition,kind,note\nSTART,PROLOGUE,,,next,\nPROLOGUE,FIRST_ROUTE,,,next,\nFIRST_ROUTE,MAIN_COMMON,초회 플레이,,next,\nFIRST_ROUTE,REPLAY_CHOICE,2회차 이후,sub_unlocked,next,\nREPLAY_CHOICE,MAIN_COMMON,메인 히로인 루트,,next,\nREPLAY_CHOICE,SUB_COMMON,서브 히로인 루트,,next,\nMAIN_COMMON,RELATION_CHECK,,,next,\nRELATION_CHECK,COMMON_BAD,회피 선택 누적 · 관계 방치,,next,\nRELATION_CHECK,MAIN_PICK,메인 루트 진행 조건 충족,,next,\nCOMMON_EPILOGUE,CLEAR_CHECK,,,next,\nCLEAR_CHECK,SUB_UNLOCK,최초 클리어,!sub_unlocked,next,\nCLEAR_CHECK,REPLAY_CHOICE,이미 해금됨,sub_unlocked,next,\nSUB_UNLOCK,REPLAY,,,next,\nREPLAY,REPLAY_CHOICE,,,next,\nSUB_COMMON,SUB_PICK,,,next,\nMAIN_PICK,JIWOO,강지우 루트,,next,\nMAIN_DLC_EP,TITLE,타이틀로,,next,\nREPLAY_CHOICE,EXIT,종료,,next,\n", 
+  "nodes": "node_id,type,group,route,ending,title,subtitle,age,script_id,note,skip_to,skip_when\nSTART,start,COMMON,,,시작 · 현우 20세,,20,,,,\nPROLOGUE_EP1,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",벚꽃이 흩날리는 입학 첫날,,PROLOGUE_EP1,,FIRST_ROUTE,sub_unlocked\nPROLOGUE_EP2,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",구형 DSLR과 캔커피의 온기,,PROLOGUE_EP2,,,\nPROLOGUE_EP3,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",뷰파인더에 걸린 소꿉친구,,PROLOGUE_EP3,,,\nPROLOGUE_EP4,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",\"아포카, 낯선 만남의 시작\",,PROLOGUE_EP4,,,\nPROLOGUE_EP5,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",차가운 눈빛 너머의 재회,,PROLOGUE_EP5,,,\nPROLOGUE_EP6,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",\"여섯 개의 시선, 멈춰 있던 시간이 흐르다\",,PROLOGUE_EP6,,,\nFIRST_ROUTE,choice,COMMON,,,플레이 진행 경로,,,,첫 플레이는 조건으로 메인 공통 루트 고정,,\nREPLAY_CHOICE,choice,COMMON,,,회차 진행 경로,,,,,,\nCH1_EP1,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,손끝에 남은 여름의 잔상,,CH1_EP1,,MAIN_PICK,sub_unlocked\nCH1_EP2,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,흰색 아대에 감춰진 비밀,,CH1_EP2,,,\nCH1_EP3,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,강지우의 낯선 경계심,,CH1_EP3,,,\nCH1_EP4,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,다시 만난 두 개의 시선,,CH1_EP4,,,\nCH1_EP5,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,조용한 동아리실의 균열,,CH1_EP5,,,\nCH1_EP6,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,아포카에 들어가기로 한 날,,CH1_EP6,,,\nCH2_EP1,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,동아리 가입과 뜻밖의 인연,,CH2_EP1,,,\nCH2_EP2,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,나란히 묶인 두 사람의 이름,,CH2_EP2,,,\nCH2_EP3,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,\"벚꽃 아래, 임시 모델\",,CH2_EP3,,,\nCH2_EP4,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,렌즈에 비친 감춰진 상처,,CH2_EP4,,,\nCH2_EP5,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,도망쳤던 여름의 진실,,CH2_EP5,,,\nCH2_EP6,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,이번에는 네 모습을 담을게,,CH2_EP6,,,\nCH3_EP1,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,셔터가 멈춘 뒤의 여운,,CH3_EP1,,,\nCH3_EP2,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,2.0m 밖에 선 윤아린,,CH3_EP2,,,\nCH3_EP3,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,진짜 표정이 드러나는 순간,,CH3_EP3,,,\nCH3_EP4,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,\"뷰파인더, 거리감을 가르치다\",,CH3_EP4,,,\nCH3_EP5,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,오랜 친구의 기다림,,CH3_EP5,,,\nCH3_EP6,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,마시 마주한 우리의 거리,,CH3_EP6,,,\nCH4_EP1,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,스포트라이트를 향한 직진,,CH4_EP1,,,\nCH4_EP2,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,전담 촬영 기사로 낙점받다,,CH4_EP2,,,\nCH4_EP3,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,3.0m 너머의 안식처,,CH4_EP3,,,\nCH4_EP4,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,0.2m의 초근접 침입자,,CH4_EP4,,,\nCH4_EP5,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,투닥거림이 채우는 카페의 온기,,CH4_EP5,,,\nCH4_EP6,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,\"아포카, 봄의 첫 정기 출사\",,CH4_EP6,,,\nCH5_EP1,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",벚꽃 출사지에 모인 여섯 사람,,CH5_EP1,,,\nCH5_EP2,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",\"0.5m, 멈추지 않는 강지우\",,CH5_EP2,,,\nCH5_EP3,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",스케줄을 독점하려는 최유나,,CH5_EP3,,,\nCH5_EP4,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",2.5m의 그늘에서 다가오는 윤아린,,CH5_EP4,,,\nCH5_EP5,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",서로 다른 6개의 시선,,CH5_EP5,,,\nCH5_EP6,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",메인 피사체 선택의 순간,,CH5_EP6,,,\nRELATION_CHECK,check,COMMON,,,공통 루트 관계 관리 판정,,,,avoid 변수는 flow_assets.csv 의 set 칸에서 올리세요 (예: avoid+=1). 기준값 3은 임시,,\nCOMMON_BAD,ending,COMMON_BAD,,bad,초점이 깨진 렌즈 (Out of Focus),공통 배드 엔딩,,COMMON_BAD,,,\nCB21,scene,COMMON_BAD,,bad,현우 21세,갈등 상황에서 회피 반복,21,CB21,,,\nCB_REL,scene,COMMON_BAD,,bad,관계 붕괴와 자기혐오,,,CB_REL,,,\nCB_BREAK,scene,COMMON_BAD,,bad,암실에서 카메라 파손,동아리 탈퇴 및 학교 이탈,,CB_BREAK,,,\nCB26,scene,COMMON_BAD,,bad,현우 26세,사진가의 꿈을 접고 고립된 삶,26,CB26,,,\nCB_END,end,COMMON_BAD,,bad,공통 배드 엔딩 종료,,,,,,\nMAIN_PICK,choice,COMMON,,,메인 피사체 선택,,,,,,\nJIWOO,route,ROUTE,JIWOO,,강지우 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nJIWOO_H,ending,ENDING,JIWOO,happy,해피 엔딩,,,,TODO 제목·대본,,\nJIWOO_S,ending,ENDING,JIWOO,sad,새드 엔딩,,,,TODO 제목·대본,,\nJIWOO_B,ending,ENDING,JIWOO,bad,배드 엔딩,,,,TODO 제목·대본,,\nJIWOO_T,ending,ENDING,JIWOO,true,히든·진 엔딩,,,,TODO 제목·대본,,\nARIN,route,ROUTE,ARIN,,윤아린 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nARIN_H,ending,ENDING,ARIN,happy,해피 엔딩,,,,TODO 제목·대본,,\nARIN_S,ending,ENDING,ARIN,sad,새드 엔딩,,,,TODO 제목·대본,,\nARIN_B,ending,ENDING,ARIN,bad,배드 엔딩,,,,TODO 제목·대본,,\nARIN_T,ending,ENDING,ARIN,true,히든·진 엔딩,,,,TODO 제목·대본,,\nYUNA,route,ROUTE,YUNA,,최유나 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nYUNA_H,ending,ENDING,YUNA,happy,해피 엔딩,,,,TODO 제목·대본,,\nYUNA_S,ending,ENDING,YUNA,sad,새드 엔딩,,,,TODO 제목·대본,,\nYUNA_B,ending,ENDING,YUNA,bad,배드 엔딩,,,,TODO 제목·대본,,\nYUNA_T,ending,ENDING,YUNA,true,히든·진 엔딩,,,,TODO 제목·대본,,\nSERA,route,ROUTE,SERA,,이세라 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nSERA_H,ending,ENDING,SERA,happy,해피 엔딩,,,,TODO 제목·대본,,\nSERA_S,ending,ENDING,SERA,sad,새드 엔딩,,,,TODO 제목·대본,,\nSERA_B,ending,ENDING,SERA,bad,배드 엔딩,,,,TODO 제목·대본,,\nSERA_T,ending,ENDING,SERA,true,히든·진 엔딩,,,,TODO 제목·대본,,\nSEOYUN,route,ROUTE,SEOYUN,,한서윤 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nSEOYUN_H,ending,ENDING,SEOYUN,happy,해피 엔딩,,,,TODO 제목·대본,,\nSEOYUN_S,ending,ENDING,SEOYUN,sad,새드 엔딩,,,,TODO 제목·대본,,\nSEOYUN_B,ending,ENDING,SEOYUN,bad,배드 엔딩,,,,TODO 제목·대본,,\nSEOYUN_T,ending,ENDING,SEOYUN,true,히든·진 엔딩,,,,TODO 제목·대본,,\nHARIN,route,ROUTE,HARIN,,서하린 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nHARIN_H,ending,ENDING,HARIN,happy,해피 엔딩,,,,TODO 제목·대본,,\nHARIN_S,ending,ENDING,HARIN,sad,새드 엔딩,,,,TODO 제목·대본,,\nHARIN_B,ending,ENDING,HARIN,bad,배드 엔딩,,,,TODO 제목·대본,,\nHARIN_T,ending,ENDING,HARIN,true,히든·진 엔딩,,,,TODO 제목·대본,,\nCOMMON_EPILOGUE,scene,COMMON,,,공통 에필로그,현우 29세 · 모든 루트 공통 축,29,COMMON_EPILOGUE,,,\nCLEAR_CHECK,check,COMMON,,,최초 메인 루트 클리어 기록?,,,,,,\nSUB_UNLOCK,unlock,COMMON,,,서브 히로인 루트 해금,,,,,,\nREPLAY,unlock,COMMON,,,2회차 플레이 가능,,,,,,\nMAIN_DLC_EP,scene,COMMON,,,메인 히로인별 후일담,현우 30세 이후,30,MAIN_DLC_EP,,,\nSUBPROLOGUE_EP1,scene,COMMON,,,\"서브 프롤로그 · 두 개의 인연, 다시 열린 문\",\"뷰파인더, 그곳에 남은 인연\",,SUBPROLOGUE_EP1,,SUB_PICK,SI_cleared || CH_cleared\nSUBPROLOGUE_EP2,scene,COMMON,,,\"서브 프롤로그 · 두 개의 인연, 다시 열린 문\",\"익숙한 목소리, 변하지 않은 거리\",,SUBPROLOGUE_EP2,,,\nSUBPROLOGUE_EP3,scene,COMMON,,,\"서브 프롤로그 · 두 개의 인연, 다시 열린 문\",두 개의 인연이 향하는 곳,,SUBPROLOGUE_EP3,,,\nCH6_EP1,scene,COMMON,,,\"챕터 6 · 비무장지대, 뷰파인더\",\"비무장지대, 뷰파인더\",,CH6_EP1,,,\nCH6_EP2,scene,COMMON,,,\"챕터 6 · 비무장지대, 뷰파인더\",프레임 밖에서 찾아온 장난꾸러기,,CH6_EP2,,,\nCH6_EP3,scene,COMMON,,,\"챕터 6 · 비무장지대, 뷰파인더\",\"안식처의 맹세, 3.0m 너머의 손길\",,CH6_EP3,,,\nCH7_EP1,scene,COMMON,,,챕터 7 · 0.2m의 기습과 장난스러운 온도,프레임을 깨뜨리는 소악마,,CH7_EP1,,,\nCH7_EP2,scene,COMMON,,,챕터 7 · 0.2m의 기습과 장난스러운 온도,장난꾸러기의 예상 밖의 진심,,CH7_EP2,,,\nCH7_EP3,scene,COMMON,,,챕터 7 · 0.2m의 기습과 장난스러운 온도,\"서로 다른 시선, 하나의 프레임\",,CH7_EP3,,,\nCH8_EP1,scene,COMMON,,,\"챕터 8 · 두 개의 그늘, 그리고 스위치가 되는 밤\",\"스승의 렌즈, Proper Distance\",,CH8_EP1,,,\nCH8_EP2,scene,COMMON,,,\"챕터 8 · 두 개의 그늘, 그리고 스위치가 되는 밤\",뷰파인더 마감 시간의 케미,,CH8_EP2,,,\nCH8_EP3,scene,COMMON,,,\"챕터 8 · 두 개의 그늘, 그리고 스위치가 되는 밤\",스위치가 되는 밤,,CH8_EP3,,,\nSUB_PICK,choice,COMMON,,,서브 피사체 선택,,,,,,\nSI_START,scene,ROUTE,SI,,백시은 루트,첫 분기,,CH8_EP3_A,,,\nSI,route,ROUTE,SI,,백시은 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nSI_H,ending,ENDING,SI,happy,해피 엔딩,,,,TODO 제목·대본,,\nSI_S,ending,ENDING,SI,sad,새드 엔딩,,,,TODO 제목·대본,,\nSI_B,ending,ENDING,SI,bad,배드 엔딩,,,,TODO 제목·대본,,\nSI_T,ending,ENDING,SI,true,히든·진 엔딩,,,,TODO 제목·대본,,\nSI_DONE,route_done,ROUTE,SI,,백시은 루트 클리어 기록,,,,,,\nCH_START,scene,ROUTE,CH,,강채아 루트,첫 분기,,CH8_EP3_B,,,\nCH,route,ROUTE,CH,,강채아 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nCH_H,ending,ENDING,CH,happy,해피 엔딩,,,,TODO 제목·대본,,\nCH_S,ending,ENDING,CH,sad,새드 엔딩,,,,TODO 제목·대본,,\nCH_B,ending,ENDING,CH,bad,배드 엔딩,,,,TODO 제목·대본,,\nCH_T,ending,ENDING,CH,true,히든·진 엔딩,,,,TODO 제목·대본,,\nCH_DONE,route_done,ROUTE,CH,,강채아 루트 클리어 기록,,,,,,\nTITLE,end,COMMON,,,타이틀로 복귀,,,,,,\nEXIT,end,COMMON,,,게임 종료,,,,REPLAY_CHOICE 의 종료 선택지 도착점,,\n",
+  "edges": "from_id,to_id,label,condition,kind,note\nSTART,PROLOGUE_EP1,,,next,\nPROLOGUE_EP1,PROLOGUE_EP2,,,next,\nPROLOGUE_EP2,PROLOGUE_EP3,,,next,\nPROLOGUE_EP3,PROLOGUE_EP4,,,next,\nPROLOGUE_EP4,PROLOGUE_EP5,,,next,\nPROLOGUE_EP5,PROLOGUE_EP6,,,next,\nPROLOGUE_EP6,FIRST_ROUTE,,,next,\nFIRST_ROUTE,CH1_EP1,초회 플레이,!sub_unlocked,next,\nFIRST_ROUTE,REPLAY_CHOICE,2회차 이후,sub_unlocked,next,\nREPLAY_CHOICE,CH1_EP1,메인 히로인 루트,,next,\nREPLAY_CHOICE,SUBPROLOGUE_EP1,서브 히로인 루트,,next,\nREPLAY_CHOICE,EXIT,종료,,next,\nCH1_EP1,CH1_EP2,,,next,\nCH1_EP2,CH1_EP3,,,next,\nCH1_EP3,CH1_EP4,,,next,\nCH1_EP4,CH1_EP5,,,next,\nCH1_EP5,CH1_EP6,,,next,\nCH1_EP6,CH2_EP1,,,next,\nCH2_EP1,CH2_EP2,,,next,\nCH2_EP2,CH2_EP3,,,next,\nCH2_EP3,CH2_EP4,,,next,\nCH2_EP4,CH2_EP5,,,next,\nCH2_EP5,CH2_EP6,,,next,\nCH2_EP6,CH3_EP1,,,next,\nCH3_EP1,CH3_EP2,,,next,\nCH3_EP2,CH3_EP3,,,next,\nCH3_EP3,CH3_EP4,,,next,\nCH3_EP4,CH3_EP5,,,next,\nCH3_EP5,CH3_EP6,,,next,\nCH3_EP6,CH4_EP1,,,next,\nCH4_EP1,CH4_EP2,,,next,\nCH4_EP2,CH4_EP3,,,next,\nCH4_EP3,CH4_EP4,,,next,\nCH4_EP4,CH4_EP5,,,next,\nCH4_EP5,CH4_EP6,,,next,\nCH4_EP6,CH5_EP1,,,next,\nCH5_EP1,CH5_EP2,,,next,\nCH5_EP2,CH5_EP3,,,next,\nCH5_EP3,CH5_EP4,,,next,\nCH5_EP4,CH5_EP5,,,next,\nCH5_EP5,CH5_EP6,,,next,\nCH5_EP6,RELATION_CHECK,,,next,\nRELATION_CHECK,COMMON_BAD,회피 선택 누적 · 관계 방치,avoid>=3,next,\nRELATION_CHECK,MAIN_PICK,메인 루트 진행 조건 충족,avoid<3,next,\nCOMMON_BAD,CB21,,,next,\nCB21,CB_REL,,,next,\nCB_REL,CB_BREAK,,,next,\nCB_BREAK,CB26,,,next,\nCB26,CB_END,,,next,\nMAIN_PICK,JIWOO,강지우 루트,,next,\nMAIN_PICK,ARIN,윤아린 루트,,next,\nMAIN_PICK,YUNA,최유나 루트,,next,\nMAIN_PICK,SERA,이세라 루트,,next,\nMAIN_PICK,SEOYUN,한서윤 루트,,next,\nMAIN_PICK,HARIN,서하린 루트,,next,\nJIWOO,JIWOO_H,,,next,\nJIWOO_H,COMMON_EPILOGUE,,,next,\nJIWOO,JIWOO_S,,,next,\nJIWOO_S,COMMON_EPILOGUE,,,next,\nJIWOO,JIWOO_B,,,next,\nJIWOO_B,COMMON_EPILOGUE,,,next,\nJIWOO,JIWOO_T,,,next,\nJIWOO_T,COMMON_EPILOGUE,,,next,\nARIN,ARIN_H,,,next,\nARIN_H,COMMON_EPILOGUE,,,next,\nARIN,ARIN_S,,,next,\nARIN_S,COMMON_EPILOGUE,,,next,\nARIN,ARIN_B,,,next,\nARIN_B,COMMON_EPILOGUE,,,next,\nARIN,ARIN_T,,,next,\nARIN_T,COMMON_EPILOGUE,,,next,\nYUNA,YUNA_H,,,next,\nYUNA_H,COMMON_EPILOGUE,,,next,\nYUNA,YUNA_S,,,next,\nYUNA_S,COMMON_EPILOGUE,,,next,\nYUNA,YUNA_B,,,next,\nYUNA_B,COMMON_EPILOGUE,,,next,\nYUNA,YUNA_T,,,next,\nYUNA_T,COMMON_EPILOGUE,,,next,\nSERA,SERA_H,,,next,\nSERA_H,COMMON_EPILOGUE,,,next,\nSERA,SERA_S,,,next,\nSERA_S,COMMON_EPILOGUE,,,next,\nSERA,SERA_B,,,next,\nSERA_B,COMMON_EPILOGUE,,,next,\nSERA,SERA_T,,,next,\nSERA_T,COMMON_EPILOGUE,,,next,\nSEOYUN,SEOYUN_H,,,next,\nSEOYUN_H,COMMON_EPILOGUE,,,next,\nSEOYUN,SEOYUN_S,,,next,\nSEOYUN_S,COMMON_EPILOGUE,,,next,\nSEOYUN,SEOYUN_B,,,next,\nSEOYUN_B,COMMON_EPILOGUE,,,next,\nSEOYUN,SEOYUN_T,,,next,\nSEOYUN_T,COMMON_EPILOGUE,,,next,\nHARIN,HARIN_H,,,next,\nHARIN_H,COMMON_EPILOGUE,,,next,\nHARIN,HARIN_S,,,next,\nHARIN_S,COMMON_EPILOGUE,,,next,\nHARIN,HARIN_B,,,next,\nHARIN_B,COMMON_EPILOGUE,,,next,\nHARIN,HARIN_T,,,next,\nHARIN_T,COMMON_EPILOGUE,,,next,\nSI,SI_H,,,next,\nSI_H,SI_DONE,,,next,\nSI,SI_S,,,next,\nSI_S,SI_DONE,,,next,\nSI,SI_B,,,next,\nSI_B,SI_DONE,,,next,\nSI,SI_T,,,next,\nSI_T,SI_DONE,,,next,\nCH,CH_H,,,next,\nCH_H,CH_DONE,,,next,\nCH,CH_S,,,next,\nCH_S,CH_DONE,,,next,\nCH,CH_B,,,next,\nCH_B,CH_DONE,,,next,\nCH,CH_T,,,next,\nCH_T,CH_DONE,,,next,\nSI_DONE,COMMON_EPILOGUE,,,next,\nCH_DONE,COMMON_EPILOGUE,,,next,\nCOMMON_EPILOGUE,CLEAR_CHECK,,,next,\nCLEAR_CHECK,SUB_UNLOCK,최초 클리어,!sub_unlocked,next,\nCLEAR_CHECK,REPLAY_CHOICE,이미 해금됨,sub_unlocked,next,\nSUB_UNLOCK,REPLAY,,,next,\nREPLAY,REPLAY_CHOICE,,,next,\nMAIN_DLC_EP,TITLE,타이틀로,,next,\nSUBPROLOGUE_EP1,SUBPROLOGUE_EP2,,,next,\nSUBPROLOGUE_EP2,SUBPROLOGUE_EP3,,,next,\nSUBPROLOGUE_EP3,CH6_EP1,,,next,\nCH6_EP1,CH6_EP2,,,next,\nCH6_EP2,CH6_EP3,,,next,\nCH6_EP3,CH7_EP1,,,next,\nCH7_EP1,CH7_EP2,,,next,\nCH7_EP2,CH7_EP3,,,next,\nCH7_EP3,CH8_EP1,,,next,\nCH8_EP1,CH8_EP2,,,next,\nCH8_EP2,CH8_EP3,,,next,\nCH8_EP3,SUB_PICK,,,next,\nSUB_PICK,SI_START,백시은과 함께 카페에 남는다.,,next,\nSUB_PICK,CH_START,강채아와 함께 작업실로 향한다.,,next,\nSI_START,SI,,,next,\nCH_START,CH,,,next,\n",
   "scripts": "script_id,line_no,speaker,text,bg,char,cg,bgm,set\nPROLOGUE,1,,봄바람이 불어오는 교정, 벚꽃 잎이 렌즈 앞으로 스쳐 지나간다.,spring_campus.jpg,,,-,theme_prologue.mp3,\nPROLOGUE,2,이현우,\"이 거리에서 너를 담아낼 수 있을까...\",,,,-,,\nPROLOGUE,3,강지우,\"현우야! 거기서 뭐 해? 또 카메라 만지고 있었어?\",,jiwoo_smile.png,-,,\nPROLOGUE,4,,오랜 시간 함께해 온 익숙한 목소리가 렌즈 너머로 다가온다.,,,,-,,\n", 
   "routes": "route_id,name_kr,kind,accent,char_file,vd_init,note\nJIWOO,강지우,main,#c99a5b,kang_jiwoo.webp,,\nARIN,윤아린,main,#e0a9b4,,,\nYUNA,최유나,main,#aab4d0,,,\nSERA,이세라,main,#8a6fc2,,,\nSEOYUN,한서윤,main,#c25b5b,,,\nHARIN,서하린,main,#7f93a8,,,\nSI,백시은,sub,#8fbf9f,,,\nCH,강채아,sub,#e58b6a,,,\n", 
   "cg": "cg_id,title,route,file,note\n"
 };
 
 const IMG_DIR = 'img/', CHAR_DIR = 'chars/', CG_DIR = 'cg/', BGM_DIR = 'bgm/';
-const DEV_TOOLS = true;  // 테스트할 때만 true , 테스트 중이 아닐때는 false
+const DEV_TOOLS = false;  // 테스트할 때만 true
 const SAVE_KEY = 'projectY.engine.v1';
 const CSV_FILES = {nodes:'flow_nodes.csv', edges:'flow_edges.csv', scripts:'flow_scripts.csv', routes:'flow_routes.csv', cg:'flow_cg.csv'};
 
@@ -261,15 +261,8 @@ const STORY_FOLDER_FILES = [
 
 
 /* ---------- 스토리 CSV 연동 설정 ---------- */
-// story/*.csv 의 chapter_id 를 flow_nodes.csv 의 script_id 로 연결하는 표
-// (여기 없는 chapter_id 는 대문자로 바꾼 값이 script_id 가 됩니다. 예: ch9 -> CH9)
-const STORY_MAP = {
-  prologue:'PROLOGUE',
-  ch1:'MAIN_COMMON', ch2:'MAIN_COMMON', ch3:'MAIN_COMMON', ch4:'MAIN_COMMON', ch5:'MAIN_COMMON',
-  subprologue:'SUB_COMMON', ch6:'SUB_COMMON', ch7:'SUB_COMMON', ch8:'SUB_COMMON'
-};
-// 서브 공통 마지막의 A/B 분기 본문(branch 열)을 보낼 script_id
-const BRANCH_MAP = { A:'SI_BRANCH', B:'CH_BRANCH' };
+// 스토리 CSV 의 에피소드 하나가 script_id 하나입니다: <chapter_id>_ep<episode_no> 를 대문자로 (예: CH1_EP3),
+// 선택 분기 본문은 뒤에 _A / _B 가 붙습니다 (예: CH8_EP3_A). flow_nodes.csv 의 script_id 와 같아야 합니다.
 // 말하는 캐릭터(speaker_id) -> chars/<speaker_id>.webp 를 자동으로 표시합니다.
 // 이미지가 있는 캐릭터 ID 목록 (새 캐릭터 이미지를 추가하면 여기에 ID를 더하세요)
 const CHAR_IDS = ['kang_jiwoo','yoon_arin','choi_yuna','lee_sera','han_seoyun','seo_harin',
@@ -283,7 +276,7 @@ function storyToScripts(rows, counter, cues){
   const out=[];
   rows.forEach(r=>{
     if(!r.node_id || r.type==='choice') return;          // choice 행은 순서도(SUB_PICK)가 담당
-    const sid = (r.branch && BRANCH_MAP[r.branch]) || STORY_MAP[r.chapter_id] || String(r.chapter_id||'').toUpperCase();
+    const sid = (String(r.chapter_id||'')+'_ep'+(r.episode_no||'1')+(r.branch?'_'+r.branch:'')).toUpperCase();
     counter[sid]=(counter[sid]||0)+1;
     const cue = cues[r.node_id] || {};
     out.push({
@@ -347,6 +340,19 @@ function build(d){
   document.getElementById('dl').innerHTML=Object.values(N).map(n=>`<option value="${n.node_id}">${n.title||''}</option>`).join('');
 }
 
+// story/ 폴더의 *route*.csv 를 자동 탐색 (GitHub Pages 에서는 GitHub API 로 목록을 읽고, 아니면 STORY_FOLDER_FILES 목록 사용)
+async function discoverStoryFiles(){
+  const found=[];
+  try{
+    const m=location.hostname.match(/^(.+)\.github\.io$/), repo=location.pathname.split('/')[1];
+    if(m && repo){
+      const r=await fetch(`https://api.github.com/repos/${m[1]}/contents/story`);
+      if(r.ok){ (await r.json()).forEach(f=>{ if(/route.*\.csv$/i.test(f.name)) found.push('story/'+f.name); }); }
+    }
+  }catch(e){}
+  return [...new Set([...found, ...STORY_FOLDER_FILES])];
+}
+
 async function loadData(){
   const out={}; const ext=[];
   
@@ -372,19 +378,24 @@ async function loadData(){
     const r = await fetch(ASSET_FILE, {cache:'no-store'});
     if(r.ok){ const t = await r.text(); if(!/^\s*</.test(t)){ parseCSV(t).forEach(c=>{ if(c.node_id) cues[c.node_id]=c; }); ext.push(ASSET_FILE); } }
   } catch(e) {}
-  const counter = {};
-  for(const file of STORY_FOLDER_FILES){
+  const counter = {}; const storyOk=[], storyFail=[]; let storyLines=0;
+  const files = await discoverStoryFiles();
+  for(const file of files){
     try {
       const r = await fetch(file, {cache:'no-store'});
-      if(!r.ok) continue;
-      const t = await r.text(); if(/^\s*</.test(t)) continue;
+      if(!r.ok) throw new Error('HTTP '+r.status);
+      const t = await r.text(); if(/^\s*</.test(t)) throw new Error('HTML 응답');
       const rows = parseCSV(t);
-      if(rows.length){ mergedScripts = mergedScripts.concat(storyToScripts(rows, counter, cues)); ext.push(file); }
-    } catch(e) {}
+      if(!rows.length || !rows[0].node_id) throw new Error('형식 불일치');
+      const conv = storyToScripts(rows, counter, cues);
+      mergedScripts = mergedScripts.concat(conv); storyLines += conv.length; storyOk.push(file); ext.push(file);
+    } catch(e) { storyFail.push(file); }
   }
+  console.log('[스토리 로드] 성공:', storyOk, '실패/없음:', storyFail, '줄 수:', storyLines);
+  window.__storyInfo = storyOk.length ? `스토리 ${storyOk.length}개 파일 · ${storyLines}줄` : '스토리 파일을 못 불러왔습니다 (story/ 경로·파일명 확인)';
   if(mergedScripts.length === 0) mergedScripts = parseCSV(EMBED['scripts'] || '');
   out['scripts'] = mergedScripts;
-  srcLabel = ext.length ? '외부 파일 감지 완료 (' + ext.length + '개 로드됨)' : 'CSV 내장본';
+  srcLabel = (ext.length ? '외부 파일 ' + ext.length + '개 로드' : 'CSV 내장본') + ' · ' + (window.__storyInfo||'');
   return out;
 }
 
@@ -461,7 +472,7 @@ function startAt(id, fresh){
   show('game'); enter(id);
 }
 function enter(id){
-  if(id==='REPLAY_CHOICE' && !save.flags.sub_unlocked && N['MAIN_COMMON']) id='MAIN_COMMON';
+  if(id==='REPLAY_CHOICE' && !save.flags.sub_unlocked && N['CH1_EP1']) id='CH1_EP1';
   const n=N[id];
   if(!n){ toast('노드를 찾을 수 없습니다: '+id); return toTitle(); }
   stopTyping(); $('menu').hidden=true; $('card').hidden=true; $('dialog').hidden=true; $('cg').hidden=true;
@@ -529,7 +540,7 @@ function tap(){
 }
 function advance(fromChoice){
   // 첫 플레이(서브 미해금)에는 경로 선택 없이 메인 공통 루트로 고정
-  if(!save.flags.sub_unlocked && run.node==='FIRST_ROUTE' && N['MAIN_COMMON']) return enter('MAIN_COMMON');
+  if(!save.flags.sub_unlocked && run.node==='FIRST_ROUTE' && N['CH1_EP1']) return enter('CH1_EP1');
   const outs=(OUT[run.node]||[]).filter(e=>e.kind==='next'||e.kind==='unlock_choice');
   const ok=outs.filter(e=>evalCond(e.condition));
   const n=N[run.node];
