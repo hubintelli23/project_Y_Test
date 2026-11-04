@@ -1,9 +1,0 @@
-﻿route_id,name_kr,kind,accent,char_file,vd_init,note
-JIWOO,강지우,main,#c99a5b,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조
-ARIN,윤아린,main,#e0a9b4,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조
-YUNA,최유나,main,#aab4d0,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조
-SERA,이세라,main,#8a6fc2,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조
-SEOYUN,한서윤,main,#c25b5b,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조
-HARIN,서하린,main,#7f93a8,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조
-SI,백시은,sub,#8fbf9f,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조
-CH,강채아,sub,#e58b6a,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조
