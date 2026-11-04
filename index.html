@@ -230,31 +230,43 @@ button.dev{border:1px dashed #c98a4a!important;color:#e0b27a!important}
 
 <script>
 /* ============================================================
-   내장 데이터 (같은 폴더에 flow_*.csv 가 있으면 그 파일이 우선 적용됩니다)
+   내장 데이터 (외부 CSV가 없을 경우 fallback으로 사용)
    ============================================================ */
-const EMBED = {"nodes": "node_id,type,group,route,ending,title,subtitle,age,script_id,note,skip_to,skip_when\nSTART,start,COMMON,,,시작 · 현우 20세,,20,,,,\nPROLOGUE,scene,COMMON,,,프롤로그,\"첫 셔터, 흩날리는 봄의 경계\",,PROLOGUE,,FIRST_ROUTE,sub_unlocked\nFIRST_ROUTE,choice,COMMON,,,플레이 진행 경로,,,,,,\nMAIN_COMMON,scene,COMMON,,,메인 히로인 공통 루트,챕터 1~5,,MAIN_COMMON,,MAIN_PICK,sub_unlocked\nREPLAY_CHOICE,choice,COMMON,,,회차 진행 경로,,,,,,\nSUB_COMMON,scene,COMMON,,,서브 히로인 공통 파트,챕터 6~8,,SUB_COMMON,,SUB_PICK,SI_cleared || CH_cleared\nRELATION_CHECK,check,COMMON,,,공통 루트 관계 관리 판정,,,,,,\nCOMMON_BAD,ending,COMMON_BAD,,bad,초점이 깨진 렌즈 (Out of Focus),공통 배드 엔딩,,COMMON_BAD,,,\nMAIN_PICK,choice,COMMON,,,메인 피사체 선택,,,,,,\nJIWOO,route,ROUTE,JIWOO,,강지우 루트,,,,,,\nARIN,route,ROUTE,ARIN,,윤아린 루트,,,,,,\nYUNA,route,ROUTE,YUNA,,최유나 루트,,,,,,\nSERA,route,ROUTE,SERA,,이세라 루트,,,,,,\nSEOYUN,route,ROUTE,SEOYUN,,한서윤 루트,,,,,,\nHARIN,route,ROUTE,HARIN,,서하린 루트,,,,,,\nCOMMON_EPILOGUE,scene,COMMON,,,공통 에필로그,현우 29세 · 모든 루트 공통 축,29,COMMON_EPILOGUE,,,\nCLEAR_CHECK,check,COMMON,,,최초 메인 루트 클리어 기록?,,,,,,\nSUB_UNLOCK,unlock,COMMON,,,서브 히로인 루트 해금,,,,,,\nREPLAY,unlock,COMMON,,,2회차 플레이 가능,,,,,,\nMAIN_DLC_EP,scene,COMMON,,,메인 히로인별 후일담,현우 30세 이후 · 세부 연령 대조 필요,30,MAIN_DLC_EP,,,\nSUB_PICK,choice,COMMON,,,서브 피사체 선택,,,,,,\nSI,route,ROUTE,SI,,백시은 루트,,,,,,\nCH,route,ROUTE,CH,,강채아 루트,,,,,,\nCB21,scene,COMMON_BAD,,bad,현우 21세,갈등 상황에서 회피 반복,21,CB21,,,\nCB_REL,scene,COMMON_BAD,,bad,관계 붕괴와 자기혐오,,,CB_REL,,,\nCB_BREAK,scene,COMMON_BAD,,bad,암실에서 카메라 파손,동아리 탈퇴 및 학교 이탈,,CB_BREAK,,,\nCB26,scene,COMMON_BAD,,bad,현우 26세,사진가의 꿈을 접고 고립된 삶,26,CB26,,,\nCB_END,end,COMMON_BAD,,bad,공통 배드 엔딩 종료,,,,,,\nJIWOO_H,ending,JIWOO_END,JIWOO,happy,우리의 사진은 계속 된다,해피엔딩,,JIWOO_H,\"메인 순서도 제목: 0.5m, 익숙함 끝에 닿은 온도\",,\nJIWOO_H_1,episode,JIWOO_END,JIWOO,happy,서로에게 전하는 진심,에피소드 1,,JIWOO_H_1,,,\nJIWOO_H_2,episode,JIWOO_END,JIWOO,happy,우리의 다음 프레임,에피소드 2,,JIWOO_H_2,,,\nJIWOO_HE,epilogue,JIWOO_EPI,JIWOO,happy,익숙함 끝에 이어지는 온도,해피 에필로그,,JIWOO_HE,,,\nJIWOO_HE_1,epilogue,JIWOO_EPI,JIWOO,happy,\"익숙한 풍경, 달라진 시선\",에피소드 1,,JIWOO_HE_1,,,\nJIWOO_HE_2,epilogue,JIWOO_EPI,JIWOO,happy,너와 함께 담아 갈 시간,에피소드 2,,JIWOO_HE_2,,,\nJIWOO_S,ending,JIWOO_END,JIWOO,sad,끝내 전하지 못한 마음,새드엔딩,,JIWOO_S,메인 순서도 제목: 우정이라는 이름의 거짓말,,\nJIWOO_S_1,episode,JIWOO_END,JIWOO,sad,초점 밖에 남겨진 너,에피소드 1,,JIWOO_S_1,,,\nJIWOO_SE,epilogue,JIWOO_EPI,JIWOO,sad,사진 속에만 남은 우리,새드 에필로그,,JIWOO_SE,,,\nJIWOO_SE_1,epilogue,JIWOO_EPI,JIWOO,sad,오래된 사진을 펼치는 날,에피소드 1,,JIWOO_SE_1,,,\nJIWOO_SE_2,epilogue,JIWOO_EPI,JIWOO,sad,사진 속에만 남은 우리,에피소드 2,,JIWOO_SE_2,,,\nJIWOO_B,ending,JIWOO_END,JIWOO,bad,무너진 앵글,배드엔딩,,JIWOO_B,메인 순서도 제목: 가장 오래된 친구라는 타이틀,,\nJIWOO_B_1,episode,JIWOO_END,JIWOO,bad,다시는 담을 수 없는 얼굴,에피소드 1,,JIWOO_B_1,,,\nJIWOO_BE,epilogue,JIWOO_EPI,JIWOO,bad,닫힌 프레임에 갇힌 기억,배드 에필로그,,JIWOO_BE,,,\nJIWOO_BE_1,epilogue,JIWOO_EPI,JIWOO,bad,현상되지 못한 기억,에피소드 1,,JIWOO_BE_1,,,\nJIWOO_BE_2,epilogue,JIWOO_EPI,JIWOO,bad,끝내 마주치지 못한 시선,에피소드 2,,JIWOO_BE_2,,,\nJIWOO_T,ending,JIWOO_END,JIWOO,true,오래된 잔상의 진실,히든 트루 엔딩,,JIWOO_T,메인 순서도 제목: 앵글 속에 담긴 진짜 너,,\nJIWOO_T_1,episode,JIWOO_END,JIWOO,true,앵글 속에 담긴 진짜 너,에피소드 1,,JIWOO_T_1,,,\nJIWOO_TE,epilogue,JIWOO_EPI,JIWOO,true,앵글 속에서 시작된 내일,히든 트루 에필로그,,JIWOO_TE,,,\nJIWOO_TE_1,epilogue,JIWOO_EPI,JIWOO,true,\"0.8m의 기록, 그 이후\",에피소드 1,,JIWOO_TE_1,,,\nJIWOO_TE_2,epilogue,JIWOO_EPI,JIWOO,true,앞으로도 너를 담을게,에피소드 2,,JIWOO_TE_2,,,\nJIWOO_DONE,route_done,JIWOO_END,JIWOO,,강지우 루트 엔딩 완료,,,,,,\nJIWOO_DLC,dlc_hub,DLC,JIWOO,,소꿉친구의 셔터는 멈추지 않는다,강지우 후일담 DLC,30,,메인 순서도의 DLC 노드,,\nJIWOO_DLC_1,dlc,JIWOO_DLC,JIWOO,,새로운 프레임의 시작,에피소드 1,30,JIWOO_DLC_1,,,\nJIWOO_DLC_2,dlc,JIWOO_DLC,JIWOO,,너와 함께 걷는 일상,에피소드 2,30,JIWOO_DLC_2,,,\nJIWOO_DLC_3,dlc,JIWOO_DLC,JIWOO,,영원히 간직할 너의 미소,에피소드 3,30,JIWOO_DLC_3,,,\nTITLE,end,COMMON,,,타이틀로 복귀,,,,,,\nEXIT,end,COMMON,,,게임 종료,,,,REPLAY_CHOICE 의 종료 선택지 도착점,,\n", 
-"edges": "from_id,to_id,label,condition,kind,note\nSTART,PROLOGUE,,,next,\nPROLOGUE,FIRST_ROUTE,,,next,\nFIRST_ROUTE,MAIN_COMMON,초회 플레이,,next,\nFIRST_ROUTE,REPLAY_CHOICE,2회차 이후,sub_unlocked,next,\nREPLAY_CHOICE,MAIN_COMMON,메인 히로인 루트,,next,\nREPLAY_CHOICE,SUB_COMMON,서브 히로인 루트,,next,\nMAIN_COMMON,RELATION_CHECK,,,next,\nRELATION_CHECK,COMMON_BAD,회피 선택 누적 · 관계 방치,,next,\nRELATION_CHECK,MAIN_PICK,메인 루트 진행 조건 충족,,next,\nCOMMON_EPILOGUE,CLEAR_CHECK,,,next,\nCLEAR_CHECK,SUB_UNLOCK,최초 클리어,!sub_unlocked,next,\nCLEAR_CHECK,REPLAY_CHOICE,이미 해금됨,sub_unlocked,next,\nSUB_UNLOCK,REPLAY,,,next,\nREPLAY,REPLAY_CHOICE,,,next,\nSUB_COMMON,SUB_PICK,,,next,\nMAIN_PICK,JIWOO,강지우 루트,,next,\nJIWOO_H,JIWOO_H_1,,,next,\nJIWOO_H_1,JIWOO_H_2,,,next,\nJIWOO_H_2,JIWOO_HE,,,next,\nJIWOO_HE,JIWOO_HE_1,,,next,\nJIWOO_HE_1,JIWOO_HE_2,,,next,\nJIWOO_HE_2,JIWOO_DONE,루트 종료,,next,\nJIWOO,JIWOO_H,해피 엔딩,,next,\nJIWOO_DONE,COMMON_EPILOGUE,,,next,\nMAIN_DLC_EP,TITLE,타이틀로,,next,\nREPLAY_CHOICE,EXIT,종료,,next,\n", 
-"scripts": "script_id,line_no,speaker,text,bg,char,cg,bgm,set\nPROLOGUE,1,,봄바람이 불어오는 교정, 벚꽃 잎이 렌즈 앞으로 스쳐 지나간다.,spring_campus.jpg,,,-,theme_prologue.mp3,\nPROLOGUE,2,이현우,\"이 거리에서너를 담아낼 수 있을까...\",,,,-,,\nPROLOGUE,3,강지우,\"현우야! 거기서 뭐 해? 또 카메라 만지고 있었어?\",,jiwoo_smile.png,-,,\nPROLOGUE,4,,오랜 시간 함께해 온 익숙한 목소리가 렌즈 너머로 다가온다.,,,,-,,\n", 
-"routes": "route_id,name_kr,kind,accent,char_file,vd_init,note\nJIWOO,강지우,main,#c99a5b,jiwoo_normal.png,,\nARIN,윤아린,main,#e0a9b4,,,\nYUNA,최유나,main,#aab4d0,,,\nSERA,이세라,main,#8a6fc2,,,\nSEOYUN,한서윤,main,#c25b5b,,,\nHARIN,서하린,main,#7f93a8,,,\nSI,백시은,sub,#8fbf9f,,,\nCH,강채아,sub,#e58b6a,,,\n", 
-"cg": "cg_id,title,route,file,note\n"};
+const EMBED = {
+  "nodes": "node_id,type,group,route,ending,title,subtitle,age,script_id,note,skip_to,skip_when\nSTART,start,COMMON,,,시작 · 현우 20세,,20,,,,\nPROLOGUE,scene,COMMON,,,프롤로그,\"첫 셔터, 흩날리는 봄의 경계\",,PROLOGUE,,FIRST_ROUTE,sub_unlocked\nFIRST_ROUTE,choice,COMMON,,,플레이 진행 경로,,,,,,\nMAIN_COMMON,scene,COMMON,,,메인 히로인 공통 루트,챕터 1~5,,MAIN_COMMON,,MAIN_PICK,sub_unlocked\nREPLAY_CHOICE,choice,COMMON,,,회차 진행 경로,,,,,,\nSUB_COMMON,scene,COMMON,,,서브 히로인 공통 파트,챕터 6~8,,SUB_COMMON,,SUB_PICK,SI_cleared || CH_cleared\nRELATION_CHECK,check,COMMON,,,공통 루트 관계 관리 판정,,,,,,\nCOMMON_BAD,ending,COMMON_BAD,,bad,초점이 깨진 렌즈 (Out of Focus),공통 배드 엔딩,,COMMON_BAD,,,\nMAIN_PICK,choice,COMMON,,,메인 피사체 선택,,,,,,\nJIWOO,route,ROUTE,JIWOO,,강지우 루트,,,,,,\nARIN,route,ROUTE,ARIN,,윤아린 루트,,,,,,\nYUNA,route,ROUTE,YUNA,,최유나 루트,,,,,,\nSERA,route,ROUTE,SERA,,이세라 루트,,,,,,\nSEOYUN,route,ROUTE,SEOYUN,,한서윤 루트,,,,,,\nHARIN,route,ROUTE,HARIN,,서하린 루트,,,,,,\nCOMMON_EPILOGUE,scene,COMMON,,,공통 에필로그,현우 29세 · 모든 루트 공통 축,29,COMMON_EPILOGUE,,,\nCLEAR_CHECK,check,COMMON,,,최초 메인 루트 클리어 기록?,,,,,,\nSUB_UNLOCK,unlock,COMMON,,,서브 히로인 루트 해금,,,,,,\nREPLAY,unlock,COMMON,,,2회차 플레이 가능,,,,,,\nMAIN_DLC_EP,scene,COMMON,,,메인 히로인별 후일담,현우 30세 이후 · 세부 연령 대조 필요,30,MAIN_DLC_EP,,,\nSUB_PICK,choice,COMMON,,,서브 피사체 선택,,,,,,\nSI,route,ROUTE,SI,,백시은 루트,,,,,,\nCH,route,ROUTE,CH,,강채아 루트,,,,,,\nCB21,scene,COMMON_BAD,,bad,현우 21세,갈등 상황에서 회피 반복,21,CB21,,,\nCB_REL,scene,COMMON_BAD,,bad,관계 붕괴와 자기혐오,,,CB_REL,,,\nCB_BREAK,scene,COMMON_BAD,,bad,암실에서 카메라 파손,동아리 탈퇴 및 학교 이탈,,CB_BREAK,,,\nCB26,scene,COMMON_BAD,,bad,현우 26세,사진가의 꿈을 접고 고립된 삶,26,CB26,,,\nCB_END,end,COMMON_BAD,,bad,공통 배드 엔딩 종료,,,,,,\nTITLE,end,COMMON,,,타이틀로 복귀,,,,,,\nEXIT,end,COMMON,,,게임 종료,,,,REPLAY_CHOICE 의 종료 선택지 도착점,,\n", 
+  "edges": "from_id,to_id,label,condition,kind,note\nSTART,PROLOGUE,,,next,\nPROLOGUE,FIRST_ROUTE,,,next,\nFIRST_ROUTE,MAIN_COMMON,초회 플레이,,next,\nFIRST_ROUTE,REPLAY_CHOICE,2회차 이후,sub_unlocked,next,\nREPLAY_CHOICE,MAIN_COMMON,메인 히로인 루트,,next,\nREPLAY_CHOICE,SUB_COMMON,서브 히로인 루트,,next,\nMAIN_COMMON,RELATION_CHECK,,,next,\nRELATION_CHECK,COMMON_BAD,회피 선택 누적 · 관계 방치,,next,\nRELATION_CHECK,MAIN_PICK,메인 루트 진행 조건 충족,,next,\nCOMMON_EPILOGUE,CLEAR_CHECK,,,next,\nCLEAR_CHECK,SUB_UNLOCK,최초 클리어,!sub_unlocked,next,\nCLEAR_CHECK,REPLAY_CHOICE,이미 해금됨,sub_unlocked,next,\nSUB_UNLOCK,REPLAY,,,next,\nREPLAY,REPLAY_CHOICE,,,next,\nSUB_COMMON,SUB_PICK,,,next,\nMAIN_PICK,JIWOO,강지우 루트,,next,\nMAIN_DLC_EP,TITLE,타이틀로,,next,\nREPLAY_CHOICE,EXIT,종료,,next,\n", 
+  "scripts": "script_id,line_no,speaker,text,bg,char,cg,bgm,set\nPROLOGUE,1,,봄바람이 불어오는 교정, 벚꽃 잎이 렌즈 앞으로 스쳐 지나간다.,spring_campus.jpg,,,-,theme_prologue.mp3,\nPROLOGUE,2,이현우,\"이 거리에서 너를 담아낼 수 있을까...\",,,,-,,\nPROLOGUE,3,강지우,\"현우야! 거기서 뭐 해? 또 카메라 만지고 있었어?\",,jiwoo_smile.png,-,,\nPROLOGUE,4,,오랜 시간 함께해 온 익숙한 목소리가 렌즈 너머로 다가온다.,,,,-,,\n", 
+  "routes": "route_id,name_kr,kind,accent,char_file,vd_init,note\nJIWOO,강지우,main,#c99a5b,jiwoo_normal.png,,\nARIN,윤아린,main,#e0a9b4,,,\nYUNA,최유나,main,#aab4d0,,,\nSERA,이세라,main,#8a6fc2,,,\nSEOYUN,한서윤,main,#c25b5b,,,\nHARIN,서하린,main,#7f93a8,,,\nSI,백시은,sub,#8fbf9f,,,\nCH,강채아,sub,#e58b6a,,,\n", 
+  "cg": "cg_id,title,route,file,note\n"
+};
 
 const IMG_DIR = 'img/', CHAR_DIR = 'chars/', CG_DIR = 'cg/', BGM_DIR = 'bgm/';
 const DEV_TOOLS = true;
 const SAVE_KEY = 'projectY.engine.v1';
 const CSV_FILES = {nodes:'flow_nodes.csv', edges:'flow_edges.csv', scripts:'flow_scripts.csv', routes:'flow_routes.csv', cg:'flow_cg.csv'};
 
+// story/ 폴더 내부에서 탐색하여 병합할 스토리 CSV 파일 후보 목록
+const STORY_FOLDER_FILES = [
+  'story/project_y_common_route.csv',
+  'story/project_y_sub_route.csv',
+  'story/project_y_jiwoo_route.csv',
+  'story/project_y_arin_route.csv',
+  'story/project_y_yuna_route.csv',
+  'story/project_y_sera_route.csv',
+  'story/project_y_seoyun_route.csv',
+  'story/project_y_harin_route.csv',
+  'story/project_y_si_route.csv',
+  'story/project_y_ch_route.csv'
+];
+
 /* ---------- sound audio manager ---------- */
 let curAudio = null, curBgmFile = '';
 function playBgm(file){
-  if(!file){
+  if(!file || file === '-') {
     if(curAudio){ curAudio.pause(); curAudio = null; curBgmFile = ''; }
     return;
   }
-  if(file === '-') {
-    if(curAudio){ curAudio.pause(); curAudio = null; curBgmFile = ''; }
-    return;
-  }
-  if(curBgmFile === file && curAudio) return; // 같은 음악 재생 중이면 유지
+  if(curBgmFile === file && curAudio) return;
   
   if(curAudio){ curAudio.pause(); curAudio = null; }
   curBgmFile = file;
@@ -297,18 +309,55 @@ function build(d){
   Object.values(S).forEach(a=>a.sort((x,y)=>(+x.line_no)-(+y.line_no)));
   document.getElementById('dl').innerHTML=Object.values(N).map(n=>`<option value="${n.node_id}">${n.title||''}</option>`).join('');
 }
+
 async function loadData(){
   const out={}; const ext=[];
+  
+  // 1. 기본 구조 파일 로드 (flow_nodes, flow_edges, flow_routes, flow_cg)
   for(const k of Object.keys(CSV_FILES)){
     try{
       const r=await fetch(CSV_FILES[k],{cache:'no-store'});
       if(!r.ok) throw 0;
       const t=await r.text();
       if(/^\s*</.test(t)) throw 0;
-      out[k]=parseCSV(t); ext.push(k);
+      out[k]=parseCSV(t); ext.push(CSV_FILES[k]);
     }catch(e){ out[k]=parseCSV(EMBED[k]||''); }
   }
-  srcLabel = ext.length ? 'CSV 외부 파일: '+ext.join(', ')+(ext.length<4?' · 나머지는 내장':'') : 'CSV 내장본';
+
+  // 2. 스토리 대본(scripts) 병합 로드
+  let mergedScripts = [];
+
+  // 2-1. 루트 경로의 flow_scripts.csv 시도
+  try {
+    const r = await fetch('flow_scripts.csv', {cache:'no-store'});
+    if(r.ok) {
+      const t = await r.text();
+      if(!/^\s*</.test(t)) mergedScripts = mergedScripts.concat(parseCSV(t));
+    }
+  } catch(e) {}
+
+  // 2-2. story/ 폴더 내 파일들 자동 병합 시도
+  for(const file of STORY_FOLDER_FILES){
+    try {
+      const r = await fetch(file, {cache:'no-store'});
+      if(!r.ok) continue;
+      const t = await r.text();
+      if(/^\s*</.test(t)) continue;
+      const parsed = parseCSV(t);
+      if(parsed.length > 0) {
+        mergedScripts = mergedScripts.concat(parsed);
+        ext.push(file);
+      }
+    } catch(e) {}
+  }
+
+  // 2-3. 외부 스토리 파일이 전혀 없으면 내장(EMBED) 대본 사용
+  if(mergedScripts.length === 0) {
+    mergedScripts = parseCSV(EMBED['scripts'] || '');
+  }
+
+  out['scripts'] = mergedScripts;
+  srcLabel = ext.length ? '외부 파일 감지 완료 (' + ext.length + '개 로드됨)' : 'CSV 내장본';
   return out;
 }
 
