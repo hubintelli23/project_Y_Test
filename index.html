@@ -241,7 +241,7 @@ const EMBED = {
 };
 
 const IMG_DIR = 'img/', CHAR_DIR = 'chars/', CG_DIR = 'cg/', BGM_DIR = 'bgm/';
-const DEV_TOOLS = ture;  // 테스트할 때만 true, 아닐떄는 false
+const DEV_TOOLS = false;  // 테스트할 때만 true
 const SAVE_KEY = 'projectY.engine.v1';
 const CSV_FILES = {nodes:'flow_nodes.csv', edges:'flow_edges.csv', scripts:'flow_scripts.csv', routes:'flow_routes.csv', cg:'flow_cg.csv'};
 
@@ -269,6 +269,7 @@ const CHAR_IDS = ['kang_jiwoo','yoon_arin','choi_yuna','lee_sera','han_seoyun','
   'baek_sieun','kang_chaea','cha_seongjae','chae_yuhwa','gwon_sujin','kang_ihyeon'];
 const CHAR_EXT = '.webp';
 const CHAR_DEFAULT = Object.fromEntries(CHAR_IDS.map(id=>[id, id+CHAR_EXT]));
+const TITLE_BG = 'bg_title.webp';  // 타이틀 배경 (img/ 폴더의 파일명, 비우면 기본 배경)
 const TITLE_BGM = 'bgm_title.mp3';   // 타이틀 화면 BGM (bgm/ 폴더)
 const ASSET_FILE = 'flow_assets.csv';   // 배경·캐릭터·BGM·CG 지정표 (node_id 기준)
 
@@ -709,6 +710,7 @@ $('dReset')&&($('dReset').onclick=()=>{ if(confirm('저장 데이터를 초기�
 $('dGo')&&($('dGo').onclick=()=>{ const v=$('dJump').value.trim(); const id=N[v]?v:Object.keys(N).find(k=>N[k].title===v); if(id) startAt(id,false); else toast('없는 노드입니다'); });
 $('dVarSave')&&($('dVarSave').onclick=()=>{ try{ run.vars=JSON.parse($('dVars').value||'{}'); toast('변수 적용'); }catch(e){ toast('JSON 형식이 올바르지 않습니다'); } });
 
+if(TITLE_BG){ const u=IMG_DIR+TITLE_BG, im=new Image(); im.onload=()=>{ const t=$('title'); t.style.backgroundImage=`linear-gradient(rgba(18,20,28,.55),rgba(18,20,28,.78)),url("${u}")`; t.style.backgroundSize='cover'; t.style.backgroundPosition='center'; }; im.src=u; }
 addEventListener('pointerdown',()=>{ if(!$('title').hidden) playBgm(TITLE_BGM); },{once:true}); // 브라우저 정책상 첫 터치 후 재생
 (async()=>{ build(await loadData()); refreshTitle(); show('title'); })();
 </script>
