@@ -1,0 +1,5 @@
+﻿script_id,line_no,speaker,text,bg,char,cg,set
+PROLOGUE,1,,(형식 예시) speaker가 비어 있으면 지문으로 표시됩니다.,,,,
+PROLOGUE,2,이현우,(형식 예시) bg·char·cg는 비워 두면 이전 상태를 유지합니다. char·cg에 - 를 넣으면 숨깁니다.,,,,
+PROLOGUE,3,,(형식 예시) set 칸에는 변수 변경식을 넣습니다. 예: vd=2.5; avoid+=1,,,,
+PROLOGUE,4,,(예시 끝) 이 네 줄을 지우고 실제 대본으로 교체하세요.,,,,
