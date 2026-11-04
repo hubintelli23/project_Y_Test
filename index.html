@@ -236,12 +236,12 @@ const EMBED = {
   "nodes": "node_id,type,group,route,ending,title,subtitle,age,script_id,note,skip_to,skip_when\nSTART,start,COMMON,,,시작 · 현우 20세,,20,,,,\nPROLOGUE,scene,COMMON,,,프롤로그,\"첫 셔터, 흩날리는 봄의 경계\",,PROLOGUE,,FIRST_ROUTE,sub_unlocked\nFIRST_ROUTE,choice,COMMON,,,플레이 진행 경로,,,,,,\nMAIN_COMMON,scene,COMMON,,,메인 히로인 공통 루트,챕터 1~5,,MAIN_COMMON,,MAIN_PICK,sub_unlocked\nREPLAY_CHOICE,choice,COMMON,,,회차 진행 경로,,,,,,\nSUB_COMMON,scene,COMMON,,,서브 히로인 공통 파트,챕터 6~8,,SUB_COMMON,,SUB_PICK,SI_cleared || CH_cleared\nRELATION_CHECK,check,COMMON,,,공통 루트 관계 관리 판정,,,,,,\nCOMMON_BAD,ending,COMMON_BAD,,bad,초점이 깨진 렌즈 (Out of Focus),공통 배드 엔딩,,COMMON_BAD,,,\nMAIN_PICK,choice,COMMON,,,메인 피사체 선택,,,,,,\nJIWOO,route,ROUTE,JIWOO,,강지우 루트,,,,,,\nARIN,route,ROUTE,ARIN,,윤아린 루트,,,,,,\nYUNA,route,ROUTE,YUNA,,최유나 루트,,,,,,\nSERA,route,ROUTE,SERA,,이세라 루트,,,,,,\nSEOYUN,route,ROUTE,SEOYUN,,한서윤 루트,,,,,,\nHARIN,route,ROUTE,HARIN,,서하린 루트,,,,,,\nCOMMON_EPILOGUE,scene,COMMON,,,공통 에필로그,현우 29세 · 모든 루트 공통 축,29,COMMON_EPILOGUE,,,\nCLEAR_CHECK,check,COMMON,,,최초 메인 루트 클리어 기록?,,,,,,\nSUB_UNLOCK,unlock,COMMON,,,서브 히로인 루트 해금,,,,,,\nREPLAY,unlock,COMMON,,,2회차 플레이 가능,,,,,,\nMAIN_DLC_EP,scene,COMMON,,,메인 히로인별 후일담,현우 30세 이후 · 세부 연령 대조 필요,30,MAIN_DLC_EP,,,\nSUB_PICK,choice,COMMON,,,서브 피사체 선택,,,,,,\nSI,route,ROUTE,SI,,백시은 루트,,,,,,\nCH,route,ROUTE,CH,,강채아 루트,,,,,,\nCB21,scene,COMMON_BAD,,bad,현우 21세,갈등 상황에서 회피 반복,21,CB21,,,\nCB_REL,scene,COMMON_BAD,,bad,관계 붕괴와 자기혐오,,,CB_REL,,,\nCB_BREAK,scene,COMMON_BAD,,bad,암실에서 카메라 파손,동아리 탈퇴 및 학교 이탈,,CB_BREAK,,,\nCB26,scene,COMMON_BAD,,bad,현우 26세,사진가의 꿈을 접고 고립된 삶,26,CB26,,,\nCB_END,end,COMMON_BAD,,bad,공통 배드 엔딩 종료,,,,,,\nTITLE,end,COMMON,,,타이틀로 복귀,,,,,,\nEXIT,end,COMMON,,,게임 종료,,,,REPLAY_CHOICE 의 종료 선택지 도착점,,\n", 
   "edges": "from_id,to_id,label,condition,kind,note\nSTART,PROLOGUE,,,next,\nPROLOGUE,FIRST_ROUTE,,,next,\nFIRST_ROUTE,MAIN_COMMON,초회 플레이,,next,\nFIRST_ROUTE,REPLAY_CHOICE,2회차 이후,sub_unlocked,next,\nREPLAY_CHOICE,MAIN_COMMON,메인 히로인 루트,,next,\nREPLAY_CHOICE,SUB_COMMON,서브 히로인 루트,,next,\nMAIN_COMMON,RELATION_CHECK,,,next,\nRELATION_CHECK,COMMON_BAD,회피 선택 누적 · 관계 방치,,next,\nRELATION_CHECK,MAIN_PICK,메인 루트 진행 조건 충족,,next,\nCOMMON_EPILOGUE,CLEAR_CHECK,,,next,\nCLEAR_CHECK,SUB_UNLOCK,최초 클리어,!sub_unlocked,next,\nCLEAR_CHECK,REPLAY_CHOICE,이미 해금됨,sub_unlocked,next,\nSUB_UNLOCK,REPLAY,,,next,\nREPLAY,REPLAY_CHOICE,,,next,\nSUB_COMMON,SUB_PICK,,,next,\nMAIN_PICK,JIWOO,강지우 루트,,next,\nMAIN_DLC_EP,TITLE,타이틀로,,next,\nREPLAY_CHOICE,EXIT,종료,,next,\n", 
   "scripts": "script_id,line_no,speaker,text,bg,char,cg,bgm,set\nPROLOGUE,1,,봄바람이 불어오는 교정, 벚꽃 잎이 렌즈 앞으로 스쳐 지나간다.,spring_campus.jpg,,,-,theme_prologue.mp3,\nPROLOGUE,2,이현우,\"이 거리에서 너를 담아낼 수 있을까...\",,,,-,,\nPROLOGUE,3,강지우,\"현우야! 거기서 뭐 해? 또 카메라 만지고 있었어?\",,jiwoo_smile.png,-,,\nPROLOGUE,4,,오랜 시간 함께해 온 익숙한 목소리가 렌즈 너머로 다가온다.,,,,-,,\n", 
-  "routes": "route_id,name_kr,kind,accent,char_file,vd_init,note\nJIWOO,강지우,main,#c99a5b,jiwoo_normal.png,,\nARIN,윤아린,main,#e0a9b4,,,\nYUNA,최유나,main,#aab4d0,,,\nSERA,이세라,main,#8a6fc2,,,\nSEOYUN,한서윤,main,#c25b5b,,,\nHARIN,서하린,main,#7f93a8,,,\nSI,백시은,sub,#8fbf9f,,,\nCH,강채아,sub,#e58b6a,,,\n", 
+  "routes": "route_id,name_kr,kind,accent,char_file,vd_init,note\nJIWOO,강지우,main,#c99a5b,kang_jiwoo.webp,,\nARIN,윤아린,main,#e0a9b4,,,\nYUNA,최유나,main,#aab4d0,,,\nSERA,이세라,main,#8a6fc2,,,\nSEOYUN,한서윤,main,#c25b5b,,,\nHARIN,서하린,main,#7f93a8,,,\nSI,백시은,sub,#8fbf9f,,,\nCH,강채아,sub,#e58b6a,,,\n", 
   "cg": "cg_id,title,route,file,note\n"
 };
 
 const IMG_DIR = 'img/', CHAR_DIR = 'chars/', CG_DIR = 'cg/', BGM_DIR = 'bgm/';
-const DEV_TOOLS = true;
+const DEV_TOOLS = false;  // 테스트할 때만 true
 const SAVE_KEY = 'projectY.engine.v1';
 const CSV_FILES = {nodes:'flow_nodes.csv', edges:'flow_edges.csv', scripts:'flow_scripts.csv', routes:'flow_routes.csv', cg:'flow_cg.csv'};
 
@@ -258,6 +258,43 @@ const STORY_FOLDER_FILES = [
   'story/project_y_si_route.csv',
   'story/project_y_ch_route.csv'
 ];
+
+
+/* ---------- 스토리 CSV 연동 설정 ---------- */
+// story/*.csv 의 chapter_id 를 flow_nodes.csv 의 script_id 로 연결하는 표
+// (여기 없는 chapter_id 는 대문자로 바꾼 값이 script_id 가 됩니다. 예: ch9 -> CH9)
+const STORY_MAP = {
+  prologue:'PROLOGUE',
+  ch1:'MAIN_COMMON', ch2:'MAIN_COMMON', ch3:'MAIN_COMMON', ch4:'MAIN_COMMON', ch5:'MAIN_COMMON',
+  subprologue:'SUB_COMMON', ch6:'SUB_COMMON', ch7:'SUB_COMMON', ch8:'SUB_COMMON'
+};
+// 서브 공통 마지막의 A/B 분기 본문(branch 열)을 보낼 script_id
+const BRANCH_MAP = { A:'SI_BRANCH', B:'CH_BRANCH' };
+// 말하는 캐릭터(speaker_id) -> chars/<speaker_id>.webp 를 자동으로 표시합니다.
+// 이미지가 있는 캐릭터 ID 목록 (새 캐릭터 이미지를 추가하면 여기에 ID를 더하세요)
+const CHAR_IDS = ['kang_jiwoo','yoon_arin','choi_yuna','lee_sera','han_seoyun','seo_harin',
+  'baek_sieun','kang_chaea','cha_seongjae','chae_yuhwa','gwon_sujin','kang_ihyeon'];
+const CHAR_EXT = '.webp';
+const CHAR_DEFAULT = Object.fromEntries(CHAR_IDS.map(id=>[id, id+CHAR_EXT]));
+const TITLE_BGM = 'bgm_title.mp3';   // 타이틀 화면 BGM (bgm/ 폴더)
+const ASSET_FILE = 'flow_assets.csv';   // 배경·캐릭터·BGM·CG 지정표 (node_id 기준)
+
+function storyToScripts(rows, counter, cues){
+  const out=[];
+  rows.forEach(r=>{
+    if(!r.node_id || r.type==='choice') return;          // choice 행은 순서도(SUB_PICK)가 담당
+    const sid = (r.branch && BRANCH_MAP[r.branch]) || STORY_MAP[r.chapter_id] || String(r.chapter_id||'').toUpperCase();
+    counter[sid]=(counter[sid]||0)+1;
+    const cue = cues[r.node_id] || {};
+    out.push({
+      script_id:sid, line_no:counter[sid], node_id:r.node_id, _type:r.type,
+      speaker:r.speaker||'', text:r.text||'',
+      bg:cue.bg||'', char:cue.char || (r.type==='dialogue' && CHAR_DEFAULT[r.speaker_id]) || '',
+      cg:cue.cg||'', bgm:cue.bgm||'', set:cue.set||''
+    });
+  });
+  return out;
+}
 
 /* ---------- sound audio manager ---------- */
 let curAudio = null, curBgmFile = '';
@@ -324,38 +361,28 @@ async function loadData(){
     }catch(e){ out[k]=parseCSV(EMBED[k]||''); }
   }
 
-  // 2. 스토리 대본(scripts) 병합 로드
+  // 2. 대본 로드: flow_scripts.csv(수동 대본) + story/*.csv(실제 스토리) 병합
   let mergedScripts = [];
-
-  // 2-1. 루트 경로의 flow_scripts.csv 시도
   try {
     const r = await fetch('flow_scripts.csv', {cache:'no-store'});
-    if(r.ok) {
-      const t = await r.text();
-      if(!/^\s*</.test(t)) mergedScripts = mergedScripts.concat(parseCSV(t));
-    }
+    if(r.ok){ const t = await r.text(); if(!/^\s*</.test(t)){ mergedScripts = mergedScripts.concat(parseCSV(t)); ext.push('flow_scripts.csv'); } }
   } catch(e) {}
-
-  // 2-2. story/ 폴더 내 파일들 자동 병합 시도
+  let cues = {};
+  try {
+    const r = await fetch(ASSET_FILE, {cache:'no-store'});
+    if(r.ok){ const t = await r.text(); if(!/^\s*</.test(t)){ parseCSV(t).forEach(c=>{ if(c.node_id) cues[c.node_id]=c; }); ext.push(ASSET_FILE); } }
+  } catch(e) {}
+  const counter = {};
   for(const file of STORY_FOLDER_FILES){
     try {
       const r = await fetch(file, {cache:'no-store'});
       if(!r.ok) continue;
-      const t = await r.text();
-      if(/^\s*</.test(t)) continue;
-      const parsed = parseCSV(t);
-      if(parsed.length > 0) {
-        mergedScripts = mergedScripts.concat(parsed);
-        ext.push(file);
-      }
+      const t = await r.text(); if(/^\s*</.test(t)) continue;
+      const rows = parseCSV(t);
+      if(rows.length){ mergedScripts = mergedScripts.concat(storyToScripts(rows, counter, cues)); ext.push(file); }
     } catch(e) {}
   }
-
-  // 2-3. 외부 스토리 파일이 전혀 없으면 내장(EMBED) 대본 사용
-  if(mergedScripts.length === 0) {
-    mergedScripts = parseCSV(EMBED['scripts'] || '');
-  }
-
+  if(mergedScripts.length === 0) mergedScripts = parseCSV(EMBED['scripts'] || '');
   out['scripts'] = mergedScripts;
   srcLabel = ext.length ? '외부 파일 감지 완료 (' + ext.length + '개 로드됨)' : 'CSV 내장본';
   return out;
@@ -434,6 +461,7 @@ function startAt(id, fresh){
   show('game'); enter(id);
 }
 function enter(id){
+  if(id==='REPLAY_CHOICE' && !save.flags.sub_unlocked && N['MAIN_COMMON']) id='MAIN_COMMON';
   const n=N[id];
   if(!n){ toast('노드를 찾을 수 없습니다: '+id); return toTitle(); }
   stopTyping(); $('menu').hidden=true; $('card').hidden=true; $('dialog').hidden=true; $('cg').hidden=true;
@@ -472,7 +500,7 @@ function startLines(){
 function playLine(){
   const l=run.lines[run.i]; if(!l) return advance();
   applySet(l.set); renderVD(); setAssets(l); if(l.cg) showCg(l.cg);
-  const spk=$('spk'); spk.hidden=!l.speaker; spk.textContent=l.speaker||'';
+  const spk=$('spk'); const lab=l._type==='system'?'시스템':(l._type==='message'&&l.speaker?l.speaker+' · 메시지':l.speaker); spk.hidden=!lab; spk.textContent=lab||'';
   run.log.push({s:l.speaker,t:l.text});
   typeText(l.text||'');
 }
@@ -500,6 +528,8 @@ function tap(){
   }
 }
 function advance(fromChoice){
+  // 첫 플레이(서브 미해금)에는 경로 선택 없이 메인 공통 루트로 고정
+  if(!save.flags.sub_unlocked && run.node==='FIRST_ROUTE' && N['MAIN_COMMON']) return enter('MAIN_COMMON');
   const outs=(OUT[run.node]||[]).filter(e=>e.kind==='next'||e.kind==='unlock_choice');
   const ok=outs.filter(e=>evalCond(e.condition));
   const n=N[run.node];
@@ -516,7 +546,7 @@ function showMenu(n,edges){
   m.querySelectorAll('button').forEach(b=>b.onclick=ev=>{ ev.stopPropagation(); m.hidden=true; enter(edges[+b.dataset.i].to_id); });
 }
 function toTitle(){
-  stopTyping(); setSkip(false); playBgm(null); run.mode='idle'; show('title'); refreshTitle();
+  stopTyping(); setSkip(false); playBgm(TITLE_BGM); run.mode='idle'; show('title'); refreshTitle();
 }
 function setSkip(on){
   run.skip=on; $('bSkip').classList.toggle('on',on); clearInterval(run.skipTimer);
@@ -668,6 +698,7 @@ $('dReset')&&($('dReset').onclick=()=>{ if(confirm('저장 데이터를 초기�
 $('dGo')&&($('dGo').onclick=()=>{ const v=$('dJump').value.trim(); const id=N[v]?v:Object.keys(N).find(k=>N[k].title===v); if(id) startAt(id,false); else toast('없는 노드입니다'); });
 $('dVarSave')&&($('dVarSave').onclick=()=>{ try{ run.vars=JSON.parse($('dVars').value||'{}'); toast('변수 적용'); }catch(e){ toast('JSON 형식이 올바르지 않습니다'); } });
 
+addEventListener('pointerdown',()=>{ if(!$('title').hidden) playBgm(TITLE_BGM); },{once:true}); // 브라우저 정책상 첫 터치 후 재생
 (async()=>{ build(await loadData()); refreshTitle(); show('title'); })();
 </script>
 </body>
