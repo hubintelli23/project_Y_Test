@@ -276,9 +276,6 @@ const TITLE_BG = 'bg_title.webp';  // 타이틀 배경 (img/ 폴더의 파일명
 const TITLE_BGM = 'bgm_title.mp3';   // 타이틀 화면 BGM (bgm/ 폴더)
 const ASSET_FILE = 'flow_assets.csv';   // 배경·캐릭터·BGM·CG 지정표 (node_id 기준)
 
-const ASSET_FILE = 'flow_assets.csv';   // 배경·캐릭터·BGM·CG 지정표 (node_id 기준)
-
-// 스토리 CSV 행 데이터를 게임 내 대본 구조로 변환하는 함수
 function storyToScripts(rows, counter, cues){
   const out=[];
   rows.forEach(r=>{
@@ -286,24 +283,11 @@ function storyToScripts(rows, counter, cues){
     const sid = (String(r.chapter_id||'')+'_ep'+(r.episode_no||'1')+(r.branch?'_'+r.branch:'')).toUpperCase();
     counter[sid]=(counter[sid]||0)+1;
     const cue = cues[r.node_id] || {};
-    
-    // 스토리 CSV 행 자체에 적힌 bg, bgm 또는 cues 정보를 우선 적용하고 프롤로그 기본값을 보완합니다.
-    const bg = cue.bg || r.bg || r.background || (r.node_id && r.node_id.startsWith('PROLOGUE') ? 'spring_campus.jpg' : '');
-    const bgm = cue.bgm || r.bgm || r.music || (r.node_id && r.node_id.startsWith('PROLOGUE') ? 'theme_prologue.mp3' : '');
-    const char = cue.char || r.char || (r.type==='dialogue' ? CHAR_DEFAULT[r.speaker_id || r.speaker] : '') || '';
-
     out.push({
-      script_id: sid, 
-      line_no: counter[sid], 
-      node_id: r.node_id, 
-      _type: r.type,
-      speaker: r.speaker || '', 
-      text: r.text || '',
-      bg: bg,
-      char: char,
-      cg: cue.cg || r.cg || '',
-      bgm: bgm,
-      set: cue.set || r.set || ''
+      script_id:sid, line_no:counter[sid], node_id:r.node_id, _type:r.type,
+      speaker:r.speaker||'', text:r.text||'',
+      bg:cue.bg||'', char:cue.char || (r.type==='dialogue' && CHAR_DEFAULT[r.speaker_id]) || '',
+      cg:cue.cg||'', bgm:cue.bgm||'', set:cue.set||''
     });
   });
   return out;
