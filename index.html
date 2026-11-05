@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#12141c">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>우리들의 시간 · Project Y</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,8 +20,8 @@
   --happy:#d9a566; --sad:#6f8fb8; --bad:#b4565c; --true:#9a82c9;
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html,body{height:100%;background:var(--night);color:var(--silver);font-family:var(--sans);overflow:hidden}
-button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+html,body{height:100%;height:100dvh;background:var(--night);color:var(--silver);font-family:var(--sans);overflow:hidden}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;touch-action:manipulation}
 button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--silver);outline-offset:2px}
 [hidden]{display:none!important}
 #app{position:fixed;inset:0}
@@ -56,10 +60,10 @@ button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-vis
 #frame i:nth-child(2){top:0;right:0;border-left:0;border-bottom:0}
 #frame i:nth-child(3){bottom:0;left:0;border-right:0;border-top:0}
 #frame i:nth-child(4){bottom:0;right:0;border-left:0;border-top:0}
-#hud{position:absolute;top:calc(clamp(14px,3vh,28px) + 8px);left:calc(clamp(14px,3vh,28px) + 14px);font-size:12px;color:var(--silver);opacity:.85;line-height:1.5;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+#hud{z-index:4;position:absolute;top:calc(clamp(14px,3vh,28px) + 8px);left:calc(clamp(14px,3vh,28px) + 14px);font-size:12px;color:var(--silver);opacity:.85;line-height:1.5;text-shadow:0 1px 6px rgba(0,0,0,.6)}
 #vd{position:absolute;right:calc(clamp(14px,3vh,28px) + 14px);bottom:calc(clamp(14px,3vh,28px) + 8px);font-family:var(--serif);font-size:20px;text-shadow:0 1px 8px rgba(0,0,0,.7)}
 #vd small{display:block;font-family:var(--sans);font-size:10px;color:var(--fog);text-align:right}
-#bar{flex-wrap:wrap;justify-content:flex-end;max-width:72vw;position:absolute;top:calc(clamp(14px,3vh,28px) + 4px);right:calc(clamp(14px,3vh,28px) + 8px);display:flex;gap:4px}
+#bar{z-index:4;flex-wrap:wrap;justify-content:flex-end;max-width:72vw;position:absolute;top:calc(clamp(14px,3vh,28px) + 4px);right:calc(clamp(14px,3vh,28px) + 8px);display:flex;gap:4px}
 #bar button{padding:6px 10px;font-size:12px;background:rgba(18,20,28,.55);border:1px solid rgba(223,227,234,.25);border-radius:2px}
 #bar button.on{background:var(--silver);color:var(--night)}
 
@@ -135,10 +139,24 @@ button.dev{border:1px dashed #c98a4a!important;color:#e0b27a!important}
 #cgview{position:absolute;inset:0;z-index:6;background:rgba(6,7,10,.97) center/contain no-repeat;display:flex;align-items:center;justify-content:center;color:var(--fog);font-family:var(--serif);cursor:pointer}
 .jl button{display:inline-block;margin:0 6px 6px 0;padding:7px 10px;background:var(--ink);border:1px solid rgba(223,227,234,.18);font-size:12px;text-align:left}
 .jl button small{color:var(--fog);margin-left:6px}
+#bar button.on{background:var(--silver);color:var(--night)}
+#bar #bAuto.on{background:var(--happy);border-color:var(--happy)}
+#devbadge{position:fixed;left:8px;bottom:calc(8px + env(safe-area-inset-bottom));z-index:30;padding:4px 10px;font-size:11px;background:rgba(201,138,74,.92);color:#1b1208;border-radius:2px}
+.set .val{min-width:44px;text-align:right;color:var(--fog);font-size:13px}
+.set .ctl{display:flex;align-items:center;gap:10px}
+.hint{font-size:12px;color:var(--fog);line-height:1.7;margin-top:10px}
 @media (max-width:640px){
   .tmenu{grid-template-columns:1fr}
+  #bar{max-width:calc(100vw - 2*clamp(14px,3vh,28px) - 12px);gap:3px}
+  #bar button{padding:7px 9px;font-size:11px}
+  #hud{font-size:11px;max-width:40vw}
+  #dialog{left:10px;right:10px;padding:20px 14px 16px;min-height:132px}
+  #txt{font-size:15.5px;line-height:1.75}
+  .set{flex-wrap:wrap}.set input[type=range]{width:100%}.set .ctl{width:100%}
+  #charwrap{inset:0 0 24% 0}#chimg{max-width:96%}
   .row,.gh{grid-template-columns:1fr 1fr}.gh{display:none}.row .nm{grid-column:1/-1;margin-top:10px}
 }
+@media (max-height:480px) and (orientation:landscape){#dialog{min-height:84px;padding:16px 16px 10px}#txt{font-size:14px;line-height:1.6}#charwrap{inset:0 0 30% 0}#chimg{max-height:100%}#bar button{padding:4px 7px}}
 @media (prefers-reduced-motion:reduce){#bg{transition:none}}
 </style>
 </head>
@@ -173,7 +191,7 @@ button.dev{border:1px dashed #c98a4a!important;color:#e0b27a!important}
   <div id="hud"></div>
   <div id="vd" hidden><small>적정 거리</small><span id="vdv"></span></div>
   <div id="bar">
-    <button id="bCSkip" hidden>공통 루트 건너뛰기</button><button id="bGSave">저장</button><button id="bSkip">스킵</button><button id="bLog">로그</button><button id="bJumpG" class="dev">챕터 이동(테스트용)</button><button id="bExit">타이틀</button>
+    <button id="bCSkip" hidden>공통 루트 건너뛰기</button><button id="bGSave">저장</button><button id="bAuto">오토</button><button id="bSkip">스킵</button><button id="bLog">로그</button><button id="bGSet">설정</button><button id="bJumpG" class="dev">챕터 이동(테스트용)</button><button id="bExit">타이틀</button>
   </div>
   <div id="dialog" hidden><div id="spk" hidden></div><p id="txt"></p><span id="nx">▾</span></div>
   <div id="card" hidden></div>
@@ -186,7 +204,7 @@ button.dev{border:1px dashed #c98a4a!important;color:#e0b27a!important}
 
 <section id="dlc" class="screen page" hidden><div class="in">
   <header><h3>후일담 DLC</h3><button data-back>돌아가기</button></header>
-  <p style="color:var(--fog);font-size:13px;margin-bottom:14px">해당 히로인의 히든·진 엔딩을 보면 열립니다.</p>
+  <p style="color:var(--fog);font-size:13px;margin-bottom:14px">해당 히로인의 히든·진 엔딩을 <b>끝까지 플레이</b>하면 열립니다. (엔딩 장면에 들어가기만 한 것으로는 열리지 않습니다)</p>
   <div class="list" id="dlcBody"></div></div></section>
 
 <section id="saves" class="screen page" hidden><div class="in">
@@ -194,7 +212,7 @@ button.dev{border:1px dashed #c98a4a!important;color:#e0b27a!important}
   <div class="tabs"><button id="tSave">저장</button><button id="tLoad">로드</button></div>
   <div class="slots" id="slots"></div>
   <div class="btns" style="margin-top:18px"><button class="btn" id="fExport">파일로 저장</button><button class="btn" id="fImportBtn">파일에서 불러오기</button><input type="file" id="fImport" accept=".json" hidden></div>
-  <p style="color:var(--fog);font-size:12px;margin-top:10px;line-height:1.7">슬롯은 이 브라우저에 저장됩니다. 파일로 저장하면 슬롯과 해금 기록(엔딩 · CG · DLC)이 한 파일로 내려받아져, 기기를 옮길 때 쓸 수 있습니다. 슬롯에는 해당 장면의 시작 지점이 저장됩니다.</p>
+  <p style="color:var(--fog);font-size:12px;margin-top:10px;line-height:1.7">슬롯은 이 브라우저에 저장됩니다. 파일로 저장하면 슬롯과 해금 기록(엔딩 · CG · DLC)이 한 파일로 내려받아져, 기기를 옮길 때 쓸 수 있습니다. 슬롯에는 읽던 문장 위치까지 저장되어, 불러오면 그 문장에서 이어집니다.</p>
 </div></section>
 
 <section id="cgs" class="screen page" hidden><div class="in">
@@ -210,6 +228,9 @@ button.dev{border:1px dashed #c98a4a!important;color:#e0b27a!important}
   <header><h3>설정 · 검사</h3><button data-back>돌아가기</button></header>
   <div class="set"><div>글자 속도<small>낮을수록 빠릅니다</small></div><input type="range" id="sSpeed" min="0" max="60" step="5"></div>
   <div class="set"><div>BGM 음량<small>배경음악 크기를 조절합니다</small></div><input type="range" id="sVol" min="0" max="100" step="5"></div>
+  <div class="set"><div>오토 대기 시간<small>글이 모두 표시된 뒤 다음 문장으로 넘어가기까지의 시간 (오토 버튼 또는 A 키)</small></div><div class="ctl"><input type="range" id="sAuto" min="5" max="150" step="5"><span class="val" id="sAutoV"></span></div></div>
+  <div class="set"><div>읽지 않은 문장도 스킵<small>꺼두면 이미 읽은 문장만 스킵하고, 새 문장에서 멈춥니다</small></div><button class="btn" id="sSkipUnread"></button></div>
+  <div class="set"><div>테스트 모드<small>단축키 ` (백틱) 또는 F2 로 언제든 켜고 끕니다 · 휴대폰: 타이틀 글자를 빠르게 3번 터치</small></div><button class="btn" id="sDev"></button></div>
   <div class="set"><div>공통 루트 자동 건너뛰기<small>최초 클리어 후 공통 루트를 자동으로 넘기고 선택지 화면으로 이동합니다</small></div><button class="btn" id="sSkip"></button></div>
   <div class="set"><div>CSV 직접 불러오기<small>flow_nodes / flow_edges / flow_scripts / flow_routes / flow_cg 중 파일 선택</small></div><button class="btn" id="sCsv">파일 선택</button><input type="file" id="fCsv" accept=".csv" multiple hidden></div>
   <div class="set"><div>순서도 검사<small>끊긴 연결, 도달 불가 노드, 막다른 노드를 찾습니다</small></div><button class="btn" id="sCheck">검사 실행</button></div>
@@ -226,6 +247,7 @@ button.dev{border:1px dashed #c98a4a!important;color:#e0b27a!important}
   </div>
 </div></section>
 
+<button id="devbadge" hidden>테스트 모드 · 끄기</button>
 <div id="toast" hidden></div>
 </div>
 
@@ -234,11 +256,12 @@ button.dev{border:1px dashed #c98a4a!important;color:#e0b27a!important}
    내장 데이터 (외부 CSV가 없을 경우 fallback으로 사용)
    ============================================================ */
 const EMBED = {
-  "nodes": "node_id,type,group,route,ending,title,subtitle,age,script_id,note,skip_to,skip_when\nSTART,start,COMMON,,,시작 · 현우 20세,,20,,,,\nPROLOGUE_EP1,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",벚꽃이 흩날리는 입학 첫날,,PROLOGUE_EP1,,FIRST_ROUTE,sub_unlocked\nPROLOGUE_EP2,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",구형 DSLR과 캔커피의 온기,,PROLOGUE_EP2,,,\nPROLOGUE_EP3,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",뷰파인더에 걸린 소꿉친구,,PROLOGUE_EP3,,,\nPROLOGUE_EP4,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",\"아포카, 낯선 만남의 시작\",,PROLOGUE_EP4,,,\nPROLOGUE_EP5,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",차가운 눈빛 너머의 재회,,PROLOGUE_EP5,,,\nPROLOGUE_EP6,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",\"여섯 개의 시선, 멈춰 있던 시간이 흐르다\",,PROLOGUE_EP6,,,\nFIRST_ROUTE,choice,COMMON,,,플레이 진행 경로,,,,첫 플레이는 조건으로 메인 공통 루트 고정,,\nREPLAY_CHOICE,choice,COMMON,,,회차 진행 경로,,,,,,\nCH1_EP1,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,손끝에 남은 여름의 잔상,,CH1_EP1,,MAIN_PICK,sub_unlocked\nCH1_EP2,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,흰색 아대에 감춰진 비밀,,CH1_EP2,,,\nCH1_EP3,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,강지우의 낯선 경계심,,CH1_EP3,,,\nCH1_EP4,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,다시 만난 두 개의 시선,,CH1_EP4,,,\nCH1_EP5,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,조용한 동아리실의 균열,,CH1_EP5,,,\nCH1_EP6,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,아포카에 들어가기로 한 날,,CH1_EP6,,,\nCH2_EP1,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,동아리 가입과 뜻밖의 인연,,CH2_EP1,,,\nCH2_EP2,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,나란히 묶인 두 사람의 이름,,CH2_EP2,,,\nCH2_EP3,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,\"벚꽃 아래, 임시 모델\",,CH2_EP3,,,\nCH2_EP4,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,렌즈에 비친 감춰진 상처,,CH2_EP4,,,\nCH2_EP5,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,도망쳤던 여름의 진실,,CH2_EP5,,,\nCH2_EP6,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,이번에는 네 모습을 담을게,,CH2_EP6,,,\nCH3_EP1,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,셔터가 멈춘 뒤의 여운,,CH3_EP1,,,\nCH3_EP2,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,2.0m 밖에 선 윤아린,,CH3_EP2,,,\nCH3_EP3,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,진짜 표정이 드러나는 순간,,CH3_EP3,,,\nCH3_EP4,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,\"뷰파인더, 거리감을 가르치다\",,CH3_EP4,,,\nCH3_EP5,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,오랜 친구의 기다림,,CH3_EP5,,,\nCH3_EP6,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,마시 마주한 우리의 거리,,CH3_EP6,,,\nCH4_EP1,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,스포트라이트를 향한 직진,,CH4_EP1,,,\nCH4_EP2,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,전담 촬영 기사로 낙점받다,,CH4_EP2,,,\nCH4_EP3,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,3.0m 너머의 안식처,,CH4_EP3,,,\nCH4_EP4,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,0.2m의 초근접 침입자,,CH4_EP4,,,\nCH4_EP5,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,투닥거림이 채우는 카페의 온기,,CH4_EP5,,,\nCH4_EP6,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,\"아포카, 봄의 첫 정기 출사\",,CH4_EP6,,,\nCH5_EP1,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",벚꽃 출사지에 모인 여섯 사람,,CH5_EP1,,,\nCH5_EP2,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",\"0.5m, 멈추지 않는 강지우\",,CH5_EP2,,,\nCH5_EP3,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",스케줄을 독점하려는 최유나,,CH5_EP3,,,\nCH5_EP4,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",2.5m의 그늘에서 다가오는 윤아린,,CH5_EP4,,,\nCH5_EP5,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",서로 다른 6개의 시선,,CH5_EP5,,,\nCH5_EP6,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",메인 피사체 선택의 순간,,CH5_EP6,,,\nRELATION_CHECK,check,COMMON,,,공통 루트 관계 관리 판정,,,,avoid 변수는 flow_assets.csv 의 set 칸에서 올리세요 (예: avoid+=1). 기준값 3은 임시,,\nCOMMON_BAD,ending,COMMON_BAD,,bad,초점이 깨진 렌즈 (Out of Focus),공통 배드 엔딩,,COMMON_BAD,,,\nCB21,scene,COMMON_BAD,,bad,현우 21세,갈등 상황에서 회피 반복,21,CB21,,,\nCB_REL,scene,COMMON_BAD,,bad,관계 붕괴와 자기혐오,,,CB_REL,,,\nCB_BREAK,scene,COMMON_BAD,,bad,암실에서 카메라 파손,동아리 탈퇴 및 학교 이탈,,CB_BREAK,,,\nCB26,scene,COMMON_BAD,,bad,현우 26세,사진가의 꿈을 접고 고립된 삶,26,CB26,,,\nCB_END,end,COMMON_BAD,,bad,공통 배드 엔딩 종료,,,,,,\nMAIN_PICK,choice,COMMON,,,메인 피사체 선택,,,,,,\nJIWOO,route,ROUTE,JIWOO,,강지우 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nJIWOO_H,ending,ENDING,JIWOO,happy,해피 엔딩,,,,TODO 제목·대본,,\nJIWOO_S,ending,ENDING,JIWOO,sad,새드 엔딩,,,,TODO 제목·대본,,\nJIWOO_B,ending,ENDING,JIWOO,bad,배드 엔딩,,,,TODO 제목·대본,,\nJIWOO_T,ending,ENDING,JIWOO,true,히든·진 엔딩,,,,TODO 제목·대본,,\nARIN,route,ROUTE,ARIN,,윤아린 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nARIN_H,ending,ENDING,ARIN,happy,해피 엔딩,,,,TODO 제목·대본,,\nARIN_S,ending,ENDING,ARIN,sad,새드 엔딩,,,,TODO 제목·대본,,\nARIN_B,ending,ENDING,ARIN,bad,배드 엔딩,,,,TODO 제목·대본,,\nARIN_T,ending,ENDING,ARIN,true,히든·진 엔딩,,,,TODO 제목·대본,,\nYUNA,route,ROUTE,YUNA,,최유나 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nYUNA_H,ending,ENDING,YUNA,happy,해피 엔딩,,,,TODO 제목·대본,,\nYUNA_S,ending,ENDING,YUNA,sad,새드 엔딩,,,,TODO 제목·대본,,\nYUNA_B,ending,ENDING,YUNA,bad,배드 엔딩,,,,TODO 제목·대본,,\nYUNA_T,ending,ENDING,YUNA,true,히든·진 엔딩,,,,TODO 제목·대본,,\nSERA,route,ROUTE,SERA,,이세라 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nSERA_H,ending,ENDING,SERA,happy,해피 엔딩,,,,TODO 제목·대본,,\nSERA_S,ending,ENDING,SERA,sad,새드 엔딩,,,,TODO 제목·대본,,\nSERA_B,ending,ENDING,SERA,bad,배드 엔딩,,,,TODO 제목·대본,,\nSERA_T,ending,ENDING,SERA,true,히든·진 엔딩,,,,TODO 제목·대본,,\nSEOYUN,route,ROUTE,SEOYUN,,한서윤 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nSEOYUN_H,ending,ENDING,SEOYUN,happy,해피 엔딩,,,,TODO 제목·대본,,\nSEOYUN_S,ending,ENDING,SEOYUN,sad,새드 엔딩,,,,TODO 제목·대본,,\nSEOYUN_B,ending,ENDING,SEOYUN,bad,배드 엔딩,,,,TODO 제목·대본,,\nSEOYUN_T,ending,ENDING,SEOYUN,true,히든·진 엔딩,,,,TODO 제목·대본,,\nHARIN,route,ROUTE,HARIN,,서하린 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nHARIN_H,ending,ENDING,HARIN,happy,해피 엔딩,,,,TODO 제목·대본,,\nHARIN_S,ending,ENDING,HARIN,sad,새드 엔딩,,,,TODO 제목·대본,,\nHARIN_B,ending,ENDING,HARIN,bad,배드 엔딩,,,,TODO 제목·대본,,\nHARIN_T,ending,ENDING,HARIN,true,히든·진 엔딩,,,,TODO 제목·대본,,\nCOMMON_EPILOGUE,scene,COMMON,,,공통 에필로그,현우 29세 · 모든 루트 공통 축,29,COMMON_EPILOGUE,,,\nCLEAR_CHECK,check,COMMON,,,최초 메인 루트 클리어 기록?,,,,,,\nSUB_UNLOCK,unlock,COMMON,,,서브 히로인 루트 해금,,,,,,\nREPLAY,unlock,COMMON,,,2회차 플레이 가능,,,,,,\nMAIN_DLC_EP,scene,COMMON,,,메인 히로인별 후일담,현우 30세 이후,30,MAIN_DLC_EP,,,\nSUBPROLOGUE_EP1,scene,COMMON,,,\"서브 프롤로그 · 두 개의 인연, 다시 열린 문\",\"뷰파인더, 그곳에 남은 인연\",,SUBPROLOGUE_EP1,,SUB_PICK,SI_cleared || CH_cleared\nSUBPROLOGUE_EP2,scene,COMMON,,,\"서브 프롤로그 · 두 개의 인연, 다시 열린 문\",\"익숙한 목소리, 변하지 않은 거리\",,SUBPROLOGUE_EP2,,,\nSUBPROLOGUE_EP3,scene,COMMON,,,\"서브 프롤로그 · 두 개의 인연, 다시 열린 문\",두 개의 인연이 향하는 곳,,SUBPROLOGUE_EP3,,,\nCH6_EP1,scene,COMMON,,,\"챕터 6 · 비무장지대, 뷰파인더\",\"비무장지대, 뷰파인더\",,CH6_EP1,,,\nCH6_EP2,scene,COMMON,,,\"챕터 6 · 비무장지대, 뷰파인더\",프레임 밖에서 찾아온 장난꾸러기,,CH6_EP2,,,\nCH6_EP3,scene,COMMON,,,\"챕터 6 · 비무장지대, 뷰파인더\",\"안식처의 맹세, 3.0m 너머의 손길\",,CH6_EP3,,,\nCH7_EP1,scene,COMMON,,,챕터 7 · 0.2m의 기습과 장난스러운 온도,프레임을 깨뜨리는 소악마,,CH7_EP1,,,\nCH7_EP2,scene,COMMON,,,챕터 7 · 0.2m의 기습과 장난스러운 온도,장난꾸러기의 예상 밖의 진심,,CH7_EP2,,,\nCH7_EP3,scene,COMMON,,,챕터 7 · 0.2m의 기습과 장난스러운 온도,\"서로 다른 시선, 하나의 프레임\",,CH7_EP3,,,\nCH8_EP1,scene,COMMON,,,\"챕터 8 · 두 개의 그늘, 그리고 스위치가 되는 밤\",\"스승의 렌즈, Proper Distance\",,CH8_EP1,,,\nCH8_EP2,scene,COMMON,,,\"챕터 8 · 두 개의 그늘, 그리고 스위치가 되는 밤\",뷰파인더 마감 시간의 케미,,CH8_EP2,,,\nCH8_EP3,scene,COMMON,,,\"챕터 8 · 두 개의 그늘, 그리고 스위치가 되는 밤\",스위치가 되는 밤,,CH8_EP3,,,\nSUB_PICK,choice,COMMON,,,서브 피사체 선택,,,,,,\nSI_START,scene,ROUTE,SI,,백시은 루트,첫 분기,,CH8_EP3_A,,,\nSI,route,ROUTE,SI,,백시은 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nSI_H,ending,ENDING,SI,happy,해피 엔딩,,,,TODO 제목·대본,,\nSI_S,ending,ENDING,SI,sad,새드 엔딩,,,,TODO 제목·대본,,\nSI_B,ending,ENDING,SI,bad,배드 엔딩,,,,TODO 제목·대본,,\nSI_T,ending,ENDING,SI,true,히든·진 엔딩,,,,TODO 제목·대본,,\nSI_DONE,route_done,ROUTE,SI,,백시은 루트 클리어 기록,,,,,,\nCH_START,scene,ROUTE,CH,,강채아 루트,첫 분기,,CH8_EP3_B,,,\nCH,route,ROUTE,CH,,강채아 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nCH_H,ending,ENDING,CH,happy,해피 엔딩,,,,TODO 제목·대본,,\nCH_S,ending,ENDING,CH,sad,새드 엔딩,,,,TODO 제목·대본,,\nCH_B,ending,ENDING,CH,bad,배드 엔딩,,,,TODO 제목·대본,,\nCH_T,ending,ENDING,CH,true,히든·진 엔딩,,,,TODO 제목·대본,,\nCH_DONE,route_done,ROUTE,CH,,강채아 루트 클리어 기록,,,,,,\nTITLE,end,COMMON,,,타이틀로 복귀,,,,,,\nEXIT,end,COMMON,,,게임 종료,,,,REPLAY_CHOICE 의 종료 선택지 도착점,,\n",
-  "edges": "from_id,to_id,label,condition,kind,note\nSTART,PROLOGUE_EP1,,,next,\nPROLOGUE_EP1,PROLOGUE_EP2,,,next,\nPROLOGUE_EP2,PROLOGUE_EP3,,,next,\nPROLOGUE_EP3,PROLOGUE_EP4,,,next,\nPROLOGUE_EP4,PROLOGUE_EP5,,,next,\nPROLOGUE_EP5,PROLOGUE_EP6,,,next,\nPROLOGUE_EP6,FIRST_ROUTE,,,next,\nFIRST_ROUTE,CH1_EP1,초회 플레이,!sub_unlocked,next,\nFIRST_ROUTE,REPLAY_CHOICE,2회차 이후,sub_unlocked,next,\nREPLAY_CHOICE,CH1_EP1,메인 히로인 루트,,next,\nREPLAY_CHOICE,SUBPROLOGUE_EP1,서브 히로인 루트,,next,\nREPLAY_CHOICE,EXIT,종료,,next,\nCH1_EP1,CH1_EP2,,,next,\nCH1_EP2,CH1_EP3,,,next,\nCH1_EP3,CH1_EP4,,,next,\nCH1_EP4,CH1_EP5,,,next,\nCH1_EP5,CH1_EP6,,,next,\nCH1_EP6,CH2_EP1,,,next,\nCH2_EP1,CH2_EP2,,,next,\nCH2_EP2,CH2_EP3,,,next,\nCH2_EP3,CH2_EP4,,,next,\nCH2_EP4,CH2_EP5,,,next,\nCH2_EP5,CH2_EP6,,,next,\nCH2_EP6,CH3_EP1,,,next,\nCH3_EP1,CH3_EP2,,,next,\nCH3_EP2,CH3_EP3,,,next,\nCH3_EP3,CH3_EP4,,,next,\nCH3_EP4,CH3_EP5,,,next,\nCH3_EP5,CH3_EP6,,,next,\nCH3_EP6,CH4_EP1,,,next,\nCH4_EP1,CH4_EP2,,,next,\nCH4_EP2,CH4_EP3,,,next,\nCH4_EP3,CH4_EP4,,,next,\nCH4_EP4,CH4_EP5,,,next,\nCH4_EP5,CH4_EP6,,,next,\nCH4_EP6,CH5_EP1,,,next,\nCH5_EP1,CH5_EP2,,,next,\nCH5_EP2,CH5_EP3,,,next,\nCH5_EP3,CH5_EP4,,,next,\nCH5_EP4,CH5_EP5,,,next,\nCH5_EP5,CH5_EP6,,,next,\nCH5_EP6,RELATION_CHECK,,,next,\nRELATION_CHECK,COMMON_BAD,회피 선택 누적 · 관계 방치,avoid>=3,next,\nRELATION_CHECK,MAIN_PICK,메인 루트 진행 조건 충족,avoid<3,next,\nCOMMON_BAD,CB21,,,next,\nCB21,CB_REL,,,next,\nCB_REL,CB_BREAK,,,next,\nCB_BREAK,CB26,,,next,\nCB26,CB_END,,,next,\nMAIN_PICK,JIWOO,강지우 루트,,next,\nMAIN_PICK,ARIN,윤아린 루트,,next,\nMAIN_PICK,YUNA,최유나 루트,,next,\nMAIN_PICK,SERA,이세라 루트,,next,\nMAIN_PICK,SEOYUN,한서윤 루트,,next,\nMAIN_PICK,HARIN,서하린 루트,,next,\nJIWOO,JIWOO_H,,,next,\nJIWOO_H,COMMON_EPILOGUE,,,next,\nJIWOO,JIWOO_S,,,next,\nJIWOO_S,COMMON_EPILOGUE,,,next,\nJIWOO,JIWOO_B,,,next,\nJIWOO_B,COMMON_EPILOGUE,,,next,\nJIWOO,JIWOO_T,,,next,\nJIWOO_T,COMMON_EPILOGUE,,,next,\nARIN,ARIN_H,,,next,\nARIN_H,COMMON_EPILOGUE,,,next,\nARIN,ARIN_S,,,next,\nARIN_S,COMMON_EPILOGUE,,,next,\nARIN,ARIN_B,,,next,\nARIN_B,COMMON_EPILOGUE,,,next,\nARIN,ARIN_T,,,next,\nARIN_T,COMMON_EPILOGUE,,,next,\nYUNA,YUNA_H,,,next,\nYUNA_H,COMMON_EPILOGUE,,,next,\nYUNA,YUNA_S,,,next,\nYUNA_S,COMMON_EPILOGUE,,,next,\nYUNA,YUNA_B,,,next,\nYUNA_B,COMMON_EPILOGUE,,,next,\nYUNA,YUNA_T,,,next,\nYUNA_T,COMMON_EPILOGUE,,,next,\nSERA,SERA_H,,,next,\nSERA_H,COMMON_EPILOGUE,,,next,\nSERA,SERA_S,,,next,\nSERA_S,COMMON_EPILOGUE,,,next,\nSERA,SERA_B,,,next,\nSERA_B,COMMON_EPILOGUE,,,next,\nSERA,SERA_T,,,next,\nSERA_T,COMMON_EPILOGUE,,,next,\nSEOYUN,SEOYUN_H,,,next,\nSEOYUN_H,COMMON_EPILOGUE,,,next,\nSEOYUN,SEOYUN_S,,,next,\nSEOYUN_S,COMMON_EPILOGUE,,,next,\nSEOYUN,SEOYUN_B,,,next,\nSEOYUN_B,COMMON_EPILOGUE,,,next,\nSEOYUN,SEOYUN_T,,,next,\nSEOYUN_T,COMMON_EPILOGUE,,,next,\nHARIN,HARIN_H,,,next,\nHARIN_H,COMMON_EPILOGUE,,,next,\nHARIN,HARIN_S,,,next,\nHARIN_S,COMMON_EPILOGUE,,,next,\nHARIN,HARIN_B,,,next,\nHARIN_B,COMMON_EPILOGUE,,,next,\nHARIN,HARIN_T,,,next,\nHARIN_T,COMMON_EPILOGUE,,,next,\nSI,SI_H,,,next,\nSI_H,SI_DONE,,,next,\nSI,SI_S,,,next,\nSI_S,SI_DONE,,,next,\nSI,SI_B,,,next,\nSI_B,SI_DONE,,,next,\nSI,SI_T,,,next,\nSI_T,SI_DONE,,,next,\nCH,CH_H,,,next,\nCH_H,CH_DONE,,,next,\nCH,CH_S,,,next,\nCH_S,CH_DONE,,,next,\nCH,CH_B,,,next,\nCH_B,CH_DONE,,,next,\nCH,CH_T,,,next,\nCH_T,CH_DONE,,,next,\nSI_DONE,COMMON_EPILOGUE,,,next,\nCH_DONE,COMMON_EPILOGUE,,,next,\nCOMMON_EPILOGUE,CLEAR_CHECK,,,next,\nCLEAR_CHECK,SUB_UNLOCK,최초 클리어,!sub_unlocked,next,\nCLEAR_CHECK,REPLAY_CHOICE,이미 해금됨,sub_unlocked,next,\nSUB_UNLOCK,REPLAY,,,next,\nREPLAY,REPLAY_CHOICE,,,next,\nMAIN_DLC_EP,TITLE,타이틀로,,next,\nSUBPROLOGUE_EP1,SUBPROLOGUE_EP2,,,next,\nSUBPROLOGUE_EP2,SUBPROLOGUE_EP3,,,next,\nSUBPROLOGUE_EP3,CH6_EP1,,,next,\nCH6_EP1,CH6_EP2,,,next,\nCH6_EP2,CH6_EP3,,,next,\nCH6_EP3,CH7_EP1,,,next,\nCH7_EP1,CH7_EP2,,,next,\nCH7_EP2,CH7_EP3,,,next,\nCH7_EP3,CH8_EP1,,,next,\nCH8_EP1,CH8_EP2,,,next,\nCH8_EP2,CH8_EP3,,,next,\nCH8_EP3,SUB_PICK,,,next,\nSUB_PICK,SI_START,백시은과 함께 카페에 남는다.,,next,\nSUB_PICK,CH_START,강채아와 함께 작업실로 향한다.,,next,\nSI_START,SI,,,next,\nCH_START,CH,,,next,\n",
-  "scripts": "script_id,line_no,speaker,text,bg,char,cg,bgm,set\nPROLOGUE,1,,봄바람이 불어오는 교정, 벚꽃 잎이 렌즈 앞으로 스쳐 지나간다.,spring_campus.jpg,,,-,theme_prologue.mp3,\nPROLOGUE,2,이현우,\"이 거리에서 너를 담아낼 수 있을까...\",,,,-,,\nPROLOGUE,3,강지우,\"현우야! 거기서 뭐 해? 또 카메라 만지고 있었어?\",,jiwoo_smile.png,-,,\nPROLOGUE,4,,오랜 시간 함께해 온 익숙한 목소리가 렌즈 너머로 다가온다.,,,,-,,\n", 
-  "routes": "route_id,name_kr,kind,accent,char_file,vd_init,note\nJIWOO,강지우,main,#c99a5b,kang_jiwoo.webp,,\nARIN,윤아린,main,#e0a9b4,,,\nYUNA,최유나,main,#aab4d0,,,\nSERA,이세라,main,#8a6fc2,,,\nSEOYUN,한서윤,main,#c25b5b,,,\nHARIN,서하린,main,#7f93a8,,,\nSI,백시은,sub,#8fbf9f,,,\nCH,강채아,sub,#e58b6a,,,\n", 
-  "cg": "cg_id,title,route,file,note\n"
+ "nodes": "node_id,type,group,route,ending,title,subtitle,age,script_id,note,skip_to,skip_when\nSTART,start,COMMON,,,시작 · 현우 20세,,20,,,,\nPROLOGUE_EP1,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",벚꽃이 흩날리는 입학 첫날,,PROLOGUE_EP1,,FIRST_ROUTE,sub_unlocked\nPROLOGUE_EP2,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",구형 DSLR과 캔커피의 온기,,PROLOGUE_EP2,,,\nPROLOGUE_EP3,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",뷰파인더에 걸린 소꿉친구,,PROLOGUE_EP3,,,\nPROLOGUE_EP4,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",\"아포카, 낯선 만남의 시작\",,PROLOGUE_EP4,,,\nPROLOGUE_EP5,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",차가운 눈빛 너머의 재회,,PROLOGUE_EP5,,,\nPROLOGUE_EP6,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",\"여섯 개의 시선, 멈춰 있던 시간이 흐르다\",,PROLOGUE_EP6,,,\nFIRST_ROUTE,choice,COMMON,,,플레이 진행 경로,,,,첫 플레이는 조건으로 메인 공통 루트 고정,,\nREPLAY_CHOICE,choice,COMMON,,,회차 진행 경로,,,,,,\nCH1_EP1,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,손끝에 남은 여름의 잔상,,CH1_EP1,,MAIN_PICK,sub_unlocked\nCH1_EP2,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,흰색 아대에 감춰진 비밀,,CH1_EP2,,,\nCH1_EP3,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,강지우의 낯선 경계심,,CH1_EP3,,,\nCH1_EP4,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,다시 만난 두 개의 시선,,CH1_EP4,,,\nCH1_EP5,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,조용한 동아리실의 균열,,CH1_EP5,,,\nCH1_EP6,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,아포카에 들어가기로 한 날,,CH1_EP6,,,\nCH2_EP1,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,동아리 가입과 뜻밖의 인연,,CH2_EP1,,,\nCH2_EP2,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,나란히 묶인 두 사람의 이름,,CH2_EP2,,,\nCH2_EP3,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,\"벚꽃 아래, 임시 모델\",,CH2_EP3,,,\nCH2_EP4,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,렌즈에 비친 감춰진 상처,,CH2_EP4,,,\nCH2_EP5,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,도망쳤던 여름의 진실,,CH2_EP5,,,\nCH2_EP6,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,이번에는 네 모습을 담을게,,CH2_EP6,,,\nCH3_EP1,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,셔터가 멈춘 뒤의 여운,,CH3_EP1,,,\nCH3_EP2,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,2.0m 밖에 선 윤아린,,CH3_EP2,,,\nCH3_EP3,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,진짜 표정이 드러나는 순간,,CH3_EP3,,,\nCH3_EP4,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,\"뷰파인더, 거리감을 가르치다\",,CH3_EP4,,,\nCH3_EP5,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,오랜 친구의 기다림,,CH3_EP5,,,\nCH3_EP6,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,마시 마주한 우리의 거리,,CH3_EP6,,,\nCH4_EP1,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,스포트라이트를 향한 직진,,CH4_EP1,,,\nCH4_EP2,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,전담 촬영 기사로 낙점받다,,CH4_EP2,,,\nCH4_EP3,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,3.0m 너머의 안식처,,CH4_EP3,,,\nCH4_EP4,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,0.2m의 초근접 침입자,,CH4_EP4,,,\nCH4_EP5,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,투닥거림이 채우는 카페의 온기,,CH4_EP5,,,\nCH4_EP6,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,\"아포카, 봄의 첫 정기 출사\",,CH4_EP6,,,\nCH5_EP1,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",벚꽃 출사지에 모인 여섯 사람,,CH5_EP1,,,\nCH5_EP2,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",\"0.5m, 멈추지 않는 강지우\",,CH5_EP2,,,\nCH5_EP3,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",스케줄을 독점하려는 최유나,,CH5_EP3,,,\nCH5_EP4,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",2.5m의 그늘에서 다가오는 윤아린,,CH5_EP4,,,\nCH5_EP5,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",서로 다른 6개의 시선,,CH5_EP5,,,\nCH5_EP6,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",메인 피사체 선택의 순간,,CH5_EP6,,,\nRELATION_CHECK,check,COMMON,,,공통 루트 관계 관리 판정,,,,avoid 변수는 flow_assets.csv 의 set 칸에서 올리세요 (예: avoid+=1). 기준값 3은 임시,,\nCOMMON_BAD,ending,COMMON_BAD,,bad,초점이 깨진 렌즈 (Out of Focus),공통 배드 엔딩,,COMMON_BAD,,,\nCB21,scene,COMMON_BAD,,bad,현우 21세,갈등 상황에서 회피 반복,21,CB21,,,\nCB_REL,scene,COMMON_BAD,,bad,관계 붕괴와 자기혐오,,,CB_REL,,,\nCB_BREAK,scene,COMMON_BAD,,bad,암실에서 카메라 파손,동아리 탈퇴 및 학교 이탈,,CB_BREAK,,,\nCB26,scene,COMMON_BAD,,bad,현우 26세,사진가의 꿈을 접고 고립된 삶,26,CB26,,,\nCB_END,end,COMMON_BAD,,bad,공통 배드 엔딩 종료,,,,,,\nMAIN_PICK,choice,COMMON,,,메인 피사체 선택,,,,,,\nJIWOO,route,ROUTE,JIWOO,,강지우 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nJIWOO_H,ending,ENDING,JIWOO,happy,해피 엔딩,,,,TODO 제목·대본,,\nJIWOO_S,ending,ENDING,JIWOO,sad,새드 엔딩,,,,TODO 제목·대본,,\nJIWOO_B,ending,ENDING,JIWOO,bad,배드 엔딩,,,,TODO 제목·대본,,\nJIWOO_T,ending,ENDING,JIWOO,true,히든·진 엔딩,,,,TODO 제목·대본,,\nARIN,route,ROUTE,ARIN,,윤아린 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nARIN_H,ending,ENDING,ARIN,happy,해피 엔딩,,,,TODO 제목·대본,,\nARIN_S,ending,ENDING,ARIN,sad,새드 엔딩,,,,TODO 제목·대본,,\nARIN_B,ending,ENDING,ARIN,bad,배드 엔딩,,,,TODO 제목·대본,,\nARIN_T,ending,ENDING,ARIN,true,히든·진 엔딩,,,,TODO 제목·대본,,\nYUNA,route,ROUTE,YUNA,,최유나 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nYUNA_H,ending,ENDING,YUNA,happy,해피 엔딩,,,,TODO 제목·대본,,\nYUNA_S,ending,ENDING,YUNA,sad,새드 엔딩,,,,TODO 제목·대본,,\nYUNA_B,ending,ENDING,YUNA,bad,배드 엔딩,,,,TODO 제목·대본,,\nYUNA_T,ending,ENDING,YUNA,true,히든·진 엔딩,,,,TODO 제목·대본,,\nSERA,route,ROUTE,SERA,,이세라 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nSERA_H,ending,ENDING,SERA,happy,해피 엔딩,,,,TODO 제목·대본,,\nSERA_S,ending,ENDING,SERA,sad,새드 엔딩,,,,TODO 제목·대본,,\nSERA_B,ending,ENDING,SERA,bad,배드 엔딩,,,,TODO 제목·대본,,\nSERA_T,ending,ENDING,SERA,true,히든·진 엔딩,,,,TODO 제목·대본,,\nSEOYUN,route,ROUTE,SEOYUN,,한서윤 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nSEOYUN_H,ending,ENDING,SEOYUN,happy,해피 엔딩,,,,TODO 제목·대본,,\nSEOYUN_S,ending,ENDING,SEOYUN,sad,새드 엔딩,,,,TODO 제목·대본,,\nSEOYUN_B,ending,ENDING,SEOYUN,bad,배드 엔딩,,,,TODO 제목·대본,,\nSEOYUN_T,ending,ENDING,SEOYUN,true,히든·진 엔딩,,,,TODO 제목·대본,,\nHARIN,route,ROUTE,HARIN,,서하린 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nHARIN_H,ending,ENDING,HARIN,happy,해피 엔딩,,,,TODO 제목·대본,,\nHARIN_S,ending,ENDING,HARIN,sad,새드 엔딩,,,,TODO 제목·대본,,\nHARIN_B,ending,ENDING,HARIN,bad,배드 엔딩,,,,TODO 제목·대본,,\nHARIN_T,ending,ENDING,HARIN,true,히든·진 엔딩,,,,TODO 제목·대본,,\nCOMMON_EPILOGUE,scene,COMMON,,,공통 에필로그,현우 29세 · 모든 루트 공통 축,29,COMMON_EPILOGUE,,,\nCLEAR_CHECK,check,COMMON,,,최초 메인 루트 클리어 기록?,,,,,,\nSUB_UNLOCK,unlock,COMMON,,,서브 히로인 루트 해금,,,,,,\nREPLAY,unlock,COMMON,,,2회차 플레이 가능,,,,,,\nMAIN_DLC_EP,scene,COMMON,,,메인 히로인별 후일담,현우 30세 이후,30,MAIN_DLC_EP,,,\nSUBPROLOGUE_EP1,scene,COMMON,,,\"서브 프롤로그 · 두 개의 인연, 다시 열린 문\",\"뷰파인더, 그곳에 남은 인연\",,SUBPROLOGUE_EP1,,SUB_PICK,SI_cleared || CH_cleared\nSUBPROLOGUE_EP2,scene,COMMON,,,\"서브 프롤로그 · 두 개의 인연, 다시 열린 문\",\"익숙한 목소리, 변하지 않은 거리\",,SUBPROLOGUE_EP2,,,\nSUBPROLOGUE_EP3,scene,COMMON,,,\"서브 프롤로그 · 두 개의 인연, 다시 열린 문\",두 개의 인연이 향하는 곳,,SUBPROLOGUE_EP3,,,\nCH6_EP1,scene,COMMON,,,\"챕터 6 · 비무장지대, 뷰파인더\",\"비무장지대, 뷰파인더\",,CH6_EP1,,,\nCH6_EP2,scene,COMMON,,,\"챕터 6 · 비무장지대, 뷰파인더\",프레임 밖에서 찾아온 장난꾸러기,,CH6_EP2,,,\nCH6_EP3,scene,COMMON,,,\"챕터 6 · 비무장지대, 뷰파인더\",\"안식처의 맹세, 3.0m 너머의 손길\",,CH6_EP3,,,\nCH7_EP1,scene,COMMON,,,챕터 7 · 0.2m의 기습과 장난스러운 온도,프레임을 깨뜨리는 소악마,,CH7_EP1,,,\nCH7_EP2,scene,COMMON,,,챕터 7 · 0.2m의 기습과 장난스러운 온도,장난꾸러기의 예상 밖의 진심,,CH7_EP2,,,\nCH7_EP3,scene,COMMON,,,챕터 7 · 0.2m의 기습과 장난스러운 온도,\"서로 다른 시선, 하나의 프레임\",,CH7_EP3,,,\nCH8_EP1,scene,COMMON,,,\"챕터 8 · 두 개의 그늘, 그리고 스위치가 되는 밤\",\"스승의 렌즈, Proper Distance\",,CH8_EP1,,,\nCH8_EP2,scene,COMMON,,,\"챕터 8 · 두 개의 그늘, 그리고 스위치가 되는 밤\",뷰파인더 마감 시간의 케미,,CH8_EP2,,,\nCH8_EP3,scene,COMMON,,,\"챕터 8 · 두 개의 그늘, 그리고 스위치가 되는 밤\",스위치가 되는 밤,,CH8_EP3,,,\nSUB_PICK,choice,COMMON,,,서브 피사체 선택,,,,,,\nSI_START,scene,ROUTE,SI,,백시은 루트,첫 분기,,CH8_EP3_A,,,\nSI,route,ROUTE,SI,,백시은 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nSI_H,ending,ENDING,SI,happy,해피 엔딩,,,,TODO 제목·대본,,\nSI_S,ending,ENDING,SI,sad,새드 엔딩,,,,TODO 제목·대본,,\nSI_B,ending,ENDING,SI,bad,배드 엔딩,,,,TODO 제목·대본,,\nSI_T,ending,ENDING,SI,true,히든·진 엔딩,,,,TODO 제목·대본,,\nSI_DONE,route_done,ROUTE,SI,,백시은 루트 클리어 기록,,,,,,\nCH_START,scene,ROUTE,CH,,강채아 루트,첫 분기,,CH8_EP3_B,,,\nCH,route,ROUTE,CH,,강채아 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nCH_H,ending,ENDING,CH,happy,해피 엔딩,,,,TODO 제목·대본,,\nCH_S,ending,ENDING,CH,sad,새드 엔딩,,,,TODO 제목·대본,,\nCH_B,ending,ENDING,CH,bad,배드 엔딩,,,,TODO 제목·대본,,\nCH_T,ending,ENDING,CH,true,히든·진 엔딩,,,,TODO 제목·대본,,\nCH_DONE,route_done,ROUTE,CH,,강채아 루트 클리어 기록,,,,,,\nTITLE,end,COMMON,,,타이틀로 복귀,,,,,,\nEXIT,end,COMMON,,,게임 종료,,,,REPLAY_CHOICE 의 종료 선택지 도착점,,\nJIWOO_DLC,dlc,DLC,JIWOO,,후일담 · 강지우,현우 30세 이후,30,JIWOO_DLC,JIWOO_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_jiwoo_dlc.csv (chapter_id=jiwoo_dlc),,\nARIN_DLC,dlc,DLC,ARIN,,후일담 · 윤아린,현우 30세 이후,30,ARIN_DLC,ARIN_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_arin_dlc.csv (chapter_id=arin_dlc),,\nYUNA_DLC,dlc,DLC,YUNA,,후일담 · 최유나,현우 30세 이후,30,YUNA_DLC,YUNA_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_yuna_dlc.csv (chapter_id=yuna_dlc),,\nSERA_DLC,dlc,DLC,SERA,,후일담 · 이세라,현우 30세 이후,30,SERA_DLC,SERA_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_sera_dlc.csv (chapter_id=sera_dlc),,\nSEOYUN_DLC,dlc,DLC,SEOYUN,,후일담 · 한서윤,현우 30세 이후,30,SEOYUN_DLC,SEOYUN_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_seoyun_dlc.csv (chapter_id=seoyun_dlc),,\nHARIN_DLC,dlc,DLC,HARIN,,후일담 · 서하린,현우 30세 이후,30,HARIN_DLC,HARIN_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_harin_dlc.csv (chapter_id=harin_dlc),,\nSI_DLC,dlc,DLC,SI,,후일담 · 백시은,현우 30세 이후,30,SI_DLC,SI_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_si_dlc.csv (chapter_id=si_dlc),,\nCH_DLC,dlc,DLC,CH,,후일담 · 강채아,현우 30세 이후,30,CH_DLC,CH_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_ch_dlc.csv (chapter_id=ch_dlc),,\n",
+ "edges": "from_id,to_id,label,condition,kind,note\nSTART,PROLOGUE_EP1,,,next,\nPROLOGUE_EP1,PROLOGUE_EP2,,,next,\nPROLOGUE_EP2,PROLOGUE_EP3,,,next,\nPROLOGUE_EP3,PROLOGUE_EP4,,,next,\nPROLOGUE_EP4,PROLOGUE_EP5,,,next,\nPROLOGUE_EP5,PROLOGUE_EP6,,,next,\nPROLOGUE_EP6,FIRST_ROUTE,,,next,\nFIRST_ROUTE,CH1_EP1,초회 플레이,!sub_unlocked,next,\nFIRST_ROUTE,REPLAY_CHOICE,2회차 이후,sub_unlocked,next,\nREPLAY_CHOICE,CH1_EP1,메인 히로인 루트,,next,\nREPLAY_CHOICE,SUBPROLOGUE_EP1,서브 히로인 루트,,next,\nREPLAY_CHOICE,EXIT,종료,,next,\nCH1_EP1,CH1_EP2,,,next,\nCH1_EP2,CH1_EP3,,,next,\nCH1_EP3,CH1_EP4,,,next,\nCH1_EP4,CH1_EP5,,,next,\nCH1_EP5,CH1_EP6,,,next,\nCH1_EP6,CH2_EP1,,,next,\nCH2_EP1,CH2_EP2,,,next,\nCH2_EP2,CH2_EP3,,,next,\nCH2_EP3,CH2_EP4,,,next,\nCH2_EP4,CH2_EP5,,,next,\nCH2_EP5,CH2_EP6,,,next,\nCH2_EP6,CH3_EP1,,,next,\nCH3_EP1,CH3_EP2,,,next,\nCH3_EP2,CH3_EP3,,,next,\nCH3_EP3,CH3_EP4,,,next,\nCH3_EP4,CH3_EP5,,,next,\nCH3_EP5,CH3_EP6,,,next,\nCH3_EP6,CH4_EP1,,,next,\nCH4_EP1,CH4_EP2,,,next,\nCH4_EP2,CH4_EP3,,,next,\nCH4_EP3,CH4_EP4,,,next,\nCH4_EP4,CH4_EP5,,,next,\nCH4_EP5,CH4_EP6,,,next,\nCH4_EP6,CH5_EP1,,,next,\nCH5_EP1,CH5_EP2,,,next,\nCH5_EP2,CH5_EP3,,,next,\nCH5_EP3,CH5_EP4,,,next,\nCH5_EP4,CH5_EP5,,,next,\nCH5_EP5,CH5_EP6,,,next,\nCH5_EP6,RELATION_CHECK,,,next,\nRELATION_CHECK,COMMON_BAD,회피 선택 누적 · 관계 방치,avoid>=3,next,\nRELATION_CHECK,MAIN_PICK,메인 루트 진행 조건 충족,avoid<3,next,\nCOMMON_BAD,CB21,,,next,\nCB21,CB_REL,,,next,\nCB_REL,CB_BREAK,,,next,\nCB_BREAK,CB26,,,next,\nCB26,CB_END,,,next,\nMAIN_PICK,JIWOO,강지우 루트,,next,\nMAIN_PICK,ARIN,윤아린 루트,,next,\nMAIN_PICK,YUNA,최유나 루트,,next,\nMAIN_PICK,SERA,이세라 루트,,next,\nMAIN_PICK,SEOYUN,한서윤 루트,,next,\nMAIN_PICK,HARIN,서하린 루트,,next,\nJIWOO,JIWOO_H,,,next,\nJIWOO_H,COMMON_EPILOGUE,,,next,\nJIWOO,JIWOO_S,,,next,\nJIWOO_S,COMMON_EPILOGUE,,,next,\nJIWOO,JIWOO_B,,,next,\nJIWOO_B,COMMON_EPILOGUE,,,next,\nJIWOO,JIWOO_T,,,next,\nJIWOO_T,COMMON_EPILOGUE,,,next,\nARIN,ARIN_H,,,next,\nARIN_H,COMMON_EPILOGUE,,,next,\nARIN,ARIN_S,,,next,\nARIN_S,COMMON_EPILOGUE,,,next,\nARIN,ARIN_B,,,next,\nARIN_B,COMMON_EPILOGUE,,,next,\nARIN,ARIN_T,,,next,\nARIN_T,COMMON_EPILOGUE,,,next,\nYUNA,YUNA_H,,,next,\nYUNA_H,COMMON_EPILOGUE,,,next,\nYUNA,YUNA_S,,,next,\nYUNA_S,COMMON_EPILOGUE,,,next,\nYUNA,YUNA_B,,,next,\nYUNA_B,COMMON_EPILOGUE,,,next,\nYUNA,YUNA_T,,,next,\nYUNA_T,COMMON_EPILOGUE,,,next,\nSERA,SERA_H,,,next,\nSERA_H,COMMON_EPILOGUE,,,next,\nSERA,SERA_S,,,next,\nSERA_S,COMMON_EPILOGUE,,,next,\nSERA,SERA_B,,,next,\nSERA_B,COMMON_EPILOGUE,,,next,\nSERA,SERA_T,,,next,\nSERA_T,COMMON_EPILOGUE,,,next,\nSEOYUN,SEOYUN_H,,,next,\nSEOYUN_H,COMMON_EPILOGUE,,,next,\nSEOYUN,SEOYUN_S,,,next,\nSEOYUN_S,COMMON_EPILOGUE,,,next,\nSEOYUN,SEOYUN_B,,,next,\nSEOYUN_B,COMMON_EPILOGUE,,,next,\nSEOYUN,SEOYUN_T,,,next,\nSEOYUN_T,COMMON_EPILOGUE,,,next,\nHARIN,HARIN_H,,,next,\nHARIN_H,COMMON_EPILOGUE,,,next,\nHARIN,HARIN_S,,,next,\nHARIN_S,COMMON_EPILOGUE,,,next,\nHARIN,HARIN_B,,,next,\nHARIN_B,COMMON_EPILOGUE,,,next,\nHARIN,HARIN_T,,,next,\nHARIN_T,COMMON_EPILOGUE,,,next,\nSI,SI_H,,,next,\nSI_H,SI_DONE,,,next,\nSI,SI_S,,,next,\nSI_S,SI_DONE,,,next,\nSI,SI_B,,,next,\nSI_B,SI_DONE,,,next,\nSI,SI_T,,,next,\nSI_T,SI_DONE,,,next,\nCH,CH_H,,,next,\nCH_H,CH_DONE,,,next,\nCH,CH_S,,,next,\nCH_S,CH_DONE,,,next,\nCH,CH_B,,,next,\nCH_B,CH_DONE,,,next,\nCH,CH_T,,,next,\nCH_T,CH_DONE,,,next,\nSI_DONE,COMMON_EPILOGUE,,,next,\nCH_DONE,COMMON_EPILOGUE,,,next,\nCOMMON_EPILOGUE,CLEAR_CHECK,,,next,\nCLEAR_CHECK,SUB_UNLOCK,최초 클리어,!sub_unlocked,next,\nCLEAR_CHECK,REPLAY_CHOICE,이미 해금됨,sub_unlocked,next,\nSUB_UNLOCK,REPLAY,,,next,\nREPLAY,REPLAY_CHOICE,,,next,\nMAIN_DLC_EP,TITLE,타이틀로,,next,\nSUBPROLOGUE_EP1,SUBPROLOGUE_EP2,,,next,\nSUBPROLOGUE_EP2,SUBPROLOGUE_EP3,,,next,\nSUBPROLOGUE_EP3,CH6_EP1,,,next,\nCH6_EP1,CH6_EP2,,,next,\nCH6_EP2,CH6_EP3,,,next,\nCH6_EP3,CH7_EP1,,,next,\nCH7_EP1,CH7_EP2,,,next,\nCH7_EP2,CH7_EP3,,,next,\nCH7_EP3,CH8_EP1,,,next,\nCH8_EP1,CH8_EP2,,,next,\nCH8_EP2,CH8_EP3,,,next,\nCH8_EP3,SUB_PICK,,,next,\nSUB_PICK,SI_START,백시은과 함께 카페에 남는다.,,next,\nSUB_PICK,CH_START,강채아와 함께 작업실로 향한다.,,next,\nSI_START,SI,,,next,\nCH_START,CH,,,next,\nJIWOO_DLC,TITLE,타이틀로,,next,\nARIN_DLC,TITLE,타이틀로,,next,\nYUNA_DLC,TITLE,타이틀로,,next,\nSERA_DLC,TITLE,타이틀로,,next,\nSEOYUN_DLC,TITLE,타이틀로,,next,\nHARIN_DLC,TITLE,타이틀로,,next,\nSI_DLC,TITLE,타이틀로,,next,\nCH_DLC,TITLE,타이틀로,,next,\n",
+ "scripts": "script_id,line_no,speaker,text,bg,char,cg,set\nPROLOGUE,1,,(형식 예시) speaker가 비어 있으면 지문으로 표시됩니다.,,,,\nPROLOGUE,2,이현우,(형식 예시) bg·char·cg는 비워 두면 이전 상태를 유지합니다. char·cg에 - 를 넣으면 숨깁니다.,,,,\nPROLOGUE,3,,(형식 예시) set 칸에는 변수 변경식을 넣습니다. 예: vd=2.5; avoid+=1,,,,\nPROLOGUE,4,,(예시 끝) 이 네 줄을 지우고 실제 대본으로 교체하세요.,,,,\n",
+ "routes": "route_id,name_kr,kind,accent,char_file,vd_init,note\nJIWOO,강지우,main,#c99a5b,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조\nARIN,윤아린,main,#e0a9b4,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조\nYUNA,최유나,main,#aab4d0,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조\nSERA,이세라,main,#8a6fc2,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조\nSEOYUN,한서윤,main,#c25b5b,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조\nHARIN,서하린,main,#7f93a8,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조\nSI,백시은,sub,#8fbf9f,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조\nCH,강채아,sub,#e58b6a,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조\n",
+ "cg": "cg_id,title,route,file,note\n",
+ "assets": "node_id,bg,char,bgm,cg,set\nprologue_ep1_0001,bg_cherry_road.webp,,bgm_prologue_daily.mp3,,\nprologue_ep1_0009,bg_lecture_hall.webp,,,,\nprologue_ep2_0001,bg_lecture_hall.webp,,bgm_prologue_daily.mp3,,\nprologue_ep3_0001,bg_lecture_hall.webp,,bgm_prologue_daily.mp3,,\nprologue_ep4_0001,bg_club_room.webp,,bgm_prologue_daily.mp3,,\nprologue_ep4_0023,bg_cafe.webp,,,,\nprologue_ep4_0051,bg_club_room.webp,,,,\nprologue_ep5_0001,bg_club_room.webp,,bgm_reunion.mp3,,\nprologue_ep6_0001,bg_club_room.webp,,bgm_prologue_daily.mp3,,\nprologue_ep6_0012,bg_cafe.webp,,,,\nprologue_ep6_0023,bg_club_room.webp,,,,\nprologue_ep6_0046,bg_street_dusk.webp,,,,\nprologue_ep6_0062,bg_club_room.webp,,,,\nch1_ep1_0001,bg_club_room.webp,,bgm_prologue_daily.mp3,,\nch1_ep2_0001,bg_club_room.webp,,bgm_prologue_daily.mp3,,\nch1_ep2_0022,bg_noticeboard.webp,,,,\nch1_ep3_0001,bg_noticeboard.webp,,bgm_prologue_daily.mp3,,\nch1_ep3_0040,bg_hall_wood.webp,,,,\nch1_ep4_0001,bg_club_room.webp,,bgm_prologue_daily.mp3,,\nch1_ep4_0033,bg_street_dusk.webp,,,,\nch1_ep5_0001,bg_club_room.webp,,bgm_prologue_daily.mp3,,\nch1_ep6_0001,bg_club_room.webp,,bgm_prologue_daily.mp3,,\nch1_ep6_0030,bg_campus_path.webp,,,,\nch1_ep6_0040,bg_cafe.webp,,,,\nch2_ep1_0001,bg_club_room.webp,,bgm_prologue_daily.mp3,,\nch2_ep1_0051,bg_cafe.webp,,,,\nch2_ep1_0077,bg_club_room.webp,,,,\nch2_ep1_0093,bg_cafe.webp,,,,\nch2_ep2_0001,bg_lecture_hall.webp,,bgm_prologue_daily.mp3,,\nch2_ep2_0080,bg_hall_wood.webp,,,,\nch2_ep3_0001,bg_hall_wood.webp,,bgm_prologue_daily.mp3,,\nch2_ep3_0011,bg_lecture_hall.webp,,,,\nch2_ep3_0025,bg_cherry_road.webp,,,,\nch2_ep3_0042,bg_campus_path.webp,,,,\nch2_ep3_0083,bg_cherry_road.webp,,,,\nch2_ep3_0122,bg_campus_path.webp,,,,\nch2_ep4_0001,bg_room.webp,,bgm_prologue_daily.mp3,,\nch2_ep4_0044,bg_campus_path.webp,,,,\nch2_ep4_0057,bg_cherry_road.webp,,,,\nch2_ep5_0001,bg_cherry_road.webp,,bgm_reunion.mp3,,\nch2_ep5_0018,bg_campus_path.webp,,,,\nch2_ep6_0001,bg_campus_path.webp,,bgm_reunion.mp3,,\nch2_ep6_0035,bg_lecture_hall.webp,,,,\nch2_ep6_0045,bg_campus_path.webp,,,,\nch3_ep1_0001,bg_cherry_road.webp,,bgm_prologue_daily.mp3,,\nch3_ep1_0035,bg_lecture_hall.webp,,,,\nch3_ep1_0043,bg_hall_wood.webp,,,,\nch3_ep1_0089,bg_street_dusk.webp,,,,\nch3_ep1_0097,bg_hall_wood.webp,,,,\nch3_ep1_0124,bg_campus_path.webp,,,,\nch3_ep1_0133,bg_street_dusk.webp,,,,\nch3_ep1_0142,bg_cherry_road.webp,,,,\nch3_ep2_0001,bg_lecture_hall.webp,,bgm_prologue_daily.mp3,,\nch3_ep2_0010,bg_hall_wood.webp,,,,\nch3_ep3_0001,bg_lecture_hall.webp,,bgm_prologue_daily.mp3,,\nch3_ep3_0018,bg_hall_wood.webp,,,,\nch3_ep4_0001,bg_lecture_hall.webp,,bgm_prologue_daily.mp3,,\nch3_ep4_0042,bg_garden.webp,,,,\nch3_ep5_0001,bg_lecture_hall.webp,,bgm_reunion.mp3,,\nch3_ep5_0018,bg_campus_path.webp,,,,\nch3_ep6_0001,bg_campus_path.webp,,bgm_reunion.mp3,,\nch3_ep6_0045,bg_garden.webp,,,,\nch3_ep6_0245,bg_street_dusk.webp,,,,\nch3_ep6_0330,bg_hall_wood.webp,,,,\nch3_ep6_0340,bg_campus_path.webp,,,,\nch4_ep1_0001,bg_campus_path.webp,,bgm_prologue_daily.mp3,,\nch4_ep1_0012,bg_cafe.webp,,,,\nch4_ep1_0041,bg_campus_path.webp,,,,\nch4_ep1_0088,bg_garden.webp,,,,\nch4_ep2_0001,bg_garden.webp,,bgm_prologue_daily.mp3,,\nch4_ep3_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch4_ep4_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch4_ep5_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch4_ep6_0001,bg_lecture_hall.webp,,bgm_prologue_daily.mp3,,\nch4_ep6_0011,bg_club_room.webp,,,,\nch4_ep6_0020,bg_cherry_road.webp,,,,\nch4_ep6_0037,bg_club_room.webp,,,,\nch4_ep6_0084,bg_cherry_road.webp,,,,\nch4_ep6_0105,bg_room.webp,,,,\nch5_ep1_0001,bg_cherry_road.webp,,bgm_prologue_daily.mp3,,\nch5_ep2_0001,bg_cherry_road.webp,,bgm_prologue_daily.mp3,,\nch5_ep3_0001,bg_cherry_road.webp,,bgm_prologue_daily.mp3,,\nch5_ep4_0001,bg_cherry_road.webp,,bgm_prologue_daily.mp3,,\nch5_ep5_0001,bg_cherry_road.webp,,bgm_prologue_daily.mp3,,\nch5_ep5_0040,bg_cafe.webp,,,,\nch5_ep5_0055,bg_cherry_road.webp,,,,\nch5_ep6_0001,bg_cherry_road.webp,,bgm_reunion.mp3,,\nsubprologue_ep1_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nsubprologue_ep2_0001,bg_campus_path.webp,,bgm_reunion.mp3,,\nsubprologue_ep3_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch6_ep1_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch6_ep1_0037,bg_cherry_road.webp,,,,\nch6_ep1_0048,bg_campus_path.webp,,,,\nch6_ep1_0064,bg_cafe.webp,,,,\nch6_ep2_0001,bg_lecture_hall.webp,,bgm_cafe.mp3,,\nch6_ep2_0012,bg_campus_path.webp,,,,\nch6_ep2_0047,bg_cafe.webp,,,,\nch6_ep3_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch7_ep1_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch7_ep2_0001,bg_room.webp,,bgm_cafe.mp3,,\nch7_ep2_0021,bg_cafe.webp,,,,\nch7_ep3_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch8_ep1_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch8_ep2_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch8_ep3_0001,bg_cafe.webp,,bgm_reunion.mp3,,\nch8_ep3_0026,bg_street_dusk.webp,,,,\nch8_ep3_0039,bg_cafe.webp,,,,\nch8_ep3_A_0001,bg_cafe.webp,,bgm_reunion.mp3,,\nch8_ep3_B_0001,bg_cafe.webp,,bgm_reunion.mp3,,\n"
 };
 
 const IMG_DIR = 'img/', CHAR_DIR = 'chars/', CG_DIR = 'cg/', BGM_DIR = 'bgm/';
@@ -247,19 +270,20 @@ let DEV_TOOLS = false;
 try{ const q=location.search.match(/[?&]dev=([01])/); if(q) localStorage.setItem('projectY.dev',q[1]); DEV_TOOLS = localStorage.getItem('projectY.dev')==='1'; }catch(e){}
 const SAVE_KEY = 'projectY.engine.v1';
 const CSV_FILES = {nodes:'flow_nodes.csv', edges:'flow_edges.csv', scripts:'flow_scripts.csv', routes:'flow_routes.csv', cg:'flow_cg.csv'};
+const FLOW_DIRS = ['flow/',''];   // flow_*.csv 를 flow/ 폴더 → 루트 순서로 찾습니다
+const DEFAULT_SET = {skipCommon:false, speed:25, vol:50, autoSec:3, skipUnread:false};
 
 // story/ 폴더 내부에서 탐색하여 병합할 스토리 CSV 파일 후보 목록
 const STORY_FOLDER_FILES = [
   'story/project_y_common_route.csv',
   'story/project_y_sub_route.csv',
-  'story/project_y_jiwoo_route.csv',
-  'story/project_y_arin_route.csv',
-  'story/project_y_yuna_route.csv',
-  'story/project_y_sera_route.csv',
-  'story/project_y_seoyun_route.csv',
-  'story/project_y_harin_route.csv',
-  'story/project_y_si_route.csv',
-  'story/project_y_ch_route.csv'
+  'story/project_y_jiwoo_route.csv','story/project_y_arin_route.csv','story/project_y_yuna_route.csv',
+  'story/project_y_sera_route.csv','story/project_y_seoyun_route.csv','story/project_y_harin_route.csv',
+  'story/project_y_si_route.csv','story/project_y_ch_route.csv',
+  // 후일담 DLC 대본 (chapter_id 를 <루트>_dlc 로 쓰면 해당 DLC 노드에서 재생됩니다)
+  'story/project_y_jiwoo_dlc.csv','story/project_y_arin_dlc.csv','story/project_y_yuna_dlc.csv',
+  'story/project_y_sera_dlc.csv','story/project_y_seoyun_dlc.csv','story/project_y_harin_dlc.csv',
+  'story/project_y_si_dlc.csv','story/project_y_ch_dlc.csv'
 ];
 
 
@@ -295,24 +319,21 @@ function storyToScripts(rows, counter, cues){
 
 /* ---------- sound audio manager ---------- */
 let curAudio = null, curBgmFile = '';
+function vol(){ return (save.set.vol ?? 50) / 100; }
+function fadeOut(a){ let v=a.volume; const t=setInterval(()=>{ v-=0.08; if(v<=0){ clearInterval(t); a.pause(); } else a.volume=v; },50); }
 function playBgm(file){
   if(!file || file === '-') {
-    if(curAudio){ curAudio.pause(); curAudio = null; curBgmFile = ''; }
+    if(curAudio){ fadeOut(curAudio); curAudio = null; curBgmFile = ''; }
     return;
   }
   if(curBgmFile === file && curAudio) return;
-  
-  if(curAudio){ curAudio.pause(); curAudio = null; }
+  if(curAudio){ fadeOut(curAudio); curAudio = null; }
   curBgmFile = file;
-  const path = BGM_DIR + file;
-  curAudio = new Audio(path);
-  curAudio.loop = true;
-  curAudio.volume = (save.set.vol ?? 50) / 100;
-  curAudio.play().catch(e=>console.log('BGM 재생 차단 또는 파일 없음:', e));
+  const a = new Audio(BGM_DIR + file); a.loop = true; a.volume = vol(); curAudio = a;
+  a.play().catch(()=>{ /* 브라우저가 자동재생을 막은 경우: 첫 터치/클릭 때 다시 시도 */ });
 }
-function updateBgmVolume(){
-  if(curAudio) curAudio.volume = (save.set.vol ?? 50) / 100;
-}
+function updateBgmVolume(){ if(curAudio) curAudio.volume = vol(); }
+addEventListener('pointerdown',()=>{ if(curAudio && curAudio.paused) curAudio.play().catch(()=>{}); else if(!curAudio && $('title') && !$('title').hidden) playBgm(TITLE_BGM); },{passive:true});
 
 /* ---------- csv ---------- */
 function parseCSV(text){
@@ -341,6 +362,9 @@ function build(d){
   d.edges.forEach(e=>(OUT[e.from_id]??=[]).push(e));
   d.scripts.forEach(s=>(S[s.script_id]??=[]).push(s));
   Object.values(S).forEach(a=>a.sort((x,y)=>(+x.line_no)-(+y.line_no)));
+  // <ID>_EP1, <ID>_EP2 ... 로 나뉜 대본은 <ID> 하나로도 이어서 재생할 수 있게 별칭을 만듭니다 (예: JIWOO_DLC)
+  const fam={}; Object.keys(S).forEach(k=>{ const m=k.match(/^(.+)_EP(\d+)$/); if(m) (fam[m[1]]??=[]).push([+m[2],k]); });
+  Object.entries(fam).forEach(([base,a])=>{ if(!S[base]) S[base]=a.sort((x,y)=>x[0]-y[0]).flatMap(x=>S[x[1]]); });
   document.getElementById('dl').innerHTML=Object.values(N).map(n=>`<option value="${n.node_id}">${n.title||''}</option>`).join('');
 }
 
@@ -351,52 +375,48 @@ async function discoverStoryFiles(){
     const m=location.hostname.match(/^(.+)\.github\.io$/), repo=location.pathname.split('/')[1];
     if(m && repo){
       const r=await fetch(`https://api.github.com/repos/${m[1]}/contents/story`);
-      if(r.ok){ (await r.json()).forEach(f=>{ if(/route.*\.csv$/i.test(f.name)) found.push('story/'+f.name); }); }
+      if(r.ok){ (await r.json()).forEach(f=>{ if(/^project_y_.*\.csv$/i.test(f.name)) found.push('story/'+f.name); }); }
     }
   }catch(e){}
   return [...new Set([...found, ...STORY_FOLDER_FILES])];
 }
 
+async function fetchFirst(names){
+  for(const nm of names){
+    try{ const r=await fetch(nm,{cache:'no-store'}); if(!r.ok) continue; const t=await r.text(); if(/^\s*</.test(t)) continue; return {text:t,name:nm}; }catch(e){}
+  }
+  return null;
+}
 async function loadData(){
   const out={}; const ext=[];
-  
-  // 1. 기본 구조 파일 로드 (flow_nodes, flow_edges, flow_routes, flow_cg)
+  // 1. 순서도 파일 (flow/ 폴더 우선, 없으면 루트, 그것도 없으면 내장본)
   for(const k of Object.keys(CSV_FILES)){
-    try{
-      const r=await fetch(CSV_FILES[k],{cache:'no-store'});
-      if(!r.ok) throw 0;
-      const t=await r.text();
-      if(/^\s*</.test(t)) throw 0;
-      out[k]=parseCSV(t); ext.push(CSV_FILES[k]);
-    }catch(e){ out[k]=parseCSV(EMBED[k]||''); }
+    const got=await fetchFirst(FLOW_DIRS.map(d=>d+CSV_FILES[k]));
+    if(got){ out[k]=parseCSV(got.text); ext.push(got.name); } else out[k]=parseCSV(EMBED[k]||'');
   }
-
-  // 2. 대본 로드: flow_scripts.csv(수동 대본) + story/*.csv(실제 스토리) 병합
-  let mergedScripts = [];
-  try {
-    const r = await fetch('flow_scripts.csv', {cache:'no-store'});
-    if(r.ok){ const t = await r.text(); if(!/^\s*</.test(t)){ mergedScripts = mergedScripts.concat(parseCSV(t)); ext.push('flow_scripts.csv'); } }
-  } catch(e) {}
+  // 2. 대본: flow_scripts.csv + story/*.csv 병합 (story 의 type=choice 는 순서도가 담당하므로 제외)
+  let mergedScripts = out['scripts'].slice();
   let cues = {};
-  try {
-    const r = await fetch(ASSET_FILE, {cache:'no-store'});
-    if(r.ok){ const t = await r.text(); if(!/^\s*</.test(t)){ parseCSV(t).forEach(c=>{ if(c.node_id) cues[c.node_id]=c; }); ext.push(ASSET_FILE); } }
-  } catch(e) {}
+  { const got=await fetchFirst(FLOW_DIRS.map(d=>d+ASSET_FILE)) ;
+    const txt = got ? got.text : (EMBED.assets||'');
+    if(got) ext.push(got.name);
+    parseCSV(txt).forEach(c=>{ if(c.node_id) cues[c.node_id]=c; }); }
   const counter = {}; const storyOk=[], storyFail=[]; let storyLines=0;
   const files = await discoverStoryFiles();
+  const emb = (typeof STORY_EMBED!=='undefined') ? STORY_EMBED : {};
   for(const file of files){
     try {
-      const r = await fetch(file, {cache:'no-store'});
-      if(!r.ok) throw new Error('HTTP '+r.status);
-      const t = await r.text(); if(/^\s*</.test(t)) throw new Error('HTML 응답');
+      let t;
+      const got = await fetchFirst([file]);
+      if(got) t = got.text; else if(emb[file]) t = emb[file]; else throw new Error('없음');
       const rows = parseCSV(t);
       if(!rows.length || !rows[0].node_id) throw new Error('형식 불일치');
       const conv = storyToScripts(rows, counter, cues);
-      mergedScripts = mergedScripts.concat(conv); storyLines += conv.length; storyOk.push(file); ext.push(file);
+      mergedScripts = mergedScripts.concat(conv); storyLines += conv.length; storyOk.push(file); if(got) ext.push(file);
     } catch(e) { storyFail.push(file); }
   }
-  console.log('[스토리 로드] 성공:', storyOk, '실패/없음:', storyFail, '줄 수:', storyLines);
-  window.__storyInfo = storyOk.length ? `스토리 ${storyOk.length}개 파일 · ${storyLines}줄` : '스토리 파일을 못 불러왔습니다 (story/ 경로·파일명 확인)';
+  console.log('[스토리 로드] 성공:', storyOk, '없음:', storyFail, '줄 수:', storyLines, '/ 배경·BGM 지정:', Object.keys(cues).length);
+  window.__storyInfo = storyOk.length ? `스토리 ${storyOk.length}개 파일 · ${storyLines}줄` : '스토리 파일을 못 불러왔습니다 — 웹 서버(또는 GitHub Pages)로 열거나 index_offline.html 을 쓰세요';
   if(mergedScripts.length === 0) mergedScripts = parseCSV(EMBED['scripts'] || '');
   out['scripts'] = mergedScripts;
   srcLabel = (ext.length ? '외부 파일 ' + ext.length + '개 로드' : 'CSV 내장본') + ' · ' + (window.__storyInfo||'');
@@ -404,14 +424,14 @@ async function loadData(){
 }
 
 /* ---------- save ---------- */
-let save={seen:{},flags:{},cg:{},cur:null,set:{skipCommon:false,speed:25,vol:50}};
+let save={seen:{},flags:{},cg:{},read:{},cur:null,set:{...DEFAULT_SET}};
 try{ const s=JSON.parse(localStorage.getItem(SAVE_KEY)||'null'); if(s) save=Object.assign(save,s); }catch(e){}
-save.cg=save.cg||{};
-save.set=save.set||{skipCommon:false,speed:25,vol:50};
+save.cg=save.cg||{}; save.read=save.read||{}; save.flags=save.flags||{}; save.seen=save.seen||{};
+save.set=Object.assign({...DEFAULT_SET},save.set||{});
 function persist(){ try{ localStorage.setItem(SAVE_KEY,JSON.stringify(save)); }catch(e){} }
 
 /* ---------- run state ---------- */
-let run={vars:{},node:null,lines:[],i:0,mode:'idle',hist:[],log:[],typing:null,skip:false,skipTimer:null,menuEdges:null};
+let run={vars:{},node:null,lines:[],i:0,mode:'idle',hist:[],log:[],typing:null,skip:false,skipTimer:null,menuEdges:null,auto:false,readyAt:0,bgFile:'',lastChar:'',resumeLine:0};
 const $=id=>document.getElementById(id);
 
 /* ---------- expressions ---------- */
@@ -451,8 +471,8 @@ function setScene(n){
   const tone=TONE[n.ending]||accent;
   document.documentElement.style.setProperty('--tone',tone+'55');
   const base = n.ending==='bad' ? '#1a1214' : n.ending==='sad' ? '#12182a' : n.ending==='true' ? '#1a1630' : n.ending==='happy' ? '#241d18' : '#171b2a';
-  $('bg').style.backgroundImage=`linear-gradient(160deg,${accent}33 0%,${base} 55%,#0d0f16 100%)`;
-  $('hud').textContent=[rName(n.route),n.age?`현우 ${n.age}세`:''].filter(Boolean).join('  ·  ');
+  if(!run.bgFile) $('bg').style.backgroundImage=`linear-gradient(160deg,${accent}33 0%,${base} 55%,#0d0f16 100%)`;   // 배경 이미지가 있으면 장면이 바뀌어도 유지
+  $('hud').textContent=[rName(n.route),n.age?`현우 ${n.age}세`:'',DEV_TOOLS?n.node_id:''].filter(Boolean).join('  ·  ');
   renderVD();
 }
 function renderVD(){
@@ -461,7 +481,12 @@ function renderVD(){
   $('vd').hidden=!ok; if(ok) $('vdv').textContent=(+v).toFixed(1)+' m';
 }
 function setAssets(line){
-  if(line?.bg){ const u=IMG_DIR+line.bg; const im=new Image(); im.onload=()=>{$('bg').style.backgroundImage=`url("${u}")`}; im.src=u; }
+  if(line?.bg && line.bg!==run.bgFile){
+    if(run.bgFile) run.lastChar='';                      // 장면(배경)이 바뀌면 이전 캐릭터는 내립니다
+    run.bgFile=line.bg; const u=IMG_DIR+line.bg, im=new Image();
+    im.onload=()=>{ if(run.bgFile===line.bg) $('bg').style.backgroundImage=`url("${u}")`; };
+    im.onerror=()=>{ console.warn('배경 파일 없음:',u); }; im.src=u;
+  }
   if(line?.char==='-') run.lastChar='-'; else if(line?.char) run.lastChar=line.char;
   const el=$('chimg');
   let file='';
@@ -471,8 +496,9 @@ function setAssets(line){
 }
 
 /* ---------- flow ---------- */
-function startAt(id, fresh){
-  if(fresh){ run.vars={}; run.hist=[]; run.log=[]; run.lastChar=''; }
+function startAt(id, fresh, line){
+  if(fresh){ run.vars={}; run.hist=[]; run.log=[]; run.lastChar=''; run.bgFile=''; }
+  run.resumeLine=line||0;
   show('game'); enter(id);
 }
 function enter(id){
@@ -481,7 +507,7 @@ function enter(id){
   if(!n){ toast('노드를 찾을 수 없습니다: '+id); return toTitle(); }
   stopTyping(); $('menu').hidden=true; $('card').hidden=true; $('dialog').hidden=true; $('cg').hidden=true;
   run.node=id; run.hist.push(id); if(run.hist.length>60) run.hist.shift();
-  save.seen[id]=1; save.cur = n.type==='end' ? null : {node:id,vars:run.vars};
+  save.seen[id]=1; save.cur = n.type==='end' ? null : {node:id,vars:run.vars,line:0};
   persist();
   setScene(n);
   updateSkipBtn();
@@ -491,29 +517,41 @@ function enter(id){
     case 'route_done': save.flags[n.route+'_cleared']=1; persist(); return advance();
     case 'choice': case 'check': return advance(true);
     case 'end': return showCard(n,true);
-    default: return showCard(n,false);
+    default: showCard(n,false); if(run.resumeLine>0 && getLines(n).length) startLines(); else run.resumeLine=0; return;
   }
 }
+function getLines(n){ const sid=n.script_id||n.node_id; return S[sid]||S[sid+'_EP1']||[]; }
 function updateSkipBtn(){ const n=N[run.node]; $('bCSkip').hidden=!(n&&n.skip_to&&evalCond(n.skip_when)); }
 function showCard(n,isEnd){
   const el=$('card'); el.className=n.ending||''; el.hidden=false; run.mode='card';
   const endLike=isEndLike(n.type);
   const k=endLike ? [rName(n.route),n.subtitle].filter(Boolean).join(' · ') : (n.subtitle? n.title : '');
   const big=endLike ? n.title : (n.subtitle||n.title);
-  const has=(S[n.node_id]||[]).length>0;
+  const has=getLines(n).length>0;
   el.innerHTML=`<div class="k">${k}</div><h2>${big}</h2>${n.age&&endLike?`<div class="a">현우 ${n.age}세</div>`:''}<div class="rule"></div>`+
     (isEnd?`<button class="go" id="goTitle">타이틀로</button>`:`<div class="w">${has?'탭하여 계속':'대본 연결 전 · 탭하여 계속'}</div>`);
+  run.readyAt = (isEnd||endLike) ? 0 : Date.now();   // 오토: 엔딩 카드에서는 멈춥니다
   if(isEnd) $('goTitle').onclick=e=>{e.stopPropagation();toTitle();};
   setAssets(null);
 }
 function startLines(){
-  const n=N[run.node]; run.lines=S[n.script_id||n.node_id]||[];
-  $('card').hidden=true;
-  if(!run.lines.length) return advance();
-  run.i=0; run.mode='line'; $('dialog').hidden=false; playLine();
+  const n=N[run.node]; run.lines=getLines(n);
+  $('card').hidden=true; run.readyAt=0;
+  if(!run.lines.length){ run.resumeLine=0; return advance(); }
+  run.i=Math.min(run.resumeLine||0,run.lines.length-1); run.resumeLine=0;
+  if(run.i>0) restoreAssets(run.i); else run.lastChar='';
+  run.mode='line'; $('dialog').hidden=false; playLine();
+}
+function restoreAssets(upto){   // 중간 지점에서 이어할 때 그 시점의 배경·캐릭터·BGM 복원
+  let bg='',ch='',bgm='';
+  for(let k=0;k<upto;k++){ const l=run.lines[k]; if(l.bg) bg=l.bg; if(l.char==='-') ch='-'; else if(l.char) ch=l.char; if(l.bgm) bgm=l.bgm; }
+  run.lastChar=''; setAssets({bg,char:ch,bgm});
 }
 function playLine(){
   const l=run.lines[run.i]; if(!l) return advance();
+  if(save.cur) save.cur.line=run.i;
+  if(l.script_id && (save.read[l.script_id]||0)<run.i+1){ save.read[l.script_id]=run.i+1; }
+  persist();
   applySet(l.set); renderVD(); setAssets(l); if(l.cg) showCg(l.cg);
   const spk=$('spk'); const lab=l._type==='system'?'시스템':(l._type==='message'&&l.speaker?l.speaker+' · 메시지':l.speaker); spk.hidden=!lab; spk.textContent=lab||'';
   run.log.push({s:l.speaker,t:l.text});
@@ -529,31 +567,35 @@ function showCg(id){
 function typeText(t){
   const el=$('txt'); stopTyping();
   const sp=+save.set.speed;
-  if(sp===0||run.skip||matchMedia('(prefers-reduced-motion:reduce)').matches){ el.textContent=t; $('nx').hidden=false; return; }
-  el.textContent=''; $('nx').hidden=true; let k=0;
-  run.typing=setInterval(()=>{ k++; el.textContent=t.slice(0,k); if(k>=t.length){ stopTyping(); $('nx').hidden=false; } },sp);
+  if(sp===0||run.skip||matchMedia('(prefers-reduced-motion:reduce)').matches){ el.textContent=t; $('nx').hidden=false; run.readyAt=Date.now(); return; }
+  el.textContent=''; $('nx').hidden=true; run.readyAt=0; let k=0;
+  run.typing=setInterval(()=>{ k++; el.textContent=t.slice(0,k); if(k>=t.length){ stopTyping(); $('nx').hidden=false; run.readyAt=Date.now(); } },sp);
 }
 function stopTyping(){ if(run.typing){ clearInterval(run.typing); run.typing=null; return true; } return false; }
 function tap(){
   if(!$('log').hidden||!$('menu').hidden) return;
   if(run.mode==='card'){ if(N[run.node].type==='end') return; return startLines(); }
   if(run.mode==='line'){
-    if(run.typing){ stopTyping(); $('txt').textContent=run.lines[run.i].text||''; $('nx').hidden=false; return; }
+    if(run.typing){ stopTyping(); $('txt').textContent=run.lines[run.i].text||''; $('nx').hidden=false; run.readyAt=Date.now(); return; }
     run.i++; if(run.i>=run.lines.length){ $('dialog').hidden=true; return advance(); } playLine();
   }
 }
 function advance(fromChoice){
   // 첫 플레이(서브 미해금)에는 경로 선택 없이 메인 공통 루트로 고정
   if(!save.flags.sub_unlocked && run.node==='FIRST_ROUTE' && N['CH1_EP1']) return enter('CH1_EP1');
+  const n=N[run.node];
+  // 히든·진 엔딩을 끝까지 플레이(장면을 빠져나감)해야 후일담 DLC 가 열립니다
+  if(n && n.type==='ending' && n.ending==='true' && n.route && !save.flags[n.route+'_T_done']){
+    save.flags[n.route+'_T_done']=1; persist(); toast('후일담 DLC 해금: '+rName(n.route));
+  }
   const outs=(OUT[run.node]||[]).filter(e=>e.kind==='next'||e.kind==='unlock_choice');
   const ok=outs.filter(e=>evalCond(e.condition));
-  const n=N[run.node];
   if(!ok.length){ if(!outs.length){ toast('이어지는 연결이 없어 타이틀로 돌아갑니다'); } else toast('조건을 만족하는 연결이 없습니다'); return toTitle(); }
   if(ok.length===1) return enter(ok[0].to_id);
   showMenu(n,ok);
 }
 function showMenu(n,edges){
-  run.mode='menu'; const m=$('menu'); m.hidden=false; $('dialog').hidden=true; $('card').hidden=true;
+  run.mode='menu'; setSkip(false); run.readyAt=0; const m=$('menu'); m.hidden=false; $('dialog').hidden=true; $('card').hidden=true;
   const manualHint = edges.every(e=>!e.condition) && ['check','route'].includes(n.type);
   const q = n.type==='route' ? `${n.title} · 엔딩 선택` : (n.subtitle? n.title : n.title);
   m.innerHTML=`<div class="q">${q}</div>`+(manualHint?`<div class="h">분기 조건이 아직 정해지지 않아 직접 고릅니다.</div>`:'')+
@@ -561,21 +603,49 @@ function showMenu(n,edges){
   m.querySelectorAll('button').forEach(b=>b.onclick=ev=>{ ev.stopPropagation(); m.hidden=true; enter(edges[+b.dataset.i].to_id); });
 }
 function toTitle(){
-  stopTyping(); setSkip(false); playBgm(TITLE_BGM); run.mode='idle'; show('title'); refreshTitle();
+  stopTyping(); setSkip(false); setAuto(false); playBgm(TITLE_BGM); run.mode='idle'; show('title'); refreshTitle();
 }
+function stopSkip(msg){ setSkip(false); if(msg) toast(msg); }
 function setSkip(on){
   run.skip=on; $('bSkip').classList.toggle('on',on); clearInterval(run.skipTimer);
-  if(on) run.skipTimer=setInterval(()=>{ if(!$('menu').hidden||!$('log').hidden) return; if(run.mode==='line'||run.mode==='card') tap(); },70);
+  if(on && run.auto) setAuto(false);
+  if(on) run.skipTimer=setInterval(()=>{
+    if(!$('menu').hidden||!$('log').hidden||$('game').hidden) return;
+    const free = DEV_TOOLS || save.set.skipUnread;           // 테스트 모드에서는 안 읽은 문장도 스킵
+    const readAt=(l,i)=>!l||!l.script_id||(save.read[l.script_id]||0)>i;
+    if(run.mode==='card'){
+      const n=N[run.node]; if(n.type==='end'||isEndLike(n.type)) return stopSkip('엔딩에서 스킵을 멈춥니다');
+      const ls=getLines(n); if(!free && ls.length && !readAt(ls[0],0)) return stopSkip('읽지 않은 문장에서 스킵을 멈춥니다');
+      return tap();
+    }
+    if(run.mode==='line'){
+      if(run.typing) return tap();
+      const nx=run.i+1;
+      if(!free && nx<run.lines.length && !readAt(run.lines[nx],nx)) return stopSkip('읽지 않은 문장에서 스킵을 멈춥니다');
+      tap();
+    }
+  },70);
 }
+function setAuto(on){
+  run.auto=on; run.readyAt = on ? (run.typing?0:Date.now()) : 0; $('bAuto').classList.toggle('on',on);
+  if(on && run.skip) setSkip(false);
+  if(on) toast('오토 켜짐 · '+(+save.set.autoSec).toFixed(1)+'초 간격');
+}
+setInterval(()=>{   // 오토: 글이 다 표시된 뒤 설정한 시간이 지나면 다음으로
+  if(!run.auto||$('game').hidden||!$('log').hidden||!$('menu').hidden||run.typing||!run.readyAt) return;
+  const wait=(run.mode==='card'?Math.max(1.5,save.set.autoSec*0.7):save.set.autoSec)*1000;
+  if(Date.now()-run.readyAt>=wait){ run.readyAt=0; tap(); }
+},120);
 
 /* ---------- title / sub screens ---------- */
 const MAINS=['JIWOO','ARIN','YUNA','SERA','SEOYUN','HARIN'], SUBS=['SI','CH'];
+const dlcOpen=r=>!!save.flags[r+'_T_done'];
 function refreshTitle(){
   const c=save.cur&&N[save.cur.node]; $('bCont').disabled=!c;
   $('contInfo').textContent=c? (N[save.cur.node].title||'') : '';
   const ends=Object.values(N).filter(n=>n.type==='ending'); const got=ends.filter(n=>seen(n.node_id)).length;
   $('galInfo').textContent=`${got} / ${ends.length}`;
-  const unlocked=[...MAINS,...SUBS].filter(r=>seen(r+'_T')).length;
+  const unlocked=[...MAINS,...SUBS].filter(dlcOpen).length;
   $('dlcInfo').textContent=`${unlocked} / ${MAINS.length+SUBS.length}`;
   const cgs=Object.keys(C); $('cgInfo').textContent=`${cgs.filter(k=>save.cg[k]).length} / ${cgs.length}`;
   $('srcInfo').textContent=srcLabel;
@@ -594,8 +664,9 @@ function buildGallery(){
 }
 function buildDlc(){
   $('dlcBody').innerHTML=[...MAINS,...SUBS].map(r=>{
-    const hub=N[r+'_DLC']; if(!hub) return ''; const ok=seen(r+'_T');
-    return `<button class="item" data-id="${r}_DLC" ${ok?'':'disabled'} style="border-color:${R[r]?.accent||'#888'}">${ok?hub.title:'???'}<small>${rName(r)} · ${hub.subtitle}${hub.age?` · ${hub.age}세`:''}${ok?'':' · 히든·진 엔딩 달성 시 해금'}</small></button>`;
+    const hub=N[r+'_DLC']; if(!hub) return ''; const ok=dlcOpen(r);
+    const why = seen(r+'_T') ? '히든·진 엔딩을 끝까지 플레이하면 해금' : '히든·진 엔딩 달성 시 해금';
+    return `<button class="item" data-id="${r}_DLC" ${ok?'':'disabled'} style="border-color:${R[r]?.accent||'#888'}">${ok?esc(hub.title):'???'}<small>${esc(rName(r))} · ${esc(hub.subtitle)}${hub.age?` · ${hub.age}세`:''}${ok?'':' · '+why}</small></button>`;
   }).join('');
   $('dlcBody').querySelectorAll('button:not(:disabled)').forEach(b=>b.onclick=()=>startAt(b.dataset.id,true));
 }
@@ -603,6 +674,9 @@ function buildSettings(){
   $('sSpeed').value=60-save.set.speed;
   $('sVol').value=save.set.vol??50;
   $('sSkip').textContent=save.set.skipCommon?'켜짐':'꺼짐';
+  $('sAuto').value=Math.round(save.set.autoSec*10); $('sAutoV').textContent=(+save.set.autoSec).toFixed(1)+'초';
+  $('sSkipUnread').textContent=save.set.skipUnread?'켜짐':'꺼짐';
+  $('sDev').textContent=DEV_TOOLS?'켜짐':'꺼짐';
   $('dVars').value=JSON.stringify(run.vars,null,1);
 }
 function check(){
@@ -610,7 +684,7 @@ function check(){
   EDGES.forEach(e=>{ if(!ids.has(e.from_id)) rep.push('끊긴 연결(출발 노드 없음): '+e.from_id+' → '+e.to_id); if(!ids.has(e.to_id)) rep.push('끊긴 연결(도착 노드 없음): '+e.from_id+' → '+e.to_id); });
   const seenN=new Set(['START']); const q=['START'];
   while(q.length){ const x=q.shift(); (OUT[x]||[]).forEach(e=>{ if(!seenN.has(e.to_id)&&ids.has(e.to_id)){seenN.add(e.to_id);q.push(e.to_id);} }); }
-  const unreach=[...ids].filter(i=>!seenN.has(i)); if(unreach.length) rep.push('START에서 도달할 수 없는 노드 '+unreach.length+'개: '+unreach.slice(0,12).join(', ')+(unreach.length>12?' …':''));
+  const unreach=[...ids].filter(i=>!seenN.has(i)&&N[i].type!=='dlc'); if(unreach.length) rep.push('START에서 도달할 수 없는 노드 '+unreach.length+'개: '+unreach.slice(0,12).join(', ')+(unreach.length>12?' …':''));
   const dead=[...ids].filter(i=>N[i].type!=='end'&&!(OUT[i]||[]).some(e=>e.kind!=='unlock')); if(dead.length) rep.push('나가는 연결이 없는 노드: '+dead.join(', '));
   const el=$('rep'); el.hidden=false; el.textContent=(rep.length>1?'확인할 항목\n':'문제 없음\n')+rep.join('\n');
 }
@@ -626,28 +700,28 @@ const SLOT_KEY='projectY.slots.v1', SLOT_N=12;
 let slots=[]; try{ slots=JSON.parse(localStorage.getItem(SLOT_KEY)||'[]'); }catch(e){}
 function persistSlots(){ try{ localStorage.setItem(SLOT_KEY,JSON.stringify(slots)); }catch(e){ toast('저장 공간이 부족합니다'); } }
 let saveMode='load';
-function here(){ return (fromScreen==='game'&&run.node&&N[run.node]&&N[run.node].type!=='end') ? {node:run.node,vars:run.vars} : save.cur; }
+function here(){ return (fromScreen==='game'&&run.node&&N[run.node]&&N[run.node].type!=='end') ? {node:run.node,vars:run.vars,line:run.mode==='line'?run.i:0} : save.cur; }
 function buildSlots(){
   $('tSave').classList.toggle('on',saveMode==='save'); $('tLoad').classList.toggle('on',saveMode==='load');
   $('slots').innerHTML=Array.from({length:SLOT_N},(_,i)=>{ const s=slots[i];
-    return `<button class="slot ${s?'full':''}" data-i="${i}" ${saveMode==='load'&&!s?'disabled':''}>${s?`${esc(s.title)}<small>${esc(s.route)}${s.route?' · ':''}${esc(s.time)}</small>`:`슬롯 ${i+1} · 비어 있음`}</button>`; }).join('');
+    return `<button class="slot ${s?'full':''}" data-i="${i}" ${saveMode==='load'&&!s?'disabled':''}>${s?`${esc(s.title)}<small>${esc(s.route)}${s.route?' · ':''}${s.line?(s.line+1)+'번째 문장 · ':''}${esc(s.time)}</small>`:`슬롯 ${i+1} · 비어 있음`}</button>`; }).join('');
   $('slots').querySelectorAll('button').forEach(b=>b.onclick=()=>slotClick(+b.dataset.i));
 }
 function slotClick(i){
   if(saveMode==='save'){
     const h=here(); if(!h||!N[h.node]) return toast('저장할 진행이 없습니다');
     if(slots[i]&&!confirm('슬롯 '+(i+1)+'에 덮어쓸까요?')) return;
-    const n=N[h.node]; slots[i]={node:h.node,vars:JSON.parse(JSON.stringify(h.vars||{})),title:n.title||n.node_id,route:rName(n.route),time:new Date().toLocaleString('ko-KR')};
+    const n=N[h.node]; slots[i]={node:h.node,line:h.line||0,vars:JSON.parse(JSON.stringify(h.vars||{})),title:n.title||n.node_id,route:rName(n.route),time:new Date().toLocaleString('ko-KR')};
     persistSlots(); buildSlots(); toast('슬롯 '+(i+1)+'에 저장했습니다');
   } else {
     const s=slots[i]; if(!s||!N[s.node]) return toast('불러올 수 없는 슬롯입니다');
-    run.vars=JSON.parse(JSON.stringify(s.vars||{})); run.hist=[]; run.log=[]; startAt(s.node,false);
+    run.vars=JSON.parse(JSON.stringify(s.vars||{})); run.hist=[]; run.log=[]; startAt(s.node,false,s.line||0);
   }
 }
 
 function buildCg(){
   const list=Object.values(C), body=$('cgBody');
-  if(!list.length){ body.innerHTML='<p style="color:var(--fog);font-size:13px;line-height:1.8">등록된 CG가 없습니다.</p>'; return; }
+  if(!list.length){ body.innerHTML='<p style="color:var(--fog);font-size:13px;line-height:1.8">등록된 CG가 없습니다.<br>① CG 이미지를 <b>cg/</b> 폴더에 넣고 ② <b>flow/flow_cg.csv</b> 에 한 줄 추가(cg_id, title, route, file) ③ <b>flow/flow_assets.csv</b> 의 cg 칸에 cg_id 를 적으면, 그 문장에서 CG가 나오고 여기에 기록됩니다.</p>'; return; }
   const groups={}; list.forEach(c=>(groups[c.route||'']??=[]).push(c));
   body.innerHTML=Object.entries(groups).map(([r,a])=>`<div class="grp">${r?rName(r):'공통'}</div><div class="cgs">`+a.map(c=>{ const ok=save.cg[c.cg_id];
     return `<button class="cgc ${ok?'seen':''}" data-id="${esc(c.cg_id)}" ${ok?'':'disabled'} ${ok&&c.file?`style="background-image:url('${CG_DIR}${esc(c.file)}')"`:''}><span>${ok?esc(c.title||c.cg_id):'???'}</span></button>`; }).join('')+'</div>').join('');
@@ -668,7 +742,7 @@ function buildJump(q=''){
 
 document.querySelectorAll('[data-back]').forEach(b=>b.onclick=back);
 $('bNew').onclick=()=>startAt('START',true);
-$('bCont').onclick=()=>{ run.vars=save.cur.vars||{}; run.hist=[]; run.log=[]; startAt(save.cur.node,false); };
+$('bCont').onclick=()=>{ run.vars=save.cur.vars||{}; run.hist=[]; run.log=[]; startAt(save.cur.node,false,save.cur.line||0); };
 $('bGal').onclick=()=>openPage('gallery',buildGallery);
 $('bDlc').onclick=()=>openPage('dlc',buildDlc);
 $('bSet').onclick=()=>openPage('settings',()=>{ buildSettings(); $('rep').hidden=true; });
@@ -682,32 +756,49 @@ $('bCSkip').onclick=e=>{ e.stopPropagation(); const n=N[run.node]; if(n?.skip_to
 $('fExport').onclick=()=>{ const blob=new Blob([JSON.stringify({v:1,save,slots},null,1)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='project_y_save.json'; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1500); };
 $('fImportBtn').onclick=()=>$('fImport').click();
 $('fImport').onchange=async e=>{ try{ const j=JSON.parse(await e.target.files[0].text()); if(!j.save||!Array.isArray(j.slots)) throw 0;
-  save=Object.assign({seen:{},flags:{},cg:{},cur:null,set:{skipCommon:false,speed:25,vol:50}},j.save); slots=j.slots; persist(); persistSlots(); buildSlots(); refreshTitle(); toast('불러왔습니다'); }
+  save=Object.assign({seen:{},flags:{},cg:{},read:{},cur:null,set:{}},j.save); save.set=Object.assign({...DEFAULT_SET},save.set||{}); save.read=save.read||{}; slots=j.slots; persist(); persistSlots(); buildSlots(); refreshTitle(); toast('불러왔습니다'); }
   catch(err){ toast('저장 파일 형식이 올바르지 않습니다'); } e.target.value=''; };
 
 $('bDevJump')&&($('bDevJump').onclick=()=>openPage('jump',()=>{ $('jumpQ').value=''; buildJump(); }));
 $('bJumpG')&&($('bJumpG').onclick=e=>{ e.stopPropagation(); openPage('jump',()=>{ $('jumpQ').value=''; buildJump(); }); });
 $('jumpQ')&&($('jumpQ').oninput=e=>buildJump(e.target.value));
 $('dSubClear')&&($('dSubClear').onclick=()=>{ save.flags.SI_cleared=1; persist(); toast('서브 최초 클리어 처리'); });
-function applyDev(){ document.body.classList.toggle('devmode',DEV_TOOLS); }
+function applyDev(){
+  document.body.classList.toggle('devmode',DEV_TOOLS); $('devbadge').hidden=!DEV_TOOLS;
+  if(run.node&&N[run.node]) setScene(N[run.node]);
+  if($('sDev')) $('sDev').textContent=DEV_TOOLS?'켜짐':'꺼짐';
+}
+function setDev(on){ DEV_TOOLS=on; try{ localStorage.setItem('projectY.dev',on?'1':'0'); }catch(err){} applyDev(); toast(on?'테스트 모드 켜짐 (` 또는 F2 로 끄기)':'테스트 모드 꺼짐'); }
 applyDev();
 addEventListener('keydown',e=>{
-  if(e.key!=='`' && e.code!=='Backquote') return;
+  if(e.key!=='`' && e.code!=='Backquote' && e.key!=='F2') return;
   if(/^(INPUT|TEXTAREA|SELECT)$/.test((document.activeElement||{}).tagName||'')) return;
-  e.preventDefault(); DEV_TOOLS=!DEV_TOOLS;
-  try{ localStorage.setItem('projectY.dev',DEV_TOOLS?'1':'0'); }catch(err){}
-  applyDev(); toast(DEV_TOOLS?'테스트 모드 켜짐 (` 키로 끄기)':'테스트 모드 꺼짐');
+  e.preventDefault(); setDev(!DEV_TOOLS);
 });
+$('devbadge').onclick=()=>setDev(false);
+$('sDev').onclick=()=>setDev(!DEV_TOOLS);
+{ let c=0,t=0; document.querySelector('.tframe h1').addEventListener('click',()=>{ const now=Date.now(); c = now-t<600 ? c+1 : 1; t=now; if(c>=3){ c=0; setDev(!DEV_TOOLS); } }); }  // 휴대폰: 제목 3연타
 $('game').onclick=tap;
 $('bExit').onclick=e=>{e.stopPropagation();toTitle();};
 $('bSkip').onclick=e=>{e.stopPropagation();setSkip(!run.skip);};
+$('bAuto').onclick=e=>{e.stopPropagation();setAuto(!run.auto);};
+$('bGSet').onclick=e=>{e.stopPropagation();openPage('settings',()=>{ buildSettings(); $('rep').hidden=true; });};
 $('bLog').onclick=e=>{e.stopPropagation();const L=$('log');
   L.querySelector('.in').innerHTML='<button class="btn" id="logClose" style="margin-bottom:18px">닫기</button>'+(run.log.slice(-80).map(l=>`<p>${l.s?`<b>${l.s}</b>`:''}${(l.t||'').replace(/</g,'&lt;')}</p>`).join('')||'<p style="color:var(--fog)">아직 기록이 없습니다.</p>');
   L.hidden=false; $('logClose').onclick=ev=>{ev.stopPropagation();L.hidden=true;}; L.onclick=ev=>ev.stopPropagation(); };
-addEventListener('keydown',e=>{ if($('game').hidden) return; if(['Enter',' ','ArrowRight'].includes(e.key)){ e.preventDefault(); tap(); } if(e.key==='Escape'){ $('log').hidden=true; } });
+addEventListener('keydown',e=>{
+  if($('game').hidden) return;
+  if(/^(INPUT|TEXTAREA|SELECT)$/.test((document.activeElement||{}).tagName||'')) return;
+  if(['Enter',' ','ArrowRight'].includes(e.key)){ e.preventDefault(); tap(); }
+  if(e.key==='Escape'){ $('log').hidden=true; }
+  if(e.key==='a'||e.key==='A'){ setAuto(!run.auto); }
+  if(e.key==='s'||e.key==='S'){ setSkip(!run.skip); }
+});
 $('sSpeed').oninput=e=>{ save.set.speed=60-(+e.target.value); persist(); };
 $('sVol').oninput=e=>{ save.set.vol=+e.target.value; updateBgmVolume(); persist(); };
 $('sSkip').onclick=()=>{ save.set.skipCommon=!save.set.skipCommon; persist(); buildSettings(); };
+$('sAuto').oninput=e=>{ save.set.autoSec=(+e.target.value)/10; $('sAutoV').textContent=save.set.autoSec.toFixed(1)+'초'; persist(); };
+$('sSkipUnread').onclick=()=>{ save.set.skipUnread=!save.set.skipUnread; persist(); buildSettings(); };
 $('sCheck').onclick=check;
 $('sCsv').onclick=()=>$('fCsv').click();
 $('fCsv').onchange=async e=>{
@@ -716,14 +807,13 @@ $('fCsv').onchange=async e=>{
   build(cur); srcLabel='CSV 직접 불러옴: '+got.join(', '); refreshTitle(); toast(got.length?'불러왔습니다: '+got.join(', '):'파일명 점검 필요');
 };
 $('dUnlock')&&($('dUnlock').onclick=()=>{ save.flags.sub_unlocked=1; persist(); toast('메인 최초 클리어 처리'); });
-$('dAllEnd')&&($('dAllEnd').onclick=()=>{ Object.values(N).filter(n=>n.type==='ending').forEach(n=>save.seen[n.node_id]=1); Object.keys(C).forEach(k=>save.cg[k]=1); persist(); refreshTitle(); toast('엔딩·CG·DLC 해금'); });
+$('dAllEnd')&&($('dAllEnd').onclick=()=>{ Object.values(N).filter(n=>n.type==='ending').forEach(n=>{ save.seen[n.node_id]=1; if(n.ending==='true'&&n.route) save.flags[n.route+'_T_done']=1; }); Object.keys(C).forEach(k=>save.cg[k]=1); persist(); refreshTitle(); toast('엔딩·CG·DLC 해금'); });
 $('dReset')&&($('dReset').onclick=()=>{ if(confirm('저장 데이터를 초기화할까요?')){ localStorage.removeItem(SAVE_KEY); localStorage.removeItem(SLOT_KEY); location.reload(); } });
 $('dGo')&&($('dGo').onclick=()=>{ const v=$('dJump').value.trim(); const id=N[v]?v:Object.keys(N).find(k=>N[k].title===v); if(id) startAt(id,false); else toast('없는 노드입니다'); });
 $('dVarSave')&&($('dVarSave').onclick=()=>{ try{ run.vars=JSON.parse($('dVars').value||'{}'); toast('변수 적용'); }catch(e){ toast('JSON 형식이 올바르지 않습니다'); } });
 
-if(TITLE_BG){ const u=IMG_DIR+TITLE_BG, im=new Image(); im.onload=()=>{ const t=$('title'); t.style.backgroundImage=`linear-gradient(rgba(18,20,28,.55),rgba(18,20,28,.78)),url("${u}")`; t.style.backgroundSize='cover'; t.style.backgroundPosition='center'; }; im.src=u; }
-addEventListener('pointerdown',()=>{ if(!$('title').hidden) playBgm(TITLE_BGM); },{once:true}); // 브라우저 정책상 첫 터치 후 재생
-(async()=>{ build(await loadData()); refreshTitle(); show('title'); })();
+if(TITLE_BG){ const t=$('title'); const tryBg=(list)=>{ if(!list.length) return; const u=list[0], im=new Image(); im.onload=()=>{ t.style.backgroundImage=`linear-gradient(rgba(18,20,28,.55),rgba(18,20,28,.78)),url("${u}")`; t.style.backgroundSize='cover'; t.style.backgroundPosition='center'; }; im.onerror=()=>tryBg(list.slice(1)); im.src=u; }; tryBg([IMG_DIR+TITLE_BG, TITLE_BG]); }
+(async()=>{ build(await loadData()); refreshTitle(); show('title'); playBgm(TITLE_BGM); })();
 </script>
 </body>
 </html>
