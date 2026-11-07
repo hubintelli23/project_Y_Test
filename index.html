@@ -586,7 +586,7 @@ function enter(id){
   persist();
   setScene(n);
   updateSkipBtn();
-  if(save.set.skipCommon && n.skip_to && evalCond(n.skip_when)){ toast('공통 루트를 건너뜁니다'); return enter(n.skip_to); }
+  if(save.set.skipCommon && canSkipCommon(n)){ toast('공통 루트를 건너뜁니다'); return enter(n.skip_to); }
   switch(n.type){
     case 'unlock': if(id==='SUB_UNLOCK'){ save.flags.sub_unlocked=1; persist(); toast('서브 히로인 루트가 해금되었습니다'); } return advance();
     case 'route_done': save.flags[n.route+'_cleared']=1; persist(); return advance();
@@ -598,7 +598,8 @@ function enter(id){
   }
 }
 function getLines(n){ const sid=n.script_id||n.node_id; return S[sid]||S[sid+'_EP1']||[]; }
-function updateSkipBtn(){ const n=N[run.node]; $('bCSkip').hidden=!(n&&n.skip_to&&evalCond(n.skip_when)); }
+const canSkipCommon=n=>!!(save.flags.sub_unlocked && n && n.skip_to && evalCond(n.skip_when));   // 첫 플레이(최초 클리어 전)에는 건너뛰기 없음
+function updateSkipBtn(){ $('bCSkip').hidden=!canSkipCommon(N[run.node]); }
 function showCard(n,isEnd){
   const el=$('card'); el.className=n.ending||''; el.hidden=false; run.mode='card';
   const endLike=isEndLike(n.type);
@@ -751,15 +752,15 @@ const ACT={
   date: {n:'데이트',ap:3, d:'호감도 대폭 상승 · 스트레스 소폭 증가'},
   rest: {n:'휴식',  ap:1, d:'스트레스 대폭 감소 · 피로 회복'}
 };
-const PLACES=[['cafe','아포카 카페'],['library','도서관'],['park','출사지 공원'],['cinema','영화관'],['night','야경 거리']];
+const PLACES=[['cafe','카페 뷰파인더'],['library','도서관'],['park','출사지 공원'],['cinema','영화관'],['night','야경 거리'],['trail','혜안 산책로 (옆 소도시)']];
 // 히로인별 장소 선호 (1.5=최고, 1=보통, 0.5=별로) — 대본 설정에 맞게 바꾸세요
 const PREF={
-  JIWOO: {cafe:1.2,library:1,  park:1.5,cinema:1,  night:1.2},
-  ARIN:  {cafe:1,  library:1.5,park:1,  cinema:.5, night:.5},
-  YUNA:  {cafe:1,  library:.5, park:1,  cinema:1.5,night:1},
-  SERA:  {cafe:1,  library:.5, park:.5, cinema:1,  night:1.5},
-  SEOYUN:{cafe:1,  library:1.5,park:1,  cinema:.5, night:.5},
-  HARIN: {cafe:.5, library:1,  park:1.5,cinema:1,  night:.5}
+  JIWOO: {cafe:1.2,library:1,  park:1.5,cinema:1,  night:1.2,trail:1.2},
+  ARIN:  {cafe:1,  library:1.5,park:1,  cinema:.5, night:.5,trail:1},
+  YUNA:  {cafe:1,  library:.5, park:1,  cinema:1.5,night:1,trail:.5},
+  SERA:  {cafe:1,  library:.5, park:.5, cinema:1,  night:1.5,trail:1},
+  SEOYUN:{cafe:1,  library:1.5,park:1,  cinema:.5, night:.5,trail:1.5},
+  HARIN: {cafe:.5, library:1,  park:1.5,cinema:1,  night:.5,trail:1}
 };
 const DIFF={JIWOO:{mul:1.2,tag:'이지'},ARIN:{mul:1,tag:'노말'},YUNA:{mul:1,tag:'노말'},SERA:{mul:.8,tag:'하드'},SEOYUN:{mul:.7,tag:'익스트림'},HARIN:{mul:.5,tag:'헬'}};
 
@@ -807,6 +808,7 @@ function patchFlow(d){
   // 공통 루트 건너뛰기: 자유시간을 건너뛰면 스탯을 못 쌓으므로, 요약 자유시간 5회를 이어서 진행
   if(byId.CH1_EP1 && byId.CH1_EP1.skip_to==='MAIN_PICK' && byId.RELATION_CHECK){
     byId.CH1_EP1.skip_to='FREE_SKIP';
+    d.nodes.forEach(n=>{ if(/^CH[1-5]_EP\d+$/.test(n.node_id)&&!n.skip_to){ n.skip_to='FREE_SKIP'; n.skip_when='sub_unlocked'; } });   // 공통 루트 어느 에피소드에서든 건너뛰기
     addNode('FREE_SKIP','자유시간 (요약)','공통 루트를 건너뛴 대신 자유시간 5회를 이어서 진행합니다'); mk('FREE_SKIP','RELATION_CHECK');
   }
   // 공통 배드 엔딩 진입 조건
@@ -847,14 +849,16 @@ function bump(k,d,mx){ run.vars[k]=Math.max(0,Math.min(mx||FREE.max,(+g(k))+d));
 function startFree(n){
   mgStop(); setSkip(false); setAuto(false); run.mode='free'; ensureStats(); recalcDerived();
   const cfg=FREE_NODES[n.node_id]||{};
+  const remain=n.node_id==='FREE_SKIP' ? Math.max(0,5-(+g('free_done'))) : (cfg.rep||1);   // 건너뛰기: 아직 안 한 자유시간 회차만 진행
+  if(remain<1) return advance();
   let st=run.vars._free;
-  if(!st||st.id!==n.node_id){ st={id:n.node_id,n:1,total:cfg.rep||1,ap:FREE.ap,dated:[],msg:'',view:'main',pick:''}; run.vars._free=st; }
+  if(!st||st.id!==n.node_id){ st={id:n.node_id,n:1,total:remain,ap:FREE.ap,dated:[],msg:'',view:'main',pick:''}; run.vars._free=st; }
   st.view='main'; st.pick='';
   $('dialog').hidden=true; $('card').hidden=true; $('chimg').hidden=true; $('cg').hidden=true;
   $('game').classList.add('freeing'); $('free').hidden=false; persist(); renderFree();
 }
 function leaveFree(){
-  mgStop(); delete run.vars._free; $('free').hidden=true; $('game').classList.remove('freeing');
+  mgStop(); run.vars.free_done=(+g('free_done'))+((run.vars._free&&run.vars._free.total)||1); delete run.vars._free; $('free').hidden=true; $('game').classList.remove('freeing');
   recalcDerived(); persist(); advance();
 }
 function freeMult(){ return +g('fatigue')>=FREE.tired ? .5 : 1; }
@@ -1182,7 +1186,7 @@ $('bGSave').onclick=e=>{ e.stopPropagation(); saveMode='save'; openPage('saves',
 $('tSave').onclick=()=>{ saveMode='save'; buildSlots(); };
 $('tLoad').onclick=()=>{ saveMode='load'; buildSlots(); };
 $('bCg').onclick=()=>openPage('cgs',buildCg);
-$('bCSkip').onclick=e=>{ e.stopPropagation(); const n=N[run.node]; if(n?.skip_to){ toast('공통 루트를 건너뛰었습니다'); enter(n.skip_to); } };
+$('bCSkip').onclick=e=>{ e.stopPropagation(); const n=N[run.node]; if(canSkipCommon(n)){ toast('공통 루트를 건너뛰었습니다'); enter(n.skip_to); } };
 $('fExport').onclick=()=>{ const blob=new Blob([JSON.stringify({v:1,save,slots},null,1)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='project_y_save.json'; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1500); };
 $('fImportBtn').onclick=()=>$('fImport').click();
 $('fImport').onchange=async e=>{ try{ const j=JSON.parse(await e.target.files[0].text()); if(!j.save||!Array.isArray(j.slots)) throw 0;
