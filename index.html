@@ -185,6 +185,26 @@ button.dev{border:1px dashed #c98a4a!important;color:#e0b27a!important}
 #free .fmsg{margin-top:14px;padding:10px 14px;background:rgba(27,31,44,.8);font-family:var(--serif);font-size:14px;line-height:1.7}
 #free .fend{margin-top:16px;text-align:right}#free .fend .go{background:var(--silver);color:var(--night)}
 @media (max-width:640px){#free{padding-top:calc(env(safe-area-inset-top) + clamp(14px,3vh,28px) + 84px)}#free .fgrid{grid-template-columns:1fr}}
+
+/* ---------- 미니게임 ---------- */
+#free .mgbox{grid-column:1/-1;background:var(--ink);padding:16px;border-left:3px solid var(--happy)}
+#free .mgh{display:flex;flex-direction:column;gap:2px;margin-bottom:12px}
+#free .mgh b{font-family:var(--serif);font-size:17px}#free .mgh small{color:var(--fog);font-size:12px}
+#free .mgs{font-size:13px;color:var(--fog);margin:10px 0;text-align:center;min-height:1.4em}
+#free .track{position:relative;height:36px;background:#2d3347;cursor:pointer;margin-top:12px;touch-action:manipulation}
+#free .track .zone{position:absolute;top:0;bottom:0;background:rgba(111,190,130,.55)}
+#free .track .mk{position:absolute;top:-4px;bottom:-4px;width:6px;margin-left:-3px;background:var(--silver)}
+#free .mgt{text-align:center}#free .mgt .go,#free .mgres .go{margin-top:6px;padding:10px 28px;border:1px solid var(--silver);background:var(--silver);color:var(--night)}
+#free .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:360px;margin:0 auto}
+#free .mc{aspect-ratio:3/4;background:#2d3347;font-size:26px;border:1px solid rgba(223,227,234,.2);display:flex;align-items:center;justify-content:center;color:var(--fog)}
+#free .mc.up{background:#3b4560;color:var(--silver)}#free .mc.ok{background:#2e5a45}
+#free .mopts{display:grid;gap:8px}
+#free .mopts button{padding:12px 14px;background:#2d3347;border:1px solid rgba(223,227,234,.2);text-align:left;font-size:14px}
+#free .mopts button:hover:not(:disabled){border-color:var(--silver)}#free .mopts button:disabled{opacity:.6;cursor:default}
+#free .mgres{text-align:center;padding:6px 0}
+#free .mgres .gr{font-family:var(--serif);font-size:56px;font-weight:700;line-height:1.2}
+#free .gr.gS{color:var(--happy)}#free .gr.gA{color:var(--true)}#free .gr.gB{color:var(--silver)}#free .gr.gC{color:var(--sad)}
+#free .mgf{margin-top:12px;text-align:right}
 </style>
 </head>
 <body>
@@ -560,7 +580,7 @@ function enter(id){
   if(id==='REPLAY_CHOICE' && !save.flags.sub_unlocked && N['CH1_EP1']) id='CH1_EP1';
   const n=N[id];
   if(!n){ toast('노드를 찾을 수 없습니다: '+id); return toTitle(); }
-  stopTyping(); $('menu').hidden=true; $('card').hidden=true; $('dialog').hidden=true; $('cg').hidden=true; $('free').hidden=true; $('game').classList.remove('freeing');
+  stopTyping(); $('menu').hidden=true; $('card').hidden=true; $('dialog').hidden=true; $('cg').hidden=true; $('free').hidden=true; $('game').classList.remove('freeing'); mgStop();
   run.node=id; run.hist.push(id); if(run.hist.length>60) run.hist.shift();
   save.seen[id]=1; save.cur = n.type==='end' ? null : {node:id,vars:run.vars,line:0};
   persist();
@@ -825,7 +845,7 @@ function bump(k,d,mx){ run.vars[k]=Math.max(0,Math.min(mx||FREE.max,(+g(k))+d));
 
 /* ---------- 자유시간 화면 ---------- */
 function startFree(n){
-  setSkip(false); setAuto(false); run.mode='free'; ensureStats(); recalcDerived();
+  mgStop(); setSkip(false); setAuto(false); run.mode='free'; ensureStats(); recalcDerived();
   const cfg=FREE_NODES[n.node_id]||{};
   let st=run.vars._free;
   if(!st||st.id!==n.node_id){ st={id:n.node_id,n:1,total:cfg.rep||1,ap:FREE.ap,dated:[],msg:'',view:'main',pick:''}; run.vars._free=st; }
@@ -834,7 +854,7 @@ function startFree(n){
   $('game').classList.add('freeing'); $('free').hidden=false; persist(); renderFree();
 }
 function leaveFree(){
-  delete run.vars._free; $('free').hidden=true; $('game').classList.remove('freeing');
+  mgStop(); delete run.vars._free; $('free').hidden=true; $('game').classList.remove('freeing');
   recalcDerived(); persist(); advance();
 }
 function freeMult(){ return +g('fatigue')>=FREE.tired ? .5 : 1; }
@@ -856,6 +876,8 @@ function renderFree(){
       const tag=r==='SERA'?' · 방치 시 호감도 감소':r==='HARIN'?' · 숨겨진 게이지':'';
       return `<button class="fact" data-a="h" data-v="${r}" ${blocked?'disabled':''}><b>${esc(rName(r))}</b><span>${DIFF[r].tag}${tag}${blocked?' · 매력이 부족해 만나주지 않는다':''}${st.dated.includes(r)?' · 오늘 만남':''}</span></button>`; }).join('')
       +'<button class="fact ghost" data-a="back"><b>← 돌아가기</b></button>';
+  } else if(st.view==='mg'){
+    acts='<div id="mgbox" class="mgbox"></div>';
   } else {
     acts=`<div class="fq">${esc(rName(st.pick))}와(과) 어디로 갈까요?</div>`+PLACES.map(([id,nm])=>`<button class="fact" data-a="p" data-v="${id}"><b>${nm}</b></button>`).join('')
       +'<button class="fact ghost" data-a="back"><b>← 돌아가기</b></button>';
@@ -867,8 +889,8 @@ function renderFree(){
     ${warn.length?`<div class="fwarn">${warn.join('<br>')}</div>`:''}
     <div class="facts">${acts}</div>
     ${st.msg?`<div class="fmsg">${st.msg.split('\n').map(esc).map(s=>`<p>${s}</p>`).join('')}</div>`:''}
-    <div class="fend"><button class="btn${st.ap<=0?' go':''}" data-a="end">${st.ap<=0?'다음으로':'하루 마치기 (남은 행동력 포기)'}</button></div></div>`;
-  el.querySelectorAll('button').forEach(b=>b.onclick=ev=>{ ev.stopPropagation(); freeAct(b.dataset.a,b.dataset.v); });
+    ${st.view==='mg'?'':`<div class="fend"><button class="btn${st.ap<=0?' go':''}" data-a="end">${st.ap<=0?'다음으로':'하루 마치기 (남은 행동력 포기)'}</button></div>`}</div>`;
+  el.querySelectorAll('button[data-a]').forEach(b=>b.onclick=ev=>{ ev.stopPropagation(); freeAct(b.dataset.a,b.dataset.v); });
 }
 function freeAct(a,v){
   const st=run.vars._free; if(!st) return;
@@ -889,36 +911,147 @@ function afterAct(st,msg){
   }
   st.msg=lines.join('\n'); st.view='main'; st.pick=''; recalcDerived(); persist(); renderFree();
 }
+/* ---------- 미니게임 (운동·공부·외모 관리·데이트) ----------
+   결과 점수(0~1) → 등급 S/A/B/C → 스탯·호감도 보상 배율. 행동력은 미니게임을 마친 뒤에 차감됩니다. */
+const MG_MULT={S:1.5,A:1.25,B:1,C:.6}, MG_MULT_DATE={S:1.3,A:1.15,B:1,C:.7};
+const MG_TEXT={S:'완벽했다!',A:'꽤 잘했다.',B:'무난했다.',C:'아쉬운 결과였다.'};
+const gradeOf=s=>s>=.85?'S':s>=.6?'A':s>=.35?'B':'C';
+const shuf=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(x=>x[1]);
+const MG_INFO={train:['타이밍 운동','게이지가 초록 구간에 왔을 때 멈추세요 (3세트 · 스페이스 키도 가능)'],
+  study:['암기 카드','같은 그림 짝을 찾으세요. 적게 뒤집을수록 좋습니다'],
+  look:['코디 맞추기','오늘의 콘셉트에 어울리는 아이템을 고르세요 (3단계)'],
+  talk:['대화 주제','상대가 좋아할 만한 주제를 골라 보세요 (3번)']};
+let mg=null;
+function mgStop(){ if(mg){ if(mg.raf) cancelAnimationFrame(mg.raf); if(mg.tm) clearTimeout(mg.tm); if(mg.kd) removeEventListener('keydown',mg.kd); mg=null; } }
+function mgStart(kind,ctx,done){
+  mgStop(); const st=run.vars._free; st.view='mg'; renderFree();
+  mg={kind,ctx,done};
+  const box=$('mgbox');
+  box.innerHTML=`<div class="mgh"><b>${MG_INFO[kind][0]}</b><small>${MG_INFO[kind][1]}</small></div><div id="mgb"></div><div class="mgf"><button class="btn" id="mgSkip">건너뛰기 (보통 결과)</button></div>`;
+  $('mgSkip').onclick=ev=>{ ev.stopPropagation(); mgFinish(.5); };
+  ({train:mgTiming,study:mgMemory,look:mgCoord,talk:mgTalk})[kind]($('mgb'));
+}
+function mgFinish(score){
+  if(!mg||mg.fin) return;
+  if(mg.raf) cancelAnimationFrame(mg.raf); if(mg.tm) clearTimeout(mg.tm); if(mg.kd){ removeEventListener('keydown',mg.kd); mg.kd=null; }
+  mg.fin=true; const grade=gradeOf(score), mult=(mg.kind==='talk'?MG_MULT_DATE:MG_MULT)[grade], done=mg.done;
+  $('mgbox').innerHTML=`<div class="mgres"><div class="gr g${grade}">${grade}</div><p>${MG_TEXT[grade]}</p><p class="mgs">보상 ×${mult}</p><button class="btn go" id="mgOk">확인</button></div>`;
+  $('mgOk').onclick=ev=>{ ev.stopPropagation(); mgStop(); done(grade); };
+}
+// 1) 운동: 움직이는 마커를 초록 구간에서 멈추는 타이밍 게임
+function mgTiming(b){
+  const REPS=3, ZONES=[.28,.22,.16], SPEED=[.55,.75,.95]; let rep=0, zc=0, zw=0, t0=0, pos=0, stopped=false; const scores=[];
+  b.innerHTML=`<div class="mgt"><div class="track" id="trk"><i class="zone" id="zn"></i><i class="mk" id="mk"></i></div><div class="mgs" id="mgs"></div><button class="btn go" id="hit">지금!</button></div>`;
+  const setup=()=>{ zw=ZONES[rep]; zc=.2+Math.random()*.6; $('zn').style.left=((zc-zw/2)*100)+'%'; $('zn').style.width=(zw*100)+'%'; t0=performance.now(); stopped=false; $('mgs').textContent=`${rep+1} / ${REPS} 세트`; };
+  const loop=now=>{ if(!mg||mg.fin) return; if(!stopped){ const x=((now-t0)/1000*SPEED[rep])%2; pos=x<1?x:2-x; $('mk').style.left=(pos*100)+'%'; } mg.raf=requestAnimationFrame(loop); };
+  const hit=()=>{
+    if(stopped||!mg||mg.fin) return; stopped=true;
+    const d=Math.abs(pos-zc), sc=d<=zw/2 ? 1-(d/(zw/2))*.4 : 0; scores.push(sc);
+    $('mgs').textContent=sc>.85?'완벽!':sc>0?'좋아요':'빗나갔다'; rep++;
+    if(rep>=REPS) mg.tm=setTimeout(()=>mgFinish(scores.reduce((a,c)=>a+c,0)/REPS),550); else mg.tm=setTimeout(setup,600);
+  };
+  $('hit').onclick=ev=>{ ev.stopPropagation(); hit(); };
+  $('trk').onclick=ev=>{ ev.stopPropagation(); hit(); };
+  mg.kd=e=>{ if((e.code==='Space'||e.key==='Enter') && !(document.activeElement&&document.activeElement.id==='mgSkip')){ e.preventDefault(); hit(); } };
+  addEventListener('keydown',mg.kd); setup(); mg.raf=requestAnimationFrame(loop);
+}
+// 2) 공부: 카드 짝 맞추기
+function mgMemory(b){
+  const pick=shuf(['📖','✏️','🧮','🔬','🌍','🎵','📐','🧪']).slice(0,4), deck=shuf([...pick,...pick]);
+  let open=[], moves=0, matched=0, lock=false;
+  b.innerHTML=`<div class="mgs" id="mgs">뒤집은 횟수 0</div><div class="cards" id="cds">${deck.map((c,i)=>`<button class="mc" data-i="${i}">?</button>`).join('')}</div>`;
+  const cs=b.querySelectorAll('.mc');
+  cs.forEach(el=>el.onclick=ev=>{
+    ev.stopPropagation(); const i=+el.dataset.i;
+    if(lock||el.classList.contains('up')) return;
+    el.classList.add('up'); el.textContent=deck[i]; open.push(i);
+    if(open.length<2) return;
+    moves++; $('mgs').textContent='뒤집은 횟수 '+moves; lock=true;
+    const A=cs[open[0]], C=cs[open[1]], same=deck[open[0]]===deck[open[1]]; open=[];
+    if(same){ A.classList.add('ok'); C.classList.add('ok'); lock=false; matched++;
+      if(matched===4) mg.tm=setTimeout(()=>mgFinish(moves<=5?1:moves<=7?.7:moves<=10?.45:.2),500); }
+    else mg.tm=setTimeout(()=>{ [A,C].forEach(x=>{ x.classList.remove('up'); x.textContent='?'; }); lock=false; },650);
+  });
+}
+// 선택형 공통 틀 (코디 · 대화)
+function mgPick(b,total,headFn,optsFn){
+  let r=0, sc=0;
+  const show=()=>{
+    const opts=optsFn(r);
+    b.innerHTML=`<div class="mgs">${headFn(r)} · ${r+1} / ${total}</div><div class="mopts">${opts.map((o,i)=>`<button data-i="${i}">${o.t}</button>`).join('')}</div><div class="mgs" id="mgfb">&nbsp;</div>`;
+    b.querySelectorAll('.mopts button').forEach(el=>el.onclick=ev=>{
+      ev.stopPropagation(); const o=opts[+el.dataset.i]; sc+=o.pts;
+      b.querySelectorAll('.mopts button').forEach(x=>x.disabled=true); $('mgfb').textContent=o.fb; r++;
+      mg.tm=setTimeout(()=>{ if(r>=total) mgFinish(sc/total); else show(); },750);
+    });
+  };
+  show();
+}
+// 3) 외모 관리: 오늘의 콘셉트에 맞는 헤어·상의·신발 고르기
+const CO_CONCEPT=[['neat','단정한 캠퍼스룩'],['active','활동적인 출사룩'],['calm','차분한 카페룩']];
+const CO_ITEM={'헤어':{neat:'단정한 가르마',calm:'자연스러운 웨이브',active:'가볍게 넘긴 머리'},
+  '상의':{neat:'깔끔한 셔츠',calm:'부드러운 니트',active:'후드 집업'},
+  '신발':{neat:'로퍼',calm:'흰 스니커즈',active:'러닝화'}};
+function mgCoord(b){
+  const [tag,name]=CO_CONCEPT[Math.floor(Math.random()*3)], ring=['neat','calm','active'], cats=Object.keys(CO_ITEM);
+  const ri=ring.indexOf(tag), neutral=ring[(ri+1)%3], clash=ring[(ri+2)%3];
+  mgPick(b,3,r=>`오늘의 콘셉트: ${name} · ${cats[r]}`,r=>shuf([
+    {t:CO_ITEM[cats[r]][tag],pts:1,fb:'딱 어울린다!'},
+    {t:CO_ITEM[cats[r]][neutral],pts:.4,fb:'나쁘진 않은데…'},
+    {t:CO_ITEM[cats[r]][clash],pts:0,fb:'콘셉트와 따로 논다.'}]));
+}
+// 4) 데이트: 상대가 좋아하는 대화 주제 고르기
+const TOPICS={photo:'사진',book:'책',movie:'영화',food:'맛집',sport:'운동',music:'음악'};
+const TALK_PREF={JIWOO:{like:['photo','food'],hate:[]},ARIN:{like:['book','music'],hate:['sport']},YUNA:{like:['movie','music'],hate:['book']},
+  SERA:{like:['music','food'],hate:['sport']},SEOYUN:{like:['book','photo'],hate:['music']},HARIN:{like:['photo','sport'],hate:['food']}};
+function mgTalk(b){
+  const h=mg.ctx.h, P=TALK_PREF[h];
+  mgPick(b,3,()=>`${rName(h)}와(과)의 대화`,()=>shuf(Object.keys(TOPICS)).slice(0,3).map(k=>
+    P.like.includes(k)?{t:TOPICS[k]+' 이야기',pts:1,fb:'눈이 반짝였다.'}
+    :P.hate.includes(k)?{t:TOPICS[k]+' 이야기',pts:0,fb:'표정이 살짝 굳었다.'}
+    :{t:TOPICS[k]+' 이야기',pts:.5,fb:'고개를 끄덕였다.'}));
+}
+
 function doAction(k){
   const st=run.vars._free, a=ACT[k]; if(st.ap<a.ap) return;
-  st.ap-=a.ap; let msg;
-  if(k==='rest'){ bump('stress',-12); bump('fatigue',-3,10); msg='푹 쉬었다. 스트레스 -12 · 피로도 -3'; }
-  else {
-    const m=freeMult(), parts=[];
-    for(const s in a.gain){ const d=Math.max(1,Math.round(a.gain[s]*m)); bump(s,d); parts.push(STAT_LABEL.find(x=>x[0]===s)[1]+' +'+d); }
-    bump('fatigue',1,10); if(a.stress) bump('stress',a.stress);
-    msg=`${a.n} · ${parts.join(' · ')}${m<1?' (피로로 효과 절반)':''}`;
+  if(k==='rest'){
+    st.ap-=a.ap; bump('stress',-12); bump('fatigue',-3,10);
+    return afterAct(st,'푹 쉬었다. 스트레스 -12 · 피로도 -3');
   }
-  afterAct(st,msg);
+  mgStart(k,{},grade=>finishAction(k,grade));
+}
+function finishAction(k,grade){
+  const st=run.vars._free, a=ACT[k]; if(!st||st.ap<a.ap) return renderFree();
+  st.ap-=a.ap;
+  const fm=freeMult(), m=fm*MG_MULT[grade], parts=[];
+  for(const s in a.gain){ const d=Math.max(1,Math.round(a.gain[s]*m)); bump(s,d); parts.push(STAT_LABEL.find(x=>x[0]===s)[1]+' +'+d); }
+  bump('fatigue',1,10); if(a.stress) bump('stress',a.stress);
+  afterAct(st,`${a.n} [${grade}] · ${parts.join(' · ')}${fm<1?' (피로로 효과 절반)':''}`);
 }
 function doDate(h,place){
   const st=run.vars._free, a=ACT.date; if(st.ap<a.ap) return;
+  if(h==='SERA' && !(+g('knowledge')>=25||+g('charm')>=25)) return finishDate(h,place,'B');   // 대화가 성립하지 않으면 미니게임 없이 결과 처리
+  mgStart('talk',{h},grade=>finishDate(h,place,grade));
+}
+function finishDate(h,place,grade){
+  const st=run.vars._free, a=ACT.date; if(!st||st.ap<a.ap) return renderFree();
   st.ap-=a.ap; st.dated.push(h);
   const pref=PREF[h][place], nm=rName(h), fm=freeMult(), placeName=PLACES.find(p=>p[0]===place)[1];
-  let gain=Math.round(FREE.dateBase*pref*DIFF[h].mul*fm), msg;
+  let gain=Math.round(FREE.dateBase*pref*DIFF[h].mul*fm*MG_MULT_DATE[grade]), msg;
   const react=pref>=1.5?'아주 좋아했다.':pref>=1?'무난한 시간이었다.':'별로 내키지 않는 표정이었다.';
   if(h==='SERA' && !(+g('knowledge')>=25||+g('charm')>=25)){
     gain=0; bump('stress',2); msg=`${nm}는 대화를 이어가지 않았다. (지식 또는 매력이 부족하다) 스트레스 +2`;
   } else {
+    let slip=false;
     if(h==='SEOYUN'){
       gain=Math.round(gain*(.4+Math.random()*1.4));            // 변동 폭 극대화
-      if(pref<1){ gain=-10; run.vars.seoyun_slip=1; }          // 잘못된 선택 하나로 배드 엔딩 분기
+      if(pref<1){ gain=-10; run.vars.seoyun_slip=1; slip=true; }   // 잘못된 선택 하나로 배드 엔딩 분기
     }
     if(h==='HARIN'){
       if(pref>=1.5) bump('trust',3); else if(pref>=1){ bump('trust',1); bump('alert',1); } else bump('alert',3);
     }
     bump('aff_'+h,gain);
-    msg=`${placeName} · ${nm}: ${react} 호감도 ${gain>=0?'+':''}${gain}${h==='SEOYUN'&&pref<1?' (돌이킬 수 없는 실수를 한 것 같다…)':''}`;
+    msg=`${placeName} · ${nm}: ${react} 대화 [${grade}] 호감도 ${gain>=0?'+':''}${gain}${slip?' (돌이킬 수 없는 실수를 한 것 같다…)':''}`;
     bump('stress',3); bump('fatigue',1,10);
   }
   afterAct(st,msg);
