@@ -158,53 +158,6 @@ button.dev{border:1px dashed #c98a4a!important;color:#e0b27a!important}
 }
 @media (max-height:480px) and (orientation:landscape){#dialog{min-height:84px;padding:16px 16px 10px}#txt{font-size:14px;line-height:1.6}#charwrap{inset:0 0 30% 0}#chimg{max-height:100%}#bar button{padding:4px 7px}}
 @media (prefers-reduced-motion:reduce){#bg{transition:none}}
-
-/* ---------- 자유시간 ---------- */
-#free{position:absolute;inset:0;z-index:3;overflow:auto;background:rgba(10,12,18,.9);backdrop-filter:blur(3px);cursor:default;
-  padding:calc(env(safe-area-inset-top) + clamp(14px,3vh,28px) + 52px) 16px 28px}
-#game.freeing #bSkip,#game.freeing #bAuto,#game.freeing #bLog,#game.freeing #bCSkip{display:none}
-#free .fin{width:min(94vw,860px);margin:0 auto;user-select:text;-webkit-user-select:text}
-#free .fh{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:14px}
-#free .fh h3{font-family:var(--serif);font-size:24px}
-#free .fh small,#free h4 small{color:var(--fog);font-size:12px;font-weight:400}
-#free .fap{font-size:20px;letter-spacing:4px;color:var(--happy)}#free .fap span{color:#3a4054}
-#free .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-#free .fbox{background:var(--ink);padding:12px 14px;border-left:3px solid #3a4054}
-#free h4{font-size:13px;color:var(--fog);font-weight:400;margin-bottom:6px}
-#free .sb{display:grid;grid-template-columns:72px 1fr 40px;gap:8px;align-items:center;font-size:12px;margin:6px 0}
-#free .sb i{display:block;height:6px;background:#2d3347;position:relative}
-#free .sb i b{position:absolute;left:0;top:0;bottom:0;background:var(--silver)}
-#free .sb em{font-style:normal;text-align:right;color:var(--fog)}
-#free .sb.warn i b{background:var(--bad)}#free .sb.warn em{color:var(--bad)}
-#free .fwarn{margin-top:12px;padding:8px 12px;border:1px solid var(--bad);color:#e0a0a4;font-size:12px;line-height:1.6}
-#free .facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;margin-top:14px}
-#free .fq{grid-column:1/-1;font-family:var(--serif);font-size:16px}
-#free .fact{text-align:left;padding:12px 14px;background:var(--ink);border:1px solid rgba(223,227,234,.2);display:flex;flex-direction:column;gap:3px;font-size:14px}
-#free .fact span{font-size:11px;color:var(--fog);line-height:1.5}#free .fact em{font-style:normal;font-size:11px;color:var(--happy)}
-#free .fact:hover:not(:disabled){border-color:var(--silver)}#free .fact:disabled{opacity:.4;cursor:default}#free .fact.ghost{background:none}
-#free .fmsg{margin-top:14px;padding:10px 14px;background:rgba(27,31,44,.8);font-family:var(--serif);font-size:14px;line-height:1.7}
-#free .fend{margin-top:16px;text-align:right}#free .fend .go{background:var(--silver);color:var(--night)}
-@media (max-width:640px){#free{padding-top:calc(env(safe-area-inset-top) + clamp(14px,3vh,28px) + 84px)}#free .fgrid{grid-template-columns:1fr}}
-
-/* ---------- 미니게임 ---------- */
-#free .mgbox{grid-column:1/-1;background:var(--ink);padding:16px;border-left:3px solid var(--happy)}
-#free .mgh{display:flex;flex-direction:column;gap:2px;margin-bottom:12px}
-#free .mgh b{font-family:var(--serif);font-size:17px}#free .mgh small{color:var(--fog);font-size:12px}
-#free .mgs{font-size:13px;color:var(--fog);margin:10px 0;text-align:center;min-height:1.4em}
-#free .track{position:relative;height:36px;background:#2d3347;cursor:pointer;margin-top:12px;touch-action:manipulation}
-#free .track .zone{position:absolute;top:0;bottom:0;background:rgba(111,190,130,.55)}
-#free .track .mk{position:absolute;top:-4px;bottom:-4px;width:6px;margin-left:-3px;background:var(--silver)}
-#free .mgt{text-align:center}#free .mgt .go,#free .mgres .go{margin-top:6px;padding:10px 28px;border:1px solid var(--silver);background:var(--silver);color:var(--night)}
-#free .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:360px;margin:0 auto}
-#free .mc{aspect-ratio:3/4;background:#2d3347;font-size:26px;border:1px solid rgba(223,227,234,.2);display:flex;align-items:center;justify-content:center;color:var(--fog)}
-#free .mc.up{background:#3b4560;color:var(--silver)}#free .mc.ok{background:#2e5a45}
-#free .mopts{display:grid;gap:8px}
-#free .mopts button{padding:12px 14px;background:#2d3347;border:1px solid rgba(223,227,234,.2);text-align:left;font-size:14px}
-#free .mopts button:hover:not(:disabled){border-color:var(--silver)}#free .mopts button:disabled{opacity:.6;cursor:default}
-#free .mgres{text-align:center;padding:6px 0}
-#free .mgres .gr{font-family:var(--serif);font-size:56px;font-weight:700;line-height:1.2}
-#free .gr.gS{color:var(--happy)}#free .gr.gA{color:var(--true)}#free .gr.gB{color:var(--silver)}#free .gr.gC{color:var(--sad)}
-#free .mgf{margin-top:12px;text-align:right}
 </style>
 </head>
 <body>
@@ -243,7 +196,6 @@ button.dev{border:1px dashed #c98a4a!important;color:#e0b27a!important}
   <div id="dialog" hidden><div id="spk" hidden></div><p id="txt"></p><span id="nx">▾</span></div>
   <div id="card" hidden></div>
   <div id="menu" hidden></div>
-  <div id="free" hidden></div>
   <div id="log" hidden><div class="in"></div></div>
 </section>
 
@@ -285,7 +237,7 @@ button.dev{border:1px dashed #c98a4a!important;color:#e0b27a!important}
   <pre class="rep" id="rep" hidden></pre>
   <div class="dbg dev">
     <h4>개발용 도구 (테스트용)</h4>
-    <div class="btns"><button class="btn" id="dUnlock">메인 최초 클리어 처리</button><button class="btn" id="dSubClear">서브 최초 클리어 처리</button><button class="btn" id="dAllEnd">엔딩·CG·DLC 전부 해금</button><button class="btn" id="dStats">스탯 프리셋 (전 루트 조건 충족)</button><button class="btn" id="dReset">저장 데이터 삭제</button></div>
+    <div class="btns"><button class="btn" id="dUnlock">메인 최초 클리어 처리</button><button class="btn" id="dSubClear">서브 최초 클리어 처리</button><button class="btn" id="dAllEnd">엔딩·CG·DLC 전부 해금</button><button class="btn" id="dReset">저장 데이터 삭제</button></div>
     <h4>노드로 이동</h4>
     <input type="text" id="dJump" list="dl" placeholder="노드 ID 또는 제목 (예: ARIN_T)"><datalist id="dl"></datalist>
     <div class="btns"><button class="btn" id="dGo">이동</button></div>
@@ -304,8 +256,8 @@ button.dev{border:1px dashed #c98a4a!important;color:#e0b27a!important}
    내장 데이터 (외부 CSV가 없을 경우 fallback으로 사용)
    ============================================================ */
 const EMBED = {
- "nodes": "node_id,type,group,route,ending,title,subtitle,age,script_id,note,skip_to,skip_when\nSTART,start,COMMON,,,시작 · 현우 20세,,20,,,,\nPROLOGUE_EP1,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",벚꽃이 흩날리는 입학 첫날,,PROLOGUE_EP1,,FIRST_ROUTE,sub_unlocked\nPROLOGUE_EP2,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",구형 DSLR과 캔커피의 온기,,PROLOGUE_EP2,,,\nPROLOGUE_EP3,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",뷰파인더에 걸린 소꿉친구,,PROLOGUE_EP3,,,\nPROLOGUE_EP4,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",\"아포카, 낯선 만남의 시작\",,PROLOGUE_EP4,,,\nPROLOGUE_EP5,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",차가운 눈빛 너머의 재회,,PROLOGUE_EP5,,,\nPROLOGUE_EP6,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",\"여섯 개의 시선, 멈춰 있던 시간이 흐르다\",,PROLOGUE_EP6,,,\nFIRST_ROUTE,choice,COMMON,,,플레이 진행 경로,,,,첫 플레이는 조건으로 메인 공통 루트 고정,,\nREPLAY_CHOICE,choice,COMMON,,,회차 진행 경로,,,,,,\nCH1_EP1,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,손끝에 남은 여름의 잔상,,CH1_EP1,,MAIN_PICK,sub_unlocked\nCH1_EP2,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,흰색 아대에 감춰진 비밀,,CH1_EP2,,,\nCH1_EP3,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,강지우의 낯선 경계심,,CH1_EP3,,,\nCH1_EP4,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,다시 만난 두 개의 시선,,CH1_EP4,,,\nCH1_EP5,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,조용한 동아리실의 균열,,CH1_EP5,,,\nCH1_EP6,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,아포카에 들어가기로 한 날,,CH1_EP6,,,\nCH2_EP1,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,동아리 가입과 뜻밖의 인연,,CH2_EP1,,,\nCH2_EP2,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,나란히 묶인 두 사람의 이름,,CH2_EP2,,,\nCH2_EP3,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,\"벚꽃 아래, 임시 모델\",,CH2_EP3,,,\nCH2_EP4,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,렌즈에 비친 감춰진 상처,,CH2_EP4,,,\nCH2_EP5,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,도망쳤던 여름의 진실,,CH2_EP5,,,\nCH2_EP6,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,이번에는 네 모습을 담을게,,CH2_EP6,,,\nCH3_EP1,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,셔터가 멈춘 뒤의 여운,,CH3_EP1,,,\nCH3_EP2,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,2.0m 밖에 선 윤아린,,CH3_EP2,,,\nCH3_EP3,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,진짜 표정이 드러나는 순간,,CH3_EP3,,,\nCH3_EP4,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,\"뷰파인더, 거리감을 가르치다\",,CH3_EP4,,,\nCH3_EP5,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,오랜 친구의 기다림,,CH3_EP5,,,\nCH3_EP6,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,마시 마주한 우리의 거리,,CH3_EP6,,,\nCH4_EP1,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,스포트라이트를 향한 직진,,CH4_EP1,,,\nCH4_EP2,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,전담 촬영 기사로 낙점받다,,CH4_EP2,,,\nCH4_EP3,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,3.0m 너머의 안식처,,CH4_EP3,,,\nCH4_EP4,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,0.2m의 초근접 침입자,,CH4_EP4,,,\nCH4_EP5,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,투닥거림이 채우는 카페의 온기,,CH4_EP5,,,\nCH4_EP6,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,\"아포카, 봄의 첫 정기 출사\",,CH4_EP6,,,\nCH5_EP1,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",벚꽃 출사지에 모인 여섯 사람,,CH5_EP1,,,\nCH5_EP2,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",\"0.5m, 멈추지 않는 강지우\",,CH5_EP2,,,\nCH5_EP3,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",스케줄을 독점하려는 최유나,,CH5_EP3,,,\nCH5_EP4,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",2.5m의 그늘에서 다가오는 윤아린,,CH5_EP4,,,\nCH5_EP5,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",서로 다른 6개의 시선,,CH5_EP5,,,\nCH5_EP6,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",메인 피사체 선택의 순간,,CH5_EP6,,,\nRELATION_CHECK,check,COMMON,,,공통 루트 관계 관리 판정,,,,avoid 변수는 flow_assets.csv 의 set 칸에서 올리세요 (예: avoid+=1). 기준값 3은 임시,,\nCOMMON_BAD,ending,COMMON_BAD,,bad,초점이 깨진 렌즈 (Out of Focus),공통 배드 엔딩,,COMMON_BAD,,,\nCB21,scene,COMMON_BAD,,bad,현우 21세,갈등 상황에서 회피 반복,21,CB21,,,\nCB_REL,scene,COMMON_BAD,,bad,관계 붕괴와 자기혐오,,,CB_REL,,,\nCB_BREAK,scene,COMMON_BAD,,bad,암실에서 카메라 파손,동아리 탈퇴 및 학교 이탈,,CB_BREAK,,,\nCB26,scene,COMMON_BAD,,bad,현우 26세,사진가의 꿈을 접고 고립된 삶,26,CB26,,,\nCB_END,end,COMMON_BAD,,bad,공통 배드 엔딩 종료,,,,,,\nMAIN_PICK,choice,COMMON,,,메인 피사체 선택,,,,,,\nJIWOO,check,ROUTE,JIWOO,,강지우 루트,,,,,,\nJIWOO_H,ending,ENDING,JIWOO,happy,해피 엔딩,우리의 사진은 계속 된다,,JIWOO_H,,,\nJIWOO_S,ending,ENDING,JIWOO,sad,새드 엔딩,우정이라는 이름의 거짓말,,JIWOO_S,,,\nJIWOO_B,ending,ENDING,JIWOO,bad,배드 엔딩,가장 오래된 친구라는 타이틀,,JIWOO_B,,,\nJIWOO_T,ending,ENDING,JIWOO,true,히든·진 엔딩,앵글 속에 담긴 진짜 너,,JIWOO_T,,,\nARIN,route,ROUTE,ARIN,,윤아린 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nARIN_H,ending,ENDING,ARIN,happy,해피 엔딩,,,,TODO 제목·대본,,\nARIN_S,ending,ENDING,ARIN,sad,새드 엔딩,,,,TODO 제목·대본,,\nARIN_B,ending,ENDING,ARIN,bad,배드 엔딩,,,,TODO 제목·대본,,\nARIN_T,ending,ENDING,ARIN,true,히든·진 엔딩,,,,TODO 제목·대본,,\nYUNA,route,ROUTE,YUNA,,최유나 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nYUNA_H,ending,ENDING,YUNA,happy,해피 엔딩,,,,TODO 제목·대본,,\nYUNA_S,ending,ENDING,YUNA,sad,새드 엔딩,,,,TODO 제목·대본,,\nYUNA_B,ending,ENDING,YUNA,bad,배드 엔딩,,,,TODO 제목·대본,,\nYUNA_T,ending,ENDING,YUNA,true,히든·진 엔딩,,,,TODO 제목·대본,,\nSERA,route,ROUTE,SERA,,이세라 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nSERA_H,ending,ENDING,SERA,happy,해피 엔딩,,,,TODO 제목·대본,,\nSERA_S,ending,ENDING,SERA,sad,새드 엔딩,,,,TODO 제목·대본,,\nSERA_B,ending,ENDING,SERA,bad,배드 엔딩,,,,TODO 제목·대본,,\nSERA_T,ending,ENDING,SERA,true,히든·진 엔딩,,,,TODO 제목·대본,,\nSEOYUN,route,ROUTE,SEOYUN,,한서윤 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nSEOYUN_H,ending,ENDING,SEOYUN,happy,해피 엔딩,,,,TODO 제목·대본,,\nSEOYUN_S,ending,ENDING,SEOYUN,sad,새드 엔딩,,,,TODO 제목·대본,,\nSEOYUN_B,ending,ENDING,SEOYUN,bad,배드 엔딩,,,,TODO 제목·대본,,\nSEOYUN_T,ending,ENDING,SEOYUN,true,히든·진 엔딩,,,,TODO 제목·대본,,\nHARIN,route,ROUTE,HARIN,,서하린 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nHARIN_H,ending,ENDING,HARIN,happy,해피 엔딩,,,,TODO 제목·대본,,\nHARIN_S,ending,ENDING,HARIN,sad,새드 엔딩,,,,TODO 제목·대본,,\nHARIN_B,ending,ENDING,HARIN,bad,배드 엔딩,,,,TODO 제목·대본,,\nHARIN_T,ending,ENDING,HARIN,true,히든·진 엔딩,,,,TODO 제목·대본,,\nCOMMON_EPILOGUE,scene,COMMON,,,공통 에필로그,현우 29세 · 모든 루트 공통 축,29,COMMON_EPILOGUE,,,\nCLEAR_CHECK,check,COMMON,,,최초 메인 루트 클리어 기록?,,,,,,\nSUB_UNLOCK,unlock,COMMON,,,서브 히로인 루트 해금,,,,,,\nREPLAY,unlock,COMMON,,,2회차 플레이 가능,,,,,,\nMAIN_DLC_EP,scene,COMMON,,,메인 히로인별 후일담,현우 30세 이후,30,MAIN_DLC_EP,,,\nSUBPROLOGUE_EP1,scene,COMMON,,,\"서브 프롤로그 · 두 개의 인연, 다시 열린 문\",\"뷰파인더, 그곳에 남은 인연\",,SUBPROLOGUE_EP1,,SUB_PICK,SI_cleared || CH_cleared\nSUBPROLOGUE_EP2,scene,COMMON,,,\"서브 프롤로그 · 두 개의 인연, 다시 열린 문\",\"익숙한 목소리, 변하지 않은 거리\",,SUBPROLOGUE_EP2,,,\nSUBPROLOGUE_EP3,scene,COMMON,,,\"서브 프롤로그 · 두 개의 인연, 다시 열린 문\",두 개의 인연이 향하는 곳,,SUBPROLOGUE_EP3,,,\nCH6_EP1,scene,COMMON,,,\"챕터 6 · 비무장지대, 뷰파인더\",\"비무장지대, 뷰파인더\",,CH6_EP1,,,\nCH6_EP2,scene,COMMON,,,\"챕터 6 · 비무장지대, 뷰파인더\",프레임 밖에서 찾아온 장난꾸러기,,CH6_EP2,,,\nCH6_EP3,scene,COMMON,,,\"챕터 6 · 비무장지대, 뷰파인더\",\"안식처의 맹세, 3.0m 너머의 손길\",,CH6_EP3,,,\nCH7_EP1,scene,COMMON,,,챕터 7 · 0.2m의 기습과 장난스러운 온도,프레임을 깨뜨리는 소악마,,CH7_EP1,,,\nCH7_EP2,scene,COMMON,,,챕터 7 · 0.2m의 기습과 장난스러운 온도,장난꾸러기의 예상 밖의 진심,,CH7_EP2,,,\nCH7_EP3,scene,COMMON,,,챕터 7 · 0.2m의 기습과 장난스러운 온도,\"서로 다른 시선, 하나의 프레임\",,CH7_EP3,,,\nCH8_EP1,scene,COMMON,,,\"챕터 8 · 두 개의 그늘, 그리고 스위치가 되는 밤\",\"스승의 렌즈, Proper Distance\",,CH8_EP1,,,\nCH8_EP2,scene,COMMON,,,\"챕터 8 · 두 개의 그늘, 그리고 스위치가 되는 밤\",뷰파인더 마감 시간의 케미,,CH8_EP2,,,\nCH8_EP3,scene,COMMON,,,\"챕터 8 · 두 개의 그늘, 그리고 스위치가 되는 밤\",스위치가 되는 밤,,CH8_EP3,,,\nSUB_PICK,choice,COMMON,,,서브 피사체 선택,,,,,,\nSI_START,scene,ROUTE,SI,,백시은 루트,첫 분기,,CH8_EP3_A,,,\nSI,route,ROUTE,SI,,백시은 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nSI_H,ending,ENDING,SI,happy,해피 엔딩,,,,TODO 제목·대본,,\nSI_S,ending,ENDING,SI,sad,새드 엔딩,,,,TODO 제목·대본,,\nSI_B,ending,ENDING,SI,bad,배드 엔딩,,,,TODO 제목·대본,,\nSI_T,ending,ENDING,SI,true,히든·진 엔딩,,,,TODO 제목·대본,,\nSI_DONE,route_done,ROUTE,SI,,백시은 루트 클리어 기록,,,,,,\nCH_START,scene,ROUTE,CH,,강채아 루트,첫 분기,,CH8_EP3_B,,,\nCH,route,ROUTE,CH,,강채아 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nCH_H,ending,ENDING,CH,happy,해피 엔딩,,,,TODO 제목·대본,,\nCH_S,ending,ENDING,CH,sad,새드 엔딩,,,,TODO 제목·대본,,\nCH_B,ending,ENDING,CH,bad,배드 엔딩,,,,TODO 제목·대본,,\nCH_T,ending,ENDING,CH,true,히든·진 엔딩,,,,TODO 제목·대본,,\nCH_DONE,route_done,ROUTE,CH,,강채아 루트 클리어 기록,,,,,,\nTITLE,end,COMMON,,,타이틀로 복귀,,,,,,\nEXIT,end,COMMON,,,게임 종료,,,,REPLAY_CHOICE 의 종료 선택지 도착점,,\nJIWOO_DLC,dlc,DLC,JIWOO,,후일담 · 강지우,현우 30세 이후,30,JIWOO_DLC,JIWOO_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_jiwoo_dlc.csv (chapter_id=jiwoo_dlc),,\nARIN_DLC,dlc,DLC,ARIN,,후일담 · 윤아린,현우 30세 이후,30,ARIN_DLC,ARIN_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_arin_dlc.csv (chapter_id=arin_dlc),,\nYUNA_DLC,dlc,DLC,YUNA,,후일담 · 최유나,현우 30세 이후,30,YUNA_DLC,YUNA_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_yuna_dlc.csv (chapter_id=yuna_dlc),,\nSERA_DLC,dlc,DLC,SERA,,후일담 · 이세라,현우 30세 이후,30,SERA_DLC,SERA_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_sera_dlc.csv (chapter_id=sera_dlc),,\nSEOYUN_DLC,dlc,DLC,SEOYUN,,후일담 · 한서윤,현우 30세 이후,30,SEOYUN_DLC,SEOYUN_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_seoyun_dlc.csv (chapter_id=seoyun_dlc),,\nHARIN_DLC,dlc,DLC,HARIN,,후일담 · 서하린,현우 30세 이후,30,HARIN_DLC,HARIN_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_harin_dlc.csv (chapter_id=harin_dlc),,\nSI_DLC,dlc,DLC,SI,,후일담 · 백시은,현우 30세 이후,30,SI_DLC,SI_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_si_dlc.csv (chapter_id=si_dlc),,\nCH_DLC,dlc,DLC,CH,,후일담 · 강채아,현우 30세 이후,30,CH_DLC,CH_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_ch_dlc.csv (chapter_id=ch_dlc),,\nJIWOO_C1_EP1,scene,ROUTE,JIWOO,,챕터 1 · 소꿉친구라는 안전지대의 균열,다시 맞춘 초점 · 현우 20세,20,JIWOO_CH1_EP1,,,\nJIWOO_C1_EP2,scene,ROUTE,JIWOO,,챕터 1 · 소꿉친구라는 안전지대의 균열,해바라기밭의 첫 단독 초점 · 현우 20세,20,JIWOO_CH1_EP2,,,\nJIWOO_C1_EP3,scene,ROUTE,JIWOO,,챕터 1 · 소꿉친구라는 안전지대의 균열,앵글 안에 머문 너 · 현우 20세,20,JIWOO_CH1_EP3,,,\nJIWOO_FB1_EP1,scene,ROUTE,JIWOO,,과거 회상 1 · 빛의 이면과 투명한 구명조끼,빗속에 가려진 햇살,,JIWOO_FB1_EP1,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB1_EP2,scene,ROUTE,JIWOO,,과거 회상 1 · 빛의 이면과 투명한 구명조끼,웃음 뒤에 잠긴 심해,,JIWOO_FB1_EP2,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB1_EP3,scene,ROUTE,JIWOO,,과거 회상 1 · 빛의 이면과 투명한 구명조끼,투명한 구명조끼,,JIWOO_FB1_EP3,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB2_EP1,scene,ROUTE,JIWOO,,과거 회상 2 · 오래된 약속과 엇갈린 시선,오래된 프레임 속 우리,,JIWOO_FB2_EP1,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB2_EP2,scene,ROUTE,JIWOO,,과거 회상 2 · 오래된 약속과 엇갈린 시선,소문이 닿지 않는 거리,,JIWOO_FB2_EP2,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB2_EP3,scene,ROUTE,JIWOO,,과거 회상 2 · 오래된 약속과 엇갈린 시선,\"그날, 엇갈린 시선\",,JIWOO_FB2_EP3,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB3_EP1,scene,ROUTE,JIWOO,,과거 회상 3 · 상처가 남긴 잔상,지워지지 않는 잔상,,JIWOO_FB3_EP1,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB3_EP2,scene,ROUTE,JIWOO,,과거 회상 3 · 상처가 남긴 잔상,렌즈 너머의 도피처,,JIWOO_FB3_EP2,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB3_EP3,scene,ROUTE,JIWOO,,과거 회상 3 · 상처가 남긴 잔상,아무에게도 보여주지 못한 상처,,JIWOO_FB3_EP3,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB4_EP1,scene,ROUTE,JIWOO,,과거 회상 4 · 소꿉친구라는 안전 지대,익숙한 너의 시선,,JIWOO_FB4_EP1,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB4_EP2,scene,ROUTE,JIWOO,,과거 회상 4 · 소꿉친구라는 안전 지대,말없이 건네는 온기,,JIWOO_FB4_EP2,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB4_EP3,scene,ROUTE,JIWOO,,과거 회상 4 · 소꿉친구라는 안전 지대,다시 마주할 날을 기다리며,,JIWOO_FB4_EP3,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_C2_EP1,scene,ROUTE,JIWOO,,\"챕터 2 · 고백, 그리고 남사친의 퇴장\",가장 가까운 타인 · 현우 21세,21,JIWOO_CH2_EP1,,,\nJIWOO_C2_EP2,scene,ROUTE,JIWOO,,\"챕터 2 · 고백, 그리고 남사친의 퇴장\",셔터 너머의 진심 · 현우 21세,21,JIWOO_CH2_EP2,,,\nJIWOO_C2_EP3,scene,ROUTE,JIWOO,,\"챕터 2 · 고백, 그리고 남사친의 퇴장\",너를 향한 초점 · 현우 21세,21,JIWOO_CH2_EP3,,,\nJIWOO_C3_EP1,scene,ROUTE,JIWOO,,챕터 3 · 미래의 벽과 서로의 등대,졸업이라는 이름의 프레임 · 현우 22세,22,JIWOO_CH3_EP1,,,\nJIWOO_C3_EP2,scene,ROUTE,JIWOO,,챕터 3 · 미래의 벽과 서로의 등대,사진에 담긴 진짜 얼굴 · 현우 22세,22,JIWOO_CH3_EP2,,,\nJIWOO_C3_EP3,scene,ROUTE,JIWOO,,챕터 3 · 미래의 벽과 서로의 등대,우리 사이의 거리 · 현우 22세,22,JIWOO_CH3_EP3,,,\nJIWOO_C4_EP1,scene,ROUTE,JIWOO,,챕터 4 · 두 갈래의 미래와 흔들리는 초점,흔들거리는 앵글 · 현우 23세,23,JIWOO_CH4_EP1,,,\nJIWOO_C4_EP2,scene,ROUTE,JIWOO,,챕터 4 · 두 갈래의 미래와 흔들리는 초점,담고 싶은 것과 외면한 것 · 현우 23세,23,JIWOO_CH4_EP2,,,\nJIWOO_C4_EP3,scene,ROUTE,JIWOO,,챕터 4 · 두 갈래의 미래와 흔들리는 초점,다음 장을 넘기기 전에 · 현우 23세,23,JIWOO_CH4_EP3,,,\nJIWOO_C5_EP1,scene,ROUTE,JIWOO,,챕터 5 · 각자의 계절을 지나,각자의 자리에서 · 현우 24세,24,JIWOO_CH5_EP1,,,\nJIWOO_C5_EP2,scene,ROUTE,JIWOO,,챕터 5 · 각자의 계절을 지나,서로에게 남겨진 시간 · 현우 24세,24,JIWOO_CH5_EP2,,,\nJIWOO_C5_EP3,scene,ROUTE,JIWOO,,챕터 5 · 각자의 계절을 지나,같은 풍경을 바라보는 법 · 현우 24세,24,JIWOO_CH5_EP3,,,\nJIWOO_C6_EP1,scene,ROUTE,JIWOO,,챕터 6 · 결말을 향해 흐르는 시간,계절에 피어난 마음 · 현우 25세,25,JIWOO_CH6_EP1,,,\nJIWOO_C6_EP2,scene,ROUTE,JIWOO,,챕터 6 · 결말을 향해 흐르는 시간,카메라가 기억하는 너 · 현우 25세,25,JIWOO_CH6_EP2,,,\nJIWOO_C6_EP3,scene,ROUTE,JIWOO,,챕터 6 · 결말을 향해 흐르는 시간,아직 끝나지 않은 기록 · 현우 25세,25,JIWOO_CH6_EP3,,,\nJIWOO_C7_EP1,scene,ROUTE,JIWOO,,챕터 7 · 마지막 셔터,마지막 셔터를 누르기 전에 · 현우 26세,26,JIWOO_CH7_EP1,,,\nJIWOO_C7_EP2,scene,ROUTE,JIWOO,,챕터 7 · 마지막 셔터,\"네가 바라본 나, 내가 바라본 너 · 현우 26세\",26,JIWOO_CH7_EP2,,,\nJIWOO_C7_EP3,scene,ROUTE,JIWOO,,챕터 7 · 마지막 셔터,우리의 사진은 계속된다 · 현우 26세,26,JIWOO_CH7_EP3,,,\nJIWOO_C7_EP4,scene,ROUTE,JIWOO,,챕터 7 · 마지막 셔터,선택의 갈림길 · 현우 26세,26,JIWOO_CH7_EP4,,,\nJIWOO_PICK,choice,ROUTE,JIWOO,,선택의 순간,,,,,,\nJIWOO_END,scene,ROUTE,JIWOO,,강지우 엔딩 · 그곳으로 찾으러 와줘,엔딩 공통 사건,,JIWOO_END,,,\nJIWOO_END_ROUTE,check,ROUTE,JIWOO,,강지우 엔딩 분기,,,,JIWOO_PICK 에서 고른 번호(jiwoo_pick)로 엔딩이 갈립니다: 1 해피 · 2 새드 · 3 배드 · 4 히든·진,,\nJIWOO_H_EPI,epilogue,ENDING,JIWOO,happy,해피 엔딩 에필로그,우리의 가장 따뜻한 계절,,JIWOO_H_EPI,,,\nJIWOO_S_EPI,epilogue,ENDING,JIWOO,sad,새드 엔딩 에필로그,우정이라는 이름의 거짓말,,JIWOO_S_EPI,,,\nJIWOO_B_EPI,epilogue,ENDING,JIWOO,bad,배드 엔딩 에필로그,가장 오래된 친구라는 타이틀,,JIWOO_B_EPI,,,\nJIWOO_T_EPI,epilogue,ENDING,JIWOO,true,히든·진 엔딩 에필로그,,,JIWOO_T_EPI,,,\n",
- "edges": "from_id,to_id,label,condition,kind,note,set\nSTART,PROLOGUE_EP1,,,next,,\nPROLOGUE_EP1,PROLOGUE_EP2,,,next,,\nPROLOGUE_EP2,PROLOGUE_EP3,,,next,,\nPROLOGUE_EP3,PROLOGUE_EP4,,,next,,\nPROLOGUE_EP4,PROLOGUE_EP5,,,next,,\nPROLOGUE_EP5,PROLOGUE_EP6,,,next,,\nPROLOGUE_EP6,FIRST_ROUTE,,,next,,\nFIRST_ROUTE,CH1_EP1,초회 플레이,!sub_unlocked,next,,\nFIRST_ROUTE,REPLAY_CHOICE,2회차 이후,sub_unlocked,next,,\nREPLAY_CHOICE,CH1_EP1,메인 히로인 루트,,next,,\nREPLAY_CHOICE,SUBPROLOGUE_EP1,서브 히로인 루트,,next,,\nREPLAY_CHOICE,EXIT,종료,,next,,\nCH1_EP1,CH1_EP2,,,next,,\nCH1_EP2,CH1_EP3,,,next,,\nCH1_EP3,CH1_EP4,,,next,,\nCH1_EP4,CH1_EP5,,,next,,\nCH1_EP5,CH1_EP6,,,next,,\nCH1_EP6,CH2_EP1,,,next,,\nCH2_EP1,CH2_EP2,,,next,,\nCH2_EP2,CH2_EP3,,,next,,\nCH2_EP3,CH2_EP4,,,next,,\nCH2_EP4,CH2_EP5,,,next,,\nCH2_EP5,CH2_EP6,,,next,,\nCH2_EP6,CH3_EP1,,,next,,\nCH3_EP1,CH3_EP2,,,next,,\nCH3_EP2,CH3_EP3,,,next,,\nCH3_EP3,CH3_EP4,,,next,,\nCH3_EP4,CH3_EP5,,,next,,\nCH3_EP5,CH3_EP6,,,next,,\nCH3_EP6,CH4_EP1,,,next,,\nCH4_EP1,CH4_EP2,,,next,,\nCH4_EP2,CH4_EP3,,,next,,\nCH4_EP3,CH4_EP4,,,next,,\nCH4_EP4,CH4_EP5,,,next,,\nCH4_EP5,CH4_EP6,,,next,,\nCH4_EP6,CH5_EP1,,,next,,\nCH5_EP1,CH5_EP2,,,next,,\nCH5_EP2,CH5_EP3,,,next,,\nCH5_EP3,CH5_EP4,,,next,,\nCH5_EP4,CH5_EP5,,,next,,\nCH5_EP5,CH5_EP6,,,next,,\nCH5_EP6,RELATION_CHECK,,,next,,\nRELATION_CHECK,COMMON_BAD,회피 선택 누적 · 관계 방치,avoid>=3,next,,\nRELATION_CHECK,MAIN_PICK,메인 루트 진행 조건 충족,avoid<3,next,,\nCOMMON_BAD,CB21,,,next,,\nCB21,CB_REL,,,next,,\nCB_REL,CB_BREAK,,,next,,\nCB_BREAK,CB26,,,next,,\nCB26,CB_END,,,next,,\nMAIN_PICK,JIWOO,강지우 루트,,next,,\nMAIN_PICK,ARIN,윤아린 루트,,next,,\nMAIN_PICK,YUNA,최유나 루트,,next,,\nMAIN_PICK,SERA,이세라 루트,,next,,\nMAIN_PICK,SEOYUN,한서윤 루트,,next,,\nMAIN_PICK,HARIN,서하린 루트,,next,,\nARIN,ARIN_H,,,next,,\nARIN_H,COMMON_EPILOGUE,,,next,,\nARIN,ARIN_S,,,next,,\nARIN_S,COMMON_EPILOGUE,,,next,,\nARIN,ARIN_B,,,next,,\nARIN_B,COMMON_EPILOGUE,,,next,,\nARIN,ARIN_T,,,next,,\nARIN_T,COMMON_EPILOGUE,,,next,,\nYUNA,YUNA_H,,,next,,\nYUNA_H,COMMON_EPILOGUE,,,next,,\nYUNA,YUNA_S,,,next,,\nYUNA_S,COMMON_EPILOGUE,,,next,,\nYUNA,YUNA_B,,,next,,\nYUNA_B,COMMON_EPILOGUE,,,next,,\nYUNA,YUNA_T,,,next,,\nYUNA_T,COMMON_EPILOGUE,,,next,,\nSERA,SERA_H,,,next,,\nSERA_H,COMMON_EPILOGUE,,,next,,\nSERA,SERA_S,,,next,,\nSERA_S,COMMON_EPILOGUE,,,next,,\nSERA,SERA_B,,,next,,\nSERA_B,COMMON_EPILOGUE,,,next,,\nSERA,SERA_T,,,next,,\nSERA_T,COMMON_EPILOGUE,,,next,,\nSEOYUN,SEOYUN_H,,,next,,\nSEOYUN_H,COMMON_EPILOGUE,,,next,,\nSEOYUN,SEOYUN_S,,,next,,\nSEOYUN_S,COMMON_EPILOGUE,,,next,,\nSEOYUN,SEOYUN_B,,,next,,\nSEOYUN_B,COMMON_EPILOGUE,,,next,,\nSEOYUN,SEOYUN_T,,,next,,\nSEOYUN_T,COMMON_EPILOGUE,,,next,,\nHARIN,HARIN_H,,,next,,\nHARIN_H,COMMON_EPILOGUE,,,next,,\nHARIN,HARIN_S,,,next,,\nHARIN_S,COMMON_EPILOGUE,,,next,,\nHARIN,HARIN_B,,,next,,\nHARIN_B,COMMON_EPILOGUE,,,next,,\nHARIN,HARIN_T,,,next,,\nHARIN_T,COMMON_EPILOGUE,,,next,,\nSI,SI_H,,,next,,\nSI_H,SI_DONE,,,next,,\nSI,SI_S,,,next,,\nSI_S,SI_DONE,,,next,,\nSI,SI_B,,,next,,\nSI_B,SI_DONE,,,next,,\nSI,SI_T,,,next,,\nSI_T,SI_DONE,,,next,,\nCH,CH_H,,,next,,\nCH_H,CH_DONE,,,next,,\nCH,CH_S,,,next,,\nCH_S,CH_DONE,,,next,,\nCH,CH_B,,,next,,\nCH_B,CH_DONE,,,next,,\nCH,CH_T,,,next,,\nCH_T,CH_DONE,,,next,,\nSI_DONE,COMMON_EPILOGUE,,,next,,\nCH_DONE,COMMON_EPILOGUE,,,next,,\nCOMMON_EPILOGUE,CLEAR_CHECK,,,next,,\nCLEAR_CHECK,SUB_UNLOCK,최초 클리어,!sub_unlocked,next,,\nCLEAR_CHECK,REPLAY_CHOICE,이미 해금됨,sub_unlocked,next,,\nSUB_UNLOCK,REPLAY,,,next,,\nREPLAY,REPLAY_CHOICE,,,next,,\nMAIN_DLC_EP,TITLE,타이틀로,,next,,\nSUBPROLOGUE_EP1,SUBPROLOGUE_EP2,,,next,,\nSUBPROLOGUE_EP2,SUBPROLOGUE_EP3,,,next,,\nSUBPROLOGUE_EP3,CH6_EP1,,,next,,\nCH6_EP1,CH6_EP2,,,next,,\nCH6_EP2,CH6_EP3,,,next,,\nCH6_EP3,CH7_EP1,,,next,,\nCH7_EP1,CH7_EP2,,,next,,\nCH7_EP2,CH7_EP3,,,next,,\nCH7_EP3,CH8_EP1,,,next,,\nCH8_EP1,CH8_EP2,,,next,,\nCH8_EP2,CH8_EP3,,,next,,\nCH8_EP3,SUB_PICK,,,next,,\nSUB_PICK,SI_START,백시은과 함께 카페에 남는다.,,next,,\nSUB_PICK,CH_START,강채아와 함께 작업실로 향한다.,,next,,\nSI_START,SI,,,next,,\nCH_START,CH,,,next,,\nJIWOO_DLC,TITLE,타이틀로,,next,,\nARIN_DLC,TITLE,타이틀로,,next,,\nYUNA_DLC,TITLE,타이틀로,,next,,\nSERA_DLC,TITLE,타이틀로,,next,,\nSEOYUN_DLC,TITLE,타이틀로,,next,,\nHARIN_DLC,TITLE,타이틀로,,next,,\nSI_DLC,TITLE,타이틀로,,next,,\nCH_DLC,TITLE,타이틀로,,next,,\nJIWOO_C1_EP1,JIWOO_C1_EP2,,,next,,\nJIWOO_C1_EP2,JIWOO_C1_EP3,,,next,,\nJIWOO_C1_EP3,JIWOO_FB1_EP1,,,next,,\nJIWOO_FB1_EP1,JIWOO_FB1_EP2,,,next,,\nJIWOO_FB1_EP2,JIWOO_FB1_EP3,,,next,,\nJIWOO_FB1_EP3,JIWOO_FB2_EP1,,,next,,\nJIWOO_FB2_EP1,JIWOO_FB2_EP2,,,next,,\nJIWOO_FB2_EP2,JIWOO_FB2_EP3,,,next,,\nJIWOO_FB2_EP3,JIWOO_FB3_EP1,,,next,,\nJIWOO_FB3_EP1,JIWOO_FB3_EP2,,,next,,\nJIWOO_FB3_EP2,JIWOO_FB3_EP3,,,next,,\nJIWOO_FB3_EP3,JIWOO_FB4_EP1,,,next,,\nJIWOO_FB4_EP1,JIWOO_FB4_EP2,,,next,,\nJIWOO_FB4_EP2,JIWOO_FB4_EP3,,,next,,\nJIWOO_FB4_EP3,JIWOO_C2_EP1,,,next,,\nJIWOO_C2_EP1,JIWOO_C2_EP2,,,next,,\nJIWOO_C2_EP2,JIWOO_C2_EP3,,,next,,\nJIWOO_C2_EP3,JIWOO_C3_EP1,,,next,,\nJIWOO_C3_EP1,JIWOO_C3_EP2,,,next,,\nJIWOO_C3_EP2,JIWOO_C3_EP3,,,next,,\nJIWOO_C3_EP3,JIWOO_C4_EP1,,,next,,\nJIWOO_C4_EP1,JIWOO_C4_EP2,,,next,,\nJIWOO_C4_EP2,JIWOO_C4_EP3,,,next,,\nJIWOO_C4_EP3,JIWOO_C5_EP1,,,next,,\nJIWOO_C5_EP1,JIWOO_C5_EP2,,,next,,\nJIWOO_C5_EP2,JIWOO_C5_EP3,,,next,,\nJIWOO_C5_EP3,JIWOO_C6_EP1,,,next,,\nJIWOO_C6_EP1,JIWOO_C6_EP2,,,next,,\nJIWOO_C6_EP2,JIWOO_C6_EP3,,,next,,\nJIWOO_C6_EP3,JIWOO_C7_EP1,,,next,,\nJIWOO_C7_EP1,JIWOO_C7_EP2,,,next,,\nJIWOO_C7_EP2,JIWOO_C7_EP3,,,next,,\nJIWOO_C7_EP3,JIWOO_C7_EP4,,,next,,\nJIWOO_C7_EP4,JIWOO_PICK,,,next,,\nJIWOO,JIWOO_C1_EP1,,,next,,\nJIWOO_PICK,JIWOO_END,내 이야기는 내가 결정한다.,,next,,jiwoo_pick=1\nJIWOO_PICK,JIWOO_END,이제는 모든 것을 내려놓고 싶다.,,next,,jiwoo_pick=2\nJIWOO_PICK,JIWOO_END,그들의 제안을 받아들인다.,,next,,jiwoo_pick=3\nJIWOO_PICK,JIWOO_END,두 사람의 계획을 끝까지 파헤친다.,,next,,jiwoo_pick=4\nJIWOO_END,JIWOO_END_ROUTE,,,next,,\nJIWOO_END_ROUTE,JIWOO_H,,jiwoo_pick==1,next,,\nJIWOO_END_ROUTE,JIWOO_S,,jiwoo_pick==2,next,,\nJIWOO_END_ROUTE,JIWOO_B,,jiwoo_pick==3,next,,\nJIWOO_END_ROUTE,JIWOO_T,,jiwoo_pick==4,next,,\nJIWOO_H,JIWOO_H_EPI,,,next,,\nJIWOO_H_EPI,COMMON_EPILOGUE,,,next,,\nJIWOO_S,JIWOO_S_EPI,,,next,,\nJIWOO_S_EPI,COMMON_EPILOGUE,,,next,,\nJIWOO_B,JIWOO_B_EPI,,,next,,\nJIWOO_B_EPI,COMMON_EPILOGUE,,,next,,\nJIWOO_T,JIWOO_T_EPI,,,next,,\nJIWOO_T_EPI,COMMON_EPILOGUE,,,next,,\n",
+ "nodes": "node_id,type,group,route,ending,title,subtitle,age,script_id,note,skip_to,skip_when\nSTART,start,COMMON,,,시작 · 현우 20세,,20,,,,\nPROLOGUE_EP1,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",벚꽃이 흩날리는 입학 첫날,,PROLOGUE_EP1,,FIRST_ROUTE,sub_unlocked\nPROLOGUE_EP2,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",구형 DSLR과 캔커피의 온기,,PROLOGUE_EP2,,,\nPROLOGUE_EP3,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",뷰파인더에 걸린 소꿉친구,,PROLOGUE_EP3,,,\nPROLOGUE_EP4,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",\"아포카, 낯선 만남의 시작\",,PROLOGUE_EP4,,,\nPROLOGUE_EP5,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",차가운 눈빛 너머의 재회,,PROLOGUE_EP5,,,\nPROLOGUE_EP6,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",\"여섯 개의 시선, 멈춰 있던 시간이 흐르다\",,PROLOGUE_EP6,,,\nFIRST_ROUTE,choice,COMMON,,,플레이 진행 경로,,,,첫 플레이는 조건으로 메인 공통 루트 고정,,\nREPLAY_CHOICE,choice,COMMON,,,회차 진행 경로,,,,,,\nCH1_EP1,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,손끝에 남은 여름의 잔상,,CH1_EP1,,MAIN_PICK,sub_unlocked\nCH1_EP2,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,흰색 아대에 감춰진 비밀,,CH1_EP2,,,\nCH1_EP3,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,강지우의 낯선 경계심,,CH1_EP3,,,\nCH1_EP4,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,다시 만난 두 개의 시선,,CH1_EP4,,,\nCH1_EP5,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,조용한 동아리실의 균열,,CH1_EP5,,,\nCH1_EP6,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,아포카에 들어가기로 한 날,,CH1_EP6,,,\nCH2_EP1,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,동아리 가입과 뜻밖의 인연,,CH2_EP1,,,\nCH2_EP2,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,나란히 묶인 두 사람의 이름,,CH2_EP2,,,\nCH2_EP3,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,\"벚꽃 아래, 임시 모델\",,CH2_EP3,,,\nCH2_EP4,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,렌즈에 비친 감춰진 상처,,CH2_EP4,,,\nCH2_EP5,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,도망쳤던 여름의 진실,,CH2_EP5,,,\nCH2_EP6,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,이번에는 네 모습을 담을게,,CH2_EP6,,,\nCH3_EP1,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,셔터가 멈춘 뒤의 여운,,CH3_EP1,,,\nCH3_EP2,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,2.0m 밖에 선 윤아린,,CH3_EP2,,,\nCH3_EP3,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,진짜 표정이 드러나는 순간,,CH3_EP3,,,\nCH3_EP4,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,\"뷰파인더, 거리감을 가르치다\",,CH3_EP4,,,\nCH3_EP5,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,오랜 친구의 기다림,,CH3_EP5,,,\nCH3_EP6,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,마시 마주한 우리의 거리,,CH3_EP6,,,\nCH4_EP1,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,스포트라이트를 향한 직진,,CH4_EP1,,,\nCH4_EP2,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,전담 촬영 기사로 낙점받다,,CH4_EP2,,,\nCH4_EP3,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,3.0m 너머의 안식처,,CH4_EP3,,,\nCH4_EP4,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,0.2m의 초근접 침입자,,CH4_EP4,,,\nCH4_EP5,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,투닥거림이 채우는 카페의 온기,,CH4_EP5,,,\nCH4_EP6,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,\"아포카, 봄의 첫 정기 출사\",,CH4_EP6,,,\nCH5_EP1,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",벚꽃 출사지에 모인 여섯 사람,,CH5_EP1,,,\nCH5_EP2,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",\"0.5m, 멈추지 않는 강지우\",,CH5_EP2,,,\nCH5_EP3,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",스케줄을 독점하려는 최유나,,CH5_EP3,,,\nCH5_EP4,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",2.5m의 그늘에서 다가오는 윤아린,,CH5_EP4,,,\nCH5_EP5,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",서로 다른 6개의 시선,,CH5_EP5,,,\nCH5_EP6,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",메인 피사체 선택의 순간,,CH5_EP6,,,\nRELATION_CHECK,check,COMMON,,,공통 루트 관계 관리 판정,,,,avoid 변수는 flow_assets.csv 의 set 칸에서 올리세요 (예: avoid+=1). 기준값 3은 임시,,\nCOMMON_BAD,ending,COMMON_BAD,,bad,초점이 깨진 렌즈 (Out of Focus),공통 배드 엔딩,,COMMON_BAD,,,\nCB21,scene,COMMON_BAD,,bad,현우 21세,갈등 상황에서 회피 반복,21,CB21,,,\nCB_REL,scene,COMMON_BAD,,bad,관계 붕괴와 자기혐오,,,CB_REL,,,\nCB_BREAK,scene,COMMON_BAD,,bad,암실에서 카메라 파손,동아리 탈퇴 및 학교 이탈,,CB_BREAK,,,\nCB26,scene,COMMON_BAD,,bad,현우 26세,사진가의 꿈을 접고 고립된 삶,26,CB26,,,\nCB_END,end,COMMON_BAD,,bad,공통 배드 엔딩 종료,,,,,,\nMAIN_PICK,choice,COMMON,,,메인 피사체 선택,,,,,,\nJIWOO,check,ROUTE,JIWOO,,강지우 루트,,,,,,\nJIWOO_H,ending,ENDING,JIWOO,happy,해피 엔딩,우리의 사진은 계속 된다,,JIWOO_H,,,\nJIWOO_S,ending,ENDING,JIWOO,sad,새드 엔딩,우정이라는 이름의 거짓말,,JIWOO_S,,,\nJIWOO_B,ending,ENDING,JIWOO,bad,배드 엔딩,가장 오래된 친구라는 타이틀,,JIWOO_B,,,\nJIWOO_T,ending,ENDING,JIWOO,true,히든·진 엔딩,앵글 속에 담긴 진짜 너,,JIWOO_T,,,\nARIN,route,ROUTE,ARIN,,윤아린 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nARIN_H,ending,ENDING,ARIN,happy,해피 엔딩,,,,TODO 제목·대본,,\nARIN_S,ending,ENDING,ARIN,sad,새드 엔딩,,,,TODO 제목·대본,,\nARIN_B,ending,ENDING,ARIN,bad,배드 엔딩,,,,TODO 제목·대본,,\nARIN_T,ending,ENDING,ARIN,true,히든·진 엔딩,,,,TODO 제목·대본,,\nYUNA,route,ROUTE,YUNA,,최유나 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nYUNA_H,ending,ENDING,YUNA,happy,해피 엔딩,,,,TODO 제목·대본,,\nYUNA_S,ending,ENDING,YUNA,sad,새드 엔딩,,,,TODO 제목·대본,,\nYUNA_B,ending,ENDING,YUNA,bad,배드 엔딩,,,,TODO 제목·대본,,\nYUNA_T,ending,ENDING,YUNA,true,히든·진 엔딩,,,,TODO 제목·대본,,\nSERA,route,ROUTE,SERA,,이세라 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nSERA_H,ending,ENDING,SERA,happy,해피 엔딩,,,,TODO 제목·대본,,\nSERA_S,ending,ENDING,SERA,sad,새드 엔딩,,,,TODO 제목·대본,,\nSERA_B,ending,ENDING,SERA,bad,배드 엔딩,,,,TODO 제목·대본,,\nSERA_T,ending,ENDING,SERA,true,히든·진 엔딩,,,,TODO 제목·대본,,\nSEOYUN,route,ROUTE,SEOYUN,,한서윤 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nSEOYUN_H,ending,ENDING,SEOYUN,happy,해피 엔딩,,,,TODO 제목·대본,,\nSEOYUN_S,ending,ENDING,SEOYUN,sad,새드 엔딩,,,,TODO 제목·대본,,\nSEOYUN_B,ending,ENDING,SEOYUN,bad,배드 엔딩,,,,TODO 제목·대본,,\nSEOYUN_T,ending,ENDING,SEOYUN,true,히든·진 엔딩,,,,TODO 제목·대본,,\nHARIN,route,ROUTE,HARIN,,서하린 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nHARIN_H,ending,ENDING,HARIN,happy,해피 엔딩,,,,TODO 제목·대본,,\nHARIN_S,ending,ENDING,HARIN,sad,새드 엔딩,,,,TODO 제목·대본,,\nHARIN_B,ending,ENDING,HARIN,bad,배드 엔딩,,,,TODO 제목·대본,,\nHARIN_T,ending,ENDING,HARIN,true,히든·진 엔딩,,,,TODO 제목·대본,,\nCOMMON_EPILOGUE,scene,COMMON,,,공통 에필로그,현우 29세 · 모든 루트 공통 축,29,COMMON_EPILOGUE,,,\nCLEAR_CHECK,check,COMMON,,,최초 메인 루트 클리어 기록?,,,,,,\nSUB_UNLOCK,unlock,COMMON,,,서브 히로인 루트 해금,,,,,,\nREPLAY,unlock,COMMON,,,2회차 플레이 가능,,,,,,\nSUBPROLOGUE_EP1,scene,COMMON,,,\"서브 프롤로그 · 두 개의 인연, 다시 열린 문\",\"뷰파인더, 그곳에 남은 인연\",,SUBPROLOGUE_EP1,,SUB_PICK,SI_cleared || CH_cleared\nSUBPROLOGUE_EP2,scene,COMMON,,,\"서브 프롤로그 · 두 개의 인연, 다시 열린 문\",\"익숙한 목소리, 변하지 않은 거리\",,SUBPROLOGUE_EP2,,,\nSUBPROLOGUE_EP3,scene,COMMON,,,\"서브 프롤로그 · 두 개의 인연, 다시 열린 문\",두 개의 인연이 향하는 곳,,SUBPROLOGUE_EP3,,,\nCH6_EP1,scene,COMMON,,,\"챕터 6 · 비무장지대, 뷰파인더\",\"비무장지대, 뷰파인더\",,CH6_EP1,,,\nCH6_EP2,scene,COMMON,,,\"챕터 6 · 비무장지대, 뷰파인더\",프레임 밖에서 찾아온 장난꾸러기,,CH6_EP2,,,\nCH6_EP3,scene,COMMON,,,\"챕터 6 · 비무장지대, 뷰파인더\",\"안식처의 맹세, 3.0m 너머의 손길\",,CH6_EP3,,,\nCH7_EP1,scene,COMMON,,,챕터 7 · 0.2m의 기습과 장난스러운 온도,프레임을 깨뜨리는 소악마,,CH7_EP1,,,\nCH7_EP2,scene,COMMON,,,챕터 7 · 0.2m의 기습과 장난스러운 온도,장난꾸러기의 예상 밖의 진심,,CH7_EP2,,,\nCH7_EP3,scene,COMMON,,,챕터 7 · 0.2m의 기습과 장난스러운 온도,\"서로 다른 시선, 하나의 프레임\",,CH7_EP3,,,\nCH8_EP1,scene,COMMON,,,\"챕터 8 · 두 개의 그늘, 그리고 스위치가 되는 밤\",\"스승의 렌즈, Proper Distance\",,CH8_EP1,,,\nCH8_EP2,scene,COMMON,,,\"챕터 8 · 두 개의 그늘, 그리고 스위치가 되는 밤\",뷰파인더 마감 시간의 케미,,CH8_EP2,,,\nCH8_EP3,scene,COMMON,,,\"챕터 8 · 두 개의 그늘, 그리고 스위치가 되는 밤\",스위치가 되는 밤,,CH8_EP3,,,\nSUB_PICK,choice,COMMON,,,서브 피사체 선택,,,,,,\nSI_START,scene,ROUTE,SI,,백시은 루트,첫 분기,,CH8_EP3_A,,,\nSI,route,ROUTE,SI,,백시은 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nSI_H,ending,ENDING,SI,happy,해피 엔딩,,,,TODO 제목·대본,,\nSI_S,ending,ENDING,SI,sad,새드 엔딩,,,,TODO 제목·대본,,\nSI_B,ending,ENDING,SI,bad,배드 엔딩,,,,TODO 제목·대본,,\nSI_T,ending,ENDING,SI,true,히든·진 엔딩,,,,TODO 제목·대본,,\nSI_DONE,route_done,ROUTE,SI,,백시은 루트 클리어 기록,,,,,,\nCH_START,scene,ROUTE,CH,,강채아 루트,첫 분기,,CH8_EP3_B,,,\nCH,route,ROUTE,CH,,강채아 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nCH_H,ending,ENDING,CH,happy,해피 엔딩,,,,TODO 제목·대본,,\nCH_S,ending,ENDING,CH,sad,새드 엔딩,,,,TODO 제목·대본,,\nCH_B,ending,ENDING,CH,bad,배드 엔딩,,,,TODO 제목·대본,,\nCH_T,ending,ENDING,CH,true,히든·진 엔딩,,,,TODO 제목·대본,,\nCH_DONE,route_done,ROUTE,CH,,강채아 루트 클리어 기록,,,,,,\nTITLE,end,COMMON,,,타이틀로 복귀,,,,,,\nEXIT,end,COMMON,,,게임 종료,,,,REPLAY_CHOICE 의 종료 선택지 도착점,,\nJIWOO_DLC,dlc,DLC,JIWOO,,후일담 · 강지우,현우 30세 이후,30,JIWOO_DLC,JIWOO_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_jiwoo_dlc.csv (chapter_id=jiwoo_dlc),,\nARIN_DLC,dlc,DLC,ARIN,,후일담 · 윤아린,현우 30세 이후,30,ARIN_DLC,ARIN_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_arin_dlc.csv (chapter_id=arin_dlc),,\nYUNA_DLC,dlc,DLC,YUNA,,후일담 · 최유나,현우 30세 이후,30,YUNA_DLC,YUNA_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_yuna_dlc.csv (chapter_id=yuna_dlc),,\nSERA_DLC,dlc,DLC,SERA,,후일담 · 이세라,현우 30세 이후,30,SERA_DLC,SERA_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_sera_dlc.csv (chapter_id=sera_dlc),,\nSEOYUN_DLC,dlc,DLC,SEOYUN,,후일담 · 한서윤,현우 30세 이후,30,SEOYUN_DLC,SEOYUN_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_seoyun_dlc.csv (chapter_id=seoyun_dlc),,\nHARIN_DLC,dlc,DLC,HARIN,,후일담 · 서하린,현우 30세 이후,30,HARIN_DLC,HARIN_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_harin_dlc.csv (chapter_id=harin_dlc),,\nSI_DLC,dlc,DLC,SI,,후일담 · 백시은,현우 30세 이후,30,SI_DLC,SI_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_si_dlc.csv (chapter_id=si_dlc),,\nCH_DLC,dlc,DLC,CH,,후일담 · 강채아,현우 30세 이후,30,CH_DLC,CH_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_ch_dlc.csv (chapter_id=ch_dlc),,\nJIWOO_C1_EP1,scene,ROUTE,JIWOO,,챕터 1 · 소꿉친구라는 안전지대의 균열,다시 맞춘 초점 · 현우 20세,20,JIWOO_CH1_EP1,,,\nJIWOO_C1_EP2,scene,ROUTE,JIWOO,,챕터 1 · 소꿉친구라는 안전지대의 균열,해바라기밭의 첫 단독 초점 · 현우 20세,20,JIWOO_CH1_EP2,,,\nJIWOO_C1_EP3,scene,ROUTE,JIWOO,,챕터 1 · 소꿉친구라는 안전지대의 균열,앵글 안에 머문 너 · 현우 20세,20,JIWOO_CH1_EP3,,,\nJIWOO_FB1_EP1,scene,ROUTE,JIWOO,,과거 회상 1 · 빛의 이면과 투명한 구명조끼,빗속에 가려진 햇살,,JIWOO_FB1_EP1,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB1_EP2,scene,ROUTE,JIWOO,,과거 회상 1 · 빛의 이면과 투명한 구명조끼,웃음 뒤에 잠긴 심해,,JIWOO_FB1_EP2,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB1_EP3,scene,ROUTE,JIWOO,,과거 회상 1 · 빛의 이면과 투명한 구명조끼,투명한 구명조끼,,JIWOO_FB1_EP3,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB2_EP1,scene,ROUTE,JIWOO,,과거 회상 2 · 오래된 약속과 엇갈린 시선,오래된 프레임 속 우리,,JIWOO_FB2_EP1,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB2_EP2,scene,ROUTE,JIWOO,,과거 회상 2 · 오래된 약속과 엇갈린 시선,소문이 닿지 않는 거리,,JIWOO_FB2_EP2,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB2_EP3,scene,ROUTE,JIWOO,,과거 회상 2 · 오래된 약속과 엇갈린 시선,\"그날, 엇갈린 시선\",,JIWOO_FB2_EP3,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB3_EP1,scene,ROUTE,JIWOO,,과거 회상 3 · 상처가 남긴 잔상,지워지지 않는 잔상,,JIWOO_FB3_EP1,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB3_EP2,scene,ROUTE,JIWOO,,과거 회상 3 · 상처가 남긴 잔상,렌즈 너머의 도피처,,JIWOO_FB3_EP2,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB3_EP3,scene,ROUTE,JIWOO,,과거 회상 3 · 상처가 남긴 잔상,아무에게도 보여주지 못한 상처,,JIWOO_FB3_EP3,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB4_EP1,scene,ROUTE,JIWOO,,과거 회상 4 · 소꿉친구라는 안전 지대,익숙한 너의 시선,,JIWOO_FB4_EP1,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB4_EP2,scene,ROUTE,JIWOO,,과거 회상 4 · 소꿉친구라는 안전 지대,말없이 건네는 온기,,JIWOO_FB4_EP2,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB4_EP3,scene,ROUTE,JIWOO,,과거 회상 4 · 소꿉친구라는 안전 지대,다시 마주할 날을 기다리며,,JIWOO_FB4_EP3,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_C2_EP1,scene,ROUTE,JIWOO,,\"챕터 2 · 고백, 그리고 남사친의 퇴장\",가장 가까운 타인 · 현우 21세,21,JIWOO_CH2_EP1,,,\nJIWOO_C2_EP2,scene,ROUTE,JIWOO,,\"챕터 2 · 고백, 그리고 남사친의 퇴장\",셔터 너머의 진심 · 현우 21세,21,JIWOO_CH2_EP2,,,\nJIWOO_C2_EP3,scene,ROUTE,JIWOO,,\"챕터 2 · 고백, 그리고 남사친의 퇴장\",너를 향한 초점 · 현우 21세,21,JIWOO_CH2_EP3,,,\nJIWOO_C3_EP1,scene,ROUTE,JIWOO,,챕터 3 · 미래의 벽과 서로의 등대,졸업이라는 이름의 프레임 · 현우 22세,22,JIWOO_CH3_EP1,,,\nJIWOO_C3_EP2,scene,ROUTE,JIWOO,,챕터 3 · 미래의 벽과 서로의 등대,사진에 담긴 진짜 얼굴 · 현우 22세,22,JIWOO_CH3_EP2,,,\nJIWOO_C3_EP3,scene,ROUTE,JIWOO,,챕터 3 · 미래의 벽과 서로의 등대,우리 사이의 거리 · 현우 22세,22,JIWOO_CH3_EP3,,,\nJIWOO_C4_EP1,scene,ROUTE,JIWOO,,챕터 4 · 두 갈래의 미래와 흔들리는 초점,흔들거리는 앵글 · 현우 23세,23,JIWOO_CH4_EP1,,,\nJIWOO_C4_EP2,scene,ROUTE,JIWOO,,챕터 4 · 두 갈래의 미래와 흔들리는 초점,담고 싶은 것과 외면한 것 · 현우 23세,23,JIWOO_CH4_EP2,,,\nJIWOO_C4_EP3,scene,ROUTE,JIWOO,,챕터 4 · 두 갈래의 미래와 흔들리는 초점,다음 장을 넘기기 전에 · 현우 23세,23,JIWOO_CH4_EP3,,,\nJIWOO_C5_EP1,scene,ROUTE,JIWOO,,챕터 5 · 각자의 계절을 지나,각자의 자리에서 · 현우 24세,24,JIWOO_CH5_EP1,,,\nJIWOO_C5_EP2,scene,ROUTE,JIWOO,,챕터 5 · 각자의 계절을 지나,서로에게 남겨진 시간 · 현우 24세,24,JIWOO_CH5_EP2,,,\nJIWOO_C5_EP3,scene,ROUTE,JIWOO,,챕터 5 · 각자의 계절을 지나,같은 풍경을 바라보는 법 · 현우 24세,24,JIWOO_CH5_EP3,,,\nJIWOO_C6_EP1,scene,ROUTE,JIWOO,,챕터 6 · 결말을 향해 흐르는 시간,계절에 피어난 마음 · 현우 25세,25,JIWOO_CH6_EP1,,,\nJIWOO_C6_EP2,scene,ROUTE,JIWOO,,챕터 6 · 결말을 향해 흐르는 시간,카메라가 기억하는 너 · 현우 25세,25,JIWOO_CH6_EP2,,,\nJIWOO_C6_EP3,scene,ROUTE,JIWOO,,챕터 6 · 결말을 향해 흐르는 시간,아직 끝나지 않은 기록 · 현우 25세,25,JIWOO_CH6_EP3,,,\nJIWOO_C7_EP1,scene,ROUTE,JIWOO,,챕터 7 · 마지막 셔터,마지막 셔터를 누르기 전에 · 현우 26세,26,JIWOO_CH7_EP1,,,\nJIWOO_C7_EP2,scene,ROUTE,JIWOO,,챕터 7 · 마지막 셔터,\"네가 바라본 나, 내가 바라본 너 · 현우 26세\",26,JIWOO_CH7_EP2,,,\nJIWOO_C7_EP3,scene,ROUTE,JIWOO,,챕터 7 · 마지막 셔터,우리의 사진은 계속된다 · 현우 26세,26,JIWOO_CH7_EP3,,,\nJIWOO_C7_EP4,scene,ROUTE,JIWOO,,챕터 7 · 마지막 셔터,선택의 갈림길 · 현우 26세,26,JIWOO_CH7_EP4,,,\nJIWOO_PICK,choice,ROUTE,JIWOO,,선택의 순간,,,,,,\nJIWOO_END,scene,ROUTE,JIWOO,,강지우 엔딩 · 그곳으로 찾으러 와줘,엔딩 공통 사건,,JIWOO_END,,,\nJIWOO_END_ROUTE,check,ROUTE,JIWOO,,강지우 엔딩 분기,,,,JIWOO_PICK 에서 고른 번호(jiwoo_pick)로 엔딩이 갈립니다: 1 해피 · 2 새드 · 3 배드 · 4 히든·진,,\nJIWOO_H_EPI,epilogue,ENDING,JIWOO,happy,해피 엔딩 에필로그,우리의 가장 따뜻한 계절,,JIWOO_H_EPI,,,\nJIWOO_S_EPI,epilogue,ENDING,JIWOO,sad,새드 엔딩 에필로그,우정이라는 이름의 거짓말,,JIWOO_S_EPI,,,\nJIWOO_B_EPI,epilogue,ENDING,JIWOO,bad,배드 엔딩 에필로그,가장 오래된 친구라는 타이틀,,JIWOO_B_EPI,,,\nJIWOO_T_EPI,epilogue,ENDING,JIWOO,true,히든·진 엔딩 에필로그,,,JIWOO_T_EPI,,,\n",
+ "edges": "from_id,to_id,label,condition,kind,note,set\nSTART,PROLOGUE_EP1,,,next,,\nPROLOGUE_EP1,PROLOGUE_EP2,,,next,,\nPROLOGUE_EP2,PROLOGUE_EP3,,,next,,\nPROLOGUE_EP3,PROLOGUE_EP4,,,next,,\nPROLOGUE_EP4,PROLOGUE_EP5,,,next,,\nPROLOGUE_EP5,PROLOGUE_EP6,,,next,,\nPROLOGUE_EP6,FIRST_ROUTE,,,next,,\nFIRST_ROUTE,CH1_EP1,초회 플레이,!sub_unlocked,next,,\nFIRST_ROUTE,REPLAY_CHOICE,2회차 이후,sub_unlocked,next,,\nREPLAY_CHOICE,CH1_EP1,메인 히로인 루트,,next,,\nREPLAY_CHOICE,SUBPROLOGUE_EP1,서브 히로인 루트,,next,,\nREPLAY_CHOICE,TITLE,타이틀로,,next,엔딩·에필로그 이후 타이틀 복귀,\nREPLAY_CHOICE,EXIT,종료,,next,,\nCH1_EP1,CH1_EP2,,,next,,\nCH1_EP2,CH1_EP3,,,next,,\nCH1_EP3,CH1_EP4,,,next,,\nCH1_EP4,CH1_EP5,,,next,,\nCH1_EP5,CH1_EP6,,,next,,\nCH1_EP6,CH2_EP1,,,next,,\nCH2_EP1,CH2_EP2,,,next,,\nCH2_EP2,CH2_EP3,,,next,,\nCH2_EP3,CH2_EP4,,,next,,\nCH2_EP4,CH2_EP5,,,next,,\nCH2_EP5,CH2_EP6,,,next,,\nCH2_EP6,CH3_EP1,,,next,,\nCH3_EP1,CH3_EP2,,,next,,\nCH3_EP2,CH3_EP3,,,next,,\nCH3_EP3,CH3_EP4,,,next,,\nCH3_EP4,CH3_EP5,,,next,,\nCH3_EP5,CH3_EP6,,,next,,\nCH3_EP6,CH4_EP1,,,next,,\nCH4_EP1,CH4_EP2,,,next,,\nCH4_EP2,CH4_EP3,,,next,,\nCH4_EP3,CH4_EP4,,,next,,\nCH4_EP4,CH4_EP5,,,next,,\nCH4_EP5,CH4_EP6,,,next,,\nCH4_EP6,CH5_EP1,,,next,,\nCH5_EP1,CH5_EP2,,,next,,\nCH5_EP2,CH5_EP3,,,next,,\nCH5_EP3,CH5_EP4,,,next,,\nCH5_EP4,CH5_EP5,,,next,,\nCH5_EP5,CH5_EP6,,,next,,\nCH5_EP6,RELATION_CHECK,,,next,,\nRELATION_CHECK,COMMON_BAD,회피 선택 누적 · 관계 방치,avoid>=3,next,,\nRELATION_CHECK,MAIN_PICK,메인 루트 진행 조건 충족,avoid<3,next,,\nCOMMON_BAD,CB21,,,next,,\nCB21,CB_REL,,,next,,\nCB_REL,CB_BREAK,,,next,,\nCB_BREAK,CB26,,,next,,\nCB26,CB_END,,,next,,\nMAIN_PICK,JIWOO,강지우 루트,,next,,\nMAIN_PICK,ARIN,윤아린 루트,,next,,\nMAIN_PICK,YUNA,최유나 루트,,next,,\nMAIN_PICK,SERA,이세라 루트,,next,,\nMAIN_PICK,SEOYUN,한서윤 루트,,next,,\nMAIN_PICK,HARIN,서하린 루트,,next,,\nARIN,ARIN_H,,,next,,\nARIN_H,COMMON_EPILOGUE,,,next,,\nARIN,ARIN_S,,,next,,\nARIN_S,COMMON_EPILOGUE,,,next,,\nARIN,ARIN_B,,,next,,\nARIN_B,COMMON_EPILOGUE,,,next,,\nARIN,ARIN_T,,,next,,\nARIN_T,COMMON_EPILOGUE,,,next,,\nYUNA,YUNA_H,,,next,,\nYUNA_H,COMMON_EPILOGUE,,,next,,\nYUNA,YUNA_S,,,next,,\nYUNA_S,COMMON_EPILOGUE,,,next,,\nYUNA,YUNA_B,,,next,,\nYUNA_B,COMMON_EPILOGUE,,,next,,\nYUNA,YUNA_T,,,next,,\nYUNA_T,COMMON_EPILOGUE,,,next,,\nSERA,SERA_H,,,next,,\nSERA_H,COMMON_EPILOGUE,,,next,,\nSERA,SERA_S,,,next,,\nSERA_S,COMMON_EPILOGUE,,,next,,\nSERA,SERA_B,,,next,,\nSERA_B,COMMON_EPILOGUE,,,next,,\nSERA,SERA_T,,,next,,\nSERA_T,COMMON_EPILOGUE,,,next,,\nSEOYUN,SEOYUN_H,,,next,,\nSEOYUN_H,COMMON_EPILOGUE,,,next,,\nSEOYUN,SEOYUN_S,,,next,,\nSEOYUN_S,COMMON_EPILOGUE,,,next,,\nSEOYUN,SEOYUN_B,,,next,,\nSEOYUN_B,COMMON_EPILOGUE,,,next,,\nSEOYUN,SEOYUN_T,,,next,,\nSEOYUN_T,COMMON_EPILOGUE,,,next,,\nHARIN,HARIN_H,,,next,,\nHARIN_H,COMMON_EPILOGUE,,,next,,\nHARIN,HARIN_S,,,next,,\nHARIN_S,COMMON_EPILOGUE,,,next,,\nHARIN,HARIN_B,,,next,,\nHARIN_B,COMMON_EPILOGUE,,,next,,\nHARIN,HARIN_T,,,next,,\nHARIN_T,COMMON_EPILOGUE,,,next,,\nSI,SI_H,,,next,,\nSI_H,SI_DONE,,,next,,\nSI,SI_S,,,next,,\nSI_S,SI_DONE,,,next,,\nSI,SI_B,,,next,,\nSI_B,SI_DONE,,,next,,\nSI,SI_T,,,next,,\nSI_T,SI_DONE,,,next,,\nCH,CH_H,,,next,,\nCH_H,CH_DONE,,,next,,\nCH,CH_S,,,next,,\nCH_S,CH_DONE,,,next,,\nCH,CH_B,,,next,,\nCH_B,CH_DONE,,,next,,\nCH,CH_T,,,next,,\nCH_T,CH_DONE,,,next,,\nSI_DONE,COMMON_EPILOGUE,,,next,,\nCH_DONE,COMMON_EPILOGUE,,,next,,\nCOMMON_EPILOGUE,CLEAR_CHECK,,,next,,\nCLEAR_CHECK,SUB_UNLOCK,최초 클리어,!sub_unlocked,next,,\nCLEAR_CHECK,REPLAY_CHOICE,이미 해금됨,sub_unlocked,next,,\nSUB_UNLOCK,REPLAY,,,next,,\nREPLAY,REPLAY_CHOICE,,,next,,\nSUBPROLOGUE_EP1,SUBPROLOGUE_EP2,,,next,,\nSUBPROLOGUE_EP2,SUBPROLOGUE_EP3,,,next,,\nSUBPROLOGUE_EP3,CH6_EP1,,,next,,\nCH6_EP1,CH6_EP2,,,next,,\nCH6_EP2,CH6_EP3,,,next,,\nCH6_EP3,CH7_EP1,,,next,,\nCH7_EP1,CH7_EP2,,,next,,\nCH7_EP2,CH7_EP3,,,next,,\nCH7_EP3,CH8_EP1,,,next,,\nCH8_EP1,CH8_EP2,,,next,,\nCH8_EP2,CH8_EP3,,,next,,\nCH8_EP3,SUB_PICK,,,next,,\nSUB_PICK,SI_START,백시은과 함께 카페에 남는다.,,next,,\nSUB_PICK,CH_START,강채아와 함께 작업실로 향한다.,,next,,\nSI_START,SI,,,next,,\nCH_START,CH,,,next,,\nJIWOO_DLC,TITLE,타이틀로,,next,,\nARIN_DLC,TITLE,타이틀로,,next,,\nYUNA_DLC,TITLE,타이틀로,,next,,\nSERA_DLC,TITLE,타이틀로,,next,,\nSEOYUN_DLC,TITLE,타이틀로,,next,,\nHARIN_DLC,TITLE,타이틀로,,next,,\nSI_DLC,TITLE,타이틀로,,next,,\nCH_DLC,TITLE,타이틀로,,next,,\nJIWOO_C1_EP1,JIWOO_C1_EP2,,,next,,\nJIWOO_C1_EP2,JIWOO_C1_EP3,,,next,,\nJIWOO_C1_EP3,JIWOO_FB1_EP1,,,next,,\nJIWOO_FB1_EP1,JIWOO_FB1_EP2,,,next,,\nJIWOO_FB1_EP2,JIWOO_FB1_EP3,,,next,,\nJIWOO_FB1_EP3,JIWOO_FB2_EP1,,,next,,\nJIWOO_FB2_EP1,JIWOO_FB2_EP2,,,next,,\nJIWOO_FB2_EP2,JIWOO_FB2_EP3,,,next,,\nJIWOO_FB2_EP3,JIWOO_FB3_EP1,,,next,,\nJIWOO_FB3_EP1,JIWOO_FB3_EP2,,,next,,\nJIWOO_FB3_EP2,JIWOO_FB3_EP3,,,next,,\nJIWOO_FB3_EP3,JIWOO_FB4_EP1,,,next,,\nJIWOO_FB4_EP1,JIWOO_FB4_EP2,,,next,,\nJIWOO_FB4_EP2,JIWOO_FB4_EP3,,,next,,\nJIWOO_FB4_EP3,JIWOO_C2_EP1,,,next,,\nJIWOO_C2_EP1,JIWOO_C2_EP2,,,next,,\nJIWOO_C2_EP2,JIWOO_C2_EP3,,,next,,\nJIWOO_C2_EP3,JIWOO_C3_EP1,,,next,,\nJIWOO_C3_EP1,JIWOO_C3_EP2,,,next,,\nJIWOO_C3_EP2,JIWOO_C3_EP3,,,next,,\nJIWOO_C3_EP3,JIWOO_C4_EP1,,,next,,\nJIWOO_C4_EP1,JIWOO_C4_EP2,,,next,,\nJIWOO_C4_EP2,JIWOO_C4_EP3,,,next,,\nJIWOO_C4_EP3,JIWOO_C5_EP1,,,next,,\nJIWOO_C5_EP1,JIWOO_C5_EP2,,,next,,\nJIWOO_C5_EP2,JIWOO_C5_EP3,,,next,,\nJIWOO_C5_EP3,JIWOO_C6_EP1,,,next,,\nJIWOO_C6_EP1,JIWOO_C6_EP2,,,next,,\nJIWOO_C6_EP2,JIWOO_C6_EP3,,,next,,\nJIWOO_C6_EP3,JIWOO_C7_EP1,,,next,,\nJIWOO_C7_EP1,JIWOO_C7_EP2,,,next,,\nJIWOO_C7_EP2,JIWOO_C7_EP3,,,next,,\nJIWOO_C7_EP3,JIWOO_C7_EP4,,,next,,\nJIWOO_C7_EP4,JIWOO_PICK,,,next,,\nJIWOO,JIWOO_C1_EP1,,,next,,\nJIWOO_PICK,JIWOO_END,내 이야기는 내가 결정한다.,,next,,jiwoo_pick=1\nJIWOO_PICK,JIWOO_END,이제는 모든 것을 내려놓고 싶다.,,next,,jiwoo_pick=2\nJIWOO_PICK,JIWOO_END,그들의 제안을 받아들인다.,,next,,jiwoo_pick=3\nJIWOO_PICK,JIWOO_END,두 사람의 계획을 끝까지 파헤친다.,,next,,jiwoo_pick=4\nJIWOO_END,JIWOO_END_ROUTE,,,next,,\nJIWOO_END_ROUTE,JIWOO_H,,jiwoo_pick==1,next,,\nJIWOO_END_ROUTE,JIWOO_S,,jiwoo_pick==2,next,,\nJIWOO_END_ROUTE,JIWOO_B,,jiwoo_pick==3,next,,\nJIWOO_END_ROUTE,JIWOO_T,,jiwoo_pick==4,next,,\nJIWOO_H,JIWOO_H_EPI,,,next,,\nJIWOO_H_EPI,COMMON_EPILOGUE,,,next,,\nJIWOO_S,JIWOO_S_EPI,,,next,,\nJIWOO_S_EPI,COMMON_EPILOGUE,,,next,,\nJIWOO_B,JIWOO_B_EPI,,,next,,\nJIWOO_B_EPI,COMMON_EPILOGUE,,,next,,\nJIWOO_T,JIWOO_T_EPI,,,next,,\nJIWOO_T_EPI,COMMON_EPILOGUE,,,next,,\n",
  "scripts": "script_id,line_no,speaker,text,bg,char,cg,set\nPROLOGUE,1,,(형식 예시) speaker가 비어 있으면 지문으로 표시됩니다.,,,,\nPROLOGUE,2,이현우,(형식 예시) bg·char·cg는 비워 두면 이전 상태를 유지합니다. char·cg에 - 를 넣으면 숨깁니다.,,,,\nPROLOGUE,3,,(형식 예시) set 칸에는 변수 변경식을 넣습니다. 예: vd=2.5; avoid+=1,,,,\nPROLOGUE,4,,(예시 끝) 이 네 줄을 지우고 실제 대본으로 교체하세요.,,,,\n",
  "routes": "route_id,name_kr,kind,accent,char_file,vd_init,note\nJIWOO,강지우,main,#c99a5b,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조\nARIN,윤아린,main,#e0a9b4,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조\nYUNA,최유나,main,#aab4d0,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조\nSERA,이세라,main,#8a6fc2,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조\nSEOYUN,한서윤,main,#c25b5b,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조\nHARIN,서하린,main,#7f93a8,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조\nSI,백시은,sub,#8fbf9f,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조\nCH,강채아,sub,#e58b6a,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조\n",
  "cg": "cg_id,title,route,file,note\n",
@@ -416,7 +368,6 @@ function parseCSV(text){
 /* ---------- data ---------- */
 let N={}, OUT={}, S={}, R={}, C={}, EDGES=[], srcLabel='내장';
 function build(d){
-  patchFlow(d);
   N={}; OUT={}; S={}; R={}; C={}; EDGES=d.edges;
   d.nodes.forEach(n=>N[n.node_id]=n);
   d.routes.forEach(r=>R[r.route_id]=r);
@@ -573,33 +524,29 @@ function setAssets(line){
 function startAt(id, fresh, line){
   if(fresh){ run.vars={}; run.hist=[]; run.log=[]; run.lastChar=''; run.bgFile=''; }
   run.resumeLine=line||0;
-  ensureStats();
   show('game'); enter(id);
 }
 function enter(id){
   if(id==='REPLAY_CHOICE' && !save.flags.sub_unlocked && N['CH1_EP1']) id='CH1_EP1';
   const n=N[id];
   if(!n){ toast('노드를 찾을 수 없습니다: '+id); return toTitle(); }
-  stopTyping(); $('menu').hidden=true; $('card').hidden=true; $('dialog').hidden=true; $('cg').hidden=true; $('free').hidden=true; $('game').classList.remove('freeing'); mgStop();
+  stopTyping(); $('menu').hidden=true; $('card').hidden=true; $('dialog').hidden=true; $('cg').hidden=true;
   run.node=id; run.hist.push(id); if(run.hist.length>60) run.hist.shift();
   save.seen[id]=1; save.cur = n.type==='end' ? null : {node:id,vars:run.vars,line:0};
   persist();
   setScene(n);
   updateSkipBtn();
-  if(save.set.skipCommon && canSkipCommon(n)){ toast('공통 루트를 건너뜁니다'); return enter(n.skip_to); }
+  if(save.set.skipCommon && n.skip_to && evalCond(n.skip_when)){ toast('공통 루트를 건너뜁니다'); return enter(n.skip_to); }
   switch(n.type){
     case 'unlock': if(id==='SUB_UNLOCK'){ save.flags.sub_unlocked=1; persist(); toast('서브 히로인 루트가 해금되었습니다'); } return advance();
     case 'route_done': save.flags[n.route+'_cleared']=1; persist(); return advance();
-    case 'free': return startFree(n);
     case 'choice': case 'check': return advance(true);
     case 'end': return showCard(n,true);
-    case 'ending': if(id==='COMMON_BAD') toast(badReason()); showCard(n,false); if(run.resumeLine>0 && getLines(n).length) startLines(); else run.resumeLine=0; return;
     default: showCard(n,false); if(run.resumeLine>0 && getLines(n).length) startLines(); else run.resumeLine=0; return;
   }
 }
 function getLines(n){ const sid=n.script_id||n.node_id; return S[sid]||S[sid+'_EP1']||[]; }
-const canSkipCommon=n=>!!(save.flags.sub_unlocked && n && n.skip_to && evalCond(n.skip_when));   // 첫 플레이(최초 클리어 전)에는 건너뛰기 없음
-function updateSkipBtn(){ $('bCSkip').hidden=!canSkipCommon(N[run.node]); }
+function updateSkipBtn(){ const n=N[run.node]; $('bCSkip').hidden=!(n&&n.skip_to&&evalCond(n.skip_when)); }
 function showCard(n,isEnd){
   const el=$('card'); el.className=n.ending||''; el.hidden=false; run.mode='card';
   const endLike=isEndLike(n.type);
@@ -670,7 +617,6 @@ function advance(fromChoice){
   // 첫 플레이(서브 미해금)에는 경로 선택 없이 메인 공통 루트로 고정
   if(!save.flags.sub_unlocked && run.node==='FIRST_ROUTE' && N['CH1_EP1']) return enter('CH1_EP1');
   const n=N[run.node];
-  recalcDerived();
   // 히든·진 엔딩을 끝까지 플레이(장면을 빠져나감)해야 후일담 DLC 가 열립니다
   // (엔딩 → 에필로그처럼 같은 루트의 히든 엔딩 장면이 이어지면, 그 마지막 장면을 빠져나갈 때 해금)
   if(n && (n.type==='ending'||n.type==='epilogue') && n.ending==='true' && n.route && !save.flags[n.route+'_T_done']){
@@ -680,17 +626,15 @@ function advance(fromChoice){
   const outs=(OUT[run.node]||[]).filter(e=>e.kind==='next'||e.kind==='unlock_choice');
   const ok=outs.filter(e=>evalCond(e.condition));
   if(!ok.length){ if(!outs.length){ toast('이어지는 연결이 없어 타이틀로 돌아갑니다'); } else toast('조건을 만족하는 연결이 없습니다'); return toTitle(); }
-  if(ok.length===1 && !ok[0].req){ applySet(ok[0].set); return enter(ok[0].to_id); }   // 연결(edge)의 set 칸: 변수 기록 (예: jiwoo_pick=1)
+  if(ok.length===1){ applySet(ok[0].set); return enter(ok[0].to_id); }   // 연결(edge)의 set 칸: 변수 기록 (예: jiwoo_pick=1)
   showMenu(n,ok);
 }
 function showMenu(n,edges){
   run.mode='menu'; setSkip(false); run.readyAt=0; const m=$('menu'); m.hidden=false; $('dialog').hidden=true; $('card').hidden=true;
-  const manualHint = edges.every(e=>!e.condition&&!e.req) && ['check','route'].includes(n.type);
+  const manualHint = edges.every(e=>!e.condition) && ['check','route'].includes(n.type);
   const q = n.type==='route' ? `${n.title} · 엔딩 선택` : (n.subtitle? n.title : n.title);
   m.innerHTML=`<div class="q">${q}</div>`+(manualHint?`<div class="h">분기 조건이 아직 정해지지 않아 직접 고릅니다.</div>`:'')+
-    edges.map((e,i)=>{ const t=N[e.to_id]; const lab=e.label||t?.title||e.to_id; const lk=e.req&&!evalCond(e.req), dis=lk&&!DEV_TOOLS;
-      const sub=lk?`<small style="display:block;color:var(--fog);font-size:11px;margin-top:3px">${dis?'🔒':'🔓 테스트 모드로 개방'} 필요: ${esc(e.reqText||'')}</small>`:'';
-      return `<button data-i="${i}" ${dis?'disabled style="opacity:.5;cursor:default"':''}><b class="${t?.ending||''}"></b><span>${lab}${sub}</span></button>`; }).join('');
+    edges.map((e,i)=>{ const t=N[e.to_id]; const lab=e.label||t?.title||e.to_id; return `<button data-i="${i}"><b class="${t?.ending||''}"></b>${lab}</button>`; }).join('');
   m.querySelectorAll('button').forEach(b=>b.onclick=ev=>{ ev.stopPropagation(); m.hidden=true; const ed=edges[+b.dataset.i]; applySet(ed.set); enter(ed.to_id); });
 }
 function toTitle(){
@@ -728,347 +672,6 @@ function autoTick(){   // 오토: 글이 다 표시된 뒤 설정한 시간이 �
   if(!run.auto||$('game').hidden||!$('log').hidden||!$('menu').hidden||run.typing||!run.readyAt) return;
   const wait=(run.mode==='card'?Math.max(1.5,save.set.autoSec*0.7):save.set.autoSec)*1000;
   if(Date.now()-run.readyAt>=wait){ run.readyAt=0; tap(); }
-}
-
-/* ============================================================
-   자유시간 · 스탯 시스템 (모든 수치는 아래 설정표에서 조정합니다)
-   - 순서도(flow_*.csv)는 건드리지 않고, 불러온 뒤 patchFlow() 가 노드·연결·조건을 자동으로 덧붙입니다.
-   - 변수는 run.vars 에 저장되므로 저장 슬롯 / 이어하기에 그대로 포함됩니다.
-   ============================================================ */
-const FREE={ap:6, crit:70, bad:85, tired:5, max:100, dateBase:14};   // 회차당 행동력 · 스트레스 임계점 · 공통 배드 기준 · 피로 기준 · 데이트 기본 호감도
-const FREE_H=['JIWOO','ARIN','YUNA','SERA','SEOYUN','HARIN'];
-const STAT_INIT={stamina:10,strength:10,knowledge:10,grades:10,charm:10,fame:5,stress:10,fatigue:0,
-  aff_JIWOO:0,aff_ARIN:0,aff_YUNA:0,aff_SERA:0,aff_SEOYUN:0,aff_HARIN:0,trust:0,alert:0};
-const STAT_LABEL=[['stamina','체력'],['strength','완력'],['knowledge','지식'],['grades','성적'],['charm','매력'],['fame','인지도'],['stress','스트레스'],['fatigue','피로도']];
-const FREE_NODES={FREE_1:{idx:1},FREE_2:{idx:2},FREE_3:{idx:3},FREE_4:{idx:4},FREE_5:{idx:5},FREE_SKIP:{rep:5}};
-// [앞 노드, 뒤 노드, 삽입할 자유시간 노드, 회차]
-const FREE_LINKS=[['CH1_EP6','CH2_EP1','FREE_1',1],['CH2_EP6','CH3_EP1','FREE_2',2],['CH3_EP6','CH4_EP1','FREE_3',3],['CH4_EP6','CH5_EP1','FREE_4',4],['CH5_EP6','RELATION_CHECK','FREE_5',5]];
-
-// 행동: ap=소모 행동력 / gain=스탯 보상 / 공통으로 피로도 +1
-const ACT={
-  train:{n:'운동',  ap:2, d:'체력 · 완력',        gain:{stamina:5,strength:4}},
-  study:{n:'공부',  ap:2, d:'지식 · 성적',        gain:{knowledge:5,grades:4}, stress:1},
-  look: {n:'외모 관리',ap:2, d:'매력 · 인지도',     gain:{charm:5,fame:3}},
-  date: {n:'데이트',ap:3, d:'호감도 대폭 상승 · 스트레스 소폭 증가'},
-  rest: {n:'휴식',  ap:1, d:'스트레스 대폭 감소 · 피로 회복'}
-};
-const PLACES=[['cafe','카페 뷰파인더'],['library','도서관'],['park','출사지 공원'],['cinema','영화관'],['night','야경 거리'],['trail','혜안 산책로 (옆 소도시)']];
-// 히로인별 장소 선호 (1.5=최고, 1=보통, 0.5=별로) — 대본 설정에 맞게 바꾸세요
-const PREF={
-  JIWOO: {cafe:1.2,library:1,  park:1.5,cinema:1,  night:1.2,trail:1.2},
-  ARIN:  {cafe:1,  library:1.5,park:1,  cinema:.5, night:.5,trail:1},
-  YUNA:  {cafe:1,  library:.5, park:1,  cinema:1.5,night:1,trail:.5},
-  SERA:  {cafe:1,  library:.5, park:.5, cinema:1,  night:1.5,trail:1},
-  SEOYUN:{cafe:1,  library:1.5,park:1,  cinema:.5, night:.5,trail:1.5},
-  HARIN: {cafe:.5, library:1,  park:1.5,cinema:1,  night:.5,trail:1}
-};
-const DIFF={JIWOO:{mul:1.2,tag:'이지'},ARIN:{mul:1,tag:'노말'},YUNA:{mul:1,tag:'노말'},SERA:{mul:.8,tag:'하드'},SEOYUN:{mul:.7,tag:'익스트림'},HARIN:{mul:.5,tag:'헬'}};
-
-// 메인 루트 진입 조건 (MAIN_PICK 선택지가 열리는 조건)
-const ROUTE_REQ={
-  JIWOO:'aff_JIWOO>=15',
-  ARIN:'aff_ARIN>=30 && knowledge>=25',
-  YUNA:'aff_YUNA>=30 && fame>=15',
-  SERA:'aff_SERA>=30 && (knowledge>=30 || charm>=30)',
-  SEOYUN:'aff_SEOYUN>=30 && knowledge>=30',
-  HARIN:'aff_HARIN>=25 && trust>=6 && alert<8 && charm>=20 && stamina>=20 && harin_event>=1'
-};
-// 엔딩 선택지 개방 조건 (새드·배드는 항상 열려 있음)
-const ENDREQ={
-  JIWOO: {H:'aff_JIWOO>=45 && stress<70', T:'aff_JIWOO>=65 && stress<60'},
-  ARIN:  {H:'aff_ARIN>=45 && knowledge>=30 && stress<70', T:'aff_ARIN>=70 && knowledge>=40 && grades>=30 && stress<60'},
-  YUNA:  {H:'aff_YUNA>=45 && fame>=20 && stress<70', T:'aff_YUNA>=70 && fame>=30 && charm>=25 && stress<60'},
-  SERA:  {H:'aff_SERA>=45 && (knowledge>=35 || charm>=35) && stress<70', T:'aff_SERA>=60 && knowledge>=30 && charm>=30 && stress<60'},
-  SEOYUN:{H:'aff_SEOYUN>=45 && knowledge>=30 && stress<50 && seoyun_slip<1', T:'aff_SEOYUN>=65 && knowledge>=35 && grades>=30 && stress<40 && seoyun_slip<1'},
-  HARIN: {H:'aff_HARIN>=35 && trust>=8 && alert<8 && stamina>=25 && charm>=20 && stress<70', T:'aff_HARIN>=45 && trust>=15 && alert<4 && stamina>=35 && strength>=25 && charm>=20 && harin_event>=1 && stress<60'}
-};
-const SEOYUN_FALL='(seoyun_slip>=1 || stress>=50)';   // 한서윤: 이 조건이면 곧바로 배드 엔딩으로 추락
-const COMMON_BAD_IF='avoid>=3 || stress>='+FREE.bad+' || routes_open<1';
-
-const HINT_L={stamina:'체력',strength:'완력',knowledge:'지식',grades:'성적',charm:'매력',fame:'인지도',stress:'스트레스',fatigue:'피로도',trust:'신용',alert:'경계',
-  aff_JIWOO:'호감도',aff_ARIN:'호감도',aff_YUNA:'호감도',aff_SERA:'호감도',aff_SEOYUN:'호감도',aff_HARIN:'호감도'};
-function hintOf(x){
-  return x.replace(/seoyun_slip<1/g,'잘못된 선택 없음').replace(/harin_event>=1/g,'특수 이벤트 달성')
-    .replace(/[A-Za-z_]+/g,w=>HINT_L[w]||w).replace(/>=/g,' ≥ ').replace(/</g,' < ')
-    .replace(/&&/g,' · ').replace(/\|\|/g,' 또는 ').replace(/\s+/g,' ').trim();
-}
-
-function patchFlow(d){
-  if(d.nodes.some(n=>n.node_id==='FREE_1')) return d;          // 이미 들어 있으면 건드리지 않음
-  const E=d.edges, byId={}; d.nodes.forEach(n=>byId[n.node_id]=n);
-  const find=(a,b)=>E.find(e=>e.from_id===a&&e.to_id===b);
-  const mk=(a,b)=>E.push({from_id:a,to_id:b,label:'',condition:'',kind:'next',note:'자유시간(자동 삽입)',set:''});
-  const addNode=(id,title,sub)=>d.nodes.push({node_id:id,type:'free',group:'COMMON',route:'',ending:'',title,subtitle:sub,age:'',script_id:'',note:'자유시간(자동 삽입)',skip_to:'',skip_when:''});
-  FREE_LINKS.forEach(([a,b,id,k])=>{
-    const e=find(a,b); if(!e) return;
-    E.splice(E.indexOf(e),1);
-    addNode(id,'자유시간 '+k+' / 5','행동력 '+FREE.ap+' · 스탯과 호감도를 키웁니다');
-    mk(a,id); mk(id,b);
-  });
-  // 공통 루트 건너뛰기: 자유시간을 건너뛰면 스탯을 못 쌓으므로, 요약 자유시간 5회를 이어서 진행
-  if(byId.CH1_EP1 && byId.CH1_EP1.skip_to==='MAIN_PICK' && byId.RELATION_CHECK){
-    byId.CH1_EP1.skip_to='FREE_SKIP';
-    d.nodes.forEach(n=>{ if(/^CH[1-5]_EP\d+$/.test(n.node_id)&&!n.skip_to){ n.skip_to='FREE_SKIP'; n.skip_when='sub_unlocked'; } });   // 공통 루트 어느 에피소드에서든 건너뛰기
-    addNode('FREE_SKIP','자유시간 (요약)','공통 루트를 건너뛴 대신 자유시간 5회를 이어서 진행합니다'); mk('FREE_SKIP','RELATION_CHECK');
-  }
-  // 공통 배드 엔딩 진입 조건
-  let e=find('RELATION_CHECK','COMMON_BAD'); if(e){ e.condition=COMMON_BAD_IF; e.label='관계 방치 · 스트레스 붕괴 · 회피 누적'; }
-  e=find('RELATION_CHECK','MAIN_PICK'); if(e) e.condition='!('+COMMON_BAD_IF+')';
-  // 메인 루트 진입 조건
-  FREE_H.forEach(r=>{ const x=find('MAIN_PICK',r); if(x){ x.req=ROUTE_REQ[r]; x.reqText=hintOf(ROUTE_REQ[r]); } });
-  // 엔딩 선택지 조건
-  const lock=(x,expr)=>{ if(x){ x.req=expr; x.reqText=hintOf(expr); } };
-  FREE_H.forEach(r=>{
-    if(r==='JIWOO'){
-      E.filter(x=>x.from_id==='JIWOO_PICK').forEach(x=>{
-        if(/jiwoo_pick=1/.test(x.set)) lock(x,ENDREQ.JIWOO.H);
-        if(/jiwoo_pick=4/.test(x.set)) lock(x,ENDREQ.JIWOO.T);
-      });
-    } else { lock(find(r,r+'_H'),ENDREQ[r].H); lock(find(r,r+'_T'),ENDREQ[r].T); }
-  });
-  // 한서윤(익스트림): 잘못된 선택 또는 스트레스 관리 실패 → 곧바로 배드 엔딩
-  const sb=find('SEOYUN','SEOYUN_B'); if(sb) sb.condition=SEOYUN_FALL;
-  ['H','S','T'].forEach(s=>{ const x=find('SEOYUN','SEOYUN_'+s); if(x) x.condition='!'+SEOYUN_FALL; });
-  return d;
-}
-
-function ensureStats(){ for(const k in STAT_INIT) if(!(k in run.vars)) run.vars[k]=STAT_INIT[k]; }
-function recalcDerived(){
-  ensureStats();
-  run.vars.routes_open=FREE_H.filter(r=>evalCond(ROUTE_REQ[r])).length;
-  run.vars.aff_max=Math.max(...FREE_H.map(r=>+g('aff_'+r)));
-}
-function badReason(){
-  if(+g('avoid')>=3) return '피하기만 한 선택이 쌓여 관계가 무너졌다';
-  if(+g('stress')>=FREE.bad) return '스트레스가 한계를 넘어 버렸다';
-  return '아무와도 가까워지지 못한 채 시간이 흘렀다';
-}
-function bump(k,d,mx){ run.vars[k]=Math.max(0,Math.min(mx||FREE.max,(+g(k))+d)); }
-
-/* ---------- 자유시간 화면 ---------- */
-function startFree(n){
-  mgStop(); setSkip(false); setAuto(false); run.mode='free'; ensureStats(); recalcDerived();
-  const cfg=FREE_NODES[n.node_id]||{};
-  const remain=n.node_id==='FREE_SKIP' ? Math.max(0,5-(+g('free_done'))) : (cfg.rep||1);   // 건너뛰기: 아직 안 한 자유시간 회차만 진행
-  if(remain<1) return advance();
-  let st=run.vars._free;
-  if(!st||st.id!==n.node_id){ st={id:n.node_id,n:1,total:remain,ap:FREE.ap,dated:[],msg:'',view:'main',pick:''}; run.vars._free=st; }
-  st.view='main'; st.pick='';
-  $('dialog').hidden=true; $('card').hidden=true; $('chimg').hidden=true; $('cg').hidden=true;
-  $('game').classList.add('freeing'); $('free').hidden=false; persist(); renderFree();
-}
-function leaveFree(){
-  mgStop(); run.vars.free_done=(+g('free_done'))+((run.vars._free&&run.vars._free.total)||1); delete run.vars._free; $('free').hidden=true; $('game').classList.remove('freeing');
-  recalcDerived(); persist(); advance();
-}
-function freeMult(){ return +g('fatigue')>=FREE.tired ? .5 : 1; }
-function renderFree(){
-  const st=run.vars._free, el=$('free'); if(!st) return;
-  const cfg=FREE_NODES[st.id]||{}, tired=+g('fatigue')>=FREE.tired, stressHi=+g('stress')>=FREE.crit;
-  const label=cfg.idx? `${cfg.idx} / 5` : `${st.n} / ${st.total}`;
-  const bar=([k,l])=>{ const v=Math.round(+g(k)), mx=k==='fatigue'?10:FREE.max; const warn=(k==='stress'&&stressHi)||(k==='fatigue'&&tired);
-    return `<div class="sb${warn?' warn':''}"><span>${l}</span><i><b style="width:${Math.min(100,v/mx*100)}%"></b></i><em>${v}</em></div>`; };
-  const affRow=r=>{ const v=Math.round(+g('aff_'+r)), open=evalCond(ROUTE_REQ[r]);
-    return `<div class="sb"><span>${esc(rName(r))}</span><i><b style="width:${v}%;background:${R[r]?.accent||'#dfe3ea'}"></b></i><em>${v}${open?'●':''}</em></div>`; };
-  let acts='';
-  if(st.view==='main'){
-    acts=['train','study','look','date','rest'].map(k=>{ const a=ACT[k], off=st.ap<a.ap;
-      return `<button class="fact" data-a="${k==='date'?'date':'do'}" data-v="${k}" ${off?'disabled':''}><b>${a.n}</b><span>${a.d}</span><em>행동력 ${a.ap}</em></button>`; }).join('');
-  } else if(st.view==='who'){
-    acts='<div class="fq">누구와 데이트할까요?</div>'+FREE_H.map(r=>{
-      const blocked=r==='HARIN'&&+g('charm')<20;
-      const tag=r==='SERA'?' · 방치 시 호감도 감소':r==='HARIN'?' · 숨겨진 게이지':'';
-      return `<button class="fact" data-a="h" data-v="${r}" ${blocked?'disabled':''}><b>${esc(rName(r))}</b><span>${DIFF[r].tag}${tag}${blocked?' · 매력이 부족해 만나주지 않는다':''}${st.dated.includes(r)?' · 오늘 만남':''}</span></button>`; }).join('')
-      +'<button class="fact ghost" data-a="back"><b>← 돌아가기</b></button>';
-  } else if(st.view==='mg'){
-    acts='<div id="mgbox" class="mgbox"></div>';
-  } else {
-    acts=`<div class="fq">${esc(rName(st.pick))}와(과) 어디로 갈까요?</div>`+PLACES.map(([id,nm])=>`<button class="fact" data-a="p" data-v="${id}"><b>${nm}</b></button>`).join('')
-      +'<button class="fact ghost" data-a="back"><b>← 돌아가기</b></button>';
-  }
-  const warn=[tired?'피로도가 높아 스탯 상승 효과가 절반입니다.':'', stressHi?'스트레스가 임계점을 넘었습니다. 말실수로 호감도가 깎일 수 있습니다.':''].filter(Boolean);
-  el.innerHTML=`<div class="fin">
-    <div class="fh"><div><h3>자유시간</h3><small>${label} · 남은 행동력</small></div><div class="fap">${'●'.repeat(Math.max(0,st.ap))}<span>${'○'.repeat(Math.max(0,FREE.ap-st.ap))}</span></div></div>
-    <div class="fgrid"><div class="fbox"><h4>스탯</h4>${STAT_LABEL.map(bar).join('')}</div><div class="fbox"><h4>호감도 <small>● 루트 진입 가능</small></h4>${FREE_H.map(affRow).join('')}${DEV_TOOLS?`<div class="sb"><span>신용/경계</span><em style="grid-column:2/4;text-align:left">${g('trust')} / ${g('alert')} · harin_event ${g('harin_event')}</em></div>`:''}</div></div>
-    ${warn.length?`<div class="fwarn">${warn.join('<br>')}</div>`:''}
-    <div class="facts">${acts}</div>
-    ${st.msg?`<div class="fmsg">${st.msg.split('\n').map(esc).map(s=>`<p>${s}</p>`).join('')}</div>`:''}
-    ${st.view==='mg'?'':`<div class="fend"><button class="btn${st.ap<=0?' go':''}" data-a="end">${st.ap<=0?'다음으로':'하루 마치기 (남은 행동력 포기)'}</button></div>`}</div>`;
-  el.querySelectorAll('button[data-a]').forEach(b=>b.onclick=ev=>{ ev.stopPropagation(); freeAct(b.dataset.a,b.dataset.v); });
-}
-function freeAct(a,v){
-  const st=run.vars._free; if(!st) return;
-  if(a==='end') return endSession();
-  if(a==='back'){ st.view='main'; st.pick=''; return renderFree(); }
-  if(a==='date'){ st.view='who'; return renderFree(); }
-  if(a==='h'){ st.pick=v; st.view='where'; return renderFree(); }
-  if(a==='do') return doAction(v);
-  if(a==='p') return doDate(st.pick,v);
-}
-function afterAct(st,msg){
-  const lines=[msg];
-  if(+g('stress')>=FREE.crit && Math.random()<.35){   // 스트레스 임계점: 치명적인 말실수
-    const top=FREE_H.map(r=>[r,+g('aff_'+r)]).sort((x,y)=>y[1]-x[1])[0];
-    if(top[1]>0) bump('aff_'+top[0],-8);
-    bump('avoid',1,99);
-    lines.push(`스트레스 때문에 치명적인 말실수를 했다. (${top[1]>0?rName(top[0])+' 호감도 -8 · ':''}회피 +1)`);
-  }
-  st.msg=lines.join('\n'); st.view='main'; st.pick=''; recalcDerived(); persist(); renderFree();
-}
-/* ---------- 미니게임 (운동·공부·외모 관리·데이트) ----------
-   결과 점수(0~1) → 등급 S/A/B/C → 스탯·호감도 보상 배율. 행동력은 미니게임을 마친 뒤에 차감됩니다. */
-const MG_MULT={S:1.5,A:1.25,B:1,C:.6}, MG_MULT_DATE={S:1.3,A:1.15,B:1,C:.7};
-const MG_TEXT={S:'완벽했다!',A:'꽤 잘했다.',B:'무난했다.',C:'아쉬운 결과였다.'};
-const gradeOf=s=>s>=.85?'S':s>=.6?'A':s>=.35?'B':'C';
-const shuf=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(x=>x[1]);
-const MG_INFO={train:['타이밍 운동','게이지가 초록 구간에 왔을 때 멈추세요 (3세트 · 스페이스 키도 가능)'],
-  study:['암기 카드','같은 그림 짝을 찾으세요. 적게 뒤집을수록 좋습니다'],
-  look:['코디 맞추기','오늘의 콘셉트에 어울리는 아이템을 고르세요 (3단계)'],
-  talk:['대화 주제','상대가 좋아할 만한 주제를 골라 보세요 (3번)']};
-let mg=null;
-function mgStop(){ if(mg){ if(mg.raf) cancelAnimationFrame(mg.raf); if(mg.tm) clearTimeout(mg.tm); if(mg.kd) removeEventListener('keydown',mg.kd); mg=null; } }
-function mgStart(kind,ctx,done){
-  mgStop(); const st=run.vars._free; st.view='mg'; renderFree();
-  mg={kind,ctx,done};
-  const box=$('mgbox');
-  box.innerHTML=`<div class="mgh"><b>${MG_INFO[kind][0]}</b><small>${MG_INFO[kind][1]}</small></div><div id="mgb"></div><div class="mgf"><button class="btn" id="mgSkip">건너뛰기 (보통 결과)</button></div>`;
-  $('mgSkip').onclick=ev=>{ ev.stopPropagation(); mgFinish(.5); };
-  ({train:mgTiming,study:mgMemory,look:mgCoord,talk:mgTalk})[kind]($('mgb'));
-}
-function mgFinish(score){
-  if(!mg||mg.fin) return;
-  if(mg.raf) cancelAnimationFrame(mg.raf); if(mg.tm) clearTimeout(mg.tm); if(mg.kd){ removeEventListener('keydown',mg.kd); mg.kd=null; }
-  mg.fin=true; const grade=gradeOf(score), mult=(mg.kind==='talk'?MG_MULT_DATE:MG_MULT)[grade], done=mg.done;
-  $('mgbox').innerHTML=`<div class="mgres"><div class="gr g${grade}">${grade}</div><p>${MG_TEXT[grade]}</p><p class="mgs">보상 ×${mult}</p><button class="btn go" id="mgOk">확인</button></div>`;
-  $('mgOk').onclick=ev=>{ ev.stopPropagation(); mgStop(); done(grade); };
-}
-// 1) 운동: 움직이는 마커를 초록 구간에서 멈추는 타이밍 게임
-function mgTiming(b){
-  const REPS=3, ZONES=[.28,.22,.16], SPEED=[.55,.75,.95]; let rep=0, zc=0, zw=0, t0=0, pos=0, stopped=false; const scores=[];
-  b.innerHTML=`<div class="mgt"><div class="track" id="trk"><i class="zone" id="zn"></i><i class="mk" id="mk"></i></div><div class="mgs" id="mgs"></div><button class="btn go" id="hit">지금!</button></div>`;
-  const setup=()=>{ zw=ZONES[rep]; zc=.2+Math.random()*.6; $('zn').style.left=((zc-zw/2)*100)+'%'; $('zn').style.width=(zw*100)+'%'; t0=performance.now(); stopped=false; $('mgs').textContent=`${rep+1} / ${REPS} 세트`; };
-  const loop=now=>{ if(!mg||mg.fin) return; if(!stopped){ const x=((now-t0)/1000*SPEED[rep])%2; pos=x<1?x:2-x; $('mk').style.left=(pos*100)+'%'; } mg.raf=requestAnimationFrame(loop); };
-  const hit=()=>{
-    if(stopped||!mg||mg.fin) return; stopped=true;
-    const d=Math.abs(pos-zc), sc=d<=zw/2 ? 1-(d/(zw/2))*.4 : 0; scores.push(sc);
-    $('mgs').textContent=sc>.85?'완벽!':sc>0?'좋아요':'빗나갔다'; rep++;
-    if(rep>=REPS) mg.tm=setTimeout(()=>mgFinish(scores.reduce((a,c)=>a+c,0)/REPS),550); else mg.tm=setTimeout(setup,600);
-  };
-  $('hit').onclick=ev=>{ ev.stopPropagation(); hit(); };
-  $('trk').onclick=ev=>{ ev.stopPropagation(); hit(); };
-  mg.kd=e=>{ if((e.code==='Space'||e.key==='Enter') && !(document.activeElement&&document.activeElement.id==='mgSkip')){ e.preventDefault(); hit(); } };
-  addEventListener('keydown',mg.kd); setup(); mg.raf=requestAnimationFrame(loop);
-}
-// 2) 공부: 카드 짝 맞추기
-function mgMemory(b){
-  const pick=shuf(['📖','✏️','🧮','🔬','🌍','🎵','📐','🧪']).slice(0,4), deck=shuf([...pick,...pick]);
-  let open=[], moves=0, matched=0, lock=false;
-  b.innerHTML=`<div class="mgs" id="mgs">뒤집은 횟수 0</div><div class="cards" id="cds">${deck.map((c,i)=>`<button class="mc" data-i="${i}">?</button>`).join('')}</div>`;
-  const cs=b.querySelectorAll('.mc');
-  cs.forEach(el=>el.onclick=ev=>{
-    ev.stopPropagation(); const i=+el.dataset.i;
-    if(lock||el.classList.contains('up')) return;
-    el.classList.add('up'); el.textContent=deck[i]; open.push(i);
-    if(open.length<2) return;
-    moves++; $('mgs').textContent='뒤집은 횟수 '+moves; lock=true;
-    const A=cs[open[0]], C=cs[open[1]], same=deck[open[0]]===deck[open[1]]; open=[];
-    if(same){ A.classList.add('ok'); C.classList.add('ok'); lock=false; matched++;
-      if(matched===4) mg.tm=setTimeout(()=>mgFinish(moves<=5?1:moves<=7?.7:moves<=10?.45:.2),500); }
-    else mg.tm=setTimeout(()=>{ [A,C].forEach(x=>{ x.classList.remove('up'); x.textContent='?'; }); lock=false; },650);
-  });
-}
-// 선택형 공통 틀 (코디 · 대화)
-function mgPick(b,total,headFn,optsFn){
-  let r=0, sc=0;
-  const show=()=>{
-    const opts=optsFn(r);
-    b.innerHTML=`<div class="mgs">${headFn(r)} · ${r+1} / ${total}</div><div class="mopts">${opts.map((o,i)=>`<button data-i="${i}">${o.t}</button>`).join('')}</div><div class="mgs" id="mgfb">&nbsp;</div>`;
-    b.querySelectorAll('.mopts button').forEach(el=>el.onclick=ev=>{
-      ev.stopPropagation(); const o=opts[+el.dataset.i]; sc+=o.pts;
-      b.querySelectorAll('.mopts button').forEach(x=>x.disabled=true); $('mgfb').textContent=o.fb; r++;
-      mg.tm=setTimeout(()=>{ if(r>=total) mgFinish(sc/total); else show(); },750);
-    });
-  };
-  show();
-}
-// 3) 외모 관리: 오늘의 콘셉트에 맞는 헤어·상의·신발 고르기
-const CO_CONCEPT=[['neat','단정한 캠퍼스룩'],['active','활동적인 출사룩'],['calm','차분한 카페룩']];
-const CO_ITEM={'헤어':{neat:'단정한 가르마',calm:'자연스러운 웨이브',active:'가볍게 넘긴 머리'},
-  '상의':{neat:'깔끔한 셔츠',calm:'부드러운 니트',active:'후드 집업'},
-  '신발':{neat:'로퍼',calm:'흰 스니커즈',active:'러닝화'}};
-function mgCoord(b){
-  const [tag,name]=CO_CONCEPT[Math.floor(Math.random()*3)], ring=['neat','calm','active'], cats=Object.keys(CO_ITEM);
-  const ri=ring.indexOf(tag), neutral=ring[(ri+1)%3], clash=ring[(ri+2)%3];
-  mgPick(b,3,r=>`오늘의 콘셉트: ${name} · ${cats[r]}`,r=>shuf([
-    {t:CO_ITEM[cats[r]][tag],pts:1,fb:'딱 어울린다!'},
-    {t:CO_ITEM[cats[r]][neutral],pts:.4,fb:'나쁘진 않은데…'},
-    {t:CO_ITEM[cats[r]][clash],pts:0,fb:'콘셉트와 따로 논다.'}]));
-}
-// 4) 데이트: 상대가 좋아하는 대화 주제 고르기
-const TOPICS={photo:'사진',book:'책',movie:'영화',food:'맛집',sport:'운동',music:'음악'};
-const TALK_PREF={JIWOO:{like:['photo','food'],hate:[]},ARIN:{like:['book','music'],hate:['sport']},YUNA:{like:['movie','music'],hate:['book']},
-  SERA:{like:['music','food'],hate:['sport']},SEOYUN:{like:['book','photo'],hate:['music']},HARIN:{like:['photo','sport'],hate:['food']}};
-function mgTalk(b){
-  const h=mg.ctx.h, P=TALK_PREF[h];
-  mgPick(b,3,()=>`${rName(h)}와(과)의 대화`,()=>shuf(Object.keys(TOPICS)).slice(0,3).map(k=>
-    P.like.includes(k)?{t:TOPICS[k]+' 이야기',pts:1,fb:'눈이 반짝였다.'}
-    :P.hate.includes(k)?{t:TOPICS[k]+' 이야기',pts:0,fb:'표정이 살짝 굳었다.'}
-    :{t:TOPICS[k]+' 이야기',pts:.5,fb:'고개를 끄덕였다.'}));
-}
-
-function doAction(k){
-  const st=run.vars._free, a=ACT[k]; if(st.ap<a.ap) return;
-  if(k==='rest'){
-    st.ap-=a.ap; bump('stress',-12); bump('fatigue',-3,10);
-    return afterAct(st,'푹 쉬었다. 스트레스 -12 · 피로도 -3');
-  }
-  mgStart(k,{},grade=>finishAction(k,grade));
-}
-function finishAction(k,grade){
-  const st=run.vars._free, a=ACT[k]; if(!st||st.ap<a.ap) return renderFree();
-  st.ap-=a.ap;
-  const fm=freeMult(), m=fm*MG_MULT[grade], parts=[];
-  for(const s in a.gain){ const d=Math.max(1,Math.round(a.gain[s]*m)); bump(s,d); parts.push(STAT_LABEL.find(x=>x[0]===s)[1]+' +'+d); }
-  bump('fatigue',1,10); if(a.stress) bump('stress',a.stress);
-  afterAct(st,`${a.n} [${grade}] · ${parts.join(' · ')}${fm<1?' (피로로 효과 절반)':''}`);
-}
-function doDate(h,place){
-  const st=run.vars._free, a=ACT.date; if(st.ap<a.ap) return;
-  if(h==='SERA' && !(+g('knowledge')>=25||+g('charm')>=25)) return finishDate(h,place,'B');   // 대화가 성립하지 않으면 미니게임 없이 결과 처리
-  mgStart('talk',{h},grade=>finishDate(h,place,grade));
-}
-function finishDate(h,place,grade){
-  const st=run.vars._free, a=ACT.date; if(!st||st.ap<a.ap) return renderFree();
-  st.ap-=a.ap; st.dated.push(h);
-  const pref=PREF[h][place], nm=rName(h), fm=freeMult(), placeName=PLACES.find(p=>p[0]===place)[1];
-  let gain=Math.round(FREE.dateBase*pref*DIFF[h].mul*fm*MG_MULT_DATE[grade]), msg;
-  const react=pref>=1.5?'아주 좋아했다.':pref>=1?'무난한 시간이었다.':'별로 내키지 않는 표정이었다.';
-  if(h==='SERA' && !(+g('knowledge')>=25||+g('charm')>=25)){
-    gain=0; bump('stress',2); msg=`${nm}는 대화를 이어가지 않았다. (지식 또는 매력이 부족하다) 스트레스 +2`;
-  } else {
-    let slip=false;
-    if(h==='SEOYUN'){
-      gain=Math.round(gain*(.4+Math.random()*1.4));            // 변동 폭 극대화
-      if(pref<1){ gain=-10; run.vars.seoyun_slip=1; slip=true; }   // 잘못된 선택 하나로 배드 엔딩 분기
-    }
-    if(h==='HARIN'){
-      if(pref>=1.5) bump('trust',3); else if(pref>=1){ bump('trust',1); bump('alert',1); } else bump('alert',3);
-    }
-    bump('aff_'+h,gain);
-    msg=`${placeName} · ${nm}: ${react} 대화 [${grade}] 호감도 ${gain>=0?'+':''}${gain}${slip?' (돌이킬 수 없는 실수를 한 것 같다…)':''}`;
-    bump('stress',3); bump('fatigue',1,10);
-  }
-  afterAct(st,msg);
-}
-function endSession(){
-  const st=run.vars._free, msgs=[], idx=(FREE_NODES[st.id]||{}).idx||st.n;
-  if(+g('aff_SERA')>0 && !st.dated.includes('SERA')){ bump('aff_SERA',-3); msgs.push('이세라와 연락이 뜸해졌다. (호감도 -3)'); }
-  if(+g('fatigue')>=FREE.tired){ bump('stress',4); msgs.push('피로가 쌓여 스트레스가 올랐다. (스트레스 +4)'); }
-  bump('fatigue',-2,10);
-  if(idx>=4 && !+g('harin_event') && +g('trust')>=8 && +g('alert')<8){ run.vars.harin_event=1; msgs.push('서하린이 처음으로 먼저 말을 걸어왔다. (특수 이벤트)'); }
-  recalcDerived();
-  if(st.n>=st.total){ if(msgs.length) toast(msgs[0]); return leaveFree(); }
-  st.n++; st.ap=FREE.ap; st.dated=[]; st.view='main'; st.pick=''; st.msg=msgs.join('\n'); persist(); renderFree();
 }
 
 /* ---------- title / sub screens ---------- */
@@ -1117,7 +720,7 @@ function check(){
   const rep=[]; const ids=new Set(Object.keys(N));
   EDGES.forEach(e=>{ if(!ids.has(e.from_id)) rep.push('끊긴 연결(출발 노드 없음): '+e.from_id+' → '+e.to_id); if(!ids.has(e.to_id)) rep.push('끊긴 연결(도착 노드 없음): '+e.from_id+' → '+e.to_id); });
   const seenN=new Set(['START']); const q=['START'];
-  while(q.length){ const x=q.shift(); (OUT[x]||[]).forEach(e=>{ if(!seenN.has(e.to_id)&&ids.has(e.to_id)){seenN.add(e.to_id);q.push(e.to_id);} }); const sk=N[x]&&N[x].skip_to; if(sk&&!seenN.has(sk)&&ids.has(sk)){seenN.add(sk);q.push(sk);} }
+  while(q.length){ const x=q.shift(); (OUT[x]||[]).forEach(e=>{ if(!seenN.has(e.to_id)&&ids.has(e.to_id)){seenN.add(e.to_id);q.push(e.to_id);} }); }
   const unreach=[...ids].filter(i=>!seenN.has(i)&&N[i].type!=='dlc'); if(unreach.length) rep.push('START에서 도달할 수 없는 노드 '+unreach.length+'개: '+unreach.slice(0,12).join(', ')+(unreach.length>12?' …':''));
   const dead=[...ids].filter(i=>N[i].type!=='end'&&!(OUT[i]||[]).some(e=>e.kind!=='unlock')); if(dead.length) rep.push('나가는 연결이 없는 노드: '+dead.join(', '));
   const el=$('rep'); el.hidden=false; el.textContent=(rep.length>1?'확인할 항목\n':'문제 없음\n')+rep.join('\n');
@@ -1186,7 +789,7 @@ $('bGSave').onclick=e=>{ e.stopPropagation(); saveMode='save'; openPage('saves',
 $('tSave').onclick=()=>{ saveMode='save'; buildSlots(); };
 $('tLoad').onclick=()=>{ saveMode='load'; buildSlots(); };
 $('bCg').onclick=()=>openPage('cgs',buildCg);
-$('bCSkip').onclick=e=>{ e.stopPropagation(); const n=N[run.node]; if(canSkipCommon(n)){ toast('공통 루트를 건너뛰었습니다'); enter(n.skip_to); } };
+$('bCSkip').onclick=e=>{ e.stopPropagation(); const n=N[run.node]; if(n?.skip_to){ toast('공통 루트를 건너뛰었습니다'); enter(n.skip_to); } };
 $('fExport').onclick=()=>{ const blob=new Blob([JSON.stringify({v:1,save,slots},null,1)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='project_y_save.json'; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1500); };
 $('fImportBtn').onclick=()=>$('fImport').click();
 $('fImport').onchange=async e=>{ try{ const j=JSON.parse(await e.target.files[0].text()); if(!j.save||!Array.isArray(j.slots)) throw 0;
@@ -1240,7 +843,6 @@ $('fCsv').onchange=async e=>{
   for(const f of e.target.files){ const key=Object.keys(CSV_FILES).find(k=>f.name.includes(k)); if(!key) continue; cur[key]=parseCSV(await f.text()); got.push(key); }
   build(cur); srcLabel='CSV 직접 불러옴: '+got.join(', '); refreshTitle(); toast(got.length?'불러왔습니다: '+got.join(', '):'파일명 점검 필요');
 };
-$('dStats')&&($('dStats').onclick=()=>{ ensureStats(); Object.assign(run.vars,{stamina:60,strength:50,knowledge:60,grades:60,charm:60,fame:50,stress:10,fatigue:0,trust:20,alert:0,harin_event:1,seoyun_slip:0}); FREE_H.forEach(r=>run.vars['aff_'+r]=100); recalcDerived(); buildSettings(); toast('스탯 프리셋 적용 (현재 진행 중인 플레이에 반영)'); });
 $('dUnlock')&&($('dUnlock').onclick=()=>{ save.flags.sub_unlocked=1; persist(); toast('메인 최초 클리어 처리'); });
 $('dAllEnd')&&($('dAllEnd').onclick=()=>{ Object.values(N).filter(n=>n.type==='ending').forEach(n=>{ save.seen[n.node_id]=1; if(n.ending==='true'&&n.route) save.flags[n.route+'_T_done']=1; }); Object.keys(C).forEach(k=>save.cg[k]=1); persist(); refreshTitle(); toast('엔딩·CG·DLC 해금'); });
 $('dReset')&&($('dReset').onclick=()=>{ if(confirm('저장 데이터를 초기화할까요?')){ localStorage.removeItem(SAVE_KEY); localStorage.removeItem(SLOT_KEY); location.reload(); } });
