@@ -80,7 +80,6 @@ COMMON_EPILOGUE,scene,COMMON,,,공통 에필로그,현우 29세 · 모든 루트
 CLEAR_CHECK,check,COMMON,,,최초 메인 루트 클리어 기록?,,,,,,
 SUB_UNLOCK,unlock,COMMON,,,서브 히로인 루트 해금,,,,,,
 REPLAY,unlock,COMMON,,,2회차 플레이 가능,,,,,,
-MAIN_DLC_EP,scene,COMMON,,,메인 히로인별 후일담,현우 30세 이후,30,MAIN_DLC_EP,,,
 SUBPROLOGUE_EP1,scene,COMMON,,,"서브 프롤로그 · 두 개의 인연, 다시 열린 문","뷰파인더, 그곳에 남은 인연",,SUBPROLOGUE_EP1,,SUB_PICK,SI_cleared || CH_cleared
 SUBPROLOGUE_EP2,scene,COMMON,,,"서브 프롤로그 · 두 개의 인연, 다시 열린 문","익숙한 목소리, 변하지 않은 거리",,SUBPROLOGUE_EP2,,,
 SUBPROLOGUE_EP3,scene,COMMON,,,"서브 프롤로그 · 두 개의 인연, 다시 열린 문",두 개의 인연이 향하는 곳,,SUBPROLOGUE_EP3,,,
