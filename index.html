@@ -293,7 +293,9 @@ const STORY_FOLDER_FILES = [
 // 말하는 캐릭터(speaker_id) -> chars/<speaker_id>.webp 를 자동으로 표시합니다.
 // 이미지가 있는 캐릭터 ID 목록 (새 캐릭터 이미지를 추가하면 여기에 ID를 더하세요)
 const CHAR_IDS = ['kang_jiwoo','yoon_arin','choi_yuna','lee_sera','han_seoyun','seo_harin',
-  'baek_sieun','kang_chaea','cha_seongjae','chae_yuhwa','gwon_sujin','kang_ihyeon'];
+  'baek_sieun','kang_chaea','cha_seongjae','chae_yuhwa','gwon_sujin','kang_ihyeon',
+  // 아래 5명은 ID만 먼저 등록했습니다(아직 스토리·입화 없음). chars/<ID>.webp 를 올리면 바로 표시됩니다. 파일이 없으면 입화는 자동으로 숨겨집니다.
+  'mun_chaewon','o_yurim','cheon_gain','baek_seohyeon','kang_doyun'];
 const CHAR_EXT = '.webp';
 const CHAR_DEFAULT = Object.fromEntries(CHAR_IDS.map(id=>[id, id+CHAR_EXT]));
 const TITLE_BG = 'bg_title.webp';  // 타이틀 배경 (img/ 폴더의 파일명, 비우면 기본 배경)
