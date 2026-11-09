@@ -1,0 +1,1440 @@
+{
+ "eps": [
+  {
+   "chapter_id": "jiwoo_ch1",
+   "chapter_title": "소꿉친구라는 안전지대의 균열",
+   "no": 1,
+   "title": "다시 맞춘 초점",
+   "age": "20",
+   "lines": 94,
+   "first": "jiwoo_ch1_ep1_0001"
+  },
+  {
+   "chapter_id": "jiwoo_ch1",
+   "chapter_title": "소꿉친구라는 안전지대의 균열",
+   "no": 2,
+   "title": "해바라기밭의 첫 단독 초점",
+   "age": null,
+   "lines": 119,
+   "first": "jiwoo_ch1_ep2_0001"
+  },
+  {
+   "chapter_id": "jiwoo_ch1",
+   "chapter_title": "소꿉친구라는 안전지대의 균열",
+   "no": 3,
+   "title": "앵글 안에 머문 너",
+   "age": null,
+   "lines": 180,
+   "first": "jiwoo_ch1_ep3_0001"
+  },
+  {
+   "chapter_id": "jiwoo_ch2",
+   "chapter_title": "고백, 그리고 남사친의 퇴장",
+   "no": 1,
+   "title": "가장 가까운 타인",
+   "age": "21",
+   "lines": 193,
+   "first": "jiwoo_ch2_ep1_0001"
+  },
+  {
+   "chapter_id": "jiwoo_ch2",
+   "chapter_title": "고백, 그리고 남사친의 퇴장",
+   "no": 2,
+   "title": "셔터 너머의 진심",
+   "age": null,
+   "lines": 177,
+   "first": "jiwoo_ch2_ep2_0001"
+  },
+  {
+   "chapter_id": "jiwoo_ch2",
+   "chapter_title": "고백, 그리고 남사친의 퇴장",
+   "no": 3,
+   "title": "너를 향한 초점",
+   "age": null,
+   "lines": 121,
+   "first": "jiwoo_ch2_ep3_0001"
+  },
+  {
+   "chapter_id": "jiwoo_ch3",
+   "chapter_title": "미래의 벽과 서로의 등대",
+   "no": 1,
+   "title": "졸업이라는 이름의 프레임",
+   "age": "22",
+   "lines": 222,
+   "first": "jiwoo_ch3_ep1_0001"
+  },
+  {
+   "chapter_id": "jiwoo_ch3",
+   "chapter_title": "미래의 벽과 서로의 등대",
+   "no": 2,
+   "title": "사진에 담긴 진짜 얼굴",
+   "age": null,
+   "lines": 197,
+   "first": "jiwoo_ch3_ep2_0001"
+  },
+  {
+   "chapter_id": "jiwoo_ch3",
+   "chapter_title": "미래의 벽과 서로의 등대",
+   "no": 3,
+   "title": "우리 사이의 거리",
+   "age": null,
+   "lines": 100,
+   "first": "jiwoo_ch3_ep3_0001"
+  },
+  {
+   "chapter_id": "jiwoo_ch4",
+   "chapter_title": "두 갈래의 미래와 흔들리는 초점",
+   "no": 1,
+   "title": "흔들거리는 앵글",
+   "age": "23",
+   "lines": 97,
+   "first": "jiwoo_ch4_ep1_0001"
+  },
+  {
+   "chapter_id": "jiwoo_ch4",
+   "chapter_title": "두 갈래의 미래와 흔들리는 초점",
+   "no": 2,
+   "title": "담고 싶은 것과 외면한 것",
+   "age": "23",
+   "lines": 121,
+   "first": "jiwoo_ch4_ep2_0001"
+  },
+  {
+   "chapter_id": "jiwoo_ch4",
+   "chapter_title": "두 갈래의 미래와 흔들리는 초점",
+   "no": 3,
+   "title": "다음 장을 넘기기 전에",
+   "age": "23",
+   "lines": 219,
+   "first": "jiwoo_ch4_ep3_0001"
+  },
+  {
+   "chapter_id": "jiwoo_ch5",
+   "chapter_title": "각자의 계절을 지나",
+   "no": 1,
+   "title": "각자의 자리에서",
+   "age": null,
+   "lines": 194,
+   "first": "jiwoo_ch5_ep1_0001"
+  },
+  {
+   "chapter_id": "jiwoo_ch5",
+   "chapter_title": "각자의 계절을 지나",
+   "no": 2,
+   "title": "서로에게 남겨진 시간",
+   "age": null,
+   "lines": 150,
+   "first": "jiwoo_ch5_ep2_0001"
+  },
+  {
+   "chapter_id": "jiwoo_ch5",
+   "chapter_title": "각자의 계절을 지나",
+   "no": 3,
+   "title": "같은 풍경을 바라보는 법",
+   "age": null,
+   "lines": 197,
+   "first": "jiwoo_ch5_ep3_0001"
+  },
+  {
+   "chapter_id": "jiwoo_ch6",
+   "chapter_title": "결말을 향해 흐르는 시간",
+   "no": 1,
+   "title": "계절에 피어난 마음",
+   "age": null,
+   "lines": 175,
+   "first": "jiwoo_ch6_ep1_0001"
+  },
+  {
+   "chapter_id": "jiwoo_ch6",
+   "chapter_title": "결말을 향해 흐르는 시간",
+   "no": 2,
+   "title": "카메라가 기억하는 너",
+   "age": null,
+   "lines": 310,
+   "first": "jiwoo_ch6_ep2_0001"
+  },
+  {
+   "chapter_id": "jiwoo_ch6",
+   "chapter_title": "결말을 향해 흐르는 시간",
+   "no": 3,
+   "title": "아직 끝나지 않은 기록",
+   "age": null,
+   "lines": 272,
+   "first": "jiwoo_ch6_ep3_0001"
+  },
+  {
+   "chapter_id": "jiwoo_ch7",
+   "chapter_title": "마지막 셔터",
+   "no": 1,
+   "title": "마지막 셔터를 누르기 전에",
+   "age": null,
+   "lines": 109,
+   "first": "jiwoo_ch7_ep1_0001"
+  },
+  {
+   "chapter_id": "jiwoo_ch7",
+   "chapter_title": "마지막 셔터",
+   "no": 2,
+   "title": "네가 바라본 나, 내가 바라본 너",
+   "age": null,
+   "lines": 229,
+   "first": "jiwoo_ch7_ep2_0001"
+  },
+  {
+   "chapter_id": "jiwoo_ch7",
+   "chapter_title": "마지막 셔터",
+   "no": 3,
+   "title": "우리의 사진은 계속된다",
+   "age": null,
+   "lines": 323,
+   "first": "jiwoo_ch7_ep3_0001"
+  },
+  {
+   "chapter_id": "jiwoo_ch7",
+   "chapter_title": "마지막 셔터",
+   "no": 4,
+   "title": "선택의 갈림길",
+   "age": null,
+   "lines": 42,
+   "first": "jiwoo_ch7_ep4_0001"
+  },
+  {
+   "chapter_id": "jiwoo_end",
+   "chapter_title": "그곳으로 찾으러 와줘",
+   "no": 1,
+   "title": "전해 들은 이야기",
+   "age": null,
+   "lines": 36,
+   "first": "jiwoo_end_ep1_0001"
+  },
+  {
+   "chapter_id": "jiwoo_end",
+   "chapter_title": "그곳으로 찾으러 와줘",
+   "no": 2,
+   "title": "말하지 못한 마음",
+   "age": null,
+   "lines": 34,
+   "first": "jiwoo_end_ep2_0001"
+  },
+  {
+   "chapter_id": "jiwoo_end",
+   "chapter_title": "그곳으로 찾으러 와줘",
+   "no": 3,
+   "title": "익숙한 장소",
+   "age": null,
+   "lines": 29,
+   "first": "jiwoo_end_ep3_0001"
+  },
+  {
+   "chapter_id": "jiwoo_h",
+   "chapter_title": "우리의 사진은 계속 된다",
+   "no": 1,
+   "title": "서로에게 전하는 진심",
+   "age": null,
+   "lines": 148,
+   "first": "jiwoo_h_ep1_0001"
+  },
+  {
+   "chapter_id": "jiwoo_h",
+   "chapter_title": "우리의 사진은 계속 된다",
+   "no": 2,
+   "title": "우리의 다음 프레임",
+   "age": null,
+   "lines": 69,
+   "first": "jiwoo_h_ep2_0001"
+  },
+  {
+   "chapter_id": "jiwoo_s",
+   "chapter_title": "우정이라는 이름의 거짓말",
+   "no": 1,
+   "title": "끝내 전하지 못한 마음",
+   "age": null,
+   "lines": 70,
+   "first": "jiwoo_s_ep1_0001"
+  },
+  {
+   "chapter_id": "jiwoo_s",
+   "chapter_title": "우정이라는 이름의 거짓말",
+   "no": 2,
+   "title": "초점 밖에 남겨진 너",
+   "age": null,
+   "lines": 48,
+   "first": "jiwoo_s_ep2_0001"
+  },
+  {
+   "chapter_id": "jiwoo_b",
+   "chapter_title": "가장 오래된 친구라는 타이틀",
+   "no": 1,
+   "title": "늦어버린 발걸음",
+   "age": null,
+   "lines": 70,
+   "first": "jiwoo_b_ep1_0001"
+  },
+  {
+   "chapter_id": "jiwoo_b",
+   "chapter_title": "가장 오래된 친구라는 타이틀",
+   "no": 2,
+   "title": "가장 오래된 친구라는 타이틀",
+   "age": null,
+   "lines": 103,
+   "first": "jiwoo_b_ep2_0001"
+  },
+  {
+   "chapter_id": "jiwoo_t",
+   "chapter_title": "앵글 속에 담긴 진짜 너",
+   "no": 1,
+   "title": "다시 마주한 시선",
+   "age": null,
+   "lines": 104,
+   "first": "jiwoo_t_ep1_0001"
+  },
+  {
+   "chapter_id": "jiwoo_t",
+   "chapter_title": "앵글 속에 담긴 진짜 너",
+   "no": 2,
+   "title": "앵글 속에 담긴 진짜 너",
+   "age": null,
+   "lines": 168,
+   "first": "jiwoo_t_ep2_0001"
+  },
+  {
+   "chapter_id": "jiwoo_h_epi",
+   "chapter_title": "우리의 가장 따뜻한 계절",
+   "no": 1,
+   "title": "평생을 함께할 약속",
+   "age": null,
+   "lines": 59,
+   "first": "jiwoo_h_epi_ep1_0001"
+  },
+  {
+   "chapter_id": "jiwoo_h_epi",
+   "chapter_title": "우리의 가장 따뜻한 계절",
+   "no": 2,
+   "title": "우리의 사진은 계속된다",
+   "age": null,
+   "lines": 79,
+   "first": "jiwoo_h_epi_ep2_0001"
+  },
+  {
+   "chapter_id": "jiwoo_s_epi",
+   "chapter_title": "우정이라는 이름의 거짓말",
+   "no": 1,
+   "title": "오래된 사진 속에 머문 계절",
+   "age": null,
+   "lines": 70,
+   "first": "jiwoo_s_epi_ep1_0001"
+  },
+  {
+   "chapter_id": "jiwoo_s_epi",
+   "chapter_title": "우정이라는 이름의 거짓말",
+   "no": 2,
+   "title": "초점 밖에 남겨진 너",
+   "age": null,
+   "lines": 59,
+   "first": "jiwoo_s_epi_ep2_0001"
+  },
+  {
+   "chapter_id": "jiwoo_b_epi",
+   "chapter_title": "가장 오래된 친구라는 타이틀",
+   "no": 1,
+   "title": "지나간 계절의 흔적",
+   "age": null,
+   "lines": 53,
+   "first": "jiwoo_b_epi_ep1_0001"
+  },
+  {
+   "chapter_id": "jiwoo_b_epi",
+   "chapter_title": "가장 오래된 친구라는 타이틀",
+   "no": 2,
+   "title": "가장 오래된 친구",
+   "age": null,
+   "lines": 49,
+   "first": "jiwoo_b_epi_ep2_0001"
+  },
+  {
+   "chapter_id": "jiwoo_t_epi",
+   "chapter_title": "히든 트루 엔딩 에필로그",
+   "no": 1,
+   "title": "오래도록 바라본 풍경",
+   "age": null,
+   "lines": 93,
+   "first": "jiwoo_t_epi_ep1_0001"
+  },
+  {
+   "chapter_id": "jiwoo_t_epi",
+   "chapter_title": "히든 트루 엔딩 에필로그",
+   "no": 2,
+   "title": "앵글 속에 담긴 영원한 너",
+   "age": null,
+   "lines": 108,
+   "first": "jiwoo_t_epi_ep2_0001"
+  },
+  {
+   "chapter_id": "jiwoo_dlc",
+   "chapter_title": "소꿉친구의 셔터는 멈추지 않는다",
+   "no": 1,
+   "title": "새로운 프레임의 시작",
+   "age": null,
+   "lines": 83,
+   "first": "jiwoo_dlc_ep1_0001"
+  },
+  {
+   "chapter_id": "jiwoo_dlc",
+   "chapter_title": "소꿉친구의 셔터는 멈추지 않는다",
+   "no": 2,
+   "title": "너와 함께 걷는 일상",
+   "age": null,
+   "lines": 109,
+   "first": "jiwoo_dlc_ep2_0001"
+  },
+  {
+   "chapter_id": "jiwoo_dlc",
+   "chapter_title": "소꿉친구의 셔터는 멈추지 않는다",
+   "no": 3,
+   "title": "영원히 간직할 너의 미소",
+   "age": null,
+   "lines": 135,
+   "first": "jiwoo_dlc_ep3_0001"
+  }
+ ],
+ "scenes": [
+  [
+   "jiwoo_ch1_ep1_0001",
+   "장면: 서운대학교 교정 / 메인 피사체 선택 이후",
+   "jiwoo_ch1",
+   1
+  ],
+  [
+   "jiwoo_ch1_ep2_0001",
+   "장면: 해바라기밭으로 향하는 버스 및 해바라기밭 / 현우 20세",
+   "jiwoo_ch1",
+   2
+  ],
+  [
+   "jiwoo_ch1_ep3_0001",
+   "장면: 서운대학교 동아리 건물 3층 / 오후",
+   "jiwoo_ch1",
+   3
+  ],
+  [
+   "jiwoo_ch1_ep3_0019",
+   "장면: 서운대학교 캠퍼스 / 오후",
+   "jiwoo_ch1",
+   3
+  ],
+  [
+   "jiwoo_ch1_ep3_0047",
+   "장면: 서운대학교 교정 / 오후",
+   "jiwoo_ch1",
+   3
+  ],
+  [
+   "jiwoo_ch1_ep3_0087",
+   "장면: 캠퍼스 벤치 / 오후",
+   "jiwoo_ch1",
+   3
+  ],
+  [
+   "jiwoo_ch1_ep3_0132",
+   "장면: 서운대학교 캠퍼스 / 해질녘",
+   "jiwoo_ch1",
+   3
+  ],
+  [
+   "jiwoo_ch2_ep1_0001",
+   "장면: 서운대학교 캠퍼스 / 오전",
+   "jiwoo_ch2",
+   1
+  ],
+  [
+   "jiwoo_ch2_ep1_0030",
+   "장면: 서운대학교 학생식당 / 점심",
+   "jiwoo_ch2",
+   1
+  ],
+  [
+   "jiwoo_ch2_ep1_0076",
+   "장면: AFOCA 동아리방 / 오후",
+   "jiwoo_ch2",
+   1
+  ],
+  [
+   "jiwoo_ch2_ep1_0121",
+   "장면: AFOCA 동아리방 / 오후 늦게",
+   "jiwoo_ch2",
+   1
+  ],
+  [
+   "jiwoo_ch2_ep1_0136",
+   "장면: 서운대학교 캠퍼스 / 해 질 무렵",
+   "jiwoo_ch2",
+   1
+  ],
+  [
+   "jiwoo_ch2_ep2_0001",
+   "장면: 서운대학교 캠퍼스 / 오후",
+   "jiwoo_ch2",
+   2
+  ],
+  [
+   "jiwoo_ch2_ep2_0036",
+   "장면: 서운대학교 교정 / 오후",
+   "jiwoo_ch2",
+   2
+  ],
+  [
+   "jiwoo_ch2_ep2_0088",
+   "장면: 서운대학교 교정 / 늦은 오후",
+   "jiwoo_ch2",
+   2
+  ],
+  [
+   "jiwoo_ch2_ep2_0145",
+   "장면: 서운대학교 캠퍼스 / 해 질 무렵",
+   "jiwoo_ch2",
+   2
+  ],
+  [
+   "jiwoo_ch2_ep3_0001",
+   "장면: 서운대학교 캠퍼스 / 오후",
+   "jiwoo_ch2",
+   3
+  ],
+  [
+   "jiwoo_ch2_ep3_0020",
+   "장면: AFOCA 동아리방 / 오후",
+   "jiwoo_ch2",
+   3
+  ],
+  [
+   "jiwoo_ch2_ep3_0049",
+   "장면: 서운대학교 캠퍼스 / 저녁",
+   "jiwoo_ch2",
+   3
+  ],
+  [
+   "jiwoo_ch2_ep3_0096",
+   "장면: 서운대학교 인근 주택가 / 저녁",
+   "jiwoo_ch2",
+   3
+  ],
+  [
+   "jiwoo_ch3_ep1_0001",
+   "장면: 서운대학교 캠퍼스 / 오후",
+   "jiwoo_ch3",
+   1
+  ],
+  [
+   "jiwoo_ch3_ep1_0027",
+   "장면: AFOCA 동아리방 / 오후",
+   "jiwoo_ch3",
+   1
+  ],
+  [
+   "jiwoo_ch3_ep1_0081",
+   "장면: AFOCA 동아리방 / 늦은 오후",
+   "jiwoo_ch3",
+   1
+  ],
+  [
+   "jiwoo_ch3_ep1_0144",
+   "장면: AFOCA 동아리방 / 저녁 무렵",
+   "jiwoo_ch3",
+   1
+  ],
+  [
+   "jiwoo_ch3_ep1_0163",
+   "장면: 서운대학교 캠퍼스 / 해 질 무렵",
+   "jiwoo_ch3",
+   1
+  ],
+  [
+   "jiwoo_ch3_ep2_0001",
+   "장면: 서운대학교 캠퍼스 / 오전",
+   "jiwoo_ch3",
+   2
+  ],
+  [
+   "jiwoo_ch3_ep2_0021",
+   "장면: 유치원 앞 / 오전",
+   "jiwoo_ch3",
+   2
+  ],
+  [
+   "jiwoo_ch3_ep2_0036",
+   "장면: 유치원 활동실 / 오전",
+   "jiwoo_ch3",
+   2
+  ],
+  [
+   "jiwoo_ch3_ep2_0086",
+   "장면: 유치원 활동실 / 정오",
+   "jiwoo_ch3",
+   2
+  ],
+  [
+   "jiwoo_ch3_ep2_0102",
+   "장면: 유치원 활동실 / 오후",
+   "jiwoo_ch3",
+   2
+  ],
+  [
+   "jiwoo_ch3_ep2_0139",
+   "장면: 유치원 앞 / 오후",
+   "jiwoo_ch3",
+   2
+  ],
+  [
+   "jiwoo_ch3_ep2_0160",
+   "장면: 서운대학교 캠퍼스 / 저녁",
+   "jiwoo_ch3",
+   2
+  ],
+  [
+   "jiwoo_ch3_ep3_0001",
+   "장면: 서운대학교 캠퍼스 / 오후",
+   "jiwoo_ch3",
+   3
+  ],
+  [
+   "jiwoo_ch3_ep3_0035",
+   "장면: 서운대학교 캠퍼스 산책로 / 오후",
+   "jiwoo_ch3",
+   3
+  ],
+  [
+   "jiwoo_ch3_ep3_0068",
+   "장면: 서운대학교 정문 앞 / 저녁",
+   "jiwoo_ch3",
+   3
+  ],
+  [
+   "jiwoo_ch4_ep1_0001",
+   "장면: 서운대학교 본관 / 오전",
+   "jiwoo_ch4",
+   1
+  ],
+  [
+   "jiwoo_ch4_ep1_0017",
+   "장면: 서운대학교 전시관 / 오전",
+   "jiwoo_ch4",
+   1
+  ],
+  [
+   "jiwoo_ch4_ep1_0041",
+   "장면: 서운대학교 전시관 / 잠시 후",
+   "jiwoo_ch4",
+   1
+  ],
+  [
+   "jiwoo_ch4_ep1_0072",
+   "장면: 서운대학교 전시관 / 오후",
+   "jiwoo_ch4",
+   1
+  ],
+  [
+   "jiwoo_ch4_ep2_0001",
+   "장면: NEXTFRAME 본사 / 오후",
+   "jiwoo_ch4",
+   2
+  ],
+  [
+   "jiwoo_ch4_ep2_0071",
+   "장면: NEXTFRAME 본사 앞 / 오후",
+   "jiwoo_ch4",
+   2
+  ],
+  [
+   "jiwoo_ch4_ep2_0085",
+   "장면: 서운대학교 인근 카페 / 저녁",
+   "jiwoo_ch4",
+   2
+  ],
+  [
+   "jiwoo_ch4_ep3_0001",
+   "장면: 서운대학교 인근 서점 / 오후",
+   "jiwoo_ch4",
+   3
+  ],
+  [
+   "jiwoo_ch4_ep3_0017",
+   "장면: 서점 옆 카페 / 오후",
+   "jiwoo_ch4",
+   3
+  ],
+  [
+   "jiwoo_ch4_ep3_0086",
+   "장면: 카페 / 잠시 후",
+   "jiwoo_ch4",
+   3
+  ],
+  [
+   "jiwoo_ch4_ep3_0119",
+   "장면: 서운대학교 캠퍼스 / 해 질 무렵",
+   "jiwoo_ch4",
+   3
+  ],
+  [
+   "jiwoo_ch4_ep3_0180",
+   "장면: 서운대학교 캠퍼스 / 해 질 무렵",
+   "jiwoo_ch4",
+   3
+  ],
+  [
+   "jiwoo_ch5_ep1_0001",
+   "장면: 현우의 작업 공간 / 오전",
+   "jiwoo_ch5",
+   1
+  ],
+  [
+   "jiwoo_ch5_ep1_0037",
+   "장면: 카페 뷰파인더 / 오후",
+   "jiwoo_ch5",
+   1
+  ],
+  [
+   "jiwoo_ch5_ep1_0096",
+   "장면: 카페 뷰파인더 / 오후",
+   "jiwoo_ch5",
+   1
+  ],
+  [
+   "jiwoo_ch5_ep1_0124",
+   "장면: 카페 뷰파인더 앞 / 오후",
+   "jiwoo_ch5",
+   1
+  ],
+  [
+   "jiwoo_ch5_ep1_0163",
+   "장면: 카페 뷰파인더 앞 거리 / 저녁",
+   "jiwoo_ch5",
+   1
+  ],
+  [
+   "jiwoo_ch5_ep1_0180",
+   "장면: 현우의 작업 공간 / 밤",
+   "jiwoo_ch5",
+   1
+  ],
+  [
+   "jiwoo_ch5_ep2_0001",
+   "장면: 현우의 작업 공간 / 오후",
+   "jiwoo_ch5",
+   2
+  ],
+  [
+   "jiwoo_ch5_ep2_0014",
+   "장면: 약속 장소 / 오후",
+   "jiwoo_ch5",
+   2
+  ],
+  [
+   "jiwoo_ch5_ep2_0041",
+   "장면: 약속 장소 근처 거리 / 오후",
+   "jiwoo_ch5",
+   2
+  ],
+  [
+   "jiwoo_ch5_ep2_0068",
+   "장면: 거리의 벤치 / 오후 늦게",
+   "jiwoo_ch5",
+   2
+  ],
+  [
+   "jiwoo_ch5_ep2_0108",
+   "장면: 거리 / 해 질 무렵",
+   "jiwoo_ch5",
+   2
+  ],
+  [
+   "jiwoo_ch5_ep2_0127",
+   "장면: 현우의 작업 공간 / 밤",
+   "jiwoo_ch5",
+   2
+  ],
+  [
+   "jiwoo_ch5_ep3_0001",
+   "장면: 이현우의 작업 공간 / 오전",
+   "jiwoo_ch5",
+   3
+  ],
+  [
+   "jiwoo_ch5_ep3_0017",
+   "장면: 카페 뷰파인더 / 오후",
+   "jiwoo_ch5",
+   3
+  ],
+  [
+   "jiwoo_ch5_ep3_0055",
+   "장면: 카페 주변 거리 / 오후",
+   "jiwoo_ch5",
+   3
+  ],
+  [
+   "jiwoo_ch5_ep3_0100",
+   "장면: 거리의 작은 쉼터 / 오후",
+   "jiwoo_ch5",
+   3
+  ],
+  [
+   "jiwoo_ch5_ep3_0144",
+   "장면: 헤어지는 길 / 저녁",
+   "jiwoo_ch5",
+   3
+  ],
+  [
+   "jiwoo_ch5_ep3_0166",
+   "장면: 이현우의 작업 공간 / 밤",
+   "jiwoo_ch5",
+   3
+  ],
+  [
+   "jiwoo_ch6_ep1_0001",
+   "장면: 현우의 집 / 오전",
+   "jiwoo_ch6",
+   1
+  ],
+  [
+   "jiwoo_ch6_ep1_0019",
+   "장면: 약속 장소 / 오후",
+   "jiwoo_ch6",
+   1
+  ],
+  [
+   "jiwoo_ch6_ep1_0039",
+   "장면: 차량 내부 / 오후",
+   "jiwoo_ch6",
+   1
+  ],
+  [
+   "jiwoo_ch6_ep1_0065",
+   "장면: 외곽 해안가 도로 / 오후",
+   "jiwoo_ch6",
+   1
+  ],
+  [
+   "jiwoo_ch6_ep1_0096",
+   "장면: 해안가 휴게 공간 / 오후 늦게",
+   "jiwoo_ch6",
+   1
+  ],
+  [
+   "jiwoo_ch6_ep1_0132",
+   "장면: 차량 내부 / 저녁",
+   "jiwoo_ch6",
+   1
+  ],
+  [
+   "jiwoo_ch6_ep1_0159",
+   "장면: 차량 내부 / 저녁",
+   "jiwoo_ch6",
+   1
+  ],
+  [
+   "jiwoo_ch6_ep2_0001",
+   "장면: 지우의 집 / 오후",
+   "jiwoo_ch6",
+   2
+  ],
+  [
+   "jiwoo_ch6_ep2_0021",
+   "장면 전환: 과거 / 서운대학교 캠퍼스",
+   "jiwoo_ch6",
+   2
+  ],
+  [
+   "jiwoo_ch6_ep2_0034",
+   "장면 전환: 과거 / 서운대학교 캠퍼스",
+   "jiwoo_ch6",
+   2
+  ],
+  [
+   "jiwoo_ch6_ep2_0044",
+   "장면 전환: 과거 / 대학가의 식당",
+   "jiwoo_ch6",
+   2
+  ],
+  [
+   "jiwoo_ch6_ep2_0056",
+   "장면 전환: 과거 / 서운대학교 캠퍼스",
+   "jiwoo_ch6",
+   2
+  ],
+  [
+   "jiwoo_ch6_ep2_0068",
+   "장면 전환: 과거 / 서운대학교 캠퍼스",
+   "jiwoo_ch6",
+   2
+  ],
+  [
+   "jiwoo_ch6_ep2_0087",
+   "장면 전환: 현재 / 지우의 집",
+   "jiwoo_ch6",
+   2
+  ],
+  [
+   "jiwoo_ch6_ep2_0115",
+   "장면: 지우의 집 / 오후",
+   "jiwoo_ch6",
+   2
+  ],
+  [
+   "jiwoo_ch6_ep2_0158",
+   "장면 전환: 지우의 집 / 늦은 오후",
+   "jiwoo_ch6",
+   2
+  ],
+  [
+   "jiwoo_ch6_ep2_0188",
+   "장면 전환: 지우의 집 / 늦은 오후",
+   "jiwoo_ch6",
+   2
+  ],
+  [
+   "jiwoo_ch6_ep2_0300",
+   "장면 전환: 지우의 집 / 늦은 오후",
+   "jiwoo_ch6",
+   2
+  ],
+  [
+   "jiwoo_ch6_ep3_0001",
+   "장면: 이현우의 작업 공간 / 오전",
+   "jiwoo_ch6",
+   3
+  ],
+  [
+   "jiwoo_ch6_ep3_0028",
+   "장면: 카페 뷰파인더 / 오후",
+   "jiwoo_ch6",
+   3
+  ],
+  [
+   "jiwoo_ch6_ep3_0081",
+   "장면: 카페 뷰파인더 / 오후",
+   "jiwoo_ch6",
+   3
+  ],
+  [
+   "jiwoo_ch6_ep3_0093",
+   "장면: 카페 뷰파인더 인근 거리 / 오후",
+   "jiwoo_ch6",
+   3
+  ],
+  [
+   "jiwoo_ch6_ep3_0164",
+   "장면: 거리 인근 쉼터 / 해 질 무렵",
+   "jiwoo_ch6",
+   3
+  ],
+  [
+   "jiwoo_ch6_ep3_0217",
+   "장면: 각자의 귀갓길 / 저녁",
+   "jiwoo_ch6",
+   3
+  ],
+  [
+   "jiwoo_ch6_ep3_0230",
+   "장면: 이현우의 작업 공간 / 밤",
+   "jiwoo_ch6",
+   3
+  ],
+  [
+   "jiwoo_ch7_ep1_0001",
+   "장면: 이현우의 작업 공간 / 오전",
+   "jiwoo_ch7",
+   1
+  ],
+  [
+   "jiwoo_ch7_ep1_0018",
+   "장면: 이현우의 작업 공간 / 잠시 후",
+   "jiwoo_ch7",
+   1
+  ],
+  [
+   "jiwoo_ch7_ep1_0035",
+   "장면: 카페 / 오후",
+   "jiwoo_ch7",
+   1
+  ],
+  [
+   "jiwoo_ch7_ep1_0073",
+   "장면: 카페 / 오후",
+   "jiwoo_ch7",
+   1
+  ],
+  [
+   "jiwoo_ch7_ep1_0092",
+   "장면: 귀가 후 / 저녁",
+   "jiwoo_ch7",
+   1
+  ],
+  [
+   "jiwoo_ch7_ep2_0001",
+   "장면: 이현우의 작업 공간 / 오전",
+   "jiwoo_ch7",
+   2
+  ],
+  [
+   "jiwoo_ch7_ep2_0021",
+   "장면: NEXTFRAME 본사 / 오후",
+   "jiwoo_ch7",
+   2
+  ],
+  [
+   "jiwoo_ch7_ep2_0062",
+   "장면: 서운대학교 정문 / 오후",
+   "jiwoo_ch7",
+   2
+  ],
+  [
+   "jiwoo_ch7_ep2_0102",
+   "장면: 서운대학교 캠퍼스 / 오후",
+   "jiwoo_ch7",
+   2
+  ],
+  [
+   "jiwoo_ch7_ep2_0158",
+   "장면: 서운대학교 캠퍼스 / 늦은 오후",
+   "jiwoo_ch7",
+   2
+  ],
+  [
+   "jiwoo_ch7_ep2_0199",
+   "장면: 이현우의 작업 공간 / 밤",
+   "jiwoo_ch7",
+   2
+  ],
+  [
+   "jiwoo_ch7_ep3_0001",
+   "장면: 이현우의 작업 공간 / 오전",
+   "jiwoo_ch7",
+   3
+  ],
+  [
+   "jiwoo_ch7_ep3_0051",
+   "장면: NEXTFRAME 사무실 / 오후",
+   "jiwoo_ch7",
+   3
+  ],
+  [
+   "jiwoo_ch7_ep3_0119",
+   "장면: 카페 뷰파인더 / 늦은 오후",
+   "jiwoo_ch7",
+   3
+  ],
+  [
+   "jiwoo_ch7_ep3_0202",
+   "장면: 이현우의 작업 공간 / 저녁",
+   "jiwoo_ch7",
+   3
+  ],
+  [
+   "jiwoo_ch7_ep3_0257",
+   "장면: 이현우의 작업 공간 / 다음 날 오후",
+   "jiwoo_ch7",
+   3
+  ],
+  [
+   "jiwoo_ch7_ep4_0001",
+   "장면 1: 이현우의 작업 공간 / 밤",
+   "jiwoo_ch7",
+   4
+  ],
+  [
+   "jiwoo_ch7_ep4_0039",
+   "장면: 선택의 순간",
+   "jiwoo_ch7",
+   4
+  ],
+  [
+   "jiwoo_end_ep1_0001",
+   "장면: 지우의 집 / 저녁",
+   "jiwoo_end",
+   1
+  ],
+  [
+   "jiwoo_end_ep2_0001",
+   "장면: 카페 뷰파인더 / 다음 날 오후",
+   "jiwoo_end",
+   2
+  ],
+  [
+   "jiwoo_end_ep3_0001",
+   "장면: 해바라기밭 / 늦은 오후",
+   "jiwoo_end",
+   3
+  ],
+  [
+   "jiwoo_h_ep1_0001",
+   "장면: 현우의 작업실 / 저녁",
+   "jiwoo_h",
+   1
+  ],
+  [
+   "jiwoo_h_ep1_0026",
+   "장면 전환: 해바라기밭 / 저녁",
+   "jiwoo_h",
+   1
+  ],
+  [
+   "jiwoo_h_ep1_0048",
+   "장면: 해바라기밭 / 저녁",
+   "jiwoo_h",
+   1
+  ],
+  [
+   "jiwoo_h_ep1_0088",
+   "장면: 해바라기밭 / 해 질 무렵",
+   "jiwoo_h",
+   1
+  ],
+  [
+   "jiwoo_h_ep1_0128",
+   "장면: 해바라기밭 / 해 질 무렵",
+   "jiwoo_h",
+   1
+  ],
+  [
+   "jiwoo_h_ep2_0001",
+   "장면: 현우의 작업실 / 오후",
+   "jiwoo_h",
+   2
+  ],
+  [
+   "jiwoo_h_ep2_0029",
+   "장면: 지우가 근무하는 유치원 근처 / 저녁",
+   "jiwoo_h",
+   2
+  ],
+  [
+   "jiwoo_s_ep1_0001",
+   "장면: 현우의 작업실 / 저녁",
+   "jiwoo_s",
+   1
+  ],
+  [
+   "jiwoo_s_ep1_0023",
+   "장면: 해바라기밭 / 저녁",
+   "jiwoo_s",
+   1
+  ],
+  [
+   "jiwoo_s_ep1_0042",
+   "장면: 해바라기밭 / 조금 뒤",
+   "jiwoo_s",
+   1
+  ],
+  [
+   "jiwoo_s_ep1_0061",
+   "장면: 해바라기밭 입구 / 저녁",
+   "jiwoo_s",
+   1
+  ],
+  [
+   "jiwoo_s_ep2_0001",
+   "장면: 현우의 작업실 / 낮",
+   "jiwoo_s",
+   2
+  ],
+  [
+   "jiwoo_s_ep2_0018",
+   "장면: 현우의 작업실 / 밤",
+   "jiwoo_s",
+   2
+  ],
+  [
+   "jiwoo_s_ep2_0037",
+   "장면: 현우의 작업실 / 늦은 밤",
+   "jiwoo_s",
+   2
+  ],
+  [
+   "jiwoo_b_ep1_0001",
+   "장면: 이현우의 작업실 / 저녁",
+   "jiwoo_b",
+   1
+  ],
+  [
+   "jiwoo_b_ep1_0028",
+   "장면: 해바라기밭 / 저녁",
+   "jiwoo_b",
+   1
+  ],
+  [
+   "jiwoo_b_ep1_0047",
+   "장면: 해바라기밭 입구 / 밤",
+   "jiwoo_b",
+   1
+  ],
+  [
+   "jiwoo_b_ep2_0001",
+   "장면: 이현우의 작업실 / 오후",
+   "jiwoo_b",
+   2
+  ],
+  [
+   "jiwoo_b_ep2_0015",
+   "장면: 카페 뷰파인더 / 오후",
+   "jiwoo_b",
+   2
+  ],
+  [
+   "jiwoo_b_ep2_0062",
+   "장면: 결혼식장 / 낮",
+   "jiwoo_b",
+   2
+  ],
+  [
+   "jiwoo_b_ep2_0082",
+   "장면: 이현우의 작업실 / 밤",
+   "jiwoo_b",
+   2
+  ],
+  [
+   "jiwoo_t_ep1_0001",
+   "장면: 이현우의 작업실 / 저녁",
+   "jiwoo_t",
+   1
+  ],
+  [
+   "jiwoo_t_ep1_0022",
+   "장면: 해바라기밭 / 저녁",
+   "jiwoo_t",
+   1
+  ],
+  [
+   "jiwoo_t_ep1_0081",
+   "장면: 해바라기밭 입구 / 해 질 무렵",
+   "jiwoo_t",
+   1
+  ],
+  [
+   "jiwoo_t_ep2_0001",
+   "장면: 이현우의 작업실 / 오전",
+   "jiwoo_t",
+   2
+  ],
+  [
+   "jiwoo_t_ep2_0039",
+   "장면: 이현우의 작업실 / 오후",
+   "jiwoo_t",
+   2
+  ],
+  [
+   "jiwoo_t_ep2_0065",
+   "장면: 이현우의 작업실 / 몇 달 뒤 / 오전",
+   "jiwoo_t",
+   2
+  ],
+  [
+   "jiwoo_t_ep2_0076",
+   "장면: 사진 전시회장 / 오후",
+   "jiwoo_t",
+   2
+  ],
+  [
+   "jiwoo_h_epi_ep1_0001",
+   "장면: 정원형 웨딩홀 / 신부 대기실 / 오전",
+   "jiwoo_h_epi",
+   1
+  ],
+  [
+   "jiwoo_h_epi_ep1_0020",
+   "장면: 정원형 웨딩홀 / 실내 예식장 / 오전",
+   "jiwoo_h_epi",
+   1
+  ],
+  [
+   "jiwoo_h_epi_ep1_0030",
+   "장면: 정원형 웨딩홀 / 실내 예식장 / 낮",
+   "jiwoo_h_epi",
+   1
+  ],
+  [
+   "jiwoo_h_epi_ep2_0001",
+   "장면: 정원형 웨딩홀 / 야외 정원 / 오후",
+   "jiwoo_h_epi",
+   2
+  ],
+  [
+   "jiwoo_h_epi_ep2_0030",
+   "장면: 정원형 웨딩홀 / 야외 정원 / 오후",
+   "jiwoo_h_epi",
+   2
+  ],
+  [
+   "jiwoo_h_epi_ep2_0058",
+   "장면: 정원형 웨딩홀 / 야외 정원 / 해 질 무렵",
+   "jiwoo_h_epi",
+   2
+  ],
+  [
+   "jiwoo_s_epi_ep1_0001",
+   "장면: 이현우의 작업실 / 오후",
+   "jiwoo_s_epi",
+   1
+  ],
+  [
+   "jiwoo_s_epi_ep1_0049",
+   "장면: 이현우의 작업실 / 밤",
+   "jiwoo_s_epi",
+   1
+  ],
+  [
+   "jiwoo_s_epi_ep2_0001",
+   "장면: 해바라기밭 / 오후",
+   "jiwoo_s_epi",
+   2
+  ],
+  [
+   "jiwoo_s_epi_ep2_0034",
+   "장면: 해바라기밭 / 오후",
+   "jiwoo_s_epi",
+   2
+  ],
+  [
+   "jiwoo_b_epi_ep1_0001",
+   "장면: 이현우의 작업실 / 오후",
+   "jiwoo_b_epi",
+   1
+  ],
+  [
+   "jiwoo_b_epi_ep2_0001",
+   "장면: 해바라기밭 / 오후",
+   "jiwoo_b_epi",
+   2
+  ],
+  [
+   "jiwoo_t_epi_ep1_0001",
+   "장면: 이현우의 작업실 / 오전",
+   "jiwoo_t_epi",
+   1
+  ],
+  [
+   "jiwoo_t_epi_ep1_0029",
+   "장면: 이현우의 작업실 / 잠시 후",
+   "jiwoo_t_epi",
+   1
+  ],
+  [
+   "jiwoo_t_epi_ep1_0072",
+   "장면 전환: 작업실 창가 / 오전",
+   "jiwoo_t_epi",
+   1
+  ],
+  [
+   "jiwoo_t_epi_ep2_0001",
+   "장면: 정원형 웨딩홀 / 신랑 대기실 / 오전",
+   "jiwoo_t_epi",
+   2
+  ],
+  [
+   "jiwoo_t_epi_ep2_0014",
+   "장면: 정원형 웨딩홀 / 유리 온실 예식장 / 오전",
+   "jiwoo_t_epi",
+   2
+  ],
+  [
+   "jiwoo_t_epi_ep2_0042",
+   "장면 전환: 정원형 웨딩홀 / 야외 정원 / 오후",
+   "jiwoo_t_epi",
+   2
+  ],
+  [
+   "jiwoo_t_epi_ep2_0081",
+   "장면: 정원형 웨딩홀 / 야외 정원 / 늦은 오후",
+   "jiwoo_t_epi",
+   2
+  ],
+  [
+   "jiwoo_dlc_ep1_0001",
+   "장면: 두 사람의 집 / 침실 / 오전",
+   "jiwoo_dlc",
+   1
+  ],
+  [
+   "jiwoo_dlc_ep1_0029",
+   "장면 전환: 두 사람의 집 / 주방 / 오전",
+   "jiwoo_dlc",
+   1
+  ],
+  [
+   "jiwoo_dlc_ep1_0051",
+   "장면 전환: 두 사람의 집 / 거실 / 오후",
+   "jiwoo_dlc",
+   1
+  ],
+  [
+   "jiwoo_dlc_ep2_0001",
+   "장면: 두 사람의 집 / 오전",
+   "jiwoo_dlc",
+   2
+  ],
+  [
+   "jiwoo_dlc_ep2_0014",
+   "장면 전환: 동네 거리 / 오전",
+   "jiwoo_dlc",
+   2
+  ],
+  [
+   "jiwoo_dlc_ep2_0060",
+   "장면 전환: 동네 공원 / 오후",
+   "jiwoo_dlc",
+   2
+  ],
+  [
+   "jiwoo_dlc_ep2_0090",
+   "장면 전환: 두 사람의 집 / 저녁",
+   "jiwoo_dlc",
+   2
+  ],
+  [
+   "jiwoo_dlc_ep3_0001",
+   "장면: 두 사람의 집 / 거실 / 오전",
+   "jiwoo_dlc",
+   3
+  ],
+  [
+   "jiwoo_dlc_ep3_0012",
+   "장면 전환: 해바라기밭 / 오후",
+   "jiwoo_dlc",
+   3
+  ],
+  [
+   "jiwoo_dlc_ep3_0060",
+   "장면 전환: 해바라기밭 / 늦은 오후",
+   "jiwoo_dlc",
+   3
+  ],
+  [
+   "jiwoo_dlc_ep3_0098",
+   "장면 전환: 두 사람의 집 / 밤",
+   "jiwoo_dlc",
+   3
+  ],
+  [
+   "jiwoo_dlc_ep3_0122",
+   "장면: 두 사람의 집 / 거실 / 밤",
+   "jiwoo_dlc",
+   3
+  ]
+ ],
+ "choices": [
+  [
+   "jiwoo_ch7_ep4_choice1",
+   "내 이야기는 내가 결정한다. | 신태석의 압박에 굴하지 않고, 자신의 창작 방향과 권리를 지키기 위해 정면으로 맞선다."
+  ],
+  [
+   "jiwoo_ch7_ep4_choice2",
+   "이제는 모든 것을 내려놓고 싶다. | 더 이상의 갈등을 피하기 위해 프로젝트와 업계에서 한발 물러난다."
+  ],
+  [
+   "jiwoo_ch7_ep4_choice3",
+   "그들의 제안을 받아들인다. | 신태석의 프로젝트에 참여하고, 강이현의 조언에 계속 의지한다."
+  ],
+  [
+   "jiwoo_ch7_ep4_choice4",
+   "두 사람의 계획을 끝까지 파헤친다. | 유출의 진실과 두 사람의 관계를 밝혀내고, 자신을 둘러싼 상황을 근본적으로 바꾸려 한다."
+  ]
+ ]
+}
