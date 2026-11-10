@@ -82,16 +82,11 @@ button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-vis
 #card.happy .rule{background:var(--happy)}#card.sad .rule{background:var(--sad)}#card.bad .rule{background:var(--bad)}#card.true .rule{background:var(--true)}
 #card button.go{margin-top:28px;padding:10px 22px;border:1px solid var(--silver);font-size:14px}
 
-#menu,#ftPick{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:10px;padding:24px;background:rgba(10,12,18,.66);backdrop-filter:blur(3px)}
-#menu .q,#ftPick .q{font-family:var(--serif);font-size:clamp(18px,3.4vw,24px);margin-bottom:6px;text-align:center}
+#menu{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:10px;padding:24px;background:rgba(10,12,18,.66);backdrop-filter:blur(3px)}
+#menu .q{font-family:var(--serif);font-size:clamp(18px,3.4vw,24px);margin-bottom:6px;text-align:center}
 #menu .h{font-size:11px;color:#7d879b;margin-bottom:10px;text-align:center;max-width:44ch;line-height:1.6}
-#menu button,#ftPick button{width:min(88vw,420px);padding:13px 18px;text-align:left;background:rgba(27,31,44,.92);border:1px solid rgba(223,227,234,.22);font-size:15px;display:flex;align-items:center;gap:10px}
-#menu button:hover,#ftPick button:hover{border-color:var(--silver)}
-#ftPick{z-index:5;overflow-y:auto}
-#menu button small,#ftPick button small{display:block;font-size:11px;color:#9aa4b8;margin-top:2px}
-#menu button[disabled],#ftPick button[disabled]{opacity:.5;cursor:not-allowed}
-#menu button .lk{flex:none}
-#ftPick button.x{background:none;text-align:center;color:var(--fog)}
+#menu button{width:min(88vw,420px);padding:13px 18px;text-align:left;background:rgba(27,31,44,.92);border:1px solid rgba(223,227,234,.22);font-size:15px;display:flex;align-items:center;gap:10px}
+#menu button:hover{border-color:var(--silver)}
 #menu button b{width:8px;height:8px;border-radius:50%;background:var(--fog);flex:none}
 #menu button b.happy{background:var(--happy)}#menu button b.sad{background:var(--sad)}#menu button b.bad{background:var(--bad)}#menu button b.true{background:var(--true)}
 
@@ -146,46 +141,12 @@ button.dev{border:1px dashed #c98a4a!important;color:#e0b27a!important}
 .jl button small{color:var(--fog);margin-left:6px}
 #bar button.on{background:var(--silver);color:var(--night)}
 #bar #bAuto.on{background:var(--happy);border-color:var(--happy)}
-#ft{position:absolute;inset:0;z-index:3;display:flex;justify-content:center;background:rgba(10,12,18,.9);backdrop-filter:blur(4px);overflow-y:auto;padding:clamp(56px,9vh,72px) 14px 24px}
-#ft .in{width:min(100%,780px);display:flex;flex-direction:column;gap:12px;margin:auto 0}
-#ft h3{font-family:var(--serif);font-size:clamp(19px,3.4vw,24px);font-weight:500}
-#ft .sub{font-size:12px;color:var(--fog);margin-top:2px}
-#ft .hd{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;flex-wrap:wrap}
-#ft .ap{font-size:13px;padding:5px 14px;border:1px solid rgba(223,227,234,.3);border-radius:20px}
-#ft .ap b{font-size:20px;color:var(--happy);margin:0 2px}
-#ft .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-#ft .box{background:rgba(27,31,44,.85);border:1px solid rgba(223,227,234,.16);padding:12px 14px}
-#ft .box h4{font-size:12px;letter-spacing:.08em;color:var(--fog);margin-bottom:8px;font-weight:500}
-#ft .hint{font-size:11.5px;color:var(--fog);line-height:1.6;margin-top:6px}
-.sr{display:grid;grid-template-columns:58px 1fr 30px;align-items:center;gap:8px;font-size:12.5px;margin:5px 0}
-.sr.aff{grid-template-columns:100px 1fr 30px}
-.sr i{display:block;height:6px;background:rgba(223,227,234,.12);border-radius:3px;overflow:hidden}
-.sr i u{display:block;height:100%;background:var(--silver);transition:width .35s}
-.sr.warm i u{background:var(--bad)}.sr.aff i u{background:var(--happy)}
-.sr em{font-style:normal;text-align:right;color:var(--fog)}
-.sr small{font-size:10px;color:var(--fog);margin-left:4px}
-.hn{font-size:11px;color:var(--fog);margin:-1px 0 7px}.hn.ok{color:#9fd3a9}.hn.bad{color:#e0868c}
-.ftb{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:8px}
-.ftb button{padding:12px 8px;background:rgba(43,61,107,.45);border:1px solid rgba(223,227,234,.25);font-size:14px;text-align:center;line-height:1.35}
-.ftb button small{display:block;font-size:10.5px;color:var(--fog);margin-top:2px}
-.ftb button:disabled{opacity:.35;cursor:not-allowed}
-.ftb button:not(:disabled):hover{border-color:var(--silver)}
-#ftLog{font-size:12.5px;line-height:1.7;color:#c4cad8;min-height:48px}
-#ftLog .ln{padding:5px 0;border-top:1px solid rgba(223,227,234,.08)}#ftLog .ln:first-child{border-top:0}
-#ftLog b{font-weight:500;color:var(--silver)}
-#ftLog .chip{display:inline-block;padding:1px 8px;margin:2px 4px 2px 0;border-radius:10px;background:rgba(223,227,234,.1);font-size:11.5px}
-#ftLog .chip.up{color:#9fd3a9}#ftLog .chip.dn{color:#e0868c}
-#ft .ftdone{padding:13px;background:rgba(223,227,234,.92);color:var(--night);font-size:14px}
-#ft .ftdone.dim{background:none;color:var(--fog);border:1px solid rgba(223,227,234,.25)}
-#game:has(#ft:not([hidden])) #bar{background:rgba(10,12,18,.95);padding:5px;border:1px solid rgba(223,227,234,.16)}
 #devbadge{position:fixed;left:8px;bottom:calc(8px + env(safe-area-inset-bottom));z-index:30;padding:4px 10px;font-size:11px;background:rgba(201,138,74,.92);color:#1b1208;border-radius:2px}
 .set .val{min-width:44px;text-align:right;color:var(--fog);font-size:13px}
 .set .ctl{display:flex;align-items:center;gap:10px}
 .hint{font-size:12px;color:var(--fog);line-height:1.7;margin-top:10px}
 @media (max-width:640px){
   .tmenu{grid-template-columns:1fr}
-  #ft .grid{grid-template-columns:1fr}
-  #ft{padding-top:96px}
   #bar{max-width:calc(100vw - 2*clamp(14px,3vh,28px) - 12px);gap:3px}
   #bar button{padding:7px 9px;font-size:11px}
   #hud{font-size:11px;max-width:40vw}
@@ -230,13 +191,11 @@ button.dev{border:1px dashed #c98a4a!important;color:#e0b27a!important}
   <div id="hud"></div>
   <div id="vd" hidden><small>적정 거리</small><span id="vdv"></span></div>
   <div id="bar">
-    <button id="bCSkip" hidden>공통 루트 건너뛰기</button><button id="bGSave">저장</button><button id="bAuto">오토</button><button id="bSkip">스킵</button><button id="bStat" hidden>스탯</button><button id="bLog">로그</button><button id="bGSet">설정</button><button id="bJumpG" class="dev">챕터 이동(테스트용)</button><button id="bExit">타이틀</button>
+    <button id="bCSkip" hidden>공통 루트 건너뛰기</button><button id="bGSave">저장</button><button id="bAuto">오토</button><button id="bSkip">스킵</button><button id="bLog">로그</button><button id="bGSet">설정</button><button id="bJumpG" class="dev">챕터 이동(테스트용)</button><button id="bExit">타이틀</button>
   </div>
   <div id="dialog" hidden><div id="spk" hidden></div><p id="txt"></p><span id="nx">▾</span></div>
   <div id="card" hidden></div>
   <div id="menu" hidden></div>
-  <div id="ft" hidden><div class="in" id="ftIn"></div></div>
-  <div id="ftPick" hidden></div>
   <div id="log" hidden><div class="in"></div></div>
 </section>
 
@@ -282,7 +241,7 @@ button.dev{border:1px dashed #c98a4a!important;color:#e0b27a!important}
     <h4>노드로 이동</h4>
     <input type="text" id="dJump" list="dl" placeholder="노드 ID 또는 제목 (예: ARIN_T)"><datalist id="dl"></datalist>
     <div class="btns"><button class="btn" id="dGo">이동</button></div>
-    <h4>변수 (JSON)</h4>
+    <h4>테스트 변수·스탯 (JSON)</h4><p style="font-size:11px;color:var(--fog);line-height:1.7">체력 health · 지식 knowledge · 매력 charm (각 초기 10, 최대 100), 스트레스 stress (초기 20, 85 이상 즉시 공통 배드엔딩). 핵심 수집 미획득 core_missed + 챕터 종료 chapter_end, AP ap + 자유시간 종료 free_time_end + 루트 조건 route_ready도 판정에 사용합니다. 수정 후 적용하면 저장되며 새 게임·챕터 이동에도 유지됩니다.</p>
     <textarea id="dVars" rows="4"></textarea>
     <div class="btns"><button class="btn" id="dVarSave">적용</button></div>
   </div>
@@ -297,16 +256,12 @@ button.dev{border:1px dashed #c98a4a!important;color:#e0b27a!important}
    내장 데이터 (외부 CSV가 없을 경우 fallback으로 사용)
    ============================================================ */
 const EMBED = {
- "nodes": "node_id,type,group,route,ending,title,subtitle,age,script_id,note,skip_to,skip_when\nSTART,start,COMMON,,,시작 · 현우 20세,,20,,,,\nPROLOGUE_EP1,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",벚꽃이 흩날리는 입학 첫날,,PROLOGUE_EP1,,FIRST_ROUTE,sub_unlocked\nPROLOGUE_EP2,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",구형 DSLR과 캔커피의 온기,,PROLOGUE_EP2,,,\nPROLOGUE_EP3,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",뷰파인더에 걸린 소꿉친구,,PROLOGUE_EP3,,,\nPROLOGUE_EP4,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",\"아포카, 낯선 만남의 시작\",,PROLOGUE_EP4,,,\nPROLOGUE_EP5,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",차가운 눈빛 너머의 재회,,PROLOGUE_EP5,,,\nPROLOGUE_EP6,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",\"여섯 개의 시선, 멈춰 있던 시간이 흐르다\",,PROLOGUE_EP6,,,\nFIRST_ROUTE,choice,COMMON,,,플레이 진행 경로,,,,첫 플레이는 조건으로 메인 공통 루트 고정,,\nREPLAY_CHOICE,choice,COMMON,,,회차 진행 경로,,,,,,\nCH1_EP1,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,손끝에 남은 여름의 잔상,,CH1_EP1,,FT_QUICK,sub_unlocked\nCH1_EP2,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,흰색 아대에 감춰진 비밀,,CH1_EP2,,,\nCH1_EP3,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,강지우의 낯선 경계심,,CH1_EP3,,,\nCH1_EP4,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,다시 만난 두 개의 시선,,CH1_EP4,,,\nCH1_EP5,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,조용한 동아리실의 균열,,CH1_EP5,,,\nCH1_EP6,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,아포카에 들어가기로 한 날,,CH1_EP6,,,\nCH2_EP1,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,동아리 가입과 뜻밖의 인연,,CH2_EP1,,,\nCH2_EP2,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,나란히 묶인 두 사람의 이름,,CH2_EP2,,,\nCH2_EP3,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,\"벚꽃 아래, 임시 모델\",,CH2_EP3,,,\nCH2_EP4,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,렌즈에 비친 감춰진 상처,,CH2_EP4,,,\nCH2_EP5,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,도망쳤던 여름의 진실,,CH2_EP5,,,\nCH2_EP6,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,이번에는 네 모습을 담을게,,CH2_EP6,,,\nCH3_EP1,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,셔터가 멈춘 뒤의 여운,,CH3_EP1,,,\nCH3_EP2,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,2.0m 밖에 선 윤아린,,CH3_EP2,,,\nCH3_EP3,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,진짜 표정이 드러나는 순간,,CH3_EP3,,,\nCH3_EP4,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,\"뷰파인더, 거리감을 가르치다\",,CH3_EP4,,,\nCH3_EP5,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,오랜 친구의 기다림,,CH3_EP5,,,\nCH3_EP6,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,마시 마주한 우리의 거리,,CH3_EP6,,,\nCH4_EP1,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,스포트라이트를 향한 직진,,CH4_EP1,,,\nCH4_EP2,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,전담 촬영 기사로 낙점받다,,CH4_EP2,,,\nCH4_EP3,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,3.0m 너머의 안식처,,CH4_EP3,,,\nCH4_EP4,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,0.2m의 초근접 침입자,,CH4_EP4,,,\nCH4_EP5,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,투닥거림이 채우는 카페의 온기,,CH4_EP5,,,\nCH4_EP6,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,\"아포카, 봄의 첫 정기 출사\",,CH4_EP6,,,\nCH5_EP1,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",벚꽃 출사지에 모인 여섯 사람,,CH5_EP1,,,\nCH5_EP2,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",\"0.5m, 멈추지 않는 강지우\",,CH5_EP2,,,\nCH5_EP3,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",스케줄을 독점하려는 최유나,,CH5_EP3,,,\nCH5_EP4,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",2.5m의 그늘에서 다가오는 윤아린,,CH5_EP4,,,\nCH5_EP5,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",서로 다른 6개의 시선,,CH5_EP5,,,\nCH5_EP6,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",메인 피사체 선택의 순간,,CH5_EP6,,,\nRELATION_CHECK,check,COMMON,,,공통 루트 관계 관리 판정,,,,공통 배드엔딩 조건: 스트레스≥80(번아웃) / 루트 선택 가능한 히로인 0명 / 회피(avoid)≥3. 수치는 flow_edges.csv 의 condition 에서 조절,,\nCOMMON_BAD,ending,COMMON_BAD,,bad,초점이 깨진 렌즈 (Out of Focus),공통 배드 엔딩,,COMMON_BAD,,,\nCB21,scene,COMMON_BAD,,bad,현우 21세,갈등 상황에서 회피 반복,21,CB21,,,\nCB_REL,scene,COMMON_BAD,,bad,관계 붕괴와 자기혐오,,,CB_REL,,,\nCB_BREAK,scene,COMMON_BAD,,bad,암실에서 카메라 파손,동아리 탈퇴 및 학교 이탈,,CB_BREAK,,,\nCB26,scene,COMMON_BAD,,bad,현우 26세,사진가의 꿈을 접고 고립된 삶,26,CB26,,,\nCB_END,end,COMMON_BAD,,bad,공통 배드 엔딩 종료,,,,,,\nMAIN_PICK,choice,COMMON,,,메인 피사체 선택,,,,,,\nJIWOO,check,ROUTE,JIWOO,,강지우 루트,,,,,,\nJIWOO_H,ending,ENDING,JIWOO,happy,해피 엔딩,우리의 사진은 계속 된다,,JIWOO_H,,,\nJIWOO_S,ending,ENDING,JIWOO,sad,새드 엔딩,우정이라는 이름의 거짓말,,JIWOO_S,,,\nJIWOO_B,ending,ENDING,JIWOO,bad,배드 엔딩,가장 오래된 친구라는 타이틀,,JIWOO_B,,,\nJIWOO_T,ending,ENDING,JIWOO,true,히든·진 엔딩,앵글 속에 담긴 진짜 너,,JIWOO_T,,,\nARIN,route,ROUTE,ARIN,,윤아린 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nARIN_H,ending,ENDING,ARIN,happy,해피 엔딩,,,,TODO 제목·대본,,\nARIN_S,ending,ENDING,ARIN,sad,새드 엔딩,,,,TODO 제목·대본,,\nARIN_B,ending,ENDING,ARIN,bad,배드 엔딩,,,,TODO 제목·대본,,\nARIN_T,ending,ENDING,ARIN,true,히든·진 엔딩,,,,TODO 제목·대본,,\nYUNA,route,ROUTE,YUNA,,최유나 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nYUNA_H,ending,ENDING,YUNA,happy,해피 엔딩,,,,TODO 제목·대본,,\nYUNA_S,ending,ENDING,YUNA,sad,새드 엔딩,,,,TODO 제목·대본,,\nYUNA_B,ending,ENDING,YUNA,bad,배드 엔딩,,,,TODO 제목·대본,,\nYUNA_T,ending,ENDING,YUNA,true,히든·진 엔딩,,,,TODO 제목·대본,,\nSERA,route,ROUTE,SERA,,이세라 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nSERA_H,ending,ENDING,SERA,happy,해피 엔딩,,,,TODO 제목·대본,,\nSERA_S,ending,ENDING,SERA,sad,새드 엔딩,,,,TODO 제목·대본,,\nSERA_B,ending,ENDING,SERA,bad,배드 엔딩,,,,TODO 제목·대본,,\nSERA_T,ending,ENDING,SERA,true,히든·진 엔딩,,,,TODO 제목·대본,,\nSEOYUN,route,ROUTE,SEOYUN,,한서윤 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nSEOYUN_H,ending,ENDING,SEOYUN,happy,해피 엔딩,,,,TODO 제목·대본,,\nSEOYUN_S,ending,ENDING,SEOYUN,sad,새드 엔딩,,,,TODO 제목·대본,,\nSEOYUN_B,ending,ENDING,SEOYUN,bad,배드 엔딩,,,,TODO 제목·대본,,\nSEOYUN_T,ending,ENDING,SEOYUN,true,히든·진 엔딩,,,,TODO 제목·대본,,\nHARIN,route,ROUTE,HARIN,,서하린 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nHARIN_H,ending,ENDING,HARIN,happy,해피 엔딩,,,,TODO 제목·대본,,\nHARIN_S,ending,ENDING,HARIN,sad,새드 엔딩,,,,TODO 제목·대본,,\nHARIN_B,ending,ENDING,HARIN,bad,배드 엔딩,,,,TODO 제목·대본,,\nHARIN_T,ending,ENDING,HARIN,true,히든·진 엔딩,,,,TODO 제목·대본,,\nCOMMON_EPILOGUE,scene,COMMON,,,공통 에필로그,현우 29세 · 모든 루트 공통 축,29,COMMON_EPILOGUE,,,\nCLEAR_CHECK,check,COMMON,,,최초 메인 루트 클리어 기록?,,,,,,\nSUB_UNLOCK,unlock,COMMON,,,서브 히로인 루트 해금,,,,,,\nREPLAY,unlock,COMMON,,,2회차 플레이 가능,,,,,,\nMAIN_DLC_EP,scene,COMMON,,,메인 히로인별 후일담,현우 30세 이후,30,MAIN_DLC_EP,,,\nSUBPROLOGUE_EP1,scene,COMMON,,,\"서브 프롤로그 · 두 개의 인연, 다시 열린 문\",\"뷰파인더, 그곳에 남은 인연\",,SUBPROLOGUE_EP1,,SUB_PICK,SI_cleared || CH_cleared\nSUBPROLOGUE_EP2,scene,COMMON,,,\"서브 프롤로그 · 두 개의 인연, 다시 열린 문\",\"익숙한 목소리, 변하지 않은 거리\",,SUBPROLOGUE_EP2,,,\nSUBPROLOGUE_EP3,scene,COMMON,,,\"서브 프롤로그 · 두 개의 인연, 다시 열린 문\",두 개의 인연이 향하는 곳,,SUBPROLOGUE_EP3,,,\nCH6_EP1,scene,COMMON,,,\"챕터 6 · 비무장지대, 뷰파인더\",\"비무장지대, 뷰파인더\",,CH6_EP1,,,\nCH6_EP2,scene,COMMON,,,\"챕터 6 · 비무장지대, 뷰파인더\",프레임 밖에서 찾아온 장난꾸러기,,CH6_EP2,,,\nCH6_EP3,scene,COMMON,,,\"챕터 6 · 비무장지대, 뷰파인더\",\"안식처의 맹세, 3.0m 너머의 손길\",,CH6_EP3,,,\nCH7_EP1,scene,COMMON,,,챕터 7 · 0.2m의 기습과 장난스러운 온도,프레임을 깨뜨리는 소악마,,CH7_EP1,,,\nCH7_EP2,scene,COMMON,,,챕터 7 · 0.2m의 기습과 장난스러운 온도,장난꾸러기의 예상 밖의 진심,,CH7_EP2,,,\nCH7_EP3,scene,COMMON,,,챕터 7 · 0.2m의 기습과 장난스러운 온도,\"서로 다른 시선, 하나의 프레임\",,CH7_EP3,,,\nCH8_EP1,scene,COMMON,,,\"챕터 8 · 두 개의 그늘, 그리고 스위치가 되는 밤\",\"스승의 렌즈, Proper Distance\",,CH8_EP1,,,\nCH8_EP2,scene,COMMON,,,\"챕터 8 · 두 개의 그늘, 그리고 스위치가 되는 밤\",뷰파인더 마감 시간의 케미,,CH8_EP2,,,\nCH8_EP3,scene,COMMON,,,\"챕터 8 · 두 개의 그늘, 그리고 스위치가 되는 밤\",스위치가 되는 밤,,CH8_EP3,,,\nSUB_PICK,choice,COMMON,,,서브 피사체 선택,,,,,,\nSI_START,scene,ROUTE,SI,,백시은 루트,첫 분기,,CH8_EP3_A,,,\nSI,route,ROUTE,SI,,백시은 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nSI_H,ending,ENDING,SI,happy,해피 엔딩,,,,TODO 제목·대본,,\nSI_S,ending,ENDING,SI,sad,새드 엔딩,,,,TODO 제목·대본,,\nSI_B,ending,ENDING,SI,bad,배드 엔딩,,,,TODO 제목·대본,,\nSI_T,ending,ENDING,SI,true,히든·진 엔딩,,,,TODO 제목·대본,,\nSI_DONE,route_done,ROUTE,SI,,백시은 루트 클리어 기록,,,,,,\nCH_START,scene,ROUTE,CH,,강채아 루트,첫 분기,,CH8_EP3_B,,,\nCH,route,ROUTE,CH,,강채아 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nCH_H,ending,ENDING,CH,happy,해피 엔딩,,,,TODO 제목·대본,,\nCH_S,ending,ENDING,CH,sad,새드 엔딩,,,,TODO 제목·대본,,\nCH_B,ending,ENDING,CH,bad,배드 엔딩,,,,TODO 제목·대본,,\nCH_T,ending,ENDING,CH,true,히든·진 엔딩,,,,TODO 제목·대본,,\nCH_DONE,route_done,ROUTE,CH,,강채아 루트 클리어 기록,,,,,,\nTITLE,end,COMMON,,,타이틀로 복귀,,,,,,\nEXIT,end,COMMON,,,게임 종료,,,,REPLAY_CHOICE 의 종료 선택지 도착점,,\nJIWOO_DLC,dlc,DLC,JIWOO,,후일담 · 강지우,현우 30세 이후,30,JIWOO_DLC,JIWOO_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_jiwoo_dlc.csv (chapter_id=jiwoo_dlc),,\nARIN_DLC,dlc,DLC,ARIN,,후일담 · 윤아린,현우 30세 이후,30,ARIN_DLC,ARIN_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_arin_dlc.csv (chapter_id=arin_dlc),,\nYUNA_DLC,dlc,DLC,YUNA,,후일담 · 최유나,현우 30세 이후,30,YUNA_DLC,YUNA_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_yuna_dlc.csv (chapter_id=yuna_dlc),,\nSERA_DLC,dlc,DLC,SERA,,후일담 · 이세라,현우 30세 이후,30,SERA_DLC,SERA_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_sera_dlc.csv (chapter_id=sera_dlc),,\nSEOYUN_DLC,dlc,DLC,SEOYUN,,후일담 · 한서윤,현우 30세 이후,30,SEOYUN_DLC,SEOYUN_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_seoyun_dlc.csv (chapter_id=seoyun_dlc),,\nHARIN_DLC,dlc,DLC,HARIN,,후일담 · 서하린,현우 30세 이후,30,HARIN_DLC,HARIN_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_harin_dlc.csv (chapter_id=harin_dlc),,\nSI_DLC,dlc,DLC,SI,,후일담 · 백시은,현우 30세 이후,30,SI_DLC,SI_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_si_dlc.csv (chapter_id=si_dlc),,\nCH_DLC,dlc,DLC,CH,,후일담 · 강채아,현우 30세 이후,30,CH_DLC,CH_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_ch_dlc.csv (chapter_id=ch_dlc),,\nJIWOO_C1_EP1,scene,ROUTE,JIWOO,,챕터 1 · 소꿉친구라는 안전지대의 균열,다시 맞춘 초점 · 현우 20세,20,JIWOO_CH1_EP1,,,\nJIWOO_C1_EP2,scene,ROUTE,JIWOO,,챕터 1 · 소꿉친구라는 안전지대의 균열,해바라기밭의 첫 단독 초점 · 현우 20세,20,JIWOO_CH1_EP2,,,\nJIWOO_C1_EP3,scene,ROUTE,JIWOO,,챕터 1 · 소꿉친구라는 안전지대의 균열,앵글 안에 머문 너 · 현우 20세,20,JIWOO_CH1_EP3,,,\nJIWOO_FB1_EP1,scene,ROUTE,JIWOO,,과거 회상 1 · 빛의 이면과 투명한 구명조끼,빗속에 가려진 햇살,,JIWOO_FB1_EP1,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB1_EP2,scene,ROUTE,JIWOO,,과거 회상 1 · 빛의 이면과 투명한 구명조끼,웃음 뒤에 잠긴 심해,,JIWOO_FB1_EP2,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB1_EP3,scene,ROUTE,JIWOO,,과거 회상 1 · 빛의 이면과 투명한 구명조끼,투명한 구명조끼,,JIWOO_FB1_EP3,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB2_EP1,scene,ROUTE,JIWOO,,과거 회상 2 · 오래된 약속과 엇갈린 시선,오래된 프레임 속 우리,,JIWOO_FB2_EP1,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB2_EP2,scene,ROUTE,JIWOO,,과거 회상 2 · 오래된 약속과 엇갈린 시선,소문이 닿지 않는 거리,,JIWOO_FB2_EP2,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB2_EP3,scene,ROUTE,JIWOO,,과거 회상 2 · 오래된 약속과 엇갈린 시선,\"그날, 엇갈린 시선\",,JIWOO_FB2_EP3,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB3_EP1,scene,ROUTE,JIWOO,,과거 회상 3 · 상처가 남긴 잔상,지워지지 않는 잔상,,JIWOO_FB3_EP1,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB3_EP2,scene,ROUTE,JIWOO,,과거 회상 3 · 상처가 남긴 잔상,렌즈 너머의 도피처,,JIWOO_FB3_EP2,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB3_EP3,scene,ROUTE,JIWOO,,과거 회상 3 · 상처가 남긴 잔상,아무에게도 보여주지 못한 상처,,JIWOO_FB3_EP3,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB4_EP1,scene,ROUTE,JIWOO,,과거 회상 4 · 소꿉친구라는 안전 지대,익숙한 너의 시선,,JIWOO_FB4_EP1,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB4_EP2,scene,ROUTE,JIWOO,,과거 회상 4 · 소꿉친구라는 안전 지대,말없이 건네는 온기,,JIWOO_FB4_EP2,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB4_EP3,scene,ROUTE,JIWOO,,과거 회상 4 · 소꿉친구라는 안전 지대,다시 마주할 날을 기다리며,,JIWOO_FB4_EP3,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_C2_EP1,scene,ROUTE,JIWOO,,\"챕터 2 · 고백, 그리고 남사친의 퇴장\",가장 가까운 타인 · 현우 21세,21,JIWOO_CH2_EP1,,,\nJIWOO_C2_EP2,scene,ROUTE,JIWOO,,\"챕터 2 · 고백, 그리고 남사친의 퇴장\",셔터 너머의 진심 · 현우 21세,21,JIWOO_CH2_EP2,,,\nJIWOO_C2_EP3,scene,ROUTE,JIWOO,,\"챕터 2 · 고백, 그리고 남사친의 퇴장\",너를 향한 초점 · 현우 21세,21,JIWOO_CH2_EP3,,,\nJIWOO_C3_EP1,scene,ROUTE,JIWOO,,챕터 3 · 미래의 벽과 서로의 등대,졸업이라는 이름의 프레임 · 현우 22세,22,JIWOO_CH3_EP1,,,\nJIWOO_C3_EP2,scene,ROUTE,JIWOO,,챕터 3 · 미래의 벽과 서로의 등대,사진에 담긴 진짜 얼굴 · 현우 22세,22,JIWOO_CH3_EP2,,,\nJIWOO_C3_EP3,scene,ROUTE,JIWOO,,챕터 3 · 미래의 벽과 서로의 등대,우리 사이의 거리 · 현우 22세,22,JIWOO_CH3_EP3,,,\nJIWOO_C4_EP1,scene,ROUTE,JIWOO,,챕터 4 · 두 갈래의 미래와 흔들리는 초점,흔들거리는 앵글 · 현우 23세,23,JIWOO_CH4_EP1,,,\nJIWOO_C4_EP2,scene,ROUTE,JIWOO,,챕터 4 · 두 갈래의 미래와 흔들리는 초점,담고 싶은 것과 외면한 것 · 현우 23세,23,JIWOO_CH4_EP2,,,\nJIWOO_C4_EP3,scene,ROUTE,JIWOO,,챕터 4 · 두 갈래의 미래와 흔들리는 초점,다음 장을 넘기기 전에 · 현우 23세,23,JIWOO_CH4_EP3,,,\nJIWOO_C5_EP1,scene,ROUTE,JIWOO,,챕터 5 · 각자의 계절을 지나,각자의 자리에서 · 현우 24세,24,JIWOO_CH5_EP1,,,\nJIWOO_C5_EP2,scene,ROUTE,JIWOO,,챕터 5 · 각자의 계절을 지나,서로에게 남겨진 시간 · 현우 24세,24,JIWOO_CH5_EP2,,,\nJIWOO_C5_EP3,scene,ROUTE,JIWOO,,챕터 5 · 각자의 계절을 지나,같은 풍경을 바라보는 법 · 현우 24세,24,JIWOO_CH5_EP3,,,\nJIWOO_C6_EP1,scene,ROUTE,JIWOO,,챕터 6 · 결말을 향해 흐르는 시간,계절에 피어난 마음 · 현우 25세,25,JIWOO_CH6_EP1,,,\nJIWOO_C6_EP2,scene,ROUTE,JIWOO,,챕터 6 · 결말을 향해 흐르는 시간,카메라가 기억하는 너 · 현우 25세,25,JIWOO_CH6_EP2,,,\nJIWOO_C6_EP3,scene,ROUTE,JIWOO,,챕터 6 · 결말을 향해 흐르는 시간,아직 끝나지 않은 기록 · 현우 25세,25,JIWOO_CH6_EP3,,,\nJIWOO_C7_EP1,scene,ROUTE,JIWOO,,챕터 7 · 마지막 셔터,마지막 셔터를 누르기 전에 · 현우 26세,26,JIWOO_CH7_EP1,,,\nJIWOO_C7_EP2,scene,ROUTE,JIWOO,,챕터 7 · 마지막 셔터,\"네가 바라본 나, 내가 바라본 너 · 현우 26세\",26,JIWOO_CH7_EP2,,,\nJIWOO_C7_EP3,scene,ROUTE,JIWOO,,챕터 7 · 마지막 셔터,우리의 사진은 계속된다 · 현우 26세,26,JIWOO_CH7_EP3,,,\nJIWOO_C7_EP4,scene,ROUTE,JIWOO,,챕터 7 · 마지막 셔터,선택의 갈림길 · 현우 26세,26,JIWOO_CH7_EP4,,,\nJIWOO_PICK,choice,ROUTE,JIWOO,,선택의 순간,,,,,,\nJIWOO_END,scene,ROUTE,JIWOO,,강지우 엔딩 · 그곳으로 찾으러 와줘,엔딩 공통 사건,,JIWOO_END,,,\nJIWOO_END_ROUTE,check,ROUTE,JIWOO,,강지우 엔딩 분기,,,,JIWOO_PICK 에서 고른 번호(jiwoo_pick)로 엔딩이 갈립니다: 1 해피 · 2 새드 · 3 배드 · 4 히든·진,,\nJIWOO_H_EPI,epilogue,ENDING,JIWOO,happy,해피 엔딩 에필로그,우리의 가장 따뜻한 계절,,JIWOO_H_EPI,,,\nJIWOO_S_EPI,epilogue,ENDING,JIWOO,sad,새드 엔딩 에필로그,우정이라는 이름의 거짓말,,JIWOO_S_EPI,,,\nJIWOO_B_EPI,epilogue,ENDING,JIWOO,bad,배드 엔딩 에필로그,가장 오래된 친구라는 타이틀,,JIWOO_B_EPI,,,\nJIWOO_T_EPI,epilogue,ENDING,JIWOO,true,히든·진 엔딩 에필로그,,,JIWOO_T_EPI,,,\nFT_1,freetime,COMMON,,,자유시간 1,챕터 1 → 2 사이,,,자유시간 · 행동력은 flow_freetime.csv,,\nFT_2,freetime,COMMON,,,자유시간 2,챕터 2 → 3 사이,,,자유시간 · 행동력은 flow_freetime.csv,,\nFT_3,freetime,COMMON,,,자유시간 3,챕터 3 → 4 사이,,,자유시간 · 행동력은 flow_freetime.csv,,\nFT_4,freetime,COMMON,,,자유시간 4,챕터 4 → 5 사이,,,자유시간 · 행동력은 flow_freetime.csv,,\nFT_QUICK,freetime,COMMON,,,자유시간 일괄,공통 루트를 건너뛴 경우 · 행동력을 한 번에 배분,,,자유시간 · 행동력은 flow_freetime.csv,,\n",
- "edges": "from_id,to_id,label,condition,kind,note,set,lock,toast\nSTART,PROLOGUE_EP1,,,next,,,,\nPROLOGUE_EP1,PROLOGUE_EP2,,,next,,,,\nPROLOGUE_EP2,PROLOGUE_EP3,,,next,,,,\nPROLOGUE_EP3,PROLOGUE_EP4,,,next,,,,\nPROLOGUE_EP4,PROLOGUE_EP5,,,next,,,,\nPROLOGUE_EP5,PROLOGUE_EP6,,,next,,,,\nPROLOGUE_EP6,FIRST_ROUTE,,,next,,,,\nFIRST_ROUTE,CH1_EP1,초회 플레이,!sub_unlocked,next,,,,\nFIRST_ROUTE,REPLAY_CHOICE,2회차 이후,sub_unlocked,next,,,,\nREPLAY_CHOICE,CH1_EP1,메인 히로인 루트,,next,,,,\nREPLAY_CHOICE,SUBPROLOGUE_EP1,서브 히로인 루트,,next,,,,\nREPLAY_CHOICE,EXIT,종료,,next,,,,\nCH1_EP1,CH1_EP2,,,next,,,,\nCH1_EP2,CH1_EP3,,,next,,,,\nCH1_EP3,CH1_EP4,,,next,,,,\nCH1_EP4,CH1_EP5,,,next,,,,\nCH1_EP5,CH1_EP6,,,next,,,,\nCH2_EP1,CH2_EP2,,,next,,,,\nCH2_EP2,CH2_EP3,,,next,,,,\nCH2_EP3,CH2_EP4,,,next,,,,\nCH2_EP4,CH2_EP5,,,next,,,,\nCH2_EP5,CH2_EP6,,,next,,,,\nCH3_EP1,CH3_EP2,,,next,,,,\nCH3_EP2,CH3_EP3,,,next,,,,\nCH3_EP3,CH3_EP4,,,next,,,,\nCH3_EP4,CH3_EP5,,,next,,,,\nCH3_EP5,CH3_EP6,,,next,,,,\nCH4_EP1,CH4_EP2,,,next,,,,\nCH4_EP2,CH4_EP3,,,next,,,,\nCH4_EP3,CH4_EP4,,,next,,,,\nCH4_EP4,CH4_EP5,,,next,,,,\nCH4_EP5,CH4_EP6,,,next,,,,\nCH5_EP1,CH5_EP2,,,next,,,,\nCH5_EP2,CH5_EP3,,,next,,,,\nCH5_EP3,CH5_EP4,,,next,,,,\nCH5_EP4,CH5_EP5,,,next,,,,\nCH5_EP5,CH5_EP6,,,next,,,,\nCH5_EP6,RELATION_CHECK,,,next,,,,\nCOMMON_BAD,CB21,,,next,,,,\nCB21,CB_REL,,,next,,,,\nCB_REL,CB_BREAK,,,next,,,,\nCB_BREAK,CB26,,,next,,,,\nCB26,CB_END,,,next,,,,\nARIN,ARIN_H,,aff_arin>=60 && knowledge>=45,next,,,호감도 60 · 지식 45 필요,\nARIN_H,COMMON_EPILOGUE,,,next,,,,\nARIN,ARIN_S,,,next,,,,\nARIN_S,COMMON_EPILOGUE,,,next,,,,\nARIN,ARIN_B,,,next,,,,\nARIN_B,COMMON_EPILOGUE,,,next,,,,\nARIN,ARIN_T,,aff_arin>=80 && knowledge>=60 && grade>=60,next,,,호감도 80 · 지식 60 · 성적 60 필요,\nARIN_T,COMMON_EPILOGUE,,,next,,,,\nYUNA,YUNA_H,,aff_yuna>=60,next,,,호감도 60 필요,\nYUNA_H,COMMON_EPILOGUE,,,next,,,,\nYUNA,YUNA_S,,,next,,,,\nYUNA_S,COMMON_EPILOGUE,,,next,,,,\nYUNA,YUNA_B,,,next,,,,\nYUNA_B,COMMON_EPILOGUE,,,next,,,,\nYUNA,YUNA_T,,aff_yuna>=80 && charm>=50 && fame>=40,next,,,호감도 80 · 매력 50 · 인지도 40 필요,\nYUNA_T,COMMON_EPILOGUE,,,next,,,,\nSERA,SERA_H,,aff_sera>=55 && (knowledge>=45 || charm>=45),next,,,호감도 55 · (지식 또는 매력 45) 필요,\nSERA_H,COMMON_EPILOGUE,,,next,,,,\nSERA,SERA_S,,,next,,,,\nSERA_S,COMMON_EPILOGUE,,,next,,,,\nSERA,SERA_B,,,next,,,,\nSERA_B,COMMON_EPILOGUE,,,next,,,,\nSERA,SERA_T,,aff_sera>=70 && (knowledge>=50 || charm>=50) && stamina>=35,next,,,호감도 70 · (지식 또는 매력 50) · 체력 35 필요,\nSERA_T,COMMON_EPILOGUE,,,next,,,,\nSEOYUN,SEOYUN_H,,aff_seoyun>=50 && !fail_seoyun && stamina>=30,next,,,호감도 50 · 체력 30 · 관계 경색 없음 필요,\nSEOYUN_H,COMMON_EPILOGUE,,,next,,,,\nSEOYUN,SEOYUN_S,,,next,,,,\nSEOYUN_S,COMMON_EPILOGUE,,,next,,,,\nSEOYUN,SEOYUN_B,,,next,,,,\nSEOYUN_B,COMMON_EPILOGUE,,,next,,,,\nSEOYUN,SEOYUN_T,,aff_seoyun>=65 && !fail_seoyun && knowledge>=40 && stamina>=35,next,,,호감도 65 · 지식 40 · 체력 35 · 관계 경색 없음 필요,\nSEOYUN_T,COMMON_EPILOGUE,,,next,,,,\nHARIN,HARIN_H,,aff_harin>=36 && h_trust>=50 && h_alert<=50 && stamina>=40,next,,,숨겨진 조건 필요,\nHARIN_H,COMMON_EPILOGUE,,,next,,,,\nHARIN,HARIN_S,,,next,,,,\nHARIN_S,COMMON_EPILOGUE,,,next,,,,\nHARIN,HARIN_B,,,next,,,,\nHARIN_B,COMMON_EPILOGUE,,,next,,,,\nHARIN,HARIN_T,,aff_harin>=42 && h_trust>=70 && h_alert<=50 && strength>=35 && stamina>=50 && harin_event,next,,,숨겨진 조건 · 스토리 특수 이벤트 필요,\nHARIN_T,COMMON_EPILOGUE,,,next,,,,\nSI,SI_H,,,next,,,,\nSI_H,SI_DONE,,,next,,,,\nSI,SI_S,,,next,,,,\nSI_S,SI_DONE,,,next,,,,\nSI,SI_B,,,next,,,,\nSI_B,SI_DONE,,,next,,,,\nSI,SI_T,,,next,,,,\nSI_T,SI_DONE,,,next,,,,\nCH,CH_H,,,next,,,,\nCH_H,CH_DONE,,,next,,,,\nCH,CH_S,,,next,,,,\nCH_S,CH_DONE,,,next,,,,\nCH,CH_B,,,next,,,,\nCH_B,CH_DONE,,,next,,,,\nCH,CH_T,,,next,,,,\nCH_T,CH_DONE,,,next,,,,\nSI_DONE,COMMON_EPILOGUE,,,next,,,,\nCH_DONE,COMMON_EPILOGUE,,,next,,,,\nCOMMON_EPILOGUE,CLEAR_CHECK,,,next,,,,\nCLEAR_CHECK,SUB_UNLOCK,최초 클리어,!sub_unlocked,next,,,,\nCLEAR_CHECK,REPLAY_CHOICE,이미 해금됨,sub_unlocked,next,,,,\nSUB_UNLOCK,REPLAY,,,next,,,,\nREPLAY,REPLAY_CHOICE,,,next,,,,\nMAIN_DLC_EP,TITLE,타이틀로,,next,,,,\nSUBPROLOGUE_EP1,SUBPROLOGUE_EP2,,,next,,,,\nSUBPROLOGUE_EP2,SUBPROLOGUE_EP3,,,next,,,,\nSUBPROLOGUE_EP3,CH6_EP1,,,next,,,,\nCH6_EP1,CH6_EP2,,,next,,,,\nCH6_EP2,CH6_EP3,,,next,,,,\nCH6_EP3,CH7_EP1,,,next,,,,\nCH7_EP1,CH7_EP2,,,next,,,,\nCH7_EP2,CH7_EP3,,,next,,,,\nCH7_EP3,CH8_EP1,,,next,,,,\nCH8_EP1,CH8_EP2,,,next,,,,\nCH8_EP2,CH8_EP3,,,next,,,,\nCH8_EP3,SUB_PICK,,,next,,,,\nSUB_PICK,SI_START,백시은과 함께 카페에 남는다.,,next,,,,\nSUB_PICK,CH_START,강채아와 함께 작업실로 향한다.,,next,,,,\nSI_START,SI,,,next,,,,\nCH_START,CH,,,next,,,,\nJIWOO_DLC,TITLE,타이틀로,,next,,,,\nARIN_DLC,TITLE,타이틀로,,next,,,,\nYUNA_DLC,TITLE,타이틀로,,next,,,,\nSERA_DLC,TITLE,타이틀로,,next,,,,\nSEOYUN_DLC,TITLE,타이틀로,,next,,,,\nHARIN_DLC,TITLE,타이틀로,,next,,,,\nSI_DLC,TITLE,타이틀로,,next,,,,\nCH_DLC,TITLE,타이틀로,,next,,,,\nJIWOO_C1_EP1,JIWOO_C1_EP2,,,next,,,,\nJIWOO_C1_EP2,JIWOO_C1_EP3,,,next,,,,\nJIWOO_C1_EP3,JIWOO_FB1_EP1,,,next,,,,\nJIWOO_FB1_EP1,JIWOO_FB1_EP2,,,next,,,,\nJIWOO_FB1_EP2,JIWOO_FB1_EP3,,,next,,,,\nJIWOO_FB1_EP3,JIWOO_FB2_EP1,,,next,,,,\nJIWOO_FB2_EP1,JIWOO_FB2_EP2,,,next,,,,\nJIWOO_FB2_EP2,JIWOO_FB2_EP3,,,next,,,,\nJIWOO_FB2_EP3,JIWOO_FB3_EP1,,,next,,,,\nJIWOO_FB3_EP1,JIWOO_FB3_EP2,,,next,,,,\nJIWOO_FB3_EP2,JIWOO_FB3_EP3,,,next,,,,\nJIWOO_FB3_EP3,JIWOO_FB4_EP1,,,next,,,,\nJIWOO_FB4_EP1,JIWOO_FB4_EP2,,,next,,,,\nJIWOO_FB4_EP2,JIWOO_FB4_EP3,,,next,,,,\nJIWOO_FB4_EP3,JIWOO_C2_EP1,,,next,,,,\nJIWOO_C2_EP1,JIWOO_C2_EP2,,,next,,,,\nJIWOO_C2_EP2,JIWOO_C2_EP3,,,next,,,,\nJIWOO_C2_EP3,JIWOO_C3_EP1,,,next,,,,\nJIWOO_C3_EP1,JIWOO_C3_EP2,,,next,,,,\nJIWOO_C3_EP2,JIWOO_C3_EP3,,,next,,,,\nJIWOO_C3_EP3,JIWOO_C4_EP1,,,next,,,,\nJIWOO_C4_EP1,JIWOO_C4_EP2,,,next,,,,\nJIWOO_C4_EP2,JIWOO_C4_EP3,,,next,,,,\nJIWOO_C4_EP3,JIWOO_C5_EP1,,,next,,,,\nJIWOO_C5_EP1,JIWOO_C5_EP2,,,next,,,,\nJIWOO_C5_EP2,JIWOO_C5_EP3,,,next,,,,\nJIWOO_C5_EP3,JIWOO_C6_EP1,,,next,,,,\nJIWOO_C6_EP1,JIWOO_C6_EP2,,,next,,,,\nJIWOO_C6_EP2,JIWOO_C6_EP3,,,next,,,,\nJIWOO_C6_EP3,JIWOO_C7_EP1,,,next,,,,\nJIWOO_C7_EP1,JIWOO_C7_EP2,,,next,,,,\nJIWOO_C7_EP2,JIWOO_C7_EP3,,,next,,,,\nJIWOO_C7_EP3,JIWOO_C7_EP4,,,next,,,,\nJIWOO_C7_EP4,JIWOO_PICK,,,next,,,,\nJIWOO,JIWOO_C1_EP1,,,next,,,,\nJIWOO_PICK,JIWOO_END,내 이야기는 내가 결정한다.,aff_jiwoo>=40,next,,jiwoo_pick=1,호감도 40 필요,\nJIWOO_PICK,JIWOO_END,이제는 모든 것을 내려놓고 싶다.,,next,,jiwoo_pick=2,,\nJIWOO_PICK,JIWOO_END,그들의 제안을 받아들인다.,,next,,jiwoo_pick=3,,\nJIWOO_PICK,JIWOO_END,두 사람의 계획을 끝까지 파헤친다.,aff_jiwoo>=70 && knowledge>=50,next,,jiwoo_pick=4,호감도 70 · 지식 50 필요,\nJIWOO_END,JIWOO_END_ROUTE,,,next,,,,\nJIWOO_END_ROUTE,JIWOO_H,,jiwoo_pick==1,next,,,,\nJIWOO_END_ROUTE,JIWOO_S,,jiwoo_pick==2,next,,,,\nJIWOO_END_ROUTE,JIWOO_B,,jiwoo_pick==3,next,,,,\nJIWOO_END_ROUTE,JIWOO_T,,jiwoo_pick==4,next,,,,\nJIWOO_H,JIWOO_H_EPI,,,next,,,,\nJIWOO_H_EPI,COMMON_EPILOGUE,,,next,,,,\nJIWOO_S,JIWOO_S_EPI,,,next,,,,\nJIWOO_S_EPI,COMMON_EPILOGUE,,,next,,,,\nJIWOO_B,JIWOO_B_EPI,,,next,,,,\nJIWOO_B_EPI,COMMON_EPILOGUE,,,next,,,,\nJIWOO_T,JIWOO_T_EPI,,,next,,,,\nJIWOO_T_EPI,COMMON_EPILOGUE,,,next,,,,\nCH1_EP6,FT_1,,,next,,,,\nFT_1,CH2_EP1,,,next,,,,\nCH2_EP6,FT_2,,,next,,,,\nFT_2,CH3_EP1,,,next,,,,\nCH3_EP6,FT_3,,,next,,,,\nFT_3,CH4_EP1,,,next,,,,\nCH4_EP6,FT_4,,,next,,,,\nFT_4,CH5_EP1,,,next,,,,\nFT_QUICK,RELATION_CHECK,,,next,,,,\nRELATION_CHECK,COMMON_BAD,번아웃 · 스트레스 한계,stress>=80,next,,,,스트레스가 한계에 달했다…\nRELATION_CHECK,COMMON_BAD,관계 방치 · 아무와도 가까워지지 못함,stress<80 && pick_count==0,next,,,,아무와도 가까워지지 못한 채 시간이 흘렀다…\nRELATION_CHECK,COMMON_BAD,회피 선택 누적,stress<80 && pick_count>0 && avoid>=3,next,,,,계속 피하기만 했다…\nRELATION_CHECK,MAIN_PICK,메인 루트 진행 조건 충족,stress<80 && pick_count>0 && avoid<3,next,,,,\nMAIN_PICK,JIWOO,강지우 루트,can_jiwoo,next,,,호감도 20 이상 필요,\nMAIN_PICK,ARIN,윤아린 루트,can_arin,next,,,호감도 30 · 지식 30 이상 필요,\nMAIN_PICK,YUNA,최유나 루트,can_yuna,next,,,호감도 30 이상 필요,\nMAIN_PICK,SERA,이세라 루트,can_sera,next,,,호감도 35 · (지식 또는 매력 40) · 스트레스 70 미만 필요,\nMAIN_PICK,SEOYUN,한서윤 루트,can_seoyun,next,,,호감도 30 · 지식 35 · 스트레스 60 미만 필요,\nMAIN_PICK,HARIN,서하린 루트,can_harin,next,,,숨겨진 조건 다수 필요,\n",
+ "nodes": "node_id,type,group,route,ending,title,subtitle,age,script_id,note,skip_to,skip_when\nSTART,start,COMMON,,,시작 · 현우 20세,,20,,,,\nPROLOGUE_EP1,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",벚꽃이 흩날리는 입학 첫날,,PROLOGUE_EP1,,FIRST_ROUTE,sub_unlocked\nPROLOGUE_EP2,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",구형 DSLR과 캔커피의 온기,,PROLOGUE_EP2,,,\nPROLOGUE_EP3,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",뷰파인더에 걸린 소꿉친구,,PROLOGUE_EP3,,,\nPROLOGUE_EP4,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",\"아포카, 낯선 만남의 시작\",,PROLOGUE_EP4,,,\nPROLOGUE_EP5,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",차가운 눈빛 너머의 재회,,PROLOGUE_EP5,,,\nPROLOGUE_EP6,scene,COMMON,,,\"프롤로그 · 첫 셔터, 흩날리는 봄의 경계\",\"여섯 개의 시선, 멈춰 있던 시간이 흐르다\",,PROLOGUE_EP6,,,\nFIRST_ROUTE,choice,COMMON,,,플레이 진행 경로,,,,첫 플레이는 조건으로 메인 공통 루트 고정,,\nREPLAY_CHOICE,choice,COMMON,,,회차 진행 경로,,,,,,\nCH1_EP1,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,손끝에 남은 여름의 잔상,,CH1_EP1,,MAIN_PICK,sub_unlocked\nCH1_EP2,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,흰색 아대에 감춰진 비밀,,CH1_EP2,,,\nCH1_EP3,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,강지우의 낯선 경계심,,CH1_EP3,,,\nCH1_EP4,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,다시 만난 두 개의 시선,,CH1_EP4,,,\nCH1_EP5,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,조용한 동아리실의 균열,,CH1_EP5,,,\nCH1_EP6,scene,COMMON,,,챕터 1 · 뷰파인더의 이방인들,아포카에 들어가기로 한 날,,CH1_EP6,,,\nCH2_EP1,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,동아리 가입과 뜻밖의 인연,,CH2_EP1,,,\nCH2_EP2,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,나란히 묶인 두 사람의 이름,,CH2_EP2,,,\nCH2_EP3,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,\"벚꽃 아래, 임시 모델\",,CH2_EP3,,,\nCH2_EP4,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,렌즈에 비친 감춰진 상처,,CH2_EP4,,,\nCH2_EP5,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,도망쳤던 여름의 진실,,CH2_EP5,,,\nCH2_EP6,scene,COMMON,,,챕터 2 · 프레임 밖의 잔상들,이번에는 네 모습을 담을게,,CH2_EP6,,,\nCH3_EP1,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,셔터가 멈춘 뒤의 여운,,CH3_EP1,,,\nCH3_EP2,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,2.0m 밖에 선 윤아린,,CH3_EP2,,,\nCH3_EP3,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,진짜 표정이 드러나는 순간,,CH3_EP3,,,\nCH3_EP4,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,\"뷰파인더, 거리감을 가르치다\",,CH3_EP4,,,\nCH3_EP5,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,오랜 친구의 기다림,,CH3_EP5,,,\nCH3_EP6,scene,COMMON,,,챕터 3 · 렌즈 너머의 잔상과 첫 번째 프레임,마시 마주한 우리의 거리,,CH3_EP6,,,\nCH4_EP1,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,스포트라이트를 향한 직진,,CH4_EP1,,,\nCH4_EP2,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,전담 촬영 기사로 낙점받다,,CH4_EP2,,,\nCH4_EP3,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,3.0m 너머의 안식처,,CH4_EP3,,,\nCH4_EP4,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,0.2m의 초근접 침입자,,CH4_EP4,,,\nCH4_EP5,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,투닥거림이 채우는 카페의 온기,,CH4_EP5,,,\nCH4_EP6,scene,COMMON,,,챕터 4 · 스포트라이트의 직진과 3.0m의 비무장지대,\"아포카, 봄의 첫 정기 출사\",,CH4_EP6,,,\nCH5_EP1,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",벚꽃 출사지에 모인 여섯 사람,,CH5_EP1,,,\nCH5_EP2,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",\"0.5m, 멈추지 않는 강지우\",,CH5_EP2,,,\nCH5_EP3,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",스케줄을 독점하려는 최유나,,CH5_EP3,,,\nCH5_EP4,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",2.5m의 그늘에서 다가오는 윤아린,,CH5_EP4,,,\nCH5_EP5,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",서로 다른 6개의 시선,,CH5_EP5,,,\nCH5_EP6,scene,COMMON,,,\"챕터 5 · 앵글의 붕괴, 그리고 여섯 개의 시선\",메인 피사체 선택의 순간,,CH5_EP6,,,\nRELATION_CHECK,check,COMMON,,,공통 루트 관계 관리 판정,,,,avoid 변수는 flow_assets.csv 의 set 칸에서 올리세요 (예: avoid+=1). 기준값 3은 임시,,\nCOMMON_BAD,ending,COMMON_BAD,,bad,초점이 깨진 렌즈 (Out of Focus),공통 배드 엔딩,,COMMON_BAD,,,\nCB21,scene,COMMON_BAD,,bad,현우 21세,갈등 상황에서 회피 반복,21,CB21,,,\nCB_REL,scene,COMMON_BAD,,bad,관계 붕괴와 자기혐오,,,CB_REL,,,\nCB_BREAK,scene,COMMON_BAD,,bad,암실에서 카메라 파손,동아리 탈퇴 및 학교 이탈,,CB_BREAK,,,\nCB26,scene,COMMON_BAD,,bad,현우 26세,사진가의 꿈을 접고 고립된 삶,26,CB26,,,\nCB_END,end,COMMON_BAD,,bad,공통 배드 엔딩 종료,,,,,,\nMAIN_PICK,choice,COMMON,,,메인 피사체 선택,,,,,,\nJIWOO,check,ROUTE,JIWOO,,강지우 루트,,,,,,\nJIWOO_H,ending,ENDING,JIWOO,happy,해피 엔딩,우리의 사진은 계속 된다,,JIWOO_H,,,\nJIWOO_S,ending,ENDING,JIWOO,sad,새드 엔딩,우정이라는 이름의 거짓말,,JIWOO_S,,,\nJIWOO_B,ending,ENDING,JIWOO,bad,배드 엔딩,가장 오래된 친구라는 타이틀,,JIWOO_B,,,\nJIWOO_T,ending,ENDING,JIWOO,true,히든·진 엔딩,앵글 속에 담긴 진짜 너,,JIWOO_T,,,\nARIN,route,ROUTE,ARIN,,윤아린 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nARIN_H,ending,ENDING,ARIN,happy,해피 엔딩,,,,TODO 제목·대본,,\nARIN_S,ending,ENDING,ARIN,sad,새드 엔딩,,,,TODO 제목·대본,,\nARIN_B,ending,ENDING,ARIN,bad,배드 엔딩,,,,TODO 제목·대본,,\nARIN_T,ending,ENDING,ARIN,true,히든·진 엔딩,,,,TODO 제목·대본,,\nYUNA,route,ROUTE,YUNA,,최유나 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nYUNA_H,ending,ENDING,YUNA,happy,해피 엔딩,,,,TODO 제목·대본,,\nYUNA_S,ending,ENDING,YUNA,sad,새드 엔딩,,,,TODO 제목·대본,,\nYUNA_B,ending,ENDING,YUNA,bad,배드 엔딩,,,,TODO 제목·대본,,\nYUNA_T,ending,ENDING,YUNA,true,히든·진 엔딩,,,,TODO 제목·대본,,\nSERA,route,ROUTE,SERA,,이세라 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nSERA_H,ending,ENDING,SERA,happy,해피 엔딩,,,,TODO 제목·대본,,\nSERA_S,ending,ENDING,SERA,sad,새드 엔딩,,,,TODO 제목·대본,,\nSERA_B,ending,ENDING,SERA,bad,배드 엔딩,,,,TODO 제목·대본,,\nSERA_T,ending,ENDING,SERA,true,히든·진 엔딩,,,,TODO 제목·대본,,\nSEOYUN,route,ROUTE,SEOYUN,,한서윤 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nSEOYUN_H,ending,ENDING,SEOYUN,happy,해피 엔딩,,,,TODO 제목·대본,,\nSEOYUN_S,ending,ENDING,SEOYUN,sad,새드 엔딩,,,,TODO 제목·대본,,\nSEOYUN_B,ending,ENDING,SEOYUN,bad,배드 엔딩,,,,TODO 제목·대본,,\nSEOYUN_T,ending,ENDING,SEOYUN,true,히든·진 엔딩,,,,TODO 제목·대본,,\nHARIN,route,ROUTE,HARIN,,서하린 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nHARIN_H,ending,ENDING,HARIN,happy,해피 엔딩,,,,TODO 제목·대본,,\nHARIN_S,ending,ENDING,HARIN,sad,새드 엔딩,,,,TODO 제목·대본,,\nHARIN_B,ending,ENDING,HARIN,bad,배드 엔딩,,,,TODO 제목·대본,,\nHARIN_T,ending,ENDING,HARIN,true,히든·진 엔딩,,,,TODO 제목·대본,,\nCOMMON_EPILOGUE,scene,COMMON,,,공통 에필로그,현우 29세 · 모든 루트 공통 축,29,COMMON_EPILOGUE,,,\nCLEAR_CHECK,check,COMMON,,,최초 메인 루트 클리어 기록?,,,,,,\nSUB_UNLOCK,unlock,COMMON,,,서브 히로인 루트 해금,,,,,,\nREPLAY,unlock,COMMON,,,2회차 플레이 가능,,,,,,\nSUBPROLOGUE_EP1,scene,COMMON,,,\"서브 프롤로그 · 두 개의 인연, 다시 열린 문\",\"뷰파인더, 그곳에 남은 인연\",,SUBPROLOGUE_EP1,,SUB_PICK,SI_cleared || CH_cleared\nSUBPROLOGUE_EP2,scene,COMMON,,,\"서브 프롤로그 · 두 개의 인연, 다시 열린 문\",\"익숙한 목소리, 변하지 않은 거리\",,SUBPROLOGUE_EP2,,,\nSUBPROLOGUE_EP3,scene,COMMON,,,\"서브 프롤로그 · 두 개의 인연, 다시 열린 문\",두 개의 인연이 향하는 곳,,SUBPROLOGUE_EP3,,,\nCH6_EP1,scene,COMMON,,,\"챕터 6 · 비무장지대, 뷰파인더\",\"비무장지대, 뷰파인더\",,CH6_EP1,,,\nCH6_EP2,scene,COMMON,,,\"챕터 6 · 비무장지대, 뷰파인더\",프레임 밖에서 찾아온 장난꾸러기,,CH6_EP2,,,\nCH6_EP3,scene,COMMON,,,\"챕터 6 · 비무장지대, 뷰파인더\",\"안식처의 맹세, 3.0m 너머의 손길\",,CH6_EP3,,,\nCH7_EP1,scene,COMMON,,,챕터 7 · 0.2m의 기습과 장난스러운 온도,프레임을 깨뜨리는 소악마,,CH7_EP1,,,\nCH7_EP2,scene,COMMON,,,챕터 7 · 0.2m의 기습과 장난스러운 온도,장난꾸러기의 예상 밖의 진심,,CH7_EP2,,,\nCH7_EP3,scene,COMMON,,,챕터 7 · 0.2m의 기습과 장난스러운 온도,\"서로 다른 시선, 하나의 프레임\",,CH7_EP3,,,\nCH8_EP1,scene,COMMON,,,\"챕터 8 · 두 개의 그늘, 그리고 스위치가 되는 밤\",\"스승의 렌즈, Proper Distance\",,CH8_EP1,,,\nCH8_EP2,scene,COMMON,,,\"챕터 8 · 두 개의 그늘, 그리고 스위치가 되는 밤\",뷰파인더 마감 시간의 케미,,CH8_EP2,,,\nCH8_EP3,scene,COMMON,,,\"챕터 8 · 두 개의 그늘, 그리고 스위치가 되는 밤\",스위치가 되는 밤,,CH8_EP3,,,\nSUB_PICK,choice,COMMON,,,서브 피사체 선택,,,,,,\nSI_START,scene,ROUTE,SI,,백시은 루트,첫 분기,,CH8_EP3_A,,,\nSI,route,ROUTE,SI,,백시은 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nSI_H,ending,ENDING,SI,happy,해피 엔딩,,,,TODO 제목·대본,,\nSI_S,ending,ENDING,SI,sad,새드 엔딩,,,,TODO 제목·대본,,\nSI_B,ending,ENDING,SI,bad,배드 엔딩,,,,TODO 제목·대본,,\nSI_T,ending,ENDING,SI,true,히든·진 엔딩,,,,TODO 제목·대본,,\nSI_DONE,route_done,ROUTE,SI,,백시은 루트 클리어 기록,,,,,,\nCH_START,scene,ROUTE,CH,,강채아 루트,첫 분기,,CH8_EP3_B,,,\nCH,route,ROUTE,CH,,강채아 루트,,,,루트 대본 연결 전 · 엔딩 선택으로 바로 이동,,\nCH_H,ending,ENDING,CH,happy,해피 엔딩,,,,TODO 제목·대본,,\nCH_S,ending,ENDING,CH,sad,새드 엔딩,,,,TODO 제목·대본,,\nCH_B,ending,ENDING,CH,bad,배드 엔딩,,,,TODO 제목·대본,,\nCH_T,ending,ENDING,CH,true,히든·진 엔딩,,,,TODO 제목·대본,,\nCH_DONE,route_done,ROUTE,CH,,강채아 루트 클리어 기록,,,,,,\nTITLE,end,COMMON,,,타이틀로 복귀,,,,,,\nEXIT,end,COMMON,,,게임 종료,,,,REPLAY_CHOICE 의 종료 선택지 도착점,,\nJIWOO_DLC,dlc,DLC,JIWOO,,후일담 · 강지우,현우 30세 이후,30,JIWOO_DLC,JIWOO_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_jiwoo_dlc.csv (chapter_id=jiwoo_dlc),,\nARIN_DLC,dlc,DLC,ARIN,,후일담 · 윤아린,현우 30세 이후,30,ARIN_DLC,ARIN_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_arin_dlc.csv (chapter_id=arin_dlc),,\nYUNA_DLC,dlc,DLC,YUNA,,후일담 · 최유나,현우 30세 이후,30,YUNA_DLC,YUNA_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_yuna_dlc.csv (chapter_id=yuna_dlc),,\nSERA_DLC,dlc,DLC,SERA,,후일담 · 이세라,현우 30세 이후,30,SERA_DLC,SERA_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_sera_dlc.csv (chapter_id=sera_dlc),,\nSEOYUN_DLC,dlc,DLC,SEOYUN,,후일담 · 한서윤,현우 30세 이후,30,SEOYUN_DLC,SEOYUN_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_seoyun_dlc.csv (chapter_id=seoyun_dlc),,\nHARIN_DLC,dlc,DLC,HARIN,,후일담 · 서하린,현우 30세 이후,30,HARIN_DLC,HARIN_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_harin_dlc.csv (chapter_id=harin_dlc),,\nSI_DLC,dlc,DLC,SI,,후일담 · 백시은,현우 30세 이후,30,SI_DLC,SI_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_si_dlc.csv (chapter_id=si_dlc),,\nCH_DLC,dlc,DLC,CH,,후일담 · 강채아,현우 30세 이후,30,CH_DLC,CH_T(히든·진 엔딩)를 끝까지 플레이하면 해금 · 대본은 story/project_y_ch_dlc.csv (chapter_id=ch_dlc),,\nJIWOO_C1_EP1,scene,ROUTE,JIWOO,,챕터 1 · 소꿉친구라는 안전지대의 균열,다시 맞춘 초점 · 현우 20세,20,JIWOO_CH1_EP1,,,\nJIWOO_C1_EP2,scene,ROUTE,JIWOO,,챕터 1 · 소꿉친구라는 안전지대의 균열,해바라기밭의 첫 단독 초점 · 현우 20세,20,JIWOO_CH1_EP2,,,\nJIWOO_C1_EP3,scene,ROUTE,JIWOO,,챕터 1 · 소꿉친구라는 안전지대의 균열,앵글 안에 머문 너 · 현우 20세,20,JIWOO_CH1_EP3,,,\nJIWOO_FB1_EP1,scene,ROUTE,JIWOO,,과거 회상 1 · 빛의 이면과 투명한 구명조끼,빗속에 가려진 햇살,,JIWOO_FB1_EP1,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB1_EP2,scene,ROUTE,JIWOO,,과거 회상 1 · 빛의 이면과 투명한 구명조끼,웃음 뒤에 잠긴 심해,,JIWOO_FB1_EP2,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB1_EP3,scene,ROUTE,JIWOO,,과거 회상 1 · 빛의 이면과 투명한 구명조끼,투명한 구명조끼,,JIWOO_FB1_EP3,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB2_EP1,scene,ROUTE,JIWOO,,과거 회상 2 · 오래된 약속과 엇갈린 시선,오래된 프레임 속 우리,,JIWOO_FB2_EP1,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB2_EP2,scene,ROUTE,JIWOO,,과거 회상 2 · 오래된 약속과 엇갈린 시선,소문이 닿지 않는 거리,,JIWOO_FB2_EP2,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB2_EP3,scene,ROUTE,JIWOO,,과거 회상 2 · 오래된 약속과 엇갈린 시선,\"그날, 엇갈린 시선\",,JIWOO_FB2_EP3,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB3_EP1,scene,ROUTE,JIWOO,,과거 회상 3 · 상처가 남긴 잔상,지워지지 않는 잔상,,JIWOO_FB3_EP1,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB3_EP2,scene,ROUTE,JIWOO,,과거 회상 3 · 상처가 남긴 잔상,렌즈 너머의 도피처,,JIWOO_FB3_EP2,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB3_EP3,scene,ROUTE,JIWOO,,과거 회상 3 · 상처가 남긴 잔상,아무에게도 보여주지 못한 상처,,JIWOO_FB3_EP3,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB4_EP1,scene,ROUTE,JIWOO,,과거 회상 4 · 소꿉친구라는 안전 지대,익숙한 너의 시선,,JIWOO_FB4_EP1,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB4_EP2,scene,ROUTE,JIWOO,,과거 회상 4 · 소꿉친구라는 안전 지대,말없이 건네는 온기,,JIWOO_FB4_EP2,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_FB4_EP3,scene,ROUTE,JIWOO,,과거 회상 4 · 소꿉친구라는 안전 지대,다시 마주할 날을 기다리며,,JIWOO_FB4_EP3,강지우 과거 회상 (챕터 1~2 사이),,\nJIWOO_C2_EP1,scene,ROUTE,JIWOO,,\"챕터 2 · 고백, 그리고 남사친의 퇴장\",가장 가까운 타인 · 현우 21세,21,JIWOO_CH2_EP1,,,\nJIWOO_C2_EP2,scene,ROUTE,JIWOO,,\"챕터 2 · 고백, 그리고 남사친의 퇴장\",셔터 너머의 진심 · 현우 21세,21,JIWOO_CH2_EP2,,,\nJIWOO_C2_EP3,scene,ROUTE,JIWOO,,\"챕터 2 · 고백, 그리고 남사친의 퇴장\",너를 향한 초점 · 현우 21세,21,JIWOO_CH2_EP3,,,\nJIWOO_C3_EP1,scene,ROUTE,JIWOO,,챕터 3 · 미래의 벽과 서로의 등대,졸업이라는 이름의 프레임 · 현우 22세,22,JIWOO_CH3_EP1,,,\nJIWOO_C3_EP2,scene,ROUTE,JIWOO,,챕터 3 · 미래의 벽과 서로의 등대,사진에 담긴 진짜 얼굴 · 현우 22세,22,JIWOO_CH3_EP2,,,\nJIWOO_C3_EP3,scene,ROUTE,JIWOO,,챕터 3 · 미래의 벽과 서로의 등대,우리 사이의 거리 · 현우 22세,22,JIWOO_CH3_EP3,,,\nJIWOO_C4_EP1,scene,ROUTE,JIWOO,,챕터 4 · 두 갈래의 미래와 흔들리는 초점,흔들거리는 앵글 · 현우 23세,23,JIWOO_CH4_EP1,,,\nJIWOO_C4_EP2,scene,ROUTE,JIWOO,,챕터 4 · 두 갈래의 미래와 흔들리는 초점,담고 싶은 것과 외면한 것 · 현우 23세,23,JIWOO_CH4_EP2,,,\nJIWOO_C4_EP3,scene,ROUTE,JIWOO,,챕터 4 · 두 갈래의 미래와 흔들리는 초점,다음 장을 넘기기 전에 · 현우 23세,23,JIWOO_CH4_EP3,,,\nJIWOO_C5_EP1,scene,ROUTE,JIWOO,,챕터 5 · 각자의 계절을 지나,각자의 자리에서 · 현우 24세,24,JIWOO_CH5_EP1,,,\nJIWOO_C5_EP2,scene,ROUTE,JIWOO,,챕터 5 · 각자의 계절을 지나,서로에게 남겨진 시간 · 현우 24세,24,JIWOO_CH5_EP2,,,\nJIWOO_C5_EP3,scene,ROUTE,JIWOO,,챕터 5 · 각자의 계절을 지나,같은 풍경을 바라보는 법 · 현우 24세,24,JIWOO_CH5_EP3,,,\nJIWOO_C6_EP1,scene,ROUTE,JIWOO,,챕터 6 · 결말을 향해 흐르는 시간,계절에 피어난 마음 · 현우 25세,25,JIWOO_CH6_EP1,,,\nJIWOO_C6_EP2,scene,ROUTE,JIWOO,,챕터 6 · 결말을 향해 흐르는 시간,카메라가 기억하는 너 · 현우 25세,25,JIWOO_CH6_EP2,,,\nJIWOO_C6_EP3,scene,ROUTE,JIWOO,,챕터 6 · 결말을 향해 흐르는 시간,아직 끝나지 않은 기록 · 현우 25세,25,JIWOO_CH6_EP3,,,\nJIWOO_C7_EP1,scene,ROUTE,JIWOO,,챕터 7 · 마지막 셔터,마지막 셔터를 누르기 전에 · 현우 26세,26,JIWOO_CH7_EP1,,,\nJIWOO_C7_EP2,scene,ROUTE,JIWOO,,챕터 7 · 마지막 셔터,\"네가 바라본 나, 내가 바라본 너 · 현우 26세\",26,JIWOO_CH7_EP2,,,\nJIWOO_C7_EP3,scene,ROUTE,JIWOO,,챕터 7 · 마지막 셔터,우리의 사진은 계속된다 · 현우 26세,26,JIWOO_CH7_EP3,,,\nJIWOO_C7_EP4,scene,ROUTE,JIWOO,,챕터 7 · 마지막 셔터,선택의 갈림길 · 현우 26세,26,JIWOO_CH7_EP4,,,\nJIWOO_PICK,choice,ROUTE,JIWOO,,선택의 순간,,,,,,\nJIWOO_END,scene,ROUTE,JIWOO,,강지우 엔딩 · 그곳으로 찾으러 와줘,엔딩 공통 사건,,JIWOO_END,,,\nJIWOO_END_ROUTE,check,ROUTE,JIWOO,,강지우 엔딩 분기,,,,JIWOO_PICK 에서 고른 번호(jiwoo_pick)로 엔딩이 갈립니다: 1 해피 · 2 새드 · 3 배드 · 4 히든·진,,\nJIWOO_H_EPI,epilogue,ENDING,JIWOO,happy,해피 엔딩 에필로그,우리의 가장 따뜻한 계절,,JIWOO_H_EPI,,,\nJIWOO_S_EPI,epilogue,ENDING,JIWOO,sad,새드 엔딩 에필로그,우정이라는 이름의 거짓말,,JIWOO_S_EPI,,,\nJIWOO_B_EPI,epilogue,ENDING,JIWOO,bad,배드 엔딩 에필로그,가장 오래된 친구라는 타이틀,,JIWOO_B_EPI,,,\nJIWOO_T_EPI,epilogue,ENDING,JIWOO,true,히든·진 엔딩 에필로그,,,JIWOO_T_EPI,,,\n",
+ "edges": "from_id,to_id,label,condition,kind,note,set\nSTART,PROLOGUE_EP1,,,next,,\nPROLOGUE_EP1,PROLOGUE_EP2,,,next,,\nPROLOGUE_EP2,PROLOGUE_EP3,,,next,,\nPROLOGUE_EP3,PROLOGUE_EP4,,,next,,\nPROLOGUE_EP4,PROLOGUE_EP5,,,next,,\nPROLOGUE_EP5,PROLOGUE_EP6,,,next,,\nPROLOGUE_EP6,FIRST_ROUTE,,,next,,\nFIRST_ROUTE,CH1_EP1,초회 플레이,!sub_unlocked,next,,\nFIRST_ROUTE,REPLAY_CHOICE,2회차 이후,sub_unlocked,next,,\nREPLAY_CHOICE,CH1_EP1,메인 히로인 루트,,next,,\nREPLAY_CHOICE,SUBPROLOGUE_EP1,서브 히로인 루트,,next,,\nREPLAY_CHOICE,TITLE,타이틀로,,next,엔딩·에필로그 이후 타이틀 복귀,\nREPLAY_CHOICE,EXIT,종료,,next,,\nCH1_EP1,CH1_EP2,,,next,,\nCH1_EP2,CH1_EP3,,,next,,\nCH1_EP3,CH1_EP4,,,next,,\nCH1_EP4,CH1_EP5,,,next,,\nCH1_EP5,CH1_EP6,,,next,,\nCH1_EP6,CH2_EP1,,,next,,\nCH2_EP1,CH2_EP2,,,next,,\nCH2_EP2,CH2_EP3,,,next,,\nCH2_EP3,CH2_EP4,,,next,,\nCH2_EP4,CH2_EP5,,,next,,\nCH2_EP5,CH2_EP6,,,next,,\nCH2_EP6,CH3_EP1,,,next,,\nCH3_EP1,CH3_EP2,,,next,,\nCH3_EP2,CH3_EP3,,,next,,\nCH3_EP3,CH3_EP4,,,next,,\nCH3_EP4,CH3_EP5,,,next,,\nCH3_EP5,CH3_EP6,,,next,,\nCH3_EP6,CH4_EP1,,,next,,\nCH4_EP1,CH4_EP2,,,next,,\nCH4_EP2,CH4_EP3,,,next,,\nCH4_EP3,CH4_EP4,,,next,,\nCH4_EP4,CH4_EP5,,,next,,\nCH4_EP5,CH4_EP6,,,next,,\nCH4_EP6,CH5_EP1,,,next,,\nCH5_EP1,CH5_EP2,,,next,,\nCH5_EP2,CH5_EP3,,,next,,\nCH5_EP3,CH5_EP4,,,next,,\nCH5_EP4,CH5_EP5,,,next,,\nCH5_EP5,CH5_EP6,,,next,,\nCH5_EP6,RELATION_CHECK,,,next,,\nRELATION_CHECK,COMMON_BAD,회피 선택 누적 · 관계 방치,avoid>=3,next,,\nRELATION_CHECK,MAIN_PICK,메인 루트 진행 조건 충족,avoid<3,next,,\nCOMMON_BAD,CB21,,,next,,\nCB21,CB_REL,,,next,,\nCB_REL,CB_BREAK,,,next,,\nCB_BREAK,CB26,,,next,,\nCB26,CB_END,,,next,,\nMAIN_PICK,JIWOO,강지우 루트,,next,,\nMAIN_PICK,ARIN,윤아린 루트,,next,,\nMAIN_PICK,YUNA,최유나 루트,,next,,\nMAIN_PICK,SERA,이세라 루트,,next,,\nMAIN_PICK,SEOYUN,한서윤 루트,,next,,\nMAIN_PICK,HARIN,서하린 루트,,next,,\nARIN,ARIN_H,,,next,,\nARIN_H,COMMON_EPILOGUE,,,next,,\nARIN,ARIN_S,,,next,,\nARIN_S,COMMON_EPILOGUE,,,next,,\nARIN,ARIN_B,,,next,,\nARIN_B,COMMON_EPILOGUE,,,next,,\nARIN,ARIN_T,,,next,,\nARIN_T,COMMON_EPILOGUE,,,next,,\nYUNA,YUNA_H,,,next,,\nYUNA_H,COMMON_EPILOGUE,,,next,,\nYUNA,YUNA_S,,,next,,\nYUNA_S,COMMON_EPILOGUE,,,next,,\nYUNA,YUNA_B,,,next,,\nYUNA_B,COMMON_EPILOGUE,,,next,,\nYUNA,YUNA_T,,,next,,\nYUNA_T,COMMON_EPILOGUE,,,next,,\nSERA,SERA_H,,,next,,\nSERA_H,COMMON_EPILOGUE,,,next,,\nSERA,SERA_S,,,next,,\nSERA_S,COMMON_EPILOGUE,,,next,,\nSERA,SERA_B,,,next,,\nSERA_B,COMMON_EPILOGUE,,,next,,\nSERA,SERA_T,,,next,,\nSERA_T,COMMON_EPILOGUE,,,next,,\nSEOYUN,SEOYUN_H,,,next,,\nSEOYUN_H,COMMON_EPILOGUE,,,next,,\nSEOYUN,SEOYUN_S,,,next,,\nSEOYUN_S,COMMON_EPILOGUE,,,next,,\nSEOYUN,SEOYUN_B,,,next,,\nSEOYUN_B,COMMON_EPILOGUE,,,next,,\nSEOYUN,SEOYUN_T,,,next,,\nSEOYUN_T,COMMON_EPILOGUE,,,next,,\nHARIN,HARIN_H,,,next,,\nHARIN_H,COMMON_EPILOGUE,,,next,,\nHARIN,HARIN_S,,,next,,\nHARIN_S,COMMON_EPILOGUE,,,next,,\nHARIN,HARIN_B,,,next,,\nHARIN_B,COMMON_EPILOGUE,,,next,,\nHARIN,HARIN_T,,,next,,\nHARIN_T,COMMON_EPILOGUE,,,next,,\nSI,SI_H,,,next,,\nSI_H,SI_DONE,,,next,,\nSI,SI_S,,,next,,\nSI_S,SI_DONE,,,next,,\nSI,SI_B,,,next,,\nSI_B,SI_DONE,,,next,,\nSI,SI_T,,,next,,\nSI_T,SI_DONE,,,next,,\nCH,CH_H,,,next,,\nCH_H,CH_DONE,,,next,,\nCH,CH_S,,,next,,\nCH_S,CH_DONE,,,next,,\nCH,CH_B,,,next,,\nCH_B,CH_DONE,,,next,,\nCH,CH_T,,,next,,\nCH_T,CH_DONE,,,next,,\nSI_DONE,COMMON_EPILOGUE,,,next,,\nCH_DONE,COMMON_EPILOGUE,,,next,,\nCOMMON_EPILOGUE,CLEAR_CHECK,,,next,,\nCLEAR_CHECK,SUB_UNLOCK,최초 클리어,!sub_unlocked,next,,\nCLEAR_CHECK,REPLAY_CHOICE,이미 해금됨,sub_unlocked,next,,\nSUB_UNLOCK,REPLAY,,,next,,\nREPLAY,REPLAY_CHOICE,,,next,,\nSUBPROLOGUE_EP1,SUBPROLOGUE_EP2,,,next,,\nSUBPROLOGUE_EP2,SUBPROLOGUE_EP3,,,next,,\nSUBPROLOGUE_EP3,CH6_EP1,,,next,,\nCH6_EP1,CH6_EP2,,,next,,\nCH6_EP2,CH6_EP3,,,next,,\nCH6_EP3,CH7_EP1,,,next,,\nCH7_EP1,CH7_EP2,,,next,,\nCH7_EP2,CH7_EP3,,,next,,\nCH7_EP3,CH8_EP1,,,next,,\nCH8_EP1,CH8_EP2,,,next,,\nCH8_EP2,CH8_EP3,,,next,,\nCH8_EP3,SUB_PICK,,,next,,\nSUB_PICK,SI_START,백시은과 함께 카페에 남는다.,,next,,\nSUB_PICK,CH_START,강채아와 함께 작업실로 향한다.,,next,,\nSI_START,SI,,,next,,\nCH_START,CH,,,next,,\nJIWOO_DLC,TITLE,타이틀로,,next,,\nARIN_DLC,TITLE,타이틀로,,next,,\nYUNA_DLC,TITLE,타이틀로,,next,,\nSERA_DLC,TITLE,타이틀로,,next,,\nSEOYUN_DLC,TITLE,타이틀로,,next,,\nHARIN_DLC,TITLE,타이틀로,,next,,\nSI_DLC,TITLE,타이틀로,,next,,\nCH_DLC,TITLE,타이틀로,,next,,\nJIWOO_C1_EP1,JIWOO_C1_EP2,,,next,,\nJIWOO_C1_EP2,JIWOO_C1_EP3,,,next,,\nJIWOO_C1_EP3,JIWOO_FB1_EP1,,,next,,\nJIWOO_FB1_EP1,JIWOO_FB1_EP2,,,next,,\nJIWOO_FB1_EP2,JIWOO_FB1_EP3,,,next,,\nJIWOO_FB1_EP3,JIWOO_FB2_EP1,,,next,,\nJIWOO_FB2_EP1,JIWOO_FB2_EP2,,,next,,\nJIWOO_FB2_EP2,JIWOO_FB2_EP3,,,next,,\nJIWOO_FB2_EP3,JIWOO_FB3_EP1,,,next,,\nJIWOO_FB3_EP1,JIWOO_FB3_EP2,,,next,,\nJIWOO_FB3_EP2,JIWOO_FB3_EP3,,,next,,\nJIWOO_FB3_EP3,JIWOO_FB4_EP1,,,next,,\nJIWOO_FB4_EP1,JIWOO_FB4_EP2,,,next,,\nJIWOO_FB4_EP2,JIWOO_FB4_EP3,,,next,,\nJIWOO_FB4_EP3,JIWOO_C2_EP1,,,next,,\nJIWOO_C2_EP1,JIWOO_C2_EP2,,,next,,\nJIWOO_C2_EP2,JIWOO_C2_EP3,,,next,,\nJIWOO_C2_EP3,JIWOO_C3_EP1,,,next,,\nJIWOO_C3_EP1,JIWOO_C3_EP2,,,next,,\nJIWOO_C3_EP2,JIWOO_C3_EP3,,,next,,\nJIWOO_C3_EP3,JIWOO_C4_EP1,,,next,,\nJIWOO_C4_EP1,JIWOO_C4_EP2,,,next,,\nJIWOO_C4_EP2,JIWOO_C4_EP3,,,next,,\nJIWOO_C4_EP3,JIWOO_C5_EP1,,,next,,\nJIWOO_C5_EP1,JIWOO_C5_EP2,,,next,,\nJIWOO_C5_EP2,JIWOO_C5_EP3,,,next,,\nJIWOO_C5_EP3,JIWOO_C6_EP1,,,next,,\nJIWOO_C6_EP1,JIWOO_C6_EP2,,,next,,\nJIWOO_C6_EP2,JIWOO_C6_EP3,,,next,,\nJIWOO_C6_EP3,JIWOO_C7_EP1,,,next,,\nJIWOO_C7_EP1,JIWOO_C7_EP2,,,next,,\nJIWOO_C7_EP2,JIWOO_C7_EP3,,,next,,\nJIWOO_C7_EP3,JIWOO_C7_EP4,,,next,,\nJIWOO_C7_EP4,JIWOO_PICK,,,next,,\nJIWOO,JIWOO_C1_EP1,,,next,,\nJIWOO_PICK,JIWOO_END,내 이야기는 내가 결정한다.,,next,,jiwoo_pick=1\nJIWOO_PICK,JIWOO_END,이제는 모든 것을 내려놓고 싶다.,,next,,jiwoo_pick=2\nJIWOO_PICK,JIWOO_END,그들의 제안을 받아들인다.,,next,,jiwoo_pick=3\nJIWOO_PICK,JIWOO_END,두 사람의 계획을 끝까지 파헤친다.,,next,,jiwoo_pick=4\nJIWOO_END,JIWOO_END_ROUTE,,,next,,\nJIWOO_END_ROUTE,JIWOO_H,,jiwoo_pick==1,next,,\nJIWOO_END_ROUTE,JIWOO_S,,jiwoo_pick==2,next,,\nJIWOO_END_ROUTE,JIWOO_B,,jiwoo_pick==3,next,,\nJIWOO_END_ROUTE,JIWOO_T,,jiwoo_pick==4,next,,\nJIWOO_H,JIWOO_H_EPI,,,next,,\nJIWOO_H_EPI,COMMON_EPILOGUE,,,next,,\nJIWOO_S,JIWOO_S_EPI,,,next,,\nJIWOO_S_EPI,COMMON_EPILOGUE,,,next,,\nJIWOO_B,JIWOO_B_EPI,,,next,,\nJIWOO_B_EPI,COMMON_EPILOGUE,,,next,,\nJIWOO_T,JIWOO_T_EPI,,,next,,\nJIWOO_T_EPI,COMMON_EPILOGUE,,,next,,\n",
  "scripts": "script_id,line_no,speaker,text,bg,char,cg,set\nPROLOGUE,1,,(형식 예시) speaker가 비어 있으면 지문으로 표시됩니다.,,,,\nPROLOGUE,2,이현우,(형식 예시) bg·char·cg는 비워 두면 이전 상태를 유지합니다. char·cg에 - 를 넣으면 숨깁니다.,,,,\nPROLOGUE,3,,(형식 예시) set 칸에는 변수 변경식을 넣습니다. 예: vd=2.5; avoid+=1,,,,\nPROLOGUE,4,,(예시 끝) 이 네 줄을 지우고 실제 대본으로 교체하세요.,,,,\n",
  "routes": "route_id,name_kr,kind,accent,char_file,vd_init,note\nJIWOO,강지우,main,#c99a5b,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조\nARIN,윤아린,main,#e0a9b4,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조\nYUNA,최유나,main,#aab4d0,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조\nSERA,이세라,main,#8a6fc2,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조\nSEOYUN,한서윤,main,#c25b5b,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조\nHARIN,서하린,main,#7f93a8,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조\nSI,백시은,sub,#8fbf9f,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조\nCH,강채아,sub,#e58b6a,,,char_file: chars 폴더 파일명 / vd_init: 비워두면 VD 미표시 / accent: 배경 색조\n",
  "cg": "cg_id,title,route,file,note\n",
- "assets": "node_id,bg,char,bgm,cg,set\nprologue_ep1_0001,bg_cherry_road.webp,,bgm_prologue_daily.mp3,,\nprologue_ep1_0009,bg_lecture_hall.webp,,bgm_prologue_daily.mp3,,\nprologue_ep2_0001,bg_lecture_hall.webp,,bgm_prologue_daily.mp3,,\nprologue_ep3_0001,bg_lecture_hall.webp,,bgm_prologue_daily.mp3,,\nprologue_ep4_0001,bg_club_room.webp,,bgm_club.mp3,,\nprologue_ep4_0023,bg_cafe.webp,,bgm_cafe.mp3,,\nprologue_ep4_0051,bg_club_room.webp,,bgm_club.mp3,,\nprologue_ep5_0001,bg_club_room.webp,,bgm_reunion.mp3,,\nprologue_ep6_0001,bg_club_room.webp,,bgm_club.mp3,,\nprologue_ep6_0012,bg_cafe.webp,,bgm_cafe.mp3,,\nprologue_ep6_0023,bg_club_room.webp,,bgm_club.mp3,,\nprologue_ep6_0046,bg_street_dusk.webp,,bgm_prologue_daily.mp3,,\nprologue_ep6_0062,bg_club_room.webp,,bgm_club.mp3,,\nch1_ep1_0001,bg_club_room.webp,,bgm_club.mp3,,\nch1_ep2_0001,bg_club_room.webp,,bgm_club.mp3,,\nch1_ep2_0022,bg_noticeboard.webp,,bgm_prologue_daily.mp3,,\nch1_ep3_0001,bg_noticeboard.webp,,theme_jiwoo.mp3,,\nch1_ep3_0040,bg_hall_wood.webp,,theme_jiwoo.mp3,,\nch1_ep4_0001,bg_club_room.webp,,bgm_club.mp3,,\nch1_ep4_0033,bg_street_dusk.webp,,bgm_prologue_daily.mp3,,\nch1_ep5_0001,bg_club_room.webp,,bgm_club.mp3,,\nch1_ep6_0001,bg_club_room.webp,,bgm_club.mp3,,\nch1_ep6_0030,bg_campus_path.webp,,bgm_prologue_daily.mp3,,\nch1_ep6_0040,bg_cafe.webp,,bgm_cafe.mp3,,\nch2_ep1_0001,bg_club_room.webp,,bgm_club.mp3,,\nch2_ep1_0051,bg_cafe.webp,,bgm_cafe.mp3,,\nch2_ep1_0077,bg_club_room.webp,,bgm_club.mp3,,\nch2_ep1_0093,bg_cafe.webp,,bgm_cafe.mp3,,\nch2_ep2_0001,bg_lecture_hall.webp,,bgm_prologue_daily.mp3,,\nch2_ep2_0080,bg_hall_wood.webp,,bgm_prologue_daily.mp3,,\nch2_ep3_0001,bg_hall_wood.webp,,bgm_prologue_daily.mp3,,\nch2_ep3_0011,bg_lecture_hall.webp,,bgm_prologue_daily.mp3,,\nch2_ep3_0025,bg_cherry_road.webp,,bgm_prologue_daily.mp3,,\nch2_ep3_0042,bg_campus_path.webp,,bgm_prologue_daily.mp3,,\nch2_ep3_0083,bg_cherry_road.webp,,bgm_prologue_daily.mp3,,\nch2_ep3_0122,bg_campus_path.webp,,bgm_prologue_daily.mp3,,\nch2_ep4_0001,bg_room.webp,,bgm_prologue_daily.mp3,,\nch2_ep4_0044,bg_campus_path.webp,,bgm_prologue_daily.mp3,,\nch2_ep4_0057,bg_cherry_road.webp,,bgm_prologue_daily.mp3,,\nch2_ep5_0001,bg_cherry_road.webp,,bgm_reunion.mp3,,\nch2_ep5_0018,bg_campus_path.webp,,bgm_reunion.mp3,,\nch2_ep6_0001,bg_campus_path.webp,,bgm_reunion.mp3,,\nch2_ep6_0035,bg_lecture_hall.webp,,bgm_reunion.mp3,,\nch2_ep6_0045,bg_campus_path.webp,,bgm_reunion.mp3,,\nch3_ep1_0001,bg_cherry_road.webp,,bgm_prologue_daily.mp3,,\nch3_ep1_0035,bg_lecture_hall.webp,,bgm_prologue_daily.mp3,,\nch3_ep1_0043,bg_hall_wood.webp,,bgm_prologue_daily.mp3,,\nch3_ep1_0089,bg_street_dusk.webp,,bgm_prologue_daily.mp3,,\nch3_ep1_0097,bg_hall_wood.webp,,bgm_prologue_daily.mp3,,\nch3_ep1_0124,bg_campus_path.webp,,bgm_prologue_daily.mp3,,\nch3_ep1_0133,bg_street_dusk.webp,,bgm_prologue_daily.mp3,,\nch3_ep1_0142,bg_cherry_road.webp,,bgm_prologue_daily.mp3,,\nch3_ep2_0001,bg_lecture_hall.webp,,theme_arin.mp3,,\nch3_ep2_0010,bg_hall_wood.webp,,theme_arin.mp3,,\nch3_ep3_0001,bg_lecture_hall.webp,,bgm_prologue_daily.mp3,,\nch3_ep3_0018,bg_hall_wood.webp,,bgm_prologue_daily.mp3,,\nch3_ep4_0001,bg_lecture_hall.webp,,bgm_prologue_daily.mp3,,\nch3_ep4_0042,bg_garden.webp,,bgm_prologue_daily.mp3,,\nch3_ep5_0001,bg_lecture_hall.webp,,bgm_reunion.mp3,,\nch3_ep5_0018,bg_campus_path.webp,,bgm_reunion.mp3,,\nch3_ep6_0001,bg_campus_path.webp,,bgm_reunion.mp3,,\nch3_ep6_0045,bg_garden.webp,,bgm_reunion.mp3,,\nch3_ep6_0245,bg_street_dusk.webp,,bgm_reunion.mp3,,\nch3_ep6_0330,bg_hall_wood.webp,,bgm_reunion.mp3,,\nch3_ep6_0340,bg_campus_path.webp,,bgm_reunion.mp3,,\nch4_ep1_0001,bg_campus_path.webp,,bgm_prologue_daily.mp3,,\nch4_ep1_0012,bg_cafe.webp,,bgm_cafe.mp3,,\nch4_ep1_0041,bg_campus_path.webp,,bgm_prologue_daily.mp3,,\nch4_ep1_0088,bg_garden.webp,,bgm_prologue_daily.mp3,,\nch4_ep2_0001,bg_garden.webp,,bgm_prologue_daily.mp3,,\nch4_ep3_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch4_ep4_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch4_ep5_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch4_ep6_0001,bg_lecture_hall.webp,,bgm_prologue_daily.mp3,,\nch4_ep6_0011,bg_club_room.webp,,bgm_club.mp3,,\nch4_ep6_0020,bg_cherry_road.webp,,bgm_prologue_daily.mp3,,\nch4_ep6_0037,bg_club_room.webp,,bgm_club.mp3,,\nch4_ep6_0084,bg_cherry_road.webp,,bgm_prologue_daily.mp3,,\nch4_ep6_0105,bg_room.webp,,bgm_prologue_daily.mp3,,\nch5_ep1_0001,bg_cherry_road.webp,,bgm_prologue_daily.mp3,,\nch5_ep2_0001,bg_cherry_road.webp,,theme_jiwoo.mp3,,\nch5_ep3_0001,bg_cherry_road.webp,,theme_yuna.mp3,,\nch5_ep4_0001,bg_cherry_road.webp,,theme_arin.mp3,,\nch5_ep5_0001,bg_cherry_road.webp,,bgm_prologue_daily.mp3,,\nch5_ep5_0040,bg_cafe.webp,,bgm_cafe.mp3,,\nch5_ep5_0055,bg_cherry_road.webp,,bgm_prologue_daily.mp3,,\nch5_ep6_0001,bg_cherry_road.webp,,bgm_reunion.mp3,,\nsubprologue_ep1_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nsubprologue_ep2_0001,bg_campus_path.webp,,bgm_reunion.mp3,,\nsubprologue_ep3_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch6_ep1_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch6_ep1_0037,bg_cherry_road.webp,,bgm_cafe.mp3,,\nch6_ep1_0048,bg_campus_path.webp,,bgm_cafe.mp3,,\nch6_ep1_0064,bg_cafe.webp,,bgm_cafe.mp3,,\nch6_ep2_0001,bg_lecture_hall.webp,,bgm_cafe.mp3,,\nch6_ep2_0012,bg_campus_path.webp,,bgm_cafe.mp3,,\nch6_ep2_0047,bg_cafe.webp,,bgm_cafe.mp3,,\nch6_ep3_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch7_ep1_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch7_ep2_0001,bg_room.webp,,bgm_cafe.mp3,,\nch7_ep2_0021,bg_cafe.webp,,bgm_cafe.mp3,,\nch7_ep3_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch8_ep1_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch8_ep2_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch8_ep3_0001,bg_cafe.webp,,bgm_reunion.mp3,,\nch8_ep3_0026,bg_street_dusk.webp,,bgm_reunion.mp3,,\nch8_ep3_0039,bg_cafe.webp,,bgm_reunion.mp3,,\nch8_ep3_A_0001,bg_cafe.webp,,bgm_reunion.mp3,,\nch8_ep3_B_0001,bg_cafe.webp,,bgm_reunion.mp3,,\njiwoo_ch1_ep1_0001,bg_campus_path.webp,,theme_jiwoo.mp3,,\njiwoo_ch1_ep2_0001,bg_garden.webp,,bgm_sunflower.mp3,,\njiwoo_ch1_ep3_0001,bg_club_room.webp,,bgm_club.mp3,,\njiwoo_ch1_ep3_0019,bg_campus_path.webp,,theme_jiwoo.mp3,,\njiwoo_ch1_ep3_0132,bg_street_dusk.webp,,,,\njiwoo_ch2_ep1_0001,bg_campus_path.webp,,theme_jiwoo.mp3,,\njiwoo_ch2_ep1_0030,bg_cafe.webp,,,,\njiwoo_ch2_ep1_0076,bg_club_room.webp,,bgm_club.mp3,,\njiwoo_ch2_ep1_0136,bg_street_dusk.webp,,theme_jiwoo.mp3,,\njiwoo_ch2_ep2_0001,bg_campus_path.webp,,theme_jiwoo.mp3,,\njiwoo_ch2_ep2_0036,bg_campus_path.webp,,,,\njiwoo_ch2_ep2_0088,bg_street_dusk.webp,,,,\njiwoo_ch2_ep3_0001,bg_campus_path.webp,,theme_jiwoo.mp3,,\njiwoo_ch2_ep3_0020,bg_club_room.webp,,bgm_club.mp3,,\njiwoo_ch2_ep3_0049,bg_street_dusk.webp,,theme_jiwoo.mp3,,\njiwoo_ch2_ep3_0096,,,bgm_street_evening.mp3,,\njiwoo_ch3_ep1_0001,bg_campus_path.webp,,theme_jiwoo.mp3,,\njiwoo_ch3_ep1_0027,bg_club_room.webp,,bgm_club.mp3,,\njiwoo_ch3_ep1_0163,bg_street_dusk.webp,,theme_jiwoo.mp3,,\njiwoo_ch3_ep2_0001,bg_campus_path.webp,,theme_jiwoo.mp3,,\njiwoo_ch3_ep2_0021,bg_campus_path.webp,,bgm_kindergarten.mp3,,\njiwoo_ch3_ep2_0036,bg_hall_wood.webp,,,,\njiwoo_ch3_ep2_0139,bg_campus_path.webp,,,,\njiwoo_ch3_ep2_0160,bg_street_dusk.webp,,theme_jiwoo.mp3,,\njiwoo_ch3_ep3_0001,bg_campus_path.webp,,theme_jiwoo.mp3,,\njiwoo_ch3_ep3_0035,bg_campus_path.webp,,,,\njiwoo_ch3_ep3_0068,bg_campus_plaza.webp,,,,\njiwoo_ch4_ep1_0001,bg_campus_plaza.webp,,theme_jiwoo.mp3,,\njiwoo_ch4_ep1_0017,bg_hall_wood.webp,,bgm_exhibition.mp3,,\njiwoo_ch4_ep2_0001,bg_hall_wood.webp,,bgm_office.mp3,,\njiwoo_ch4_ep2_0085,bg_cafe.webp,,bgm_cafe.mp3,,\njiwoo_ch4_ep3_0001,bg_cafe.webp,,bgm_cafe.mp3,,\njiwoo_ch4_ep3_0119,bg_street_dusk.webp,,theme_jiwoo.mp3,,\njiwoo_ch5_ep1_0001,bg_room.webp,,bgm_studio.mp3,,\njiwoo_ch5_ep1_0037,bg_cafe.webp,,bgm_cafe.mp3,,\njiwoo_ch5_ep1_0180,bg_room.webp,,bgm_studio.mp3,,\njiwoo_ch5_ep2_0001,bg_room.webp,,bgm_studio.mp3,,\njiwoo_ch5_ep2_0014,bg_campus_path.webp,,theme_jiwoo.mp3,,\njiwoo_ch5_ep2_0108,bg_street_dusk.webp,,bgm_street_evening.mp3,,\njiwoo_ch5_ep2_0127,bg_room.webp,,bgm_studio.mp3,,\njiwoo_ch5_ep3_0001,bg_room.webp,,bgm_studio.mp3,,\njiwoo_ch5_ep3_0017,bg_cafe.webp,,bgm_cafe.mp3,,\njiwoo_ch5_ep3_0100,bg_campus_path.webp,,theme_jiwoo.mp3,,\njiwoo_ch5_ep3_0144,bg_street_dusk.webp,,bgm_street_evening.mp3,,\njiwoo_ch5_ep3_0166,bg_room.webp,,bgm_studio.mp3,,\njiwoo_ch6_ep1_0001,bg_room.webp,,bgm_home_warm.mp3,,\njiwoo_ch6_ep1_0019,bg_campus_path.webp,,theme_jiwoo.mp3,,\njiwoo_ch6_ep1_0039,,,bgm_road_coast.mp3,,\njiwoo_ch6_ep1_0132,bg_street_dusk.webp,,,,\njiwoo_ch6_ep2_0001,bg_room.webp,,bgm_home_warm.mp3,,\njiwoo_ch6_ep2_0021,bg_campus_path.webp,,theme_jiwoo.mp3,,\njiwoo_ch6_ep2_0087,bg_room.webp,,bgm_home_warm.mp3,,\njiwoo_ch6_ep3_0001,bg_room.webp,,bgm_studio.mp3,,\njiwoo_ch6_ep3_0028,bg_cafe.webp,,bgm_cafe.mp3,,\njiwoo_ch6_ep3_0164,bg_street_dusk.webp,,bgm_street_evening.mp3,,\njiwoo_ch6_ep3_0230,bg_room.webp,,bgm_studio.mp3,,\njiwoo_ch7_ep1_0001,bg_room.webp,,bgm_studio.mp3,,\njiwoo_ch7_ep1_0035,bg_cafe.webp,,bgm_cafe.mp3,,\njiwoo_ch7_ep1_0092,bg_room.webp,,bgm_reunion.mp3,,\njiwoo_ch7_ep2_0001,bg_room.webp,,bgm_studio.mp3,,\njiwoo_ch7_ep2_0021,bg_hall_wood.webp,,bgm_office.mp3,,\njiwoo_ch7_ep2_0062,bg_campus_plaza.webp,,bgm_reunion.mp3,,\njiwoo_ch7_ep2_0102,bg_campus_path.webp,,,,\njiwoo_ch7_ep2_0158,bg_street_dusk.webp,,,,\njiwoo_ch7_ep2_0199,bg_room.webp,,bgm_studio.mp3,,\njiwoo_ch7_ep3_0001,bg_room.webp,,bgm_studio.mp3,,\njiwoo_ch7_ep3_0051,bg_hall_wood.webp,,bgm_office.mp3,,\njiwoo_ch7_ep3_0119,bg_cafe.webp,,bgm_cafe.mp3,,\njiwoo_ch7_ep3_0202,bg_room.webp,,bgm_studio.mp3,,\njiwoo_ch7_ep4_0001,bg_room.webp,,bgm_studio.mp3,,\njiwoo_ch7_ep4_0039,,,bgm_reunion.mp3,,\njiwoo_end_ep1_0001,bg_room.webp,,bgm_home_warm.mp3,,\njiwoo_end_ep2_0001,bg_cafe.webp,,bgm_cafe.mp3,,\njiwoo_end_ep3_0001,bg_garden.webp,,bgm_sunflower.mp3,,\njiwoo_h_ep1_0001,bg_room.webp,,bgm_wedding.mp3,,\njiwoo_h_ep1_0026,bg_garden.webp,,,,\njiwoo_h_ep2_0001,bg_room.webp,,bgm_wedding.mp3,,\njiwoo_s_ep1_0001,bg_room.webp,,bgm_end_sad.mp3,,\njiwoo_s_ep2_0001,bg_room.webp,,bgm_end_sad.mp3,,\njiwoo_s_ep2_0018,bg_room.webp,,,,\njiwoo_b_ep1_0001,bg_room.webp,,bgm_end_bad.mp3,,\njiwoo_b_ep1_0028,bg_garden.webp,,,,\njiwoo_b_ep2_0001,bg_room.webp,,bgm_end_bad.mp3,,\njiwoo_b_ep2_0015,bg_cafe.webp,,,,\njiwoo_b_ep2_0062,bg_hall_wood.webp,,,,\njiwoo_b_ep2_0082,bg_room.webp,,,,\njiwoo_t_ep1_0001,bg_room.webp,,bgm_end_true.mp3,,\njiwoo_t_ep1_0022,bg_garden.webp,,,,\njiwoo_t_ep2_0001,bg_room.webp,,bgm_end_true.mp3,,\njiwoo_t_ep2_0039,bg_room.webp,,,,\njiwoo_t_ep2_0076,bg_hall_wood.webp,,,,\njiwoo_h_epi_ep1_0001,bg_garden.webp,,bgm_wedding.mp3,,\njiwoo_h_epi_ep1_0020,bg_garden.webp,,,,\njiwoo_h_epi_ep2_0001,bg_garden.webp,,bgm_wedding.mp3,,\njiwoo_s_epi_ep1_0001,bg_room.webp,,bgm_end_sad.mp3,,\njiwoo_s_epi_ep1_0049,bg_room.webp,,,,\njiwoo_s_epi_ep2_0001,bg_garden.webp,,bgm_end_sad.mp3,,\njiwoo_s_epi_ep2_0034,bg_garden.webp,,,,\njiwoo_b_epi_ep1_0001,bg_room.webp,,bgm_end_bad.mp3,,\njiwoo_b_epi_ep2_0001,bg_garden.webp,,bgm_end_bad.mp3,,\njiwoo_t_epi_ep1_0001,bg_room.webp,,bgm_end_true.mp3,,\njiwoo_t_epi_ep1_0029,bg_room.webp,,,,\njiwoo_t_epi_ep2_0001,bg_garden.webp,,bgm_end_true.mp3,,\njiwoo_t_epi_ep2_0014,bg_garden.webp,,,,\njiwoo_dlc_ep1_0001,bg_room.webp,,bgm_home_warm.mp3,,\njiwoo_dlc_ep1_0029,bg_room.webp,,,,\njiwoo_dlc_ep2_0001,bg_room.webp,,bgm_home_warm.mp3,,\njiwoo_dlc_ep2_0014,bg_campus_path.webp,,theme_jiwoo.mp3,,\njiwoo_dlc_ep2_0060,bg_garden.webp,,,,\njiwoo_dlc_ep2_0090,bg_room.webp,,bgm_home_warm.mp3,,\njiwoo_dlc_ep3_0001,bg_room.webp,,bgm_home_warm.mp3,,\njiwoo_dlc_ep3_0012,bg_garden.webp,,bgm_sunflower.mp3,,\njiwoo_dlc_ep3_0098,bg_room.webp,,bgm_home_warm.mp3,,\njiwoo_fb1_ep1_0001,,,bgm_flashback_school.mp3,,\njiwoo_fb1_ep2_0001,,,bgm_flashback_school.mp3,,\njiwoo_fb1_ep3_0001,,,bgm_flashback_school.mp3,,\njiwoo_fb2_ep1_0001,,,bgm_flashback_school.mp3,,\njiwoo_fb2_ep2_0001,,,bgm_flashback_school.mp3,,\njiwoo_fb2_ep3_0001,,,bgm_flashback_school.mp3,,\njiwoo_fb3_ep1_0001,,,bgm_flashback_secret.mp3,,\njiwoo_fb3_ep2_0001,,,bgm_flashback_secret.mp3,,\njiwoo_fb3_ep3_0001,,,bgm_flashback_secret.mp3,,\njiwoo_fb4_ep1_0001,,,bgm_flashback_rooftop.mp3,,\njiwoo_fb4_ep2_0001,,,bgm_flashback_rooftop.mp3,,\njiwoo_fb4_ep3_0001,,,bgm_flashback_rooftop.mp3,,\n",
- "stats": "id,label,group,start,min,max,hidden\nstamina,체력,player,20,0,100,\nstrength,완력,player,10,0,100,\nknowledge,지식,player,20,0,100,\ngrade,성적,player,30,0,100,\ncharm,매력,player,20,0,100,\nfame,인지도,player,10,0,100,\nstress,스트레스,gauge,10,0,100,\nfatigue,피로도,gauge,0,0,100,\naff_jiwoo,강지우 호감도,aff,10,0,100,\naff_arin,윤아린 호감도,aff,0,0,100,\naff_yuna,최유나 호감도,aff,0,0,100,\naff_sera,이세라 호감도,aff,0,0,100,\naff_seoyun,한서윤 호감도,aff,0,0,100,\naff_harin,서하린 호감도,aff,0,0,100,\nh_trust,서하린 신용,hidden,0,0,100,1\nh_alert,서하린 경계,hidden,40,0,100,1\n",
- "actions": "kind,id,label,desc,ap,effects,needs\naction,exercise,운동,체력·완력이 오른다,1,stamina+4;strength+3;fatigue+10,\naction,study,공부,지식·성적이 오른다,1,knowledge+4;grade+3;fatigue+8;stress+3,\naction,beauty,외모 관리,매력·인지도가 오른다,1,charm+4;fame+3;fatigue+5;stress+1,\naction,date,데이트,선택한 히로인의 호감도가 크게 오른다,2,stress+4;fatigue+10,heroine\naction,rest,휴식,스트레스·피로도를 크게 줄인다,1,stress-20;fatigue-25,\nplace,cafe,카페,조용히 대화하기 좋은 곳,,,\nplace,library,도서관,함께 공부하는 곳,,,\nplace,park,공원 산책,천천히 걷는 곳,,,\nplace,cinema,영화관,같은 영화를 보는 곳,,,\nplace,gym,운동장,몸을 움직이는 곳,,,\n",
- "heroines": "id,name,aff_var,difficulty,mult,variance,decay,crash_stress,fixed_gain,trust_var,trust_gain,alert_var,alert_gain,alert_decay,likes,talk_need,unlock,lock_text\njiwoo,강지우,aff_jiwoo,이지,1.2,0,0,0,0,,0,,0,0,park:1.3;cafe:1.1;gym:0.9,,aff_jiwoo>=20,호감도 20 이상\narin,윤아린,aff_arin,노말,1.0,0,0,0,0,,0,,0,0,library:1.4;cafe:1.1;gym:0.7,,aff_arin>=30 && knowledge>=30,호감도 30 · 지식 30 이상\nyuna,최유나,aff_yuna,노말,1.0,0,0,0,0,,0,,0,0,cinema:1.3;park:1.1;library:0.7,,aff_yuna>=30,호감도 30 이상\nsera,이세라,aff_sera,하드,0.8,0,4,0,0,,0,,0,0,cafe:1.2;cinema:1.1;gym:0.7,knowledge>=40 || charm>=40,aff_sera>=35 && (knowledge>=40 || charm>=40) && stress<70,호감도 35 · (지식 또는 매력 40) · 스트레스 70 미만\nseoyun,한서윤,aff_seoyun,익스트림,0.6,0.8,0,60,0,,0,,0,0,library:1.3;park:1.2;cinema:0.6,,aff_seoyun>=30 && knowledge>=35 && stress<60,호감도 30 · 지식 35 · 스트레스 60 미만\nharin,서하린,aff_harin,헬,1.0,0,0,0,6,h_trust,10,h_alert,2,5,park:1.2;cinema:1.0;gym:1.1,,aff_harin>=25 && h_trust>=30 && h_alert<=55 && strength>=25 && stress<60,숨겨진 조건 다수\n",
- "freetime": "node_id,ap,title,subtitle\nFT_1,6,자유시간 1,챕터 1 → 2 사이\nFT_2,6,자유시간 2,챕터 2 → 3 사이\nFT_3,6,자유시간 3,챕터 3 → 4 사이\nFT_4,6,자유시간 4,챕터 4 → 5 사이\nFT_QUICK,24,자유시간 일괄,공통 루트를 건너뛴 경우 · 행동력을 한 번에 배분\n"
+ "assets": "node_id,bg,char,bgm,cg,set\nprologue_ep1_0001,bg_cherry_road.webp,,bgm_prologue_daily.mp3,,\nprologue_ep1_0009,bg_lecture_hall.webp,,,,\nprologue_ep2_0001,bg_lecture_hall.webp,,bgm_prologue_daily.mp3,,\nprologue_ep3_0001,bg_lecture_hall.webp,,bgm_prologue_daily.mp3,,\nprologue_ep4_0001,bg_club_room.webp,,bgm_prologue_daily.mp3,,\nprologue_ep4_0023,bg_cafe.webp,,,,\nprologue_ep4_0051,bg_club_room.webp,,,,\nprologue_ep5_0001,bg_club_room.webp,,bgm_reunion.mp3,,\nprologue_ep6_0001,bg_club_room.webp,,bgm_prologue_daily.mp3,,\nprologue_ep6_0012,bg_cafe.webp,,,,\nprologue_ep6_0023,bg_club_room.webp,,,,\nprologue_ep6_0046,bg_street_dusk.webp,,,,\nprologue_ep6_0062,bg_club_room.webp,,,,\nch1_ep1_0001,bg_club_room.webp,,bgm_prologue_daily.mp3,,\nch1_ep2_0001,bg_club_room.webp,,bgm_prologue_daily.mp3,,\nch1_ep2_0022,bg_noticeboard.webp,,,,\nch1_ep3_0001,bg_noticeboard.webp,,bgm_prologue_daily.mp3,,\nch1_ep3_0040,bg_hall_wood.webp,,,,\nch1_ep4_0001,bg_club_room.webp,,bgm_prologue_daily.mp3,,\nch1_ep4_0033,bg_street_dusk.webp,,,,\nch1_ep5_0001,bg_club_room.webp,,bgm_prologue_daily.mp3,,\nch1_ep6_0001,bg_club_room.webp,,bgm_prologue_daily.mp3,,\nch1_ep6_0030,bg_campus_path.webp,,,,\nch1_ep6_0040,bg_cafe.webp,,,,\nch2_ep1_0001,bg_club_room.webp,,bgm_prologue_daily.mp3,,\nch2_ep1_0051,bg_cafe.webp,,,,\nch2_ep1_0077,bg_club_room.webp,,,,\nch2_ep1_0093,bg_cafe.webp,,,,\nch2_ep2_0001,bg_lecture_hall.webp,,bgm_prologue_daily.mp3,,\nch2_ep2_0080,bg_hall_wood.webp,,,,\nch2_ep3_0001,bg_hall_wood.webp,,bgm_prologue_daily.mp3,,\nch2_ep3_0011,bg_lecture_hall.webp,,,,\nch2_ep3_0025,bg_cherry_road.webp,,,,\nch2_ep3_0042,bg_campus_path.webp,,,,\nch2_ep3_0083,bg_cherry_road.webp,,,,\nch2_ep3_0122,bg_campus_path.webp,,,,\nch2_ep4_0001,bg_room.webp,,bgm_prologue_daily.mp3,,\nch2_ep4_0044,bg_campus_path.webp,,,,\nch2_ep4_0057,bg_cherry_road.webp,,,,\nch2_ep5_0001,bg_cherry_road.webp,,bgm_reunion.mp3,,\nch2_ep5_0018,bg_campus_path.webp,,,,\nch2_ep6_0001,bg_campus_path.webp,,bgm_reunion.mp3,,\nch2_ep6_0035,bg_lecture_hall.webp,,,,\nch2_ep6_0045,bg_campus_path.webp,,,,\nch3_ep1_0001,bg_cherry_road.webp,,bgm_prologue_daily.mp3,,\nch3_ep1_0035,bg_lecture_hall.webp,,,,\nch3_ep1_0043,bg_hall_wood.webp,,,,\nch3_ep1_0089,bg_street_dusk.webp,,,,\nch3_ep1_0097,bg_hall_wood.webp,,,,\nch3_ep1_0124,bg_campus_path.webp,,,,\nch3_ep1_0133,bg_street_dusk.webp,,,,\nch3_ep1_0142,bg_cherry_road.webp,,,,\nch3_ep2_0001,bg_lecture_hall.webp,,bgm_prologue_daily.mp3,,\nch3_ep2_0010,bg_hall_wood.webp,,,,\nch3_ep3_0001,bg_lecture_hall.webp,,bgm_prologue_daily.mp3,,\nch3_ep3_0018,bg_hall_wood.webp,,,,\nch3_ep4_0001,bg_lecture_hall.webp,,bgm_prologue_daily.mp3,,\nch3_ep4_0042,bg_garden.webp,,,,\nch3_ep5_0001,bg_lecture_hall.webp,,bgm_reunion.mp3,,\nch3_ep5_0018,bg_campus_path.webp,,,,\nch3_ep6_0001,bg_campus_path.webp,,bgm_reunion.mp3,,\nch3_ep6_0045,bg_garden.webp,,,,\nch3_ep6_0245,bg_street_dusk.webp,,,,\nch3_ep6_0330,bg_hall_wood.webp,,,,\nch3_ep6_0340,bg_campus_path.webp,,,,\nch4_ep1_0001,bg_campus_path.webp,,bgm_prologue_daily.mp3,,\nch4_ep1_0012,bg_cafe.webp,,,,\nch4_ep1_0041,bg_campus_path.webp,,,,\nch4_ep1_0088,bg_garden.webp,,,,\nch4_ep2_0001,bg_garden.webp,,bgm_prologue_daily.mp3,,\nch4_ep3_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch4_ep4_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch4_ep5_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch4_ep6_0001,bg_lecture_hall.webp,,bgm_prologue_daily.mp3,,\nch4_ep6_0011,bg_club_room.webp,,,,\nch4_ep6_0020,bg_cherry_road.webp,,,,\nch4_ep6_0037,bg_club_room.webp,,,,\nch4_ep6_0084,bg_cherry_road.webp,,,,\nch4_ep6_0105,bg_room.webp,,,,\nch5_ep1_0001,bg_cherry_road.webp,,bgm_prologue_daily.mp3,,\nch5_ep2_0001,bg_cherry_road.webp,,bgm_prologue_daily.mp3,,\nch5_ep3_0001,bg_cherry_road.webp,,bgm_prologue_daily.mp3,,\nch5_ep4_0001,bg_cherry_road.webp,,bgm_prologue_daily.mp3,,\nch5_ep5_0001,bg_cherry_road.webp,,bgm_prologue_daily.mp3,,\nch5_ep5_0040,bg_cafe.webp,,,,\nch5_ep5_0055,bg_cherry_road.webp,,,,\nch5_ep6_0001,bg_cherry_road.webp,,bgm_reunion.mp3,,\nsubprologue_ep1_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nsubprologue_ep2_0001,bg_campus_path.webp,,bgm_reunion.mp3,,\nsubprologue_ep3_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch6_ep1_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch6_ep1_0037,bg_cherry_road.webp,,,,\nch6_ep1_0048,bg_campus_path.webp,,,,\nch6_ep1_0064,bg_cafe.webp,,,,\nch6_ep2_0001,bg_lecture_hall.webp,,bgm_cafe.mp3,,\nch6_ep2_0012,bg_campus_path.webp,,,,\nch6_ep2_0047,bg_cafe.webp,,,,\nch6_ep3_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch7_ep1_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch7_ep2_0001,bg_room.webp,,bgm_cafe.mp3,,\nch7_ep2_0021,bg_cafe.webp,,,,\nch7_ep3_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch8_ep1_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch8_ep2_0001,bg_cafe.webp,,bgm_cafe.mp3,,\nch8_ep3_0001,bg_cafe.webp,,bgm_reunion.mp3,,\nch8_ep3_0026,bg_street_dusk.webp,,,,\nch8_ep3_0039,bg_cafe.webp,,,,\nch8_ep3_A_0001,bg_cafe.webp,,bgm_reunion.mp3,,\nch8_ep3_B_0001,bg_cafe.webp,,bgm_reunion.mp3,,\njiwoo_ch1_ep1_0001,bg_campus_path.webp,,bgm_prologue_daily.mp3,,\njiwoo_ch1_ep2_0001,bg_garden.webp,,bgm_prologue_daily.mp3,,\njiwoo_ch1_ep3_0001,bg_club_room.webp,,bgm_prologue_daily.mp3,,\njiwoo_ch1_ep3_0019,bg_campus_path.webp,,,,\njiwoo_ch1_ep3_0132,bg_street_dusk.webp,,,,\njiwoo_ch2_ep1_0001,bg_campus_path.webp,,bgm_prologue_daily.mp3,,\njiwoo_ch2_ep1_0030,bg_cafe.webp,,,,\njiwoo_ch2_ep1_0076,bg_club_room.webp,,,,\njiwoo_ch2_ep1_0136,bg_street_dusk.webp,,,,\njiwoo_ch2_ep2_0001,bg_campus_path.webp,,bgm_prologue_daily.mp3,,\njiwoo_ch2_ep2_0036,bg_campus_path.webp,,,,\njiwoo_ch2_ep2_0088,bg_street_dusk.webp,,,,\njiwoo_ch2_ep3_0001,bg_campus_path.webp,,bgm_prologue_daily.mp3,,\njiwoo_ch2_ep3_0020,bg_club_room.webp,,,,\njiwoo_ch2_ep3_0049,bg_street_dusk.webp,,,,\njiwoo_ch3_ep1_0001,bg_campus_path.webp,,bgm_prologue_daily.mp3,,\njiwoo_ch3_ep1_0027,bg_club_room.webp,,,,\njiwoo_ch3_ep1_0163,bg_street_dusk.webp,,,,\njiwoo_ch3_ep2_0001,bg_campus_path.webp,,bgm_prologue_daily.mp3,,\njiwoo_ch3_ep2_0021,bg_campus_path.webp,,,,\njiwoo_ch3_ep2_0036,bg_hall_wood.webp,,,,\njiwoo_ch3_ep2_0139,bg_campus_path.webp,,,,\njiwoo_ch3_ep2_0160,bg_street_dusk.webp,,,,\njiwoo_ch3_ep3_0001,bg_campus_path.webp,,bgm_prologue_daily.mp3,,\njiwoo_ch3_ep3_0035,bg_campus_path.webp,,,,\njiwoo_ch3_ep3_0068,bg_campus_plaza.webp,,,,\njiwoo_ch4_ep1_0001,bg_campus_plaza.webp,,bgm_cafe.mp3,,\njiwoo_ch4_ep1_0017,bg_hall_wood.webp,,,,\njiwoo_ch4_ep2_0001,bg_hall_wood.webp,,bgm_cafe.mp3,,\njiwoo_ch4_ep2_0085,bg_cafe.webp,,,,\njiwoo_ch4_ep3_0001,bg_cafe.webp,,bgm_cafe.mp3,,\njiwoo_ch4_ep3_0119,bg_street_dusk.webp,,,,\njiwoo_ch5_ep1_0001,bg_room.webp,,bgm_cafe.mp3,,\njiwoo_ch5_ep1_0037,bg_cafe.webp,,,,\njiwoo_ch5_ep1_0180,bg_room.webp,,,,\njiwoo_ch5_ep2_0001,bg_room.webp,,bgm_cafe.mp3,,\njiwoo_ch5_ep2_0014,bg_campus_path.webp,,,,\njiwoo_ch5_ep2_0108,bg_street_dusk.webp,,,,\njiwoo_ch5_ep2_0127,bg_room.webp,,,,\njiwoo_ch5_ep3_0001,bg_room.webp,,bgm_cafe.mp3,,\njiwoo_ch5_ep3_0017,bg_cafe.webp,,,,\njiwoo_ch5_ep3_0100,bg_campus_path.webp,,,,\njiwoo_ch5_ep3_0144,bg_street_dusk.webp,,,,\njiwoo_ch5_ep3_0166,bg_room.webp,,,,\njiwoo_ch6_ep1_0001,bg_room.webp,,bgm_cafe.mp3,,\njiwoo_ch6_ep1_0019,bg_campus_path.webp,,,,\njiwoo_ch6_ep1_0132,bg_street_dusk.webp,,,,\njiwoo_ch6_ep2_0001,bg_room.webp,,bgm_cafe.mp3,,\njiwoo_ch6_ep2_0021,bg_campus_path.webp,,,,\njiwoo_ch6_ep2_0087,bg_room.webp,,,,\njiwoo_ch6_ep3_0001,bg_room.webp,,bgm_cafe.mp3,,\njiwoo_ch6_ep3_0028,bg_cafe.webp,,,,\njiwoo_ch6_ep3_0164,bg_street_dusk.webp,,,,\njiwoo_ch6_ep3_0230,bg_room.webp,,,,\njiwoo_ch7_ep1_0001,bg_room.webp,,bgm_reunion.mp3,,\njiwoo_ch7_ep1_0035,bg_cafe.webp,,,,\njiwoo_ch7_ep1_0092,bg_room.webp,,,,\njiwoo_ch7_ep2_0001,bg_room.webp,,bgm_reunion.mp3,,\njiwoo_ch7_ep2_0021,bg_hall_wood.webp,,,,\njiwoo_ch7_ep2_0062,bg_campus_plaza.webp,,,,\njiwoo_ch7_ep2_0102,bg_campus_path.webp,,,,\njiwoo_ch7_ep2_0158,bg_street_dusk.webp,,,,\njiwoo_ch7_ep2_0199,bg_room.webp,,,,\njiwoo_ch7_ep3_0001,bg_room.webp,,bgm_reunion.mp3,,\njiwoo_ch7_ep3_0051,bg_hall_wood.webp,,,,\njiwoo_ch7_ep3_0119,bg_cafe.webp,,,,\njiwoo_ch7_ep3_0202,bg_room.webp,,,,\njiwoo_ch7_ep4_0001,bg_room.webp,,bgm_reunion.mp3,,\njiwoo_end_ep1_0001,bg_room.webp,,bgm_reunion.mp3,,\njiwoo_end_ep2_0001,bg_cafe.webp,,bgm_reunion.mp3,,\njiwoo_end_ep3_0001,bg_garden.webp,,bgm_reunion.mp3,,\njiwoo_h_ep1_0001,bg_room.webp,,bgm_prologue_daily.mp3,,\njiwoo_h_ep1_0026,bg_garden.webp,,,,\njiwoo_h_ep2_0001,bg_room.webp,,bgm_prologue_daily.mp3,,\njiwoo_s_ep1_0001,bg_room.webp,,bgm_reunion.mp3,,\njiwoo_s_ep2_0001,bg_room.webp,,bgm_reunion.mp3,,\njiwoo_s_ep2_0018,bg_room.webp,,,,\njiwoo_b_ep1_0001,bg_room.webp,,bgm_reunion.mp3,,\njiwoo_b_ep1_0028,bg_garden.webp,,,,\njiwoo_b_ep2_0001,bg_room.webp,,bgm_reunion.mp3,,\njiwoo_b_ep2_0015,bg_cafe.webp,,,,\njiwoo_b_ep2_0062,bg_hall_wood.webp,,,,\njiwoo_b_ep2_0082,bg_room.webp,,,,\njiwoo_t_ep1_0001,bg_room.webp,,bgm_prologue_daily.mp3,,\njiwoo_t_ep1_0022,bg_garden.webp,,,,\njiwoo_t_ep2_0001,bg_room.webp,,bgm_prologue_daily.mp3,,\njiwoo_t_ep2_0039,bg_room.webp,,,,\njiwoo_t_ep2_0076,bg_hall_wood.webp,,,,\njiwoo_h_epi_ep1_0001,bg_garden.webp,,bgm_prologue_daily.mp3,,\njiwoo_h_epi_ep1_0020,bg_garden.webp,,,,\njiwoo_h_epi_ep2_0001,bg_garden.webp,,bgm_prologue_daily.mp3,,\njiwoo_s_epi_ep1_0001,bg_room.webp,,bgm_reunion.mp3,,\njiwoo_s_epi_ep1_0049,bg_room.webp,,,,\njiwoo_s_epi_ep2_0001,bg_garden.webp,,bgm_reunion.mp3,,\njiwoo_s_epi_ep2_0034,bg_garden.webp,,,,\njiwoo_b_epi_ep1_0001,bg_room.webp,,bgm_reunion.mp3,,\njiwoo_b_epi_ep2_0001,bg_garden.webp,,bgm_reunion.mp3,,\njiwoo_t_epi_ep1_0001,bg_room.webp,,bgm_prologue_daily.mp3,,\njiwoo_t_epi_ep1_0029,bg_room.webp,,,,\njiwoo_t_epi_ep2_0001,bg_garden.webp,,bgm_prologue_daily.mp3,,\njiwoo_t_epi_ep2_0014,bg_garden.webp,,,,\njiwoo_dlc_ep1_0001,bg_room.webp,,bgm_prologue_daily.mp3,,\njiwoo_dlc_ep1_0029,bg_room.webp,,,,\njiwoo_dlc_ep2_0001,bg_room.webp,,bgm_prologue_daily.mp3,,\njiwoo_dlc_ep2_0014,bg_campus_path.webp,,,,\njiwoo_dlc_ep2_0060,bg_garden.webp,,,,\njiwoo_dlc_ep2_0090,bg_room.webp,,,,\njiwoo_dlc_ep3_0001,bg_room.webp,,bgm_prologue_daily.mp3,,\njiwoo_dlc_ep3_0012,bg_garden.webp,,,,\njiwoo_dlc_ep3_0098,bg_room.webp,,,,\n"
 };
 
 const IMG_DIR = 'img/', CHAR_DIR = 'chars/', CG_DIR = 'cg/', BGM_DIR = 'bgm/';
@@ -314,15 +269,14 @@ const IMG_DIR = 'img/', CHAR_DIR = 'chars/', CG_DIR = 'cg/', BGM_DIR = 'bgm/';
 let DEV_TOOLS = false;
 try{ const q=location.search.match(/[?&]dev=([01])/); if(q) localStorage.setItem('projectY.dev',q[1]); DEV_TOOLS = localStorage.getItem('projectY.dev')==='1'; }catch(e){}
 const SAVE_KEY = 'projectY.engine.v1';
-const CSV_FILES = {nodes:'flow_nodes.csv', edges:'flow_edges.csv', scripts:'flow_scripts.csv', routes:'flow_routes.csv', cg:'flow_cg.csv',
-  stats:'flow_stats.csv', actions:'flow_actions.csv', heroines:'flow_heroines.csv', freetime:'flow_freetime.csv'};   // 뒤의 4개: 자유시간·스탯 시스템
+const CSV_FILES = {nodes:'flow_nodes.csv', edges:'flow_edges.csv', scripts:'flow_scripts.csv', routes:'flow_routes.csv', cg:'flow_cg.csv'};
 const FLOW_DIRS = ['flow/',''];   // flow_*.csv 를 flow/ 폴더 → 루트 순서로 찾습니다
 const DEFAULT_SET = {skipCommon:false, speed:25, vol:50, autoSec:3, skipUnread:false};
 
 // story/ 폴더 내부에서 탐색하여 병합할 스토리 CSV 파일 후보 목록
 const STORY_FOLDER_FILES = [
   'story/project_y_common_route.csv',
-  'story/project_y_sub_route.csv',
+  'story/project_y_sub_route.csv','story/project_y_sub_common_bad.csv',
   'story/project_y_jiwoo_route.csv','story/project_y_jiwoo_flashback.csv','story/project_y_arin_route.csv','story/project_y_yuna_route.csv',
   'story/project_y_sera_route.csv','story/project_y_seoyun_route.csv','story/project_y_harin_route.csv',
   'story/project_y_si_route.csv','story/project_y_ch_route.csv',
@@ -414,7 +368,6 @@ function parseCSV(text){
 /* ---------- data ---------- */
 let N={}, OUT={}, S={}, R={}, C={}, EDGES=[], srcLabel='내장';
 function build(d){
-  ftLoad(d); $('bStat').hidden=!FT.on;
   N={}; OUT={}; S={}; R={}; C={}; EDGES=d.edges;
   d.nodes.forEach(n=>N[n.node_id]=n);
   d.routes.forEach(r=>R[r.route_id]=r);
@@ -486,10 +439,31 @@ async function loadData(){
   return out;
 }
 
+
+/* ---------- 공통 배드엔딩 보완 데이터 ---------- */
+const COMMON_BAD_EXTRA_NODES = [
+  {node_id:'SUB_COMMON_BAD',type:'ending',group:'SUB_COMMON_BAD',route:'',ending:'bad',title:'프레임 밖의 우리 (Us Beyond the Frame)',subtitle:'서브 공통 배드엔딩',age:'',script_id:'SUB_COMMON_BAD',note:'백시은·강채아 그룹 공통 배드엔딩'},
+  {node_id:'SCB_END',type:'end',group:'SUB_COMMON_BAD',route:'',ending:'bad',title:'서브 공통 배드엔딩 종료',subtitle:'',age:'',script_id:'',note:''}
+];
+const COMMON_BAD_EXTRA_EDGES = [
+  {from_id:'SUB_COMMON_BAD',to_id:'SCB_END',label:'',condition:'',kind:'next',note:'서브 공통 배드엔딩 종료',set:''}
+];
+function patchCommonBadData(data){
+  data.nodes=data.nodes||[]; data.edges=data.edges||[];
+  const have=new Set(data.nodes.map(n=>n.node_id));
+  COMMON_BAD_EXTRA_NODES.forEach(n=>{if(!have.has(n.node_id)) data.nodes.push({...n});});
+  const edgeKeys=new Set(data.edges.map(e=>e.from_id+'>'+e.to_id));
+  COMMON_BAD_EXTRA_EDGES.forEach(e=>{if(!edgeKeys.has(e.from_id+'>'+e.to_id)) data.edges.push({...e});});
+  // The current system specification replaces the legacy avoid>=3 shortcut.
+  data.edges=data.edges.filter(e=>e.from_id!=='RELATION_CHECK');
+  data.edges.push({from_id:'RELATION_CHECK',to_id:'MAIN_PICK',label:'메인 루트 진행',condition:'',kind:'next',note:'현재 확정된 공통 배드엔딩 조건으로 판정',set:''});
+  return data;
+}
+
 /* ---------- save ---------- */
-let save={seen:{},flags:{},cg:{},read:{},cur:null,set:{...DEFAULT_SET}};
+let save={seen:{},flags:{},cg:{},read:{},cur:null,testVars:{},set:{...DEFAULT_SET}};
 try{ const s=JSON.parse(localStorage.getItem(SAVE_KEY)||'null'); if(s) save=Object.assign(save,s); }catch(e){}
-save.cg=save.cg||{}; save.read=save.read||{}; save.flags=save.flags||{}; save.seen=save.seen||{};
+save.cg=save.cg||{}; save.read=save.read||{}; save.flags=save.flags||{}; save.seen=save.seen||{}; save.testVars=save.testVars||{};
 save.set=Object.assign({...DEFAULT_SET},save.set||{});
 let _pt=0;
 function persistNow(){ clearTimeout(_pt); _pt=0; try{ localStorage.setItem(SAVE_KEY,JSON.stringify(save)); }catch(e){} }
@@ -497,13 +471,11 @@ function persist(){ if(!_pt) _pt=setTimeout(persistNow,500); }      // 문장마
 addEventListener('pagehide',persistNow); document.addEventListener('visibilitychange',()=>{ if(document.hidden) persistNow(); });
 
 /* ---------- run state ---------- */
-let run={vars:{},node:null,lines:[],i:0,mode:'idle',hist:[],log:[],typing:null,skip:false,skipTimer:null,menuEdges:null,auto:false,readyAt:0,bgFile:'',lastChar:'',resumeLine:0};
+let run={vars:{},node:null,lines:[],i:0,mode:'idle',hist:[],log:[],typing:null,skip:false,skipTimer:null,menuEdges:null,auto:false,readyAt:0,bgFile:'',lastChar:'',resumeLine:0,activeGroup:'MAIN',badEndingActive:false};
 const $=id=>document.getElementById(id);
 
 /* ---------- expressions ---------- */
-function g(name){
-  if(name==='best_aff'||name==='pick_count'||name.startsWith('can_')) return ftDerived(name);   // 스탯에서 계산되는 값
-  if(name in run.vars) return run.vars[name]; if(name in save.flags) return save.flags[name]; return 0; }
+function g(name){ if(name in run.vars) return run.vars[name]; if(DEV_TOOLS && name in save.testVars) return save.testVars[name]; if(name in save.flags) return save.flags[name]; return 0; }
 function seen(id){ return !!save.seen[id]; }
 const _condCache=new Map();
 function evalCond(expr){
@@ -529,165 +501,10 @@ function applySet(str){
     let v=m[3].trim(); v = v==='true'?1: v==='false'?0 : (isNaN(+v)? v.replace(/^['"]|['"]$/g,'') : +v);
     const cur=g(m[1]);
     run.vars[m[1]] = m[2]==='='? v : m[2]==='+='? (+cur)+(+v) : (+cur)-(+v);
+    if(DEV_TOOLS) save.testVars[m[1]]=run.vars[m[1]];
   });
+  if(DEV_TOOLS){ save.testVars=Object.assign({},save.testVars,run.vars); persist(); }
 }
-
-
-/* FT-LOGIC-BEGIN ===== 자유시간 · 스탯 시스템 (계산 부분) ===== */
-const FT={on:false,stats:[],S:{},actions:{},places:{},heroines:{},order:[],sess:{},rng:()=>Math.random()};
-const _num=(v,d=0)=>{ const x=parseFloat(v); return isNaN(x)?d:x; };
-function ftParseFx(s){ return String(s||'').split(/[;,]/).map(x=>x.trim()).filter(Boolean).map(x=>{ const m=x.match(/^([A-Za-z_]\w*)\s*([+-])\s*(\d+(?:\.\d+)?)$/); return m?{id:m[1],d:(m[2]==='-'?-1:1)*parseFloat(m[3])}:null; }).filter(Boolean); }
-function ftParseMap(s){ const o={}; String(s||'').split(';').forEach(p=>{ const m=p.trim().match(/^([A-Za-z_]\w*)\s*:\s*([\d.]+)$/); if(m) o[m[1]]=parseFloat(m[2]); }); return o; }
-function ftLoad(d){
-  FT.stats=(d.stats||[]).filter(r=>r.id).map(r=>({id:r.id,label:r.label||r.id,group:r.group||'player',start:_num(r.start),min:_num(r.min,0),max:_num(r.max,100),hidden:r.hidden==='1'||r.hidden==='true'}));
-  FT.S={}; FT.stats.forEach(x=>FT.S[x.id]=x);
-  FT.actions={}; FT.places={};
-  (d.actions||[]).filter(r=>r.id).forEach(r=>{ if(r.kind==='place') FT.places[r.id]={id:r.id,label:r.label||r.id}; else FT.actions[r.id]={id:r.id,label:r.label||r.id,desc:r.desc||'',ap:_num(r.ap,1),fx:ftParseFx(r.effects),needs:r.needs||''}; });
-  FT.heroines={}; FT.order=[];
-  (d.heroines||[]).filter(r=>r.id).forEach(r=>{ FT.heroines[r.id]={id:r.id,name:r.name||r.id,aff:r.aff_var||('aff_'+r.id),diff:r.difficulty||'',mult:_num(r.mult,1),variance:_num(r.variance),decay:_num(r.decay),crash:_num(r.crash_stress),fixed:_num(r.fixed_gain),trustVar:r.trust_var||'',trust:_num(r.trust_gain),alertVar:r.alert_var||'',alert:_num(r.alert_gain),alertDecay:_num(r.alert_decay),likes:ftParseMap(r.likes),talk:r.talk_need||'',unlock:r.unlock||'',lock:r.lock_text||''}; FT.order.push(r.id); });
-  FT.sess={}; (d.freetime||[]).filter(r=>r.node_id).forEach(r=>FT.sess[r.node_id]={ap:_num(r.ap,5),title:r.title||'',sub:r.subtitle||''});
-  FT.on=FT.stats.length>0 && Object.keys(FT.actions).length>0 && FT.order.length>0;
-}
-const ftGet=(v,id)=>+(v[id]||0);
-function ftSet(v,id,val){ const x=FT.S[id]; val=Math.round(val); v[id]= x ? Math.max(x.min,Math.min(x.max,val)) : val; }
-function ftInit(v){ FT.stats.forEach(x=>{ if(!(x.id in v)) v[x.id]=x.start; }); }
-function ftChange(v,ch,id,d){ const b=ftGet(v,id); ftSet(v,id,b+d); const a=ftGet(v,id); if(a!==b) ch.push({id,d:a-b}); }
-function ftEff(v){ let e=1; const f=ftGet(v,'fatigue'), st=ftGet(v,'stress'); if(f>=70) e*=.6; else if(f>=40) e*=.85; if(st>=70) e*=.8; return e; }
-const FT_BASE_DATE=14, FT_BLUNDER_AT=60, FT_BLUNDER_P=.35, FT_REST_BETWEEN=15;
-function ftApply(v,aid,ctx){
-  const a=FT.actions[aid], out={ch:[],msg:[],bad:false}; ctx=ctx||{};
-  const eff=ftEff(v), s0=ftGet(v,'stress');
-  a.fx.forEach(e=>{ let d=e.d; if(d>0 && e.id!=='stress' && e.id!=='fatigue') d=Math.max(1,Math.round(d*eff)); ftChange(v,out.ch,e.id,d); });
-  if(a.needs==='heroine'){
-    const h=FT.heroines[ctx.heroine]; if(!h) return out;
-    const pm=h.likes[ctx.place]??1;
-    v._ft=v._ft||{}; v._ft.dated=v._ft.dated||{}; v._ft.dated[h.id]=1;
-    v._known=v._known||{}; (v._known[h.id]=v._known[h.id]||{})[ctx.place]=pm;
-    if(h.crash && s0>=h.crash){                       // 익스트림: 스트레스 관리 실패 = 결정적 실수
-      ftChange(v,out.ch,h.aff,-25); v['fail_'+h.id]=1; out.bad=true;
-      out.msg.push(`스트레스가 한계였다. 결정적인 순간에 말이 헛나왔다… ${h.name}과(와)의 관계가 틀어졌다.`);
-    } else if(s0>=FT_BLUNDER_AT && FT.rng()<FT_BLUNDER_P){
-      ftChange(v,out.ch,h.aff,-8); out.bad=true;
-      out.msg.push('지친 탓에 말실수를 했다… 분위기가 어색해졌다.');
-    } else if(h.talk && !evalCond(h.talk)){
-      out.msg.push(`${h.name}은(는) 대화에 흥미를 보이지 않았다… (지식이나 매력이 더 필요하다)`);
-    } else if(h.fixed>0){                              // 헬: 일반 호감도는 고정 폭, 숨겨진 신용/경계를 같이 관리
-      ftChange(v,out.ch,h.aff,h.fixed);
-      if(h.trustVar) ftChange(v,out.ch,h.trustVar,Math.round(h.trust*pm));
-      if(h.alertVar) ftChange(v,out.ch,h.alertVar,h.alert);
-      out.msg.push(`${h.name}은(는) 여전히 거리를 두고 있다… 하지만 조금은 마음을 연 것 같다.`);
-    } else {
-      let gain=FT_BASE_DATE*pm*h.mult*eff*(1+ftGet(v,'charm')/200);
-      if(h.variance>0) gain*=(1-h.variance)+FT.rng()*2*h.variance;   // 익스트림: 변동 폭 극대화
-      gain=Math.round(gain); ftChange(v,out.ch,h.aff,gain);
-      out.msg.push(pm>=1.2?'취향에 딱 맞는 장소였다.':pm<=.8?'별로 좋아하는 장소가 아니었던 것 같다.':'무난한 시간이었다.');
-    }
-  }
-  return out;
-}
-function ftEndSession(v){
-  const out={ch:[],msg:[]}, dated=(v._ft&&v._ft.dated)||{};
-  FT.order.forEach(id=>{ const h=FT.heroines[id]; if(dated[id]) return;
-    if(h.decay>0 && ftGet(v,h.aff)>0){ ftChange(v,out.ch,h.aff,-h.decay); out.msg.push(`${h.name}: 연락이 뜸해져 호감도가 줄었다.`); }
-    if(h.alertVar && h.alertDecay>0) ftChange(v,out.ch,h.alertVar,-h.alertDecay);
-  });
-  ftChange(v,out.ch,'fatigue',-FT_REST_BETWEEN);
-  return out;
-}
-function ftDerived(name){
-  if(!FT.on) return name==='best_aff'?100:name==='pick_count'?99:1;     // 데이터 없으면 예전 동작 유지
-  if(name==='best_aff') return Math.max(0,...FT.order.map(id=>ftGet(run.vars,FT.heroines[id].aff)));
-  const can=id=>{ const h=FT.heroines[id]; return !!h && evalCond(h.unlock); };
-  if(name==='pick_count') return FT.order.filter(can).length;
-  return can(name.slice(4))?1:0;
-}
-/* FT-LOGIC-END */
-
-/* ===== 자유시간 · 스탯 시스템 (화면) ===== */
-const _lbl=id=>(FT.S[id]?.label||id).replace(' 호감도','');
-function ftRow(id,cls){ const x=FT.S[id], v=ftGet(run.vars,id); return `<div class="sr ${cls||''}"><span>${_lbl(id)}</span><i><u style="width:${(v-x.min)/(x.max-x.min)*100}%"></u></i><em>${v}</em></div>`; }
-function ftHeroHtml(){
-  return `<div class="box"><h4>히로인 호감도</h4>`+FT.order.map(id=>{
-    const h=FT.heroines[id], v=ftGet(run.vars,h.aff), can=evalCond(h.unlock), fail=run.vars['fail_'+id];
-    const dev=DEV_TOOLS&&h.trustVar?` · 신용 ${ftGet(run.vars,h.trustVar)} / 경계 ${ftGet(run.vars,h.alertVar)}`:'';
-    return `<div class="sr aff"><span>${h.name}<small>${h.diff}</small></span><i><u style="width:${v}%"></u></i><em>${v}</em></div>`+
-      `<div class="hn ${fail?'bad':can?'ok':''}">${fail?'관계 경색 · ':''}${can?'✓ 루트 선택 가능':'🔒 '+h.lock}${dev}</div>`;
-  }).join('')+`</div>`;
-}
-function ftBuild(mode,n){
-  const ft=run.vars._ft, cfg=FT.sess[n&&n.node_id]||{}, eff=ftEff(run.vars);
-  const effTxt=eff>=1?'':` · 현재 효율 ×${eff.toFixed(2)} (피로·스트레스 때문)`;
-  const play=mode==='play';
-  let h=`<div class="hd"><div><h3>${play?(cfg.title||n.title):'현재 스탯'}</h3><div class="sub">${play?(cfg.sub||''):'자유시간에서 쌓은 수치가 루트와 엔딩 선택지를 결정합니다'}</div></div>`+
-    (play?`<div class="ap">행동력 <b>${ft.ap}</b> / ${ft.max}</div>`:'')+`</div>`;
-  if(play){   // 행동 → 결과 로그를 맨 위에 (휴대폰에서 스크롤 없이 바로 결과가 보이도록)
-    h+=`<div class="box"><h4>무엇을 할까</h4><div class="ftb">`+Object.values(FT.actions).map(a=>`<button data-a="${a.id}" ${ft.ap<a.ap?'disabled':''}>${a.label}<small>${a.desc} · 행동력 ${a.ap}</small></button>`).join('')+`</div></div>`;
-    h+=`<div class="box"><div id="ftLog">${(run._ftLog||[]).join('')||'<div class="hint">행동을 골라 보세요. 데이트는 누구와 어디로 갈지 고릅니다.</div>'}</div></div>`;
-    if(DEV_TOOLS) h+=`<div class="box"><h4>테스트 모드</h4><div class="ftb"><button data-c="stats">스탯 +20</button><button data-c="aff">호감도 +30</button><button data-c="calm">스트레스·피로 0</button><button data-c="ap">행동력 +6</button></div></div>`;
-  }
-  h+=`<div class="grid"><div class="box"><h4>주인공 스탯</h4>${['stamina','strength','knowledge','grade','charm','fame'].map(i=>ftRow(i)).join('')}</div>`+
-     `<div class="box"><h4>컨디션</h4>${ftRow('stress','warm')}${ftRow('fatigue','warm')}<div class="hint">스트레스가 높으면 말실수와 선택지 봉쇄 위험이 커지고, 피로가 쌓이면 성과가 줄어듭니다${effTxt}</div></div></div>`;
-  h+=ftHeroHtml();
-  h+= play ? `<button class="ftdone ${ft.ap>0?'dim':''}" id="ftDone">${ft.ap>0?'남은 행동력을 두고 자유시간 마치기':'자유시간 마치기'}</button>` : `<button class="ftdone" id="ftClose">닫기</button>`;
-  const sc=$('ft').scrollTop;
-  $('ftIn').innerHTML=h; $('ft').scrollTop=sc;
-  $('ftIn').querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>ftAct(b.dataset.a));
-  $('ftIn').querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>ftCheat(b.dataset.c));
-  if($('ftDone')) $('ftDone').onclick=()=>ftFinish();
-  if($('ftClose')) $('ftClose').onclick=()=>{ $('ft').hidden=true; };
-}
-function ftCheat(c){
-  const v=run.vars; const st=['stamina','strength','knowledge','grade','charm','fame'];
-  if(c==='stats') st.forEach(i=>ftChange(v,[],i,20));
-  if(c==='aff') FT.order.forEach(id=>{ const h=FT.heroines[id]; ftChange(v,[],h.aff,30); if(h.trustVar){ ftChange(v,[],h.trustVar,30); ftChange(v,[],h.alertVar,-20); } });
-  if(c==='calm'){ ftSet(v,'stress',0); ftSet(v,'fatigue',0); }
-  if(c==='ap') run.vars._ft.ap+=6;
-  persist(); ftBuild('play',N[run.node]);
-}
-function ftEnter(n){
-  if(!FT.on) return advance();                       // 데이터 파일이 없으면 자유시간을 건너뜁니다
-  ftInit(run.vars);
-  const cfg=FT.sess[n.node_id]||{ap:5};
-  if(!run.vars._ft || run.vars._ft.node!==n.node_id){ run.vars._ft={node:n.node_id,ap:cfg.ap,max:cfg.ap,dated:{},n:0}; run._ftLog=[]; }
-  run.mode='ft'; run.readyAt=0; setSkip(false); $('ft').hidden=false; ftBuild('play',n);
-}
-function ftAct(aid){
-  const a=FT.actions[aid], ft=run.vars._ft; if(!a||!ft) return;
-  if(ft.ap<a.ap){ toast('행동력이 부족합니다'); return; }
-  if(a.needs==='heroine') return ftPickDate(aid);
-  ftRun(aid,{});
-}
-function ftPickDate(aid){
-  const p=$('ftPick'); p.hidden=false;
-  const close=()=>{ p.hidden=true; };
-  const step1=()=>{
-    p.innerHTML=`<div class="q">누구와 만날까?</div>`+FT.order.map(id=>{ const h=FT.heroines[id]; return `<button data-h="${id}">${h.name}<small>${h.diff} · 호감도 ${ftGet(run.vars,h.aff)}</small></button>`; }).join('')+`<button class="x">취소</button>`;
-    p.querySelectorAll('[data-h]').forEach(b=>b.onclick=ev=>{ ev.stopPropagation(); step2(b.dataset.h); });
-    p.querySelector('.x').onclick=ev=>{ ev.stopPropagation(); close(); };
-  };
-  const step2=hid=>{
-    const h=FT.heroines[hid], known=(run.vars._known&&run.vars._known[hid])||{};
-    p.innerHTML=`<div class="q">${h.name}와(과) 어디로 갈까?</div>`+Object.values(FT.places).map(pl=>{ const r=known[pl.id]; const hint=r==null?'':r>=1.2?'😊 좋아했던 곳':r<=.8?'😐 별로였던 곳':'🙂 무난했던 곳'; return `<button data-p="${pl.id}">${pl.label}<small>${hint||'아직 반응을 모른다'}</small></button>`; }).join('')+`<button class="x">뒤로</button>`;
-    p.querySelectorAll('[data-p]').forEach(b=>b.onclick=ev=>{ ev.stopPropagation(); close(); ftRun(aid,{heroine:hid,place:b.dataset.p}); });
-    p.querySelector('.x').onclick=ev=>{ ev.stopPropagation(); step1(); };
-  };
-  step1();
-}
-function ftRun(aid,ctx){
-  const a=FT.actions[aid], ft=run.vars._ft;
-  const r=ftApply(run.vars,aid,ctx); ft.ap-=a.ap; ft.n=(ft.n||0)+1; persist();
-  const chip=c=>{ if(FT.S[c.id]?.hidden && !DEV_TOOLS) return ''; const inv=(c.id==='stress'||c.id==='fatigue'); const good=inv?c.d<0:c.d>0; return `<span class="chip ${good?'up':'dn'}">${_lbl(c.id)} ${c.d>0?'+':''}${c.d}</span>`; };
-  const who=ctx.heroine?` · ${FT.heroines[ctx.heroine].name} (${FT.places[ctx.place]?.label||''})`:'';
-  run._ftLog=[`<div class="ln"><b>${a.label}${who}</b><br>${r.ch.map(chip).join('')}${r.msg.map(m=>`<div>${m}</div>`).join('')}</div>`].concat(run._ftLog||[]).slice(0,6);
-  ftBuild('play',N[run.node]);
-}
-function ftFinish(){
-  const r=ftEndSession(run.vars);
-  if(r.msg.length) toast(r.msg[0]);
-  delete run.vars._ft; run._ftLog=[]; persist();
-  $('ft').hidden=true; $('ftPick').hidden=true; advance();
-}
-function ftOpenView(){ if(!FT.on) return; ftInit(run.vars); $('ft').hidden=false; ftBuild('view'); }
 
 /* ---------- ui helpers ---------- */
 function show(id){ document.querySelectorAll('.screen').forEach(s=>s.hidden=s.id!==id); }
@@ -728,17 +545,44 @@ function setAssets(line){
 
 /* ---------- flow ---------- */
 function startAt(id, fresh, line){
-  if(fresh){ run.vars={}; run.hist=[]; run.log=[]; run.lastChar=''; run.bgFile=''; }
+  if(fresh){ run.vars=Object.assign({health:10,knowledge:10,charm:10,stress:20},DEV_TOOLS?JSON.parse(JSON.stringify(save.testVars||{})):{}); run.activeGroup='MAIN'; run.badEndingActive=false; run.hist=[]; run.log=[]; run.lastChar=''; run.bgFile=''; }
   run.resumeLine=line||0;
   show('game'); enter(id);
 }
+function updateActiveGroup(n,id){
+  if(n?.group==='SUB_COMMON_BAD' || SUBS.includes(n?.route) || /^SUBPROLOGUE|^CH[678]_/.test(id) || ['SUB_PICK','SI_START','CH_START'].includes(id)) run.activeGroup='SUB';
+  else if(n?.group==='COMMON_BAD' || MAINS.includes(n?.route) || /^CH[1-5]_/.test(id) || ['MAIN_PICK','RELATION_CHECK'].includes(id)) run.activeGroup='MAIN';
+}
+function commonBadNode(){ return run.activeGroup==='SUB'?'SUB_COMMON_BAD':'COMMON_BAD'; }
+function hasVar(k){ return Object.prototype.hasOwnProperty.call(run.vars,k) || (DEV_TOOLS && Object.prototype.hasOwnProperty.call(save.testVars||{},k)); }
+function firstVar(keys){ for(const k of keys) if(hasVar(k)) return +g(k)||0; return 0; }
+function checkCommonBad(trigger=''){
+  if(run.badEndingActive || !run.node || ['COMMON_BAD','SUB_COMMON_BAD','CB21','CB_REL','CB_BREAK','CB26','CB_END','SCB_END'].includes(run.node)) return false;
+  const stress=firstVar(['stress']);
+  const missed=firstVar(['core_missed','missed_core','missedCore']);
+  const ap=firstVar(['ap','AP']);
+  const routeReady=!!(g('route_ready')||g('routeReady'));
+  const freeTimeFinished=!!(g('free_time_end')||g('freeTimeEnd'));
+  let reason='';
+  if(hasVar('stress') && stress>=85) reason='스트레스 85 이상';
+  else if(run.activeGroup==='MAIN' && (trigger==='chapter_end' || g('chapter_end')) && missed>=4) reason='핵심 수집 요소 미획득 4개 이상';
+  else if(freeTimeFinished && (hasVar('ap')||hasVar('AP')) && ap<=0 && !routeReady) reason='개인 루트 진입 조건 미충족 상태에서 AP 소진';
+  if(!reason) return false;
+  const target=commonBadNode();
+  if(!N[target]) return false;
+  run.badEndingActive=true;
+  toast('공통 배드엔딩 발생 · '+reason);
+  enter(target);
+  return true;
+}
+
 function enter(id){
   if(id==='REPLAY_CHOICE' && !save.flags.sub_unlocked && N['CH1_EP1']) id='CH1_EP1';
   const n=N[id];
   if(!n){ toast('노드를 찾을 수 없습니다: '+id); return toTitle(); }
-  stopTyping(); $('menu').hidden=true; $('card').hidden=true; $('dialog').hidden=true; $('cg').hidden=true; $('ft').hidden=true; $('ftPick').hidden=true;
-  if(FT.on) ftInit(run.vars);
-  run.node=id; run.hist.push(id); if(run.hist.length>60) run.hist.shift();
+  stopTyping(); $('menu').hidden=true; $('card').hidden=true; $('dialog').hidden=true; $('cg').hidden=true;
+  run.node=id; updateActiveGroup(n,id); run.hist.push(id); if(run.hist.length>60) run.hist.shift();
+  if(!['COMMON_BAD','SUB_COMMON_BAD'].includes(id) && checkCommonBad()) return;
   save.seen[id]=1; save.cur = n.type==='end' ? null : {node:id,vars:run.vars,line:0};
   persist();
   setScene(n);
@@ -748,7 +592,6 @@ function enter(id){
     case 'unlock': if(id==='SUB_UNLOCK'){ save.flags.sub_unlocked=1; persist(); toast('서브 히로인 루트가 해금되었습니다'); } return advance();
     case 'route_done': save.flags[n.route+'_cleared']=1; persist(); return advance();
     case 'choice': case 'check': return advance(true);
-    case 'freetime': return ftEnter(n);
     case 'end': return showCard(n,true);
     default: showCard(n,false); if(run.resumeLine>0 && getLines(n).length) startLines(); else run.resumeLine=0; return;
   }
@@ -793,7 +636,7 @@ function playLine(){
   if(save.cur) save.cur.line=run.i;
   if(l.script_id && (save.read[l.script_id]||0)<run.i+1){ save.read[l.script_id]=run.i+1; }
   persist();
-  applySet(l.set); renderVD(); setAssets(l); if(l.cg) showCg(l.cg);
+  applySet(l.set); const chapterEnd=!!g('chapter_end'); if(checkCommonBad(chapterEnd?'chapter_end':'')) return; if(chapterEnd){ run.vars.chapter_end=0; if(DEV_TOOLS) save.testVars.chapter_end=0; persist(); } renderVD(); setAssets(l); if(l.cg) showCg(l.cg);
   const spk=$('spk'); const lab=l._type==='system'?'시스템':l._type==='scene'?'장면':(l._type==='message'&&l.speaker?l.speaker+' · 메시지':l.speaker); spk.hidden=!lab; spk.textContent=lab||'';
   run.log.push({s:l.speaker,t:l.text}); if(run.log.length>300) run.log.splice(0,100);
   typeText(l.text||'');
@@ -814,7 +657,7 @@ function typeText(t){
 }
 function stopTyping(){ if(run.typing){ clearInterval(run.typing); run.typing=null; return true; } return false; }
 function tap(){
-  if(!$('log').hidden||!$('menu').hidden||!$('ft').hidden) return;
+  if(!$('log').hidden||!$('menu').hidden) return;
   if(run.mode==='card'){ if(N[run.node].type==='end') return; return startLines(); }
   if(run.mode==='line'){
     if(run.typing){ stopTyping(); $('txt').textContent=run.lines[run.i].text||''; $('nx').hidden=false; run.readyAt=Date.now(); return; }
@@ -833,23 +676,19 @@ function advance(fromChoice){
   }
   const outs=(OUT[run.node]||[]).filter(e=>e.kind==='next'||e.kind==='unlock_choice');
   const ok=outs.filter(e=>evalCond(e.condition));
-  const locked=outs.filter(e=>!ok.includes(e) && e.lock);          // 조건 미달이지만 잠금 사유(lock)가 적힌 선택지는 흐리게 보여줍니다
-  if(!ok.length && !(DEV_TOOLS&&locked.length)){ if(!outs.length){ toast('이어지는 연결이 없어 타이틀로 돌아갑니다'); } else toast('조건을 만족하는 연결이 없습니다'); return toTitle(); }
-  if(ok.length===1 && !locked.length){ const e=ok[0]; applySet(e.set); if(e.toast) toast(e.toast); return enter(e.to_id); }   // 연결(edge)의 set 칸: 변수 기록 · toast 칸: 안내 문구
-  showMenu(n,outs.filter(e=>ok.includes(e)||locked.includes(e)).map(e=>({e,locked:!ok.includes(e)})));
+  if(!ok.length){ if(!outs.length){ toast('이어지는 연결이 없어 타이틀로 돌아갑니다'); } else toast('조건을 만족하는 연결이 없습니다'); return toTitle(); }
+  if(ok.length===1){ applySet(ok[0].set); return enter(ok[0].to_id); }   // 연결(edge)의 set 칸: 변수 기록 (예: jiwoo_pick=1)
+  showMenu(n,ok);
 }
-function showMenu(n,items){
+function showMenu(n,edges){
   run.mode='menu'; setSkip(false); run.readyAt=0; const m=$('menu'); m.hidden=false; $('dialog').hidden=true; $('card').hidden=true;
-  const manualHint = items.every(x=>!x.e.condition) && ['check','route'].includes(n.type);
-  const q = n.type==='route' ? `${n.title} · 엔딩 선택` : n.title;
+  const manualHint = edges.every(e=>!e.condition) && ['check','route'].includes(n.type);
+  const q = n.type==='route' ? `${n.title} · 엔딩 선택` : (n.subtitle? n.title : n.title);
   m.innerHTML=`<div class="q">${q}</div>`+(manualHint?`<div class="h">분기 조건이 아직 정해지지 않아 직접 고릅니다.</div>`:'')+
-    items.map((x,i)=>{ const e=x.e, t=N[e.to_id], lab=e.label||t?.title||e.to_id;
-      const lk = x.locked ? `<small>${DEV_TOOLS?'🔓 테스트 모드로 선택 가능 · ':'🔒 '}${e.lock}</small>` : '';
-      return `<button data-i="${i}" ${x.locked&&!DEV_TOOLS?'disabled':''}><b class="${t?.ending||''}"></b><span>${lab}${lk}</span></button>`; }).join('');
-  m.querySelectorAll('button').forEach(b=>b.onclick=ev=>{ ev.stopPropagation(); m.hidden=true; const ed=items[+b.dataset.i].e; applySet(ed.set); if(ed.toast) toast(ed.toast); enter(ed.to_id); });
+    edges.map((e,i)=>{ const t=N[e.to_id]; const lab=e.label||t?.title||e.to_id; return `<button data-i="${i}"><b class="${t?.ending||''}"></b>${lab}</button>`; }).join('');
+  m.querySelectorAll('button').forEach(b=>b.onclick=ev=>{ ev.stopPropagation(); m.hidden=true; const ed=edges[+b.dataset.i]; applySet(ed.set); enter(ed.to_id); });
 }
 function toTitle(){
-  $('ft').hidden=true; $('ftPick').hidden=true;
   stopTyping(); setSkip(false); setAuto(false); playBgm(TITLE_BGM); run.mode='idle'; show('title'); refreshTitle();
 }
 function stopSkip(msg){ setSkip(false); if(msg) toast(msg); }
@@ -857,7 +696,7 @@ function setSkip(on){
   run.skip=on; $('bSkip').classList.toggle('on',on); clearInterval(run.skipTimer);
   if(on && run.auto) setAuto(false);
   if(on) run.skipTimer=setInterval(()=>{
-    if(!$('menu').hidden||!$('log').hidden||!$('ft').hidden||$('game').hidden) return;
+    if(!$('menu').hidden||!$('log').hidden||$('game').hidden) return;
     const free = DEV_TOOLS || save.set.skipUnread;           // 테스트 모드에서는 안 읽은 문장도 스킵
     const readAt=(l,i)=>!l||!l.script_id||(save.read[l.script_id]||0)>i;
     if(run.mode==='card'){
@@ -881,7 +720,7 @@ function setAuto(on){
 }
 let _autoT=0;
 function autoTick(){   // 오토: 글이 다 표시된 뒤 설정한 시간이 지나면 다음으로
-  if(!run.auto||$('game').hidden||!$('log').hidden||!$('menu').hidden||!$('ft').hidden||run.typing||!run.readyAt) return;
+  if(!run.auto||$('game').hidden||!$('log').hidden||!$('menu').hidden||run.typing||!run.readyAt) return;
   const wait=(run.mode==='card'?Math.max(1.5,save.set.autoSec*0.7):save.set.autoSec)*1000;
   if(Date.now()-run.readyAt>=wait){ run.readyAt=0; tap(); }
 }
@@ -901,6 +740,9 @@ function refreshTitle(){
 }
 function buildGallery(){
   const body=$('galBody'); let h='<div class="gh"><span></span><span>해피</span><span>새드</span><span>배드</span><span>히든·진</span></div>';
+  h+='<div class="grp">공통 배드엔딩</div><div class="slots">';
+  [{id:'COMMON_BAD',label:'메인 공통 배드엔딩 · 초점이 깨진 렌즈'},{id:'SUB_COMMON_BAD',label:'서브 공통 배드엔딩 · 프레임 밖의 우리'}].forEach(x=>{const n=N[x.id]; if(!n)return; const ok=seen(x.id); h+=`<button class="slot ${ok?'full':''}" data-id="${x.id}" ${ok?'':'disabled'}>${ok?esc(x.label):'???'}<small>${ok?'해금 완료':'미해금'}</small></button>`;});
+  h+='</div>'; 
   [...MAINS,...SUBS].forEach(r=>{
     h+=`<div class="row"><div class="nm">${rName(r)}</div>`;
     ['H','S','B','T'].forEach(s=>{ const n=N[`${r}_${s}`]; if(!n){h+='<div class="cell"></div>';return;}
@@ -910,6 +752,7 @@ function buildGallery(){
   });
   body.innerHTML=h;
   body.querySelectorAll('button.seen').forEach(b=>b.onclick=()=>startAt(b.dataset.id,true));
+  body.querySelectorAll('button.slot.full').forEach(b=>b.onclick=()=>startAt(b.dataset.id,true));
 }
 function buildDlc(){
   $('dlcBody').innerHTML=[...MAINS,...SUBS].map(r=>{
@@ -926,14 +769,14 @@ function buildSettings(){
   $('sAuto').value=Math.round(save.set.autoSec*10); $('sAutoV').textContent=(+save.set.autoSec).toFixed(1)+'초';
   $('sSkipUnread').textContent=save.set.skipUnread?'켜짐':'꺼짐';
   $('sDev').textContent=DEV_TOOLS?'켜짐':'꺼짐';
-  $('dVars').value=JSON.stringify(run.vars,null,1);
+  $('dVars').value=JSON.stringify(DEV_TOOLS?Object.assign({},save.testVars,run.vars):run.vars,null,1);
 }
 function check(){
   const rep=[]; const ids=new Set(Object.keys(N));
   EDGES.forEach(e=>{ if(!ids.has(e.from_id)) rep.push('끊긴 연결(출발 노드 없음): '+e.from_id+' → '+e.to_id); if(!ids.has(e.to_id)) rep.push('끊긴 연결(도착 노드 없음): '+e.from_id+' → '+e.to_id); });
   const seenN=new Set(['START']); const q=['START'];
   while(q.length){ const x=q.shift(); (OUT[x]||[]).forEach(e=>{ if(!seenN.has(e.to_id)&&ids.has(e.to_id)){seenN.add(e.to_id);q.push(e.to_id);} }); }
-  const unreach=[...ids].filter(i=>!seenN.has(i)&&N[i].type!=='dlc'&&!Object.values(N).some(x=>x.skip_to===i));   // DLC·건너뛰기 도착점은 별도 경로 if(unreach.length) rep.push('START에서 도달할 수 없는 노드 '+unreach.length+'개: '+unreach.slice(0,12).join(', ')+(unreach.length>12?' …':''));
+  const unreach=[...ids].filter(i=>!seenN.has(i)&&N[i].type!=='dlc'); if(unreach.length) rep.push('START에서 도달할 수 없는 노드 '+unreach.length+'개: '+unreach.slice(0,12).join(', ')+(unreach.length>12?' …':''));
   const dead=[...ids].filter(i=>N[i].type!=='end'&&!(OUT[i]||[]).some(e=>e.kind!=='unlock')); if(dead.length) rep.push('나가는 연결이 없는 노드: '+dead.join(', '));
   const el=$('rep'); el.hidden=false; el.textContent=(rep.length>1?'확인할 항목\n':'문제 없음\n')+rep.join('\n');
 }
@@ -1005,7 +848,7 @@ $('bCSkip').onclick=e=>{ e.stopPropagation(); const n=N[run.node]; if(n?.skip_to
 $('fExport').onclick=()=>{ const blob=new Blob([JSON.stringify({v:1,save,slots},null,1)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='project_y_save.json'; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1500); };
 $('fImportBtn').onclick=()=>$('fImport').click();
 $('fImport').onchange=async e=>{ try{ const j=JSON.parse(await e.target.files[0].text()); if(!j.save||!Array.isArray(j.slots)) throw 0;
-  save=Object.assign({seen:{},flags:{},cg:{},read:{},cur:null,set:{}},j.save); save.set=Object.assign({...DEFAULT_SET},save.set||{}); save.read=save.read||{}; slots=j.slots; persist(); persistSlots(); buildSlots(); refreshTitle(); toast('불러왔습니다'); }
+  save=Object.assign({seen:{},flags:{},cg:{},read:{},cur:null,testVars:{},set:{}},j.save); save.set=Object.assign({...DEFAULT_SET},save.set||{}); save.read=save.read||{}; save.testVars=save.testVars||{}; slots=j.slots; persist(); persistSlots(); buildSlots(); refreshTitle(); toast('불러왔습니다'); }
   catch(err){ toast('저장 파일 형식이 올바르지 않습니다'); } e.target.value=''; };
 
 $('bDevJump')&&($('bDevJump').onclick=()=>openPage('jump',()=>{ $('jumpQ').value=''; buildJump(); }));
@@ -1013,7 +856,6 @@ $('bJumpG')&&($('bJumpG').onclick=e=>{ e.stopPropagation(); openPage('jump',()=>
 $('jumpQ')&&($('jumpQ').oninput=e=>buildJump(e.target.value));
 $('dSubClear')&&($('dSubClear').onclick=()=>{ save.flags.SI_cleared=1; persist(); toast('서브 최초 클리어 처리'); });
 function applyDev(){
-  if(typeof FT!=='undefined' && !$('ft').hidden && run.vars._ft && run.mode==='ft') ftBuild('play',N[run.node]);
   document.body.classList.toggle('devmode',DEV_TOOLS); $('devbadge').hidden=!DEV_TOOLS;
   if(run.node&&N[run.node]) setScene(N[run.node]);
   if($('sDev')) $('sDev').textContent=DEV_TOOLS?'켜짐':'꺼짐';
@@ -1032,8 +874,6 @@ $('game').onclick=tap;
 $('bExit').onclick=e=>{e.stopPropagation();toTitle();};
 $('bSkip').onclick=e=>{e.stopPropagation();setSkip(!run.skip);};
 $('bAuto').onclick=e=>{e.stopPropagation();setAuto(!run.auto);};
-$('bStat').onclick=e=>{e.stopPropagation();ftOpenView();};
-$('ft').onclick=e=>e.stopPropagation(); $('ftPick').onclick=e=>e.stopPropagation();
 $('bGSet').onclick=e=>{e.stopPropagation();openPage('settings',()=>{ buildSettings(); $('rep').hidden=true; });};
 $('bLog').onclick=e=>{e.stopPropagation();const L=$('log');
   L.querySelector('.in').innerHTML='<button class="btn" id="logClose" style="margin-bottom:18px">닫기</button>'+(run.log.slice(-80).map(l=>`<p>${l.s?`<b>${l.s}</b>`:''}${(l.t||'').replace(/</g,'&lt;')}</p>`).join('')||'<p style="color:var(--fog)">아직 기록이 없습니다.</p>');
@@ -1061,11 +901,11 @@ $('fCsv').onchange=async e=>{
 $('dUnlock')&&($('dUnlock').onclick=()=>{ save.flags.sub_unlocked=1; persist(); toast('메인 최초 클리어 처리'); });
 $('dAllEnd')&&($('dAllEnd').onclick=()=>{ Object.values(N).filter(n=>n.type==='ending').forEach(n=>{ save.seen[n.node_id]=1; if(n.ending==='true'&&n.route) save.flags[n.route+'_T_done']=1; }); Object.keys(C).forEach(k=>save.cg[k]=1); persist(); refreshTitle(); toast('엔딩·CG·DLC 해금'); });
 $('dReset')&&($('dReset').onclick=()=>{ if(confirm('저장 데이터를 초기화할까요?')){ localStorage.removeItem(SAVE_KEY); localStorage.removeItem(SLOT_KEY); location.reload(); } });
-$('dGo')&&($('dGo').onclick=()=>{ const v=$('dJump').value.trim(); const id=N[v]?v:Object.keys(N).find(k=>N[k].title===v); if(id) startAt(id,false); else toast('없는 노드입니다'); });
-$('dVarSave')&&($('dVarSave').onclick=()=>{ try{ run.vars=JSON.parse($('dVars').value||'{}'); toast('변수 적용'); }catch(e){ toast('JSON 형식이 올바르지 않습니다'); } });
+$('dGo')&&($('dGo').onclick=()=>{ const v=$('dJump').value.trim(); const id=N[v]?v:Object.keys(N).find(k=>N[k].title===v); if(id) startAt(id,true); else toast('없는 노드입니다'); });
+$('dVarSave')&&($('dVarSave').onclick=()=>{ try{ const v=JSON.parse($('dVars').value||'{}'); if(!v||Array.isArray(v)||typeof v!=='object') throw 0; run.vars=Object.assign({health:10,knowledge:10,charm:10,stress:20},v); save.testVars=JSON.parse(JSON.stringify(run.vars)); if(save.cur) save.cur.vars=JSON.parse(JSON.stringify(run.vars)); persistNow(); toast('테스트 변수·스탯을 저장했습니다. 새 게임/챕터 이동에도 유지됩니다.'); }catch(e){ toast('JSON 객체 형식이 올바르지 않습니다'); } });
 
 if(TITLE_BG){ const t=$('title'); const tryBg=(list)=>{ if(!list.length) return; const u=list[0], im=new Image(); im.onload=()=>{ t.style.backgroundImage=`linear-gradient(rgba(18,20,28,.55),rgba(18,20,28,.78)),url("${u}")`; t.style.backgroundSize='cover'; t.style.backgroundPosition='center'; }; im.onerror=()=>tryBg(list.slice(1)); im.src=u; }; tryBg([IMG_DIR+TITLE_BG, TITLE_BG]); }
-(async()=>{ build(await loadData()); refreshTitle(); show('title'); playBgm(TITLE_BGM); })();
+(async()=>{ build(patchCommonBadData(await loadData())); refreshTitle(); show('title'); playBgm(TITLE_BGM); })();
 </script>
 </body>
 </html>
