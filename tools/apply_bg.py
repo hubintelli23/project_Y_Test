@@ -61,6 +61,36 @@ def pick(loc):
     if re.search(r'작은 쉼터|인근 쉼터', full): return W('shelter_dusk') if dusk else W('street_bench')
     if re.search(r'카페 뷰파인더', full) and night: return W('cafe_night')
     return ''
+def pick_fb(loc):   # 강지우 과거 회상(중·고등학교) 장소 → 배경
+    hs = '고등학교' in loc or loc.startswith(('점심시간 / 교실', '방과 후 / 교실'))
+    dusk = bool(re.search(r'저녁|해 질|노을', loc))
+    if '지하 문서' in loc: return W('archive_basement')
+    if '계단 창고' in loc: return W('stair_storage')
+    if '옥상' in loc: return W('rooftop_dusk') if dusk else W('rooftop_after')
+    if '급식실' in loc: return W('school_lunch')
+    if '운동장' in loc: return W('ground_noon')
+    if '정문' in loc: return W('high_gate')
+    if '교실' in loc: return W('high_class') if hs else (W('mid_class_dusk') if dusk else W('mid_class_day'))
+    if loc.startswith('서운고등학교 /') or loc.startswith('서운고등학교 / '): return W('high_afternoon')
+    if loc.startswith('서운고등학교'): return W('high_autumn') if '가을' in loc else W('high_afternoon')
+    return ''
+def apply_fb(rows, fields):
+    p = os.path.join(ROOT, 'story', 'project_y_jiwoo_flashback.csv')
+    if not os.path.exists(p): return 0
+    st = list(csv.DictReader(open(p, encoding='utf-8-sig'))); by = {r['node_id']: r for r in rows}; n = 0; cur = ''; ep = None
+    for r in st:
+        key = (r['chapter_id'], r['episode_no'])
+        if key != ep:   # 에피소드 첫 줄: 앞 장면이 없으면 학교 기본 배경
+            ep = key; cur = ''
+            if r['type'] != 'scene' or not pick_fb(r['text']):
+                b = W('mid_class_day') if r['chapter_id'] in ('jiwoo_fb1', 'jiwoo_fb2') else W('high_class')
+                a = by.setdefault(r['node_id'], dict.fromkeys(fields, '') | {'node_id': r['node_id']}); a['bg'] = b; cur = b; n += 1
+        if r['type'] == 'scene':
+            b = pick_fb(r['text'])
+            if b and b != cur:
+                a = by.get(r['node_id']) or (dict.fromkeys(fields, '') | {'node_id': r['node_id']}); a['bg'] = b; by[r['node_id']] = a; cur = b; n += 1
+    ids = {x['node_id'] for x in rows}; rows.extend(v for k, v in by.items() if k not in ids)
+    return n
 def main():
     convert()
     meta = json.load(open(os.path.join(ROOT, 'tools', 'jiwoo_meta.json'), encoding='utf-8'))
@@ -76,6 +106,7 @@ def main():
         if not loc or not r['bg']: continue
         b = pick(loc)
         if b and b != r['bg']: r['bg'] = b; ch += 1; used[b] = used.get(b, 0) + 1
+    fb = apply_fb(rows, fields); print('과거 회상 배경 지정', fb, '곳')
     with open(path, 'w', encoding='utf-8-sig', newline='') as f:
         w = csv.DictWriter(f, fieldnames=fields); w.writeheader(); w.writerows(rows)
     print('배경 교체', ch, '곳'); [print(' ', k, v) for k, v in sorted(used.items())]
