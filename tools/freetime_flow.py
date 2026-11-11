@@ -46,8 +46,8 @@ RULE = {   # (해피 조건, 해피 잠금문구), (히든·진 조건, 문구)
  'ARIN':   (('aff_arin>=60 && knowledge>=45', '호감도 60 · 지식 45'), ('aff_arin>=80 && knowledge>=60', '호감도 80 · 지식 60')),
  'YUNA':   (('aff_yuna>=60', '호감도 60'), ('aff_yuna>=80 && charm>=50', '호감도 80 · 매력 50')),
  'SERA':   (('aff_sera>=55 && (knowledge>=45 || charm>=45)', '호감도 55 · (지식 또는 매력 45)'), ('aff_sera>=70 && (knowledge>=50 || charm>=50) && stamina>=35', '호감도 70 · (지식 또는 매력 50) · 체력 35')),
- 'SEOYUN': (('aff_seoyun>=50 && !fail_seoyun && stamina>=30', '호감도 50 · 체력 30 · 관계 경색 없음'), ('aff_seoyun>=65 && !fail_seoyun && knowledge>=40 && stamina>=35', '호감도 65 · 지식 40 · 체력 35 · 관계 경색 없음')),
- 'HARIN':  (('aff_harin>=36 && h_trust>=50 && h_alert<=50 && stamina>=40', '숨겨진 조건'), ('aff_harin>=42 && h_trust>=70 && h_alert<=50 && stamina>=50 && harin_event', '숨겨진 조건 · 스토리 특수 이벤트')),
+ 'SEOYUN': (('aff_seoyun>=50 && !fail_seoyun && knowledge>=45 && stamina>=30', '호감도 50 · 지식 45 · 체력 30 · 관계 경색 없음'), ('aff_seoyun>=65 && !fail_seoyun && knowledge>=45 && stamina>=30', '호감도 65 · 지식 45 · 체력 30 · 관계 경색 없음')),
+ 'HARIN':  (('aff_harin>=60 && stamina>=50 && knowledge>=50 && charm>=50', '호감도 60 · 체력·지식·매력 50'), ('aff_harin>=70 && stamina>=60 && knowledge>=60 && charm>=60', '호감도 70 · 체력·지식·매력 60')),
 }
 for r, ((hc, hl), (tc, tl)) in RULE.items():
     for e in edges:

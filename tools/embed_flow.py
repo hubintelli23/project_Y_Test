@@ -3,7 +3,7 @@
 import json, os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FILES = {'nodes':'flow_nodes.csv','edges':'flow_edges.csv','scripts':'flow_scripts.csv','routes':'flow_routes.csv','cg':'flow_cg.csv','assets':'flow_assets.csv',
-         'stats':'flow_stats.csv','actions':'flow_actions.csv','heroines':'flow_heroines.csv','freetime':'flow_freetime.csv'}
+         'stats':'flow_stats.csv','actions':'flow_actions.csv','heroines':'flow_heroines.csv','freetime':'flow_freetime.csv','items':'flow_items.csv'}
 emb = {k: open(os.path.join(ROOT, 'flow', f), encoding='utf-8-sig').read().replace('\r\n', '\n') for k, f in FILES.items()}
 p = os.path.join(ROOT, 'index.html'); s = open(p, encoding='utf-8').read()
 a = s.index('const EMBED = {'); b = s.index('\n};\n', a) + 4
