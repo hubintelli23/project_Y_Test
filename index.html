@@ -444,6 +444,7 @@ function parseCSV(text){
 }
 
 /* ---------- data ---------- */
+const APP_VERSION='v1.8 (2026-11-11)';   // index.html 을 바꿀 때마다 올립니다 — CHANGELOG.md 참고
 let N={}, OUT={}, S={}, R={}, C={}, EDGES=[], srcLabel='내장';
 function build(d){
   ftLoad(d); $('bStat').hidden=!FT.on;
@@ -979,7 +980,7 @@ function refreshTitle(){
   const unlocked=[...MAINS,...SUBS].filter(dlcOpen).length;
   $('dlcInfo').textContent=`${unlocked} / ${MAINS.length+SUBS.length}`;
   const cgs=Object.keys(C); $('cgInfo').textContent=`${cgs.filter(k=>save.cg[k]).length} / ${cgs.length}`;
-  $('srcInfo').textContent=srcLabel;
+  $('srcInfo').textContent=APP_VERSION+' · '+srcLabel;
 }
 function buildGallery(){
   const body=$('galBody'); let h='<div class="gh"><span></span><span>해피</span><span>새드</span><span>배드</span><span>히든·진</span></div>';
