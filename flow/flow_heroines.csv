@@ -1,7 +1,9 @@
-﻿id,name,aff_var,difficulty,mult,variance,decay,crash_stress,fixed_gain,trust_var,trust_gain,alert_var,alert_gain,alert_decay,likes,talk_need,unlock,lock_text
-jiwoo,강지우,aff_jiwoo,이지,1.2,0,0,0,0,,0,,0,0,park:1.3;cafe:1.1;gym:0.9,,aff_jiwoo>=20,호감도 20 이상
-arin,윤아린,aff_arin,노말,1.0,0,0,0,0,,0,,0,0,library:1.4;cafe:1.1;gym:0.7,,aff_arin>=30 && knowledge>=30,호감도 30 · 지식 30 이상
-yuna,최유나,aff_yuna,노말,1.0,0,0,0,0,,0,,0,0,cinema:1.3;park:1.1;library:0.7,,aff_yuna>=30,호감도 30 이상
-sera,이세라,aff_sera,하드,0.8,0,4,0,0,,0,,0,0,cafe:1.2;cinema:1.1;gym:0.7,knowledge>=40 || charm>=40,aff_sera>=35 && (knowledge>=40 || charm>=40) && stress<70,호감도 35 · (지식 또는 매력 40) · 스트레스 70 미만
-seoyun,한서윤,aff_seoyun,익스트림,0.6,0.8,0,60,0,,0,,0,0,library:1.3;park:1.2;cinema:0.6,,aff_seoyun>=30 && knowledge>=35 && stress<60,호감도 30 · 지식 35 · 스트레스 60 미만
-harin,서하린,aff_harin,헬,1.0,0,0,0,6,h_trust,10,h_alert,2,5,park:1.2;cinema:1.0;gym:1.1,,aff_harin>=25 && h_trust>=30 && h_alert<=55 && strength>=25 && stress<60,숨겨진 조건 다수
+﻿id,name,aff_var,difficulty,mult,variance,decay,crash_stress,fixed_gain,trust_var,trust_gain,alert_var,alert_gain,alert_decay,likes,talk_need,unlock,lock_text,group
+jiwoo,강지우,aff_jiwoo,이지,1.2,0,0,0,0,,0,,0,0,park:1.3;cafe:1.1;gym:0.9,,aff_jiwoo>=20,호감도 20 이상,main
+arin,윤아린,aff_arin,노말,1.0,0,0,0,0,,0,,0,0,library:1.4;cafe:1.1;gym:0.7,,aff_arin>=30 && knowledge>=30,호감도 30 · 지식 30 이상,main
+yuna,최유나,aff_yuna,노말,1.0,0,0,0,0,,0,,0,0,cinema:1.3;park:1.1;library:0.7,,aff_yuna>=30,호감도 30 이상,main
+sera,이세라,aff_sera,하드,0.8,0,4,0,0,,0,,0,0,cafe:1.2;cinema:1.1;gym:0.7,knowledge>=40 || charm>=40,aff_sera>=35 && (knowledge>=40 || charm>=40) && stress<70,호감도 35 · (지식 또는 매력 40) · 스트레스 70 미만,main
+seoyun,한서윤,aff_seoyun,익스트림,0.6,0.8,0,60,0,,0,,0,0,library:1.3;park:1.2;cinema:0.6,,aff_seoyun>=30 && knowledge>=35 && stress<60,호감도 30 · 지식 35 · 스트레스 60 미만,main
+harin,서하린,aff_harin,헬,1.0,0,0,0,6,h_trust,10,h_alert,2,5,park:1.2;cinema:1.0;gym:1.1,,aff_harin>=25 && h_trust>=30 && h_alert<=55 && stamina>=25 && stress<60,숨겨진 조건 다수,main
+si,백시은,aff_si,서브,1.0,0,0,0,0,,0,,0,0,cafe:1.4;park:1.0;library:0.9,,aff_si>=20,호감도 20 이상,sub
+ch,강채아,aff_ch,서브,1.0,0,0,0,0,,0,,0,0,park:1.3;cinema:1.1;cafe:1.0,,aff_ch>=20,호감도 20 이상,sub

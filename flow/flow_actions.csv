@@ -1,9 +1,9 @@
 ﻿kind,id,label,desc,ap,effects,needs
-action,exercise,운동,체력·완력이 오른다,1,stamina+4;strength+3;fatigue+10,
-action,study,공부,지식·성적이 오른다,1,knowledge+4;grade+3;fatigue+8;stress+3,
-action,beauty,외모 관리,매력·인지도가 오른다,1,charm+4;fame+3;fatigue+5;stress+1,
+action,exercise,운동,체력이 오른다,1,stamina+6;fatigue+10,
+action,study,공부,지식이 오른다,1,knowledge+6;fatigue+8;stress+3,
+action,beauty,외모 관리,매력이 오른다,1,charm+6;fatigue+5;stress+1,
 action,date,데이트,선택한 히로인의 호감도가 크게 오른다,2,stress+4;fatigue+10,heroine
-action,rest,휴식,스트레스·피로도를 크게 줄인다,1,stress-20;fatigue-25,
+action,rest,휴식,스트레스·피로도를 크게 줄인다,1,stress-35;fatigue-25,
 place,cafe,카페,조용히 대화하기 좋은 곳,,,
 place,library,도서관,함께 공부하는 곳,,,
 place,park,공원 산책,천천히 걷는 곳,,,
