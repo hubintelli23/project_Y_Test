@@ -230,7 +230,7 @@ button.dev{border:1px dashed #c98a4a!important;color:#e0b27a!important}
   <div id="hud"></div>
   <div id="vd" hidden><small>적정 거리</small><span id="vdv"></span></div>
   <div id="bar">
-    <button id="bCSkip" hidden>공통 루트 건너뛰기</button><button id="bGSave">저장</button><button id="bAuto">오토</button><button id="bSkip">스킵</button><button id="bStat" hidden>스탯</button><button id="bLog">로그</button><button id="bGSet">설정</button><button id="bJumpG" class="dev">챕터 이동(테스트용)</button><button id="bExit">타이틀</button>
+    <button id="bCSkip" hidden>공통 루트 건너뛰기</button><button id="bGSave">저장</button><button id="bAuto">오토</button><button id="bSkip">스킵</button><button id="bStat" hidden>스탯</button><button id="bDevVars" class="dev">수치 편집</button><button id="bLog">로그</button><button id="bGSet">설정</button><button id="bJumpG" class="dev">챕터 이동(테스트용)</button><button id="bExit">타이틀</button>
   </div>
   <div id="dialog" hidden><div id="spk" hidden></div><p id="txt"></p><span id="nx">▾</span></div>
   <div id="card" hidden></div>
@@ -495,7 +495,8 @@ save.cg=save.cg||{}; save.read=save.read||{}; save.flags=save.flags||{}; save.se
 save.set=Object.assign({...DEFAULT_SET},save.set||{});
 let _pt=0;
 function persistNow(){ clearTimeout(_pt); _pt=0; try{ localStorage.setItem(SAVE_KEY,JSON.stringify(save)); }catch(e){} }
-function persist(){ if(!_pt) _pt=setTimeout(persistNow,500); }      // 문장마다 동기 저장하던 것을 묶어서 저장
+function persist(){ if(DEV_TOOLS && run.vars && Object.keys(run.vars).length){ try{ save.devVars=JSON.parse(JSON.stringify(run.vars)); }catch(e){} }   // 테스트 모드: 스탯·플래그를 챕터 이동 후에도 유지
+  if(!_pt) _pt=setTimeout(persistNow,500); }      // 문장마다 동기 저장하던 것을 묶어서 저장
 addEventListener('pagehide',persistNow); document.addEventListener('visibilitychange',()=>{ if(document.hidden) persistNow(); });
 
 /* ---------- run state ---------- */
@@ -1031,12 +1032,40 @@ function groupLabel(n){
   if(n.group==='COMMON') return '공통 (프롤로그 · 메인/서브 공통 루트)';
   return rName(n.route)+' · '+n.group;
 }
+function devStart(id){   // 챕터·에피소드 이동: 테스트 모드에서는 현재 스탯·호감도·플래그를 그대로 가져감
+  if(!DEV_TOOLS) return startAt(id,true);
+  if(!run.vars || !Object.keys(run.vars).length) run.vars = save.devVars ? JSON.parse(JSON.stringify(save.devVars)) : {};
+  run.hist=[]; run.log=[]; run.lastChar=''; run.bgFile='';
+  if(FT.on) ftInit(run.vars);
+  startAt(id,false);
+}
+function openDevVars(){   // 테스트 모드: 스탯·호감도·게이지·변수 직접 수정
+  if(!run.vars) run.vars={}; if(FT.on) ftInit(run.vars);
+  let ov=$('devvars'); if(!ov){ ov=document.createElement('div'); ov.id='devvars'; ov.style.cssText='position:absolute;inset:0;z-index:9;background:rgba(10,12,18,.94);overflow-y:auto;padding:64px 14px 24px;color:#dfe3ea'; $('game').appendChild(ov); }
+  ov.hidden=false; ov.onclick=e=>e.stopPropagation();
+  const v=run.vars, rows=[], grp={player:'주인공 스탯',gauge:'게이지',aff:'호감도',hidden:'숨김 수치'};
+  const inp=(id,val,mn,mx)=>`<label style="display:flex;justify-content:space-between;align-items:center;gap:8px;padding:5px 0;font-size:14px"><span>${id.label}</span><span><input type="number" data-k="${id.id}" value="${val}" min="${mn}" max="${mx}" style="width:70px;padding:5px;background:#1b1f2c;color:#dfe3ea;border:1px solid #3a4258"></span></label>`;
+  const stats=FT.on?FT.stats:[]; let h='<h3 style="margin:0 0 4px">수치 편집 <small style="font-size:12px;opacity:.6">테스트 모드</small></h3><div style="font-size:12px;opacity:.7;margin-bottom:10px">값을 바꾸면 바로 적용·저장되고, 챕터·에피소드를 이동해도 유지됩니다.</div>';
+  Object.keys(grp).forEach(gk=>{ const a=stats.filter(x=>(x.group||'')===gk); if(!a.length) return; h+=`<div style="margin:10px 0 2px;font-size:12px;letter-spacing:.08em;opacity:.6">${grp[gk]}</div>`+a.map(x=>inp({id:x.id,label:x.label},ftGet(v,x.id),x.min,x.max)).join(''); });
+  const known=new Set(stats.map(x=>x.id)), extra=Object.keys(v).filter(k=>!known.has(k)&&!k.startsWith('_')&&['number','string','boolean'].includes(typeof v[k]));
+  h+='<div style="margin:12px 0 2px;font-size:12px;letter-spacing:.08em;opacity:.6">기타 변수 (플래그·선택 기록)</div>'+(extra.map(k=>`<label style="display:flex;justify-content:space-between;gap:8px;padding:5px 0;font-size:13px"><span>${esc(k)}</span><input data-x="${esc(k)}" value="${esc(String(v[k]))}" style="width:110px;padding:5px;background:#1b1f2c;color:#dfe3ea;border:1px solid #3a4258"></label>`).join('')||'<div style="font-size:12px;opacity:.5;padding:4px 0">없음</div>');
+  h+='<div style="display:flex;gap:6px;margin-top:8px"><input id="dvK" placeholder="변수 이름" style="flex:1;padding:6px;background:#1b1f2c;color:#dfe3ea;border:1px solid #3a4258"><input id="dvV" placeholder="값" style="width:80px;padding:6px;background:#1b1f2c;color:#dfe3ea;border:1px solid #3a4258"><button class="btn" id="dvAdd">추가</button></div>';
+  h+='<div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap"><button class="btn" id="dvAff">호감도 전부 +30</button><button class="btn" id="dvCalm">스트레스·피로 0</button><button class="btn" id="dvMax">스탯 100</button><button class="btn" id="dvClose" style="margin-left:auto">닫기</button></div>';
+  ov.innerHTML=h;
+  ov.querySelectorAll('[data-k]').forEach(i=>i.onchange=()=>{ ftSet(v,i.dataset.k,+i.value||0); i.value=ftGet(v,i.dataset.k); persist(); });
+  ov.querySelectorAll('[data-x]').forEach(i=>i.onchange=()=>{ const t=i.value.trim(); v[i.dataset.x]= t!==''&&!isNaN(+t) ? +t : t==='true'?true:t==='false'?false:t; persist(); });
+  $('dvAdd').onclick=()=>{ const k=$('dvK').value.trim(); if(!k) return; const t=$('dvV').value.trim(); v[k]= t!==''&&!isNaN(+t) ? +t : t==='true'?true:t==='false'?false:t; persist(); openDevVars(); };
+  $('dvAff').onclick=()=>{ stats.filter(x=>x.group==='aff').forEach(x=>ftSet(v,x.id,ftGet(v,x.id)+30)); persist(); openDevVars(); };
+  $('dvCalm').onclick=()=>{ ftSet(v,'stress',0); ftSet(v,'fatigue',0); persist(); openDevVars(); };
+  $('dvMax').onclick=()=>{ ['stamina','knowledge','charm'].forEach(k=>ftSet(v,k,100)); persist(); openDevVars(); };
+  $('dvClose').onclick=()=>{ ov.hidden=true; if(!$('ft').hidden) ftBuild('play',N[run.node]); };
+}
 function buildJump(q=''){
   const f=q.toLowerCase(), groups={};
   Object.values(N).forEach(n=>{ if(['route_done','unlock'].includes(n.type)) return;
     if(f&&!(n.node_id+' '+n.title+' '+n.subtitle).toLowerCase().includes(f)) return; (groups[groupLabel(n)]??=[]).push(n); });
   const el=$('jumpBody'); el.innerHTML=Object.entries(groups).map(([g,a])=>`<div class="grp">${esc(g)}</div>`+a.map(n=>`<button data-id="${n.node_id}">${esc(n.title||n.node_id)}<small>${n.node_id}</small></button>`).join('')).join('')||'<p style="color:var(--fog)">결과 없음</p>';
-  el.querySelectorAll('button').forEach(b=>b.onclick=()=>startAt(b.dataset.id,true));
+  el.querySelectorAll('button').forEach(b=>b.onclick=()=>devStart(b.dataset.id));
 }
 
 document.querySelectorAll('[data-back]').forEach(b=>b.onclick=back);
@@ -1082,6 +1111,7 @@ $('game').onclick=tap;
 $('bExit').onclick=e=>{e.stopPropagation();toTitle();};
 $('bSkip').onclick=e=>{e.stopPropagation();setSkip(!run.skip);};
 $('bAuto').onclick=e=>{e.stopPropagation();setAuto(!run.auto);};
+$('bDevVars').onclick=e=>{e.stopPropagation();openDevVars();};
 $('bStat').onclick=e=>{e.stopPropagation();ftOpenView();};
 $('ft').onclick=e=>e.stopPropagation(); $('ftPick').onclick=e=>e.stopPropagation();
 $('bGSet').onclick=e=>{e.stopPropagation();openPage('settings',()=>{ buildSettings(); $('rep').hidden=true; });};
@@ -1114,7 +1144,7 @@ $('fCsv').onchange=async e=>{
 $('dUnlock')&&($('dUnlock').onclick=()=>{ save.flags.sub_unlocked=1; persist(); toast('메인 최초 클리어 처리'); });
 $('dAllEnd')&&($('dAllEnd').onclick=()=>{ Object.values(N).filter(n=>n.type==='ending').forEach(n=>{ save.seen[n.node_id]=1; if(n.ending==='true'&&n.route) save.flags[n.route+'_T_done']=1; }); Object.keys(C).forEach(k=>save.cg[k]=1); persist(); refreshTitle(); toast('엔딩·CG·DLC 해금'); });
 $('dReset')&&($('dReset').onclick=()=>{ if(confirm('저장 데이터를 초기화할까요?')){ localStorage.removeItem(SAVE_KEY); localStorage.removeItem(SLOT_KEY); location.reload(); } });
-$('dGo')&&($('dGo').onclick=()=>{ const v=$('dJump').value.trim(); const id=N[v]?v:Object.keys(N).find(k=>N[k].title===v); if(id) startAt(id,false); else toast('없는 노드입니다'); });
+$('dGo')&&($('dGo').onclick=()=>{ const v=$('dJump').value.trim(); const id=N[v]?v:Object.keys(N).find(k=>N[k].title===v); if(id) devStart(id); else toast('없는 노드입니다'); });
 $('dVarSave')&&($('dVarSave').onclick=()=>{ try{ run.vars=JSON.parse($('dVars').value||'{}'); toast('변수 적용'); }catch(e){ toast('JSON 형식이 올바르지 않습니다'); } });
 
 if(TITLE_BG){ const t=$('title'); const tryBg=(list)=>{ if(!list.length) return; const u=list[0], im=new Image(); im.onload=()=>{ t.style.backgroundImage=`linear-gradient(rgba(18,20,28,.55),rgba(18,20,28,.78)),url("${u}")`; t.style.backgroundSize='cover'; t.style.backgroundPosition='center'; }; im.onerror=()=>tryBg(list.slice(1)); im.src=u; }; tryBg([IMG_DIR+TITLE_BG, TITLE_BG]); }
