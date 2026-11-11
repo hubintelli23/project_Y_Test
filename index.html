@@ -441,7 +441,7 @@ async function discoverStoryFiles(){
       if(!list){
         const ac=new AbortController(), tm=setTimeout(()=>ac.abort(),2500);
         try{ const r=await fetch(`https://api.github.com/repos/${m[1]}/contents/story`,{signal:ac.signal});
-          if(r.ok){ list=(await r.json()).filter(f=>/^project_y_.*\.csv$/i.test(f.name)).map(f=>'story/'+f.name); try{ sessionStorage.setItem(ck,JSON.stringify(list)); }catch(e){} } }
+          if(r.ok){ list=(await r.json()).filter(f=>/\.csv$/i.test(f.name)).map(f=>'story/'+f.name); try{ sessionStorage.setItem(ck,JSON.stringify(list)); }catch(e){} } }
         finally{ clearTimeout(tm); }
       }
       if(list && list.length) return list;
@@ -470,18 +470,19 @@ async function loadData(){
   // 스토리 CSV 도 동시에 받고, 줄 번호가 흐트러지지 않게 파일 순서대로 변환합니다 (type=choice 는 순서도가 담당)
   const emb=(typeof STORY_EMBED!=='undefined') ? STORY_EMBED : {};
   const got=await Promise.all(files.map(f=>fetchFirst([f])));
-  let mergedScripts=out['scripts'].slice(); const counter={}, storyOk=[], storyFail=[]; let storyLines=0;
+  let mergedScripts=out['scripts'].slice(); const counter={}, storyOk=[], storyFail=[], storyBad=[]; let storyLines=0;
   files.forEach((file,i)=>{
     try{
       const t = got[i] ? got[i].text : emb[file]; if(t==null) throw new Error('없음');
-      const rows=parseCSV(t); if(!rows.length||!rows[0].node_id) throw new Error('형식 불일치');
+      const rows=parseCSV(t); if(!rows.length||!rows[0].node_id){ if(rows.length) storyBad.push(file); throw new Error('형식 불일치'); }
       const conv=storyToScripts(rows,counter,cues);
       for(const c of conv) mergedScripts.push(c);
       storyLines+=conv.length; storyOk.push(file); if(got[i]) ext.push(file);
     }catch(e){ storyFail.push(file); }
   });
-  console.log('[스토리 로드] 성공:',storyOk,'없음:',storyFail,'줄 수:',storyLines,'/ 배경·BGM 지정:',Object.keys(cues).length);
+  console.log('[스토리 로드] 성공:',storyOk,'없음:',storyFail,'형식 불일치:',storyBad,'줄 수:',storyLines,'/ 배경·BGM 지정:',Object.keys(cues).length);
   window.__storyInfo = storyOk.length ? `스토리 ${storyOk.length}개 파일 · ${storyLines}줄` : '스토리 파일을 못 불러왔습니다 — 웹 서버(또는 GitHub Pages)로 열거나 index_offline.html 을 쓰세요';
+  if(storyBad.length) window.__storyInfo += ` · ⚠ 형식이 달라 읽지 못한 파일: ${storyBad.join(', ')}`;
   if(mergedScripts.length===0) mergedScripts=parseCSV(EMBED['scripts']||'');
   out['scripts']=mergedScripts;
   srcLabel=(ext.length?'외부 파일 '+ext.length+'개 로드':'CSV 내장본')+' · '+(window.__storyInfo||'');
