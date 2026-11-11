@@ -1,0 +1,7 @@
+﻿node_id,ap,title,subtitle,group
+FT_1,6,자유시간 1,챕터 1 → 2 사이,main
+FT_2,6,자유시간 2,챕터 2 → 3 사이,main
+FT_3,6,자유시간 3,챕터 3 → 4 사이,main
+FT_4,6,자유시간 4,챕터 4 → 5 사이,main
+FT_QUICK,24,자유시간 일괄,공통 루트를 건너뛴 경우 · 행동력을 한 번에 배분,main
+FT_SUB,6,자유시간 · 서브,서브 히로인 루트 진입 전,sub
