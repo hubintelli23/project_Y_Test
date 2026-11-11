@@ -990,6 +990,9 @@ function buildGallery(){
       h+=`<button class="cell ${ok?'seen':''} ${n.ending}" data-id="${n.node_id}" ${ok?'':'disabled'}>${ok?`${n.title}<small>${n.subtitle}</small>`:'???'}</button>`; });
     h+='</div>';
   });
+  h+='<div class="gh" style="margin-top:14px"><span>공통 배드 엔딩</span></div>';
+  ['COMMON_BAD','COMMON_BAD_SUB'].forEach(id=>{ const n=N[id]; if(!n) return; const ok=seen(id);
+    h+=`<div class="row"><div class="nm">${id==='COMMON_BAD'?'메인 히로인':'서브 히로인'}</div><button class="cell ${ok?'seen':''} bad" style="grid-column:2/-1" data-id="${id}" ${ok?'':'disabled'}>${ok?`${esc(n.title)}<small>${esc(n.subtitle)}</small>`:'???'}</button></div>`; });
   body.innerHTML=h;
   body.querySelectorAll('button.seen').forEach(b=>b.onclick=()=>startAt(b.dataset.id,true));
 }
