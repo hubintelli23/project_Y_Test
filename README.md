@@ -76,3 +76,7 @@
 ## 강지우 과거 회상 (FB1~FB4)
 - `story/project_y_jiwoo_flashback.csv` (12개 에피소드). 순서도는 이미 `JIWOO_C1_EP3 → FB1_EP1…FB4_EP3 → JIWOO_C2_EP1` 로 챕터 1과 2 사이에 들어가 있다.
 - 배경은 `tools/apply_bg.py` 가 장면 장소(중학교 교실·계단 창고·급식실·운동장·고등학교 교실·옥상·지하 문서 보관소·정문)로 지정한다. 복도·벤치·산책로·귀갓길처럼 대응 배경이 없는 장면은 앞 장면 배경을 유지한다.
+
+## 원고 변환본 형식 2종
+- 기본 형식(`node_id` 열) 외에, `ID, Route, Chapter, Episode, Scene, Type, Speaker, Text, Next` 열의 변환본(공통 배드엔딩 원고)도 파일 이름과 상관없이 `story/` 에 넣으면 그대로 읽는다 (Route 에 '메인'/'서브' 가 있으면 COMMON_BAD / COMMON_BAD_SUB). 장소 문구로 배경을, 첫 줄로 BGM 을 자동 지정한다.
+- 같은 장이 두 형식으로 모두 있으면 새 형식 파일이 우선한다.

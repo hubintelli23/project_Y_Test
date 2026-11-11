@@ -348,6 +348,36 @@ const TITLE_BG = 'bg_title.webp';  // 타이틀 배경 (img/ 폴더의 파일명
 const TITLE_BGM = 'bgm_title.mp3';   // 타이틀 화면 BGM (bgm/ 폴더)
 const ASSET_FILE = 'flow_assets.csv';   // 배경·캐릭터·BGM·CG 지정표 (node_id 기준)
 
+/* 열 구성이 다른 원고 변환본 (ID, Route, Chapter, Episode, Scene, Type, Speaker, Text, Next) 도 그대로 읽습니다 — 공통 배드엔딩 원고용 */
+function isAltStory(rows){ return rows.length && rows[0].ID!==undefined && rows[0].Text!==undefined && rows[0].node_id===undefined; }
+function altCid(route){ return /메인/.test(route)?'common_bad_main' : /서브/.test(route)?'common_bad_sub' : 'alt_'+String(route||'story').replace(/[^0-9A-Za-z가-힣]+/g,'_'); }
+function altBg(t){
+  if(/휴대전화|클로즈업/.test(t)) return '';
+  if(/반지하|자취방|이현우의 방/.test(t)) return 'bg_room.webp';
+  if(/동아리|암실|사진 실습|복도/.test(t)) return 'bg_club_room.webp';
+  if(/카페/.test(t)) return /밤/.test(t) ? 'bg_cafe_night.webp' : 'bg_cafe.webp';
+  if(/공사 현장/.test(t)) return 'bg_street_dusk.webp';
+  if(/캠퍼스|산책로|벤치/.test(t)) return 'bg_campus_path.webp';
+  return '';
+}
+function altToStory(rows, cues){
+  const out=[]; let e=0, k=0, cid=altCid(rows[0].Route), epTitle='', firstBgm=/메인/.test(rows[0].Route)?'bgm_end_bad.mp3':'bgm_end_sad.mp3', gotBgm=false;
+  rows.forEach(r=>{
+    const T=r.Type, tx=(r.Text||'').trim();
+    if(T==='episode'){ e++; k=0; epTitle=tx.replace(/^에피소드\s*\d+\.\s*/,''); return; }
+    if(T==='chapter'||T==='system'||T==='ending'||!tx) return;
+    if(T==='scene' && /종료\s*$/.test(tx)) return;                      // '에피소드 1 종료' 같은 구분선
+    if(!e){ e=1; k=0; }
+    k++; const id=cid+'_ep'+e+'_'+String(k).padStart(4,'0');
+    let type=T==='dialogue'?'dialogue':T==='scene'?'scene':'narration', text=tx;
+    if(type==='dialogue') text=tx.replace(/^["“]\s*/,'').replace(/\s*["”]$/,'');
+    if(type==='scene'){ const cue=cues[id]=cues[id]||{}; const b=altBg(tx); if(b) cue.bg=b;
+      if(/회상/.test(tx)&&!/종료/.test(tx)&&cid==='common_bad_sub') cue.bgm='bgm_flashback_school.mp3'; else if(/현재|이현우의 방/.test(tx)&&cid==='common_bad_sub'&&gotBgm) cue.bgm=firstBgm; }
+    if(!gotBgm){ const cue=cues[id]=cues[id]||{}; cue.bgm=cue.bgm||firstBgm; gotBgm=true; }
+    out.push({chapter_id:cid, chapter_title:'', episode_no:String(e), episode_title:epTitle, node_id:id, type, speaker:r.Speaker||'', speaker_id:'', text, break_before:(k===1?'TRUE':''), branch:'', route:''});
+  });
+  return out;
+}
 function storyToScripts(rows, counter, cues){
   const out=[];
   rows.forEach(r=>{
@@ -470,11 +500,16 @@ async function loadData(){
   // 스토리 CSV 도 동시에 받고, 줄 번호가 흐트러지지 않게 파일 순서대로 변환합니다 (type=choice 는 순서도가 담당)
   const emb=(typeof STORY_EMBED!=='undefined') ? STORY_EMBED : {};
   const got=await Promise.all(files.map(f=>fetchFirst([f])));
+  const parsed=files.map((f,i)=>{ const t=got[i]?got[i].text:emb[f]; if(t==null) return null; try{ let rw=parseCSV(t), alt=isAltStory(rw); if(alt) rw=altToStory(rw,cues); rw._alt=alt; return rw; }catch(e){ return null; } });
+  const sidOf=r=>(String(r.chapter_id||'')+'_ep'+(r.episode_no||'1')+(r.branch?'_'+r.branch:'')).toUpperCase();
+  const altSids=new Set(); parsed.forEach(rw=>{ if(rw&&rw._alt) rw.forEach(r=>altSids.add(sidOf(r))); });
   let mergedScripts=out['scripts'].slice(); const counter={}, storyOk=[], storyFail=[], storyBad=[]; let storyLines=0;
   files.forEach((file,i)=>{
     try{
-      const t = got[i] ? got[i].text : emb[file]; if(t==null) throw new Error('없음');
-      const rows=parseCSV(t); if(!rows.length||!rows[0].node_id){ if(rows.length) storyBad.push(file); throw new Error('형식 불일치'); }
+      if(parsed[i]==null) throw new Error('없음');
+      const isAlt=parsed[i]._alt;
+      let rows=parsed[i]; if(!isAlt && altSids.size) rows=rows.filter(r=>!altSids.has(sidOf(r)));   // 같은 장이 두 형식으로 있으면 새 형식 파일을 우선
+      if(!rows.length||!rows[0].node_id){ if(rows.length) storyBad.push(file); throw new Error('형식 불일치'); }
       const conv=storyToScripts(rows,counter,cues);
       for(const c of conv) mergedScripts.push(c);
       storyLines+=conv.length; storyOk.push(file); if(got[i]) ext.push(file);
