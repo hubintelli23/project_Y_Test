@@ -445,7 +445,7 @@ function parseCSV(text){
 }
 
 /* ---------- data ---------- */
-const APP_VERSION='v1.11 (2026-11-11)';   // index.html 을 바꿀 때마다 올립니다 — CHANGELOG.md 참고
+const APP_VERSION='v1.12 (2026-11-11)';   // index.html 을 바꿀 때마다 올립니다 — CHANGELOG.md 참고
 let N={}, OUT={}, S={}, R={}, C={}, EDGES=[], srcLabel='내장';
 function build(d){
   ftLoad(d); $('bStat').hidden=!FT.on;
@@ -651,6 +651,17 @@ function ftItemsTick(v){   // 자유시간이 끝날 때마다 소모형 효과�
   const S=ftIt(v), gone=[]; S.buffs.forEach(b=>{ b.left--; if(b.left<=0){ ftSet(v,b.stat,ftGet(v,b.stat)-b.delta); S.bonus[b.stat]=(S.bonus[b.stat]||0)-b.delta; gone.push(FT.items[b.id].label); } });
   S.buffs=S.buffs.filter(b=>b.left>0); return gone;
 }
+function ftJobs(){
+  const ft=run.vars._ft; let ov=$('ftJobs');
+  if(!ov){ ov=document.createElement('div'); ov.id='ftJobs'; ov.style.cssText='position:fixed;inset:0;z-index:60;background:rgba(8,10,16,.92);overflow-y:auto;padding:70px 14px 28px;color:#dfe3ea'; document.body.appendChild(ov); }
+  ov.hidden=false; ov.onclick=e=>e.stopPropagation();
+  let h=`<div style="max-width:520px;margin:0 auto"><div style="display:flex;justify-content:space-between;align-items:center"><h3 style="margin:0">아르바이트</h3><b style="color:#e6c47a">${won(run.vars)}</b></div><div style="font-size:12px;opacity:.65;margin:4px 0 10px">행동력 ${ft.ap} 남음 · 한 번 일하면 행동력 1을 씁니다.</div>`;
+  Object.values(FT.actions).filter(a=>a.id.startsWith('job_')).forEach(a=>{ const lock=a.from&&!ftAvail(a.from), cant=lock||ft.ap<a.ap;
+    h+=`<button class="btn" data-j="${a.id}" ${cant?'disabled':''} style="display:block;width:100%;text-align:left;margin:6px 0;padding:10px 12px;${cant?'opacity:.55':''}">${a.label}<br><small style="opacity:.75">${lock?(FT_WHEN[a.from]||'')+' 이후 이용 가능':a.desc+' · 행동력 '+a.ap}</small></button>`; });
+  ov.innerHTML=h+'<button class="btn" id="jbClose" style="margin-top:10px">닫기</button></div>';
+  ov.querySelectorAll('[data-j]').forEach(b=>b.onclick=()=>{ ov.hidden=true; ftAct(b.dataset.j); });
+  $('jbClose').onclick=()=>{ ov.hidden=true; };
+}
 function ftShop(tab){
   tab=tab||'buy'; const v=run.vars, S=ftIt(v); let ov=$('ftShop');
   if(!ov){ ov=document.createElement('div'); ov.id='ftShop'; ov.style.cssText='position:fixed;inset:0;z-index:60;background:rgba(8,10,16,.92);overflow-y:auto;padding:70px 14px 28px;color:#dfe3ea'; document.body.appendChild(ov); }
@@ -747,7 +758,7 @@ function ftBuild(mode,n){
   let h=`<div class="hd"><div><h3>${play?(cfg.title||n.title):'현재 스탯'}</h3><div class="sub">${play?(cfg.sub||''):'자유시간에서 쌓은 수치가 루트와 엔딩 선택지를 결정합니다'}</div></div>`+
     (play?`<div class="ap">행동력 <b>${ft.ap}</b> / ${ft.max}<br><span style="color:#e6c47a">${won(run.vars)}</span></div>`:'')+`</div>`;
   if(play){   // 행동 → 결과 로그를 맨 위에 (휴대폰에서 스크롤 없이 바로 결과가 보이도록)
-    h+=`<div class="box"><h4>무엇을 할까</h4><div class="ftb">`+Object.values(FT.actions).map(a=>{ const lock=a.from&&!ftAvail(a.from); return `<button data-a="${a.id}" ${ft.ap<a.ap||lock?'disabled':''}>${a.label}<small>${lock?(FT_WHEN[a.from]||'')+' 이후 이용 가능':a.desc+' · 행동력 '+a.ap}</small></button>`; }).join('')+(Object.keys(FT.items).length?`<button data-shop="1">상점<small>능력치 아이템 구매·사용 · 행동력 소모 없음</small></button>`:'')+`</div></div>`;
+    h+=`<div class="box"><h4>무엇을 할까</h4><div class="ftb">`+Object.values(FT.actions).filter(a=>!a.id.startsWith('job_')).map(a=>{ const lock=a.from&&!ftAvail(a.from); return `<button data-a="${a.id}" ${ft.ap<a.ap||lock?'disabled':''}>${a.label}<small>${lock?(FT_WHEN[a.from]||'')+' 이후 이용 가능':a.desc+' · 행동력 '+a.ap}</small></button>`; }).join('')+(Object.keys(FT.actions).some(k=>k.startsWith('job_'))?`<button data-jobs="1">아르바이트<small>재화(₩)를 벌어요 · 종류를 골라 일합니다</small></button>`:'')+(Object.keys(FT.items).length?`<button data-shop="1">상점<small>능력치 아이템 구매·사용 · 행동력 소모 없음</small></button>`:'')+`</div></div>`;
     h+=`<div class="box"><div id="ftLog">${(run._ftLog||[]).join('')||'<div class="hint">행동을 골라 보세요. 데이트는 누구와 어디로 갈지 고릅니다.</div>'}</div></div>`;
     if(DEV_TOOLS) h+=`<div class="box"><h4>테스트 모드</h4><div class="ftb"><button data-c="stats">스탯 +20</button><button data-c="aff">호감도 +30</button><button data-c="calm">스트레스·피로 0</button><button data-c="ap">행동력 +6</button><button data-c="won">₩ +50,000</button></div></div>`;
   }
@@ -759,6 +770,7 @@ function ftBuild(mode,n){
   const sc=$('ft').scrollTop;
   $('ftIn').innerHTML=h; $('ft').scrollTop=sc;
   $('ftIn').querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>ftAct(b.dataset.a));
+  $('ftIn').querySelectorAll('[data-jobs]').forEach(b=>b.onclick=()=>ftJobs());
   $('ftIn').querySelectorAll('[data-shop]').forEach(b=>b.onclick=()=>ftShop('buy'));
   $('ftIn').querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>ftCheat(b.dataset.c));
   if($('ftDone')) $('ftDone').onclick=()=>ftFinish();
