@@ -26,16 +26,16 @@
 - 루트 대본 추가 시 story/project_y_<jiwoo|arin|yuna|sera|seoyun|harin|si|ch>_route.csv 로 저장
 
 ## 강지우 루트 (원고 → CSV)
-- story/project_y_jiwoo_route.csv : 챕터 1~7 + 선택의 갈림길 + 엔딩 공통 사건 + 해피/새드/배드/히든 엔딩 + 각 엔딩 에필로그
+- story/project_y_jiwoo_route.csv : 챕터 1 ~ 7 + 선택의 갈림길 + 엔딩 공통 사건 + 해피/새드/배드/히든 엔딩 + 각 엔딩 에필로그
 - story/project_y_jiwoo_dlc.csv : 후일담 DLC (EP1~3)
-- 흐름: JIWOO → 챕터1~7 → 선택(JIWOO_PICK) → 엔딩 공통 사건 → 엔딩 분기 → 엔딩 → 엔딩 에필로그 → 공통 에필로그
+- 흐름: JIWOO → 챕터1 ~ 7 → 선택(JIWOO_PICK) → 엔딩 공통 사건 → 엔딩 분기 → 엔딩 → 엔딩 에필로그 → 공통 에필로그
 - 선택지 → 엔딩 연결(임시): 1 해피 · 2 새드 · 3 배드 · 4 히든·진. 바꾸려면 flow_edges.csv 의 JIWOO_END_ROUTE 줄 condition(jiwoo_pick==N) 수정
 - 후일담 DLC 는 히든 엔딩 에필로그(JIWOO_T_EPI)까지 끝내면 해금
 - 연결에 쓴 도구: tools/hwp2txt.py(HWP→텍스트), tools/jiwoo_txt_to_csv.py(텍스트→CSV), tools/jiwoo_flow.py(순서도·배경 지정표 연결)
 - flow_edges.csv 에 set 칸이 생겼습니다: 선택지를 고르면 변수를 기록합니다 (예: jiwoo_pick=4)
 
 ## 자유시간 · 스탯 시스템
-- 챕터 1~4 끝마다 자유시간(FT_1~4)이 열립니다. 행동력 6 · 운동/공부/외모 관리/데이트/휴식 (공통 루트 건너뛰기를 쓰면 FT_QUICK 에서 행동력 24를 한 번에 배분)
+- 챕터 1 ~ 4 끝마다 자유시간(FT_1 ~ 4)이 열립니다. 행동력 6 · 운동/공부/외모 관리/데이트/휴식 (공통 루트 건너뛰기를 쓰면 FT_QUICK 에서 행동력 24를 한 번에 배분)
 - 데이터(숫자는 모두 CSV에서 조절): flow_stats.csv(스탯 정의·초기값) / flow_actions.csv(행동 효과·데이트 장소) / flow_heroines.csv(난이도 보정·루트 진입 조건) / flow_freetime.csv(세션별 행동력)
 - 호감도 보정: 지우 ×1.2, 아린·유나 ×1.0, 세라 ×0.8 + 연락 안 하면 감쇠 + 대화 조건, 서윤 ×0.6 + 변동폭 극대화 + 스트레스 60 이상 데이트 시 결정적 실수(관계 경색), 하린 고정 폭 + 숨겨진 신용/경계
 - 공통 배드엔딩(COMMON_BAD) 진입: 스트레스 ≥ 80 / 루트 선택 가능한 히로인 0명 / 회피(avoid) ≥ 3  → flow_edges.csv 의 RELATION_CHECK 줄 condition 에서 수정
