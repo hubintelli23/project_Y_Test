@@ -445,7 +445,7 @@ function parseCSV(text){
 }
 
 /* ---------- data ---------- */
-const APP_VERSION='v1.15 (2026-11-13)';   // index.html 을 바꿀 때마다 올립니다 — CHANGELOG.md 참고
+const APP_VERSION='v1.16 (2026-11-13)';   // index.html 을 바꿀 때마다 올립니다 — CHANGELOG.md 참고
 let N={}, OUT={}, S={}, R={}, C={}, EDGES=[], srcLabel='내장';
 function build(d){
   ftLoad(d); $('bStat').hidden=!FT.on;
@@ -983,6 +983,7 @@ function advance(fromChoice){
   const outs=(OUT[run.node]||[]).filter(e=>e.kind==='next'||e.kind==='unlock_choice');
   const ok=outs.filter(e=>evalCond(e.condition));
   const locked=outs.filter(e=>!ok.includes(e) && e.lock);          // 조건 미달이지만 잠금 사유(lock)가 적힌 선택지는 흐리게 보여줍니다
+  if(!ok.length && DEV_TOOLS && n && n.type==='check' && outs.length){ return showMenu(n,outs.map(e=>({e:{...e,lock:e.lock||'분기 조건 미충족 (챕터 이동으로 변수가 비어 있음)'},locked:true}))); }   // 테스트 모드: 챕터 이동으로 분기 변수가 비어도 타이틀로 튕기지 않고 직접 고르게 함
   if(!ok.length && !(DEV_TOOLS&&locked.length)){ if(!outs.length){ toast('이어지는 연결이 없어 타이틀로 돌아갑니다'); } else toast('조건을 만족하는 연결이 없습니다'); return toTitle(); }
   if(ok.length===1 && !locked.length){ const e=ok[0]; applySet(e.set); if(e.toast) toast(e.toast); return enter(e.to_id); }   // 연결(edge)의 set 칸: 변수 기록 · toast 칸: 안내 문구
   showMenu(n,outs.filter(e=>ok.includes(e)||locked.includes(e)).map(e=>({e,locked:!ok.includes(e)})));
