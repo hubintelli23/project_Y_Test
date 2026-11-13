@@ -272,7 +272,7 @@ button.dev{border:1px dashed #c98a4a!important;color:#e0b27a!important}
   <div class="set"><div>오토 대기 시간<small>글이 모두 표시된 뒤 다음 문장으로 넘어가기까지의 시간 (오토 버튼 또는 A 키)</small></div><div class="ctl"><input type="range" id="sAuto" min="5" max="150" step="5"><span class="val" id="sAutoV"></span></div></div>
   <div class="set"><div>읽지 않은 문장도 스킵<small>꺼두면 이미 읽은 문장만 스킵하고, 새 문장에서 멈춥니다</small></div><button class="btn" id="sSkipUnread"></button></div>
   <div class="set"><div>다회차 스탯 이월<small id="sCarryInfo"></small></div><div class="ctl"><button class="btn" id="sCarry"></button><button class="btn" id="sCarryAsk"></button><button class="btn" id="sCarryReset">이월 초기화</button></div></div>
-  <div class="set"><div>테스트 모드<small>단축키 ` (백틱) 또는 F2 로 언제든 켜고 끕니다 · 휴대폰: 타이틀 글자를 빠르게 3번 터치</small></div><button class="btn" id="sDev"></button></div>
+  <div class="set" id="sDevRow" hidden><div>테스트 모드<small>켜져 있습니다 · 끄려면 오른쪽 버튼</small></div><button class="btn" id="sDev"></button></div>
   <div class="set"><div>공통 루트 자동 건너뛰기<small>최초 클리어 후 공통 루트를 자동으로 넘기고 선택지 화면으로 이동합니다</small></div><button class="btn" id="sSkip"></button></div>
   <div class="set"><div>CSV 직접 불러오기<small>flow_nodes / flow_edges / flow_scripts / flow_routes / flow_cg 중 파일 선택</small></div><button class="btn" id="sCsv">파일 선택</button><input type="file" id="fCsv" accept=".csv" multiple hidden></div>
   <div class="set"><div>순서도 검사<small>끊긴 연결, 도달 불가 노드, 막다른 노드를 찾습니다</small></div><button class="btn" id="sCheck">검사 실행</button></div>
@@ -445,7 +445,7 @@ function parseCSV(text){
 }
 
 /* ---------- data ---------- */
-const APP_VERSION='v1.16 (2026-11-13)';   // index.html 을 바꿀 때마다 올립니다 — CHANGELOG.md 참고
+const APP_VERSION='v1.17 (2026-11-13)';   // index.html 을 바꿀 때마다 올립니다 — CHANGELOG.md 참고
 let N={}, OUT={}, S={}, R={}, C={}, EDGES=[], srcLabel='내장';
 function build(d){
   ftLoad(d); $('bStat').hidden=!FT.on;
@@ -1083,7 +1083,7 @@ function buildSettings(){
   const hh=ftRecords();
   $('sCarryInfo').textContent='엔딩을 한 번이라도 본 뒤 새 회차를 시작하면 이전 기록의 체력·지식·매력(최대 100)을 이어받을 수 있습니다. 계승하지 않으면 10으로 시작하며 기존 기록은 지워지지 않습니다. 호감도·스트레스·피로도는 이월되지 않습니다. '
     +(hh.length?'· 저장된 기록 '+hh.length+'개 (가장 최근: '+ftRecTxt(hh[hh.length-1])+')':'· 아직 저장된 기록이 없습니다');
-  $('sDev').textContent=DEV_TOOLS?'켜짐':'꺼짐';
+  $('sDev').textContent=DEV_TOOLS?'켜짐':'꺼짐'; $('sDevRow').hidden=!DEV_TOOLS;   // 테스트 모드가 꺼져 있으면 설정창에 항목 자체를 숨김
   $('dVars').value=JSON.stringify(run.vars,null,1);
 }
 function check(){
@@ -1206,7 +1206,7 @@ function applyDev(){
   if(typeof FT!=='undefined' && !$('ft').hidden && run.vars._ft && run.mode==='ft') ftBuild('play',N[run.node]);
   document.body.classList.toggle('devmode',DEV_TOOLS); $('devbadge').hidden=!DEV_TOOLS;
   if(run.node&&N[run.node]) setScene(N[run.node]);
-  if($('sDev')) $('sDev').textContent=DEV_TOOLS?'켜짐':'꺼짐';
+  if($('sDev')) $('sDev').textContent=DEV_TOOLS?'켜짐':'꺼짐'; if($('sDevRow')) $('sDevRow').hidden=!DEV_TOOLS;
 }
 function setDev(on){ DEV_TOOLS=on; try{ localStorage.setItem('projectY.dev',on?'1':'0'); }catch(err){} applyDev(); toast(on?'테스트 모드 켜짐 (` 또는 F2 로 끄기)':'테스트 모드 꺼짐'); }
 applyDev();
