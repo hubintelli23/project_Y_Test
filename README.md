@@ -26,17 +26,19 @@
 - 루트 대본 추가 시 story/project_y_<jiwoo|arin|yuna|sera|seoyun|harin|si|ch>_route.csv 로 저장
 
 ## 강지우 루트 (원고 → CSV)
-- story/project_y_jiwoo_route.csv : 챕터 1~7 + 선택의 갈림길 + 엔딩 공통 사건 + 해피/새드/배드/히든 엔딩 + 각 엔딩 에필로그
-- story/project_y_jiwoo_dlc.csv : 후일담 DLC (EP1~3)
-- story/project_y_arin_route.csv : 윤아린 루트 — 챕터 1~7(chapter_id arin_ch1~7, ch7 EP3 끝에 선택지 4개: type=choice) + 엔딩 4종(arin_h·s·b·t) + 에필로그 4종(arin_h_epi·s_epi·b_epi·t_epi), 에피소드는 chapter_id 안에서 1부터
-- story/project_y_arin_dlc.csv : 윤아린 후일담 DLC (arin_dlc, EP1~3)
-- 변환 도구: tools/arin_txt_to_csv.py (원고 txt → CSV). 순서도 연결: tools/arin_flow.py (노드 ARIN_C1_EP1 … / script_id ARIN_CH1_EP1 …), 배경·BGM 연결: tools/arin_assets.py (tools/arin_scenes.json 기준)
+- story/project_y_jiwoo_route.csv : 챕터 1 ~ 7 + 선택의 갈림길 + 엔딩 공통 사건 + 해피/새드/배드/히든 엔딩 + 각 엔딩 에필로그
+- story/project_y_jiwoo_dlc.csv : 후일담 DLC (EP1 ~ 3)
 - 흐름: JIWOO → 챕터1~7 → 선택(JIWOO_PICK) → 엔딩 공통 사건 → 엔딩 분기 → 엔딩 → 엔딩 에필로그 → 공통 에필로그
 - 선택지 → 엔딩 연결(임시): 1 해피 · 2 새드 · 3 배드 · 4 히든·진. 바꾸려면 flow_edges.csv 의 JIWOO_END_ROUTE 줄 condition(jiwoo_pick==N) 수정
 - 후일담 DLC 는 히든 엔딩 에필로그(JIWOO_T_EPI)까지 끝내면 해금
 - 연결에 쓴 도구: tools/hwp2txt.py(HWP→텍스트), tools/jiwoo_txt_to_csv.py(텍스트→CSV), tools/jiwoo_flow.py(순서도·배경 지정표 연결)
 - flow_edges.csv 에 set 칸이 생겼습니다: 선택지를 고르면 변수를 기록합니다 (예: jiwoo_pick=4)
 
+## 윤아린 루트 (원고 → CDV)
+- story/project_y_arin_route.csv : 윤아린 루트 — 챕터 1 ~ 7(chapter_id arin_ch1 ~ 7, ch7 EP3 끝에 선택지 4개: type=choice) + 엔딩 4종(arin_h·s·b·t) + 에필로그 4종(arin_h_epi·s_epi·b_epi·t_epi), 에피소드는 chapter_id 안에서 1부터
+- story/project_y_arin_dlc.csv : 윤아린 후일담 DLC (arin_dlc, EP1~3)
+- 변환 도구: tools/arin_txt_to_csv.py (원고 txt → CSV). 순서도 연결: tools/arin_flow.py (노드 ARIN_C1_EP1 … / script_id ARIN_CH1_EP1 …), 배경·BGM 연결: tools/arin_assets.py (tools/arin_scenes.json 기준)
+- 
 ## 자유시간 · 스탯 시스템
 - 챕터 1 ~ 4 끝마다 자유시간(FT_1 ~ 4)이 열립니다. 행동력 6 · 운동/공부/외모 관리/데이트/휴식 (공통 루트 건너뛰기를 쓰면 FT_QUICK 에서 행동력 24를 한 번에 배분)
 - 데이터(숫자는 모두 CSV에서 조절): flow_stats.csv(스탯 정의·초기값) / flow_actions.csv(행동 효과·데이트 장소) / flow_heroines.csv(난이도 보정·루트 진입 조건) / flow_freetime.csv(세션별 행동력)
