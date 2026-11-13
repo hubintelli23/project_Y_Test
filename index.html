@@ -445,7 +445,7 @@ function parseCSV(text){
 }
 
 /* ---------- data ---------- */
-const APP_VERSION='v1.17 (2026-11-13)';   // index.html 을 바꿀 때마다 올립니다 — CHANGELOG.md 참고
+const APP_VERSION='v1.19 (2026-11-13)';   // index.html 을 바꿀 때마다 올립니다 — CHANGELOG.md 참고
 let N={}, OUT={}, S={}, R={}, C={}, EDGES=[], srcLabel='내장';
 function build(d){
   ftLoad(d); $('bStat').hidden=!FT.on;
@@ -882,6 +882,7 @@ function enter(id){
   if(id==='REPLAY_CHOICE' && !save.flags.sub_unlocked && N['CH1_EP1']) id='CH1_EP1';
   const n=N[id];
   if(!n){ toast('노드를 찾을 수 없습니다: '+id); return toTitle(); }
+  if(run.only && run.only.node!==id) run.only=null;
   if(id==='CH1_EP1' && run.node==='REPLAY_CHOICE'){ run.vars={}; run.log=[]; run.bgFile=''; }   // 타이틀로 나가지 않고 2회차를 시작해도 새 회차로 초기화
   if(id==='COMMON_EPILOGUE' || id==='COMMON_BAD' || id==='COMMON_BAD_SUB') ftSaveCarry();
   stopTyping(); $('menu').hidden=true; $('card').hidden=true; $('dialog').hidden=true; $('cg').hidden=true; $('ft').hidden=true; $('ftPick').hidden=true;
@@ -902,7 +903,7 @@ function enter(id){
     default: showCard(n,false); if(run.resumeLine>0 && getLines(n).length) startLines(); else run.resumeLine=0; return;
   }
 }
-function getLines(n){ const sid=n.script_id||n.node_id; return S[sid]||S[sid+'_EP1']||[]; }
+function getLines(n){ const sid=n.script_id||n.node_id; if(run.only&&run.only.node===n.node_id&&S[run.only.sid]) return S[run.only.sid]; return S[sid]||S[sid+'_EP1']||[]; }   // run.only: 테스트 모드 챕터 이동표에서 DLC 에피소드 하나만 재생
 function updateSkipBtn(){ const n=N[run.node]; $('bCSkip').hidden=!(n&&n.skip_to&&evalCond(n.skip_when)); }
 function showCard(n,isEnd){
   const el=$('card'); el.className=n.ending||''; el.hidden=false; run.mode='card';
@@ -1174,9 +1175,13 @@ function openDevVars(){   // 테스트 모드: 스탯·호감도·게이지·변
 function buildJump(q=''){
   const f=q.toLowerCase(), groups={};
   Object.values(N).forEach(n=>{ if(['route_done','unlock'].includes(n.type)) return;
-    if(f&&!(n.node_id+' '+n.title+' '+n.subtitle).toLowerCase().includes(f)) return; (groups[groupLabel(n)]??=[]).push(n); });
-  const el=$('jumpBody'); el.innerHTML=Object.entries(groups).map(([g,a])=>`<div class="grp">${esc(g)}</div>`+a.map(n=>`<button data-id="${n.node_id}">${esc(n.title||n.node_id)}<small>${n.node_id}</small></button>`).join('')).join('')||'<p style="color:var(--fog)">결과 없음</p>';
-  el.querySelectorAll('button').forEach(b=>b.onclick=()=>devStart(b.dataset.id));
+    if(f&&!(n.node_id+' '+n.title+' '+n.subtitle).toLowerCase().includes(f)) return; (groups[groupLabel(n)]??=[]).push(n);
+    if(n.type==='dlc'){ const sid=n.script_id||n.node_id; for(let k=1;S[sid+'_EP'+k];k++){ const t=n.title+' EP'+k; if(f&&!(n.node_id+' '+t).toLowerCase().includes(f)&&!(n.node_id+' '+n.title+' '+n.subtitle).toLowerCase().includes(f)) continue; groups[groupLabel(n)].push({node_id:n.node_id,title:t,ep:sid+'_EP'+k}); } } });
+  const rk=Object.keys(R), gr=['ROUTE','ENDING','DLC'];   // 이동표 정렬: 공통 → 루트별(루트 → 엔딩·에필로그 → DLC) 로 같은 루트끼리 묶어 표시
+  const ord=g=>{ const n=groups[g][0]; if(n.group==='COMMON') return -1; const i=gr.indexOf(n.group); return (rk.indexOf(n.route)+1)*10+(i<0?9:i); };
+  const sorted=Object.keys(groups).sort((x,y)=>ord(x)-ord(y)).map(g=>[g,groups[g]]);
+  const el=$('jumpBody'); el.innerHTML=sorted.map(([g,a])=>`<div class="grp">${esc(g)}</div>`+a.map(n=>`<button data-id="${n.node_id}" ${n.ep?`data-ep="${n.ep}"`:''}>${esc(n.title||n.node_id)}<small>${n.node_id}${n.ep?' · '+n.ep:''}</small></button>`).join('')).join('')||'<p style="color:var(--fog)">결과 없음</p>';
+  el.querySelectorAll('button').forEach(b=>b.onclick=()=>{ run.only=b.dataset.ep?{node:b.dataset.id,sid:b.dataset.ep}:null; devStart(b.dataset.id); });
 }
 
 document.querySelectorAll('[data-back]').forEach(b=>b.onclick=back);
