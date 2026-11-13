@@ -56,5 +56,8 @@ for r, ((hc, hl), (tc, tl)) in RULE.items():
 for e in edges:   # 강지우: 선택지 번호 1(해피)·4(히든)
     if e['from_id'] == 'JIWOO_PICK' and e['set'] == 'jiwoo_pick=1': e['condition'], e['lock'] = 'aff_jiwoo>=40 && stress<70', '호감도 40 · 스트레스 70 미만 필요'
     if e['from_id'] == 'JIWOO_PICK' and e['set'] == 'jiwoo_pick=4': e['condition'], e['lock'] = 'aff_jiwoo>=70 && knowledge>=50 && stress<50', '호감도 70 · 지식 50 · 스트레스 50 미만 필요'
+for e in edges:   # 윤아린: 선택지 번호 1(해피)·4(히든)
+    if e['from_id'] == 'ARIN_PICK' and e['set'] == 'arin_pick=1': e['condition'], e['lock'] = 'aff_arin>=60 && knowledge>=45 && stress<70', '호감도 60 · 지식 45 · 스트레스 70 미만 필요'
+    if e['from_id'] == 'ARIN_PICK' and e['set'] == 'arin_pick=4': e['condition'], e['lock'] = 'aff_arin>=80 && knowledge>=60 && stress<50', '호감도 80 · 지식 60 · 스트레스 50 미만 필요'
 wr(F('flow_nodes.csv'), nodes, nf); wr(F('flow_edges.csv'), edges, ef)
 print('nodes', len(nodes), 'edges', len(edges))
