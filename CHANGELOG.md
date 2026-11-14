@@ -1,3 +1,9 @@
+## v1.21 (2026-11-14)
+- 윤아린 후일담 DLC 의 스튜디오 《온도》 BGM 을 전용 곡(Tides at Golden Hour → bgm/bgm_studio_tides.mp3)으로 교체 (4장면). 본편 작업실은 bgm_studio_golden 유지
+
+## v1.20 (2026-11-13)
+- 윤아린 루트의 작업실·스튜디오 BGM 을 새 곡(Golden Hour Frames → bgm/bgm_studio_golden.mp3)으로 교체 (18장면). 기존 bgm_studio 는 넥스트프레임 쪽 용도로 유지
+
 ## v1.19 (2026-11-13)
 - 테스트 모드 챕터 이동표 정렬: 같은 루트끼리 묶어 '루트 → 엔딩·에필로그 → 후일담 DLC' 순으로 표시 (윤아린 엔딩·에필로그가 표 맨 아래에 따로 떨어져 있던 문제)
 
